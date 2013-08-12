@@ -1,1 +1,8 @@
 %h1 Applicandy
+
+- if current_user.guest?
+  = link_to('Login with GitHub', login_path)
+- else
+  = button_to('Logout', logout_path, method: 'delete')
+  = "Welcome, #{current_user.username}"
+  %p= "We think your name is #{current_user.name}, and that you live in #{current_user.location}."

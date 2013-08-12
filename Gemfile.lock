@@ -38,6 +38,8 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    faraday (0.8.7)
+      multipart-post (~> 1.1)
     haml (4.0.3)
       tilt
     hike (1.2.3)
@@ -52,6 +54,7 @@ GEM
     mime-types (1.23)
     minitest (4.7.5)
     multi_json (1.7.9)
+    multipart-post (1.2.0)
     polyglot (0.3.3)
     puma (1.6.3)
       rack (~> 1.2)
@@ -111,6 +114,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  faraday
   haml
   jquery-rails
   puma
