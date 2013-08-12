@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
   def guest?
     false
   end
+
+  def admin?
+    is_admin
+  end
 end

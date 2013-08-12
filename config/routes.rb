@@ -4,4 +4,6 @@ Applicandy::Application.routes.draw do
   get '/login' => 'sessions#new', as: :login
   get '/github/callback' => 'sessions#callback', as: :github_callback
   delete '/logout' => 'sessions#destroy', as: :logout
+
+  resource :admin, only: [:show]
 end

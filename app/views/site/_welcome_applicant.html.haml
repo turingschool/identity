@@ -1,0 +1,23 @@
+= button_to('Logout', logout_path, method: 'delete')
+= "Welcome, #{current_user.username}"
+%p= "We think your name is #{current_user.name}, and that you live in #{current_user.location}."
+
+%h2 What We Want
+%p We're trying to assess both your character an aptitude for this program. A completed application will include:
+
+%ul
+  %li
+    %h3 Biographical basics
+    %p We ask you some simple details about yourself and need some information on how best to contact you.
+  %li
+    %h3 Current Resume
+    %p We are interested in what you have accomplished so we ask you to include a resume. We are not looking for particular experiences or buzzwords, we simply want to see the great work you have accomplished to date.
+  %li
+    %h3 A code or writing sample
+    %p Understanding your ability to communicate in English is an important asset and one that we value.
+  %li
+    %h3 Short-answer responses in video form
+    %p Give us a chance to see you by creating a video that quickly answers questions that allow us to see your passion and creativity.
+
+%p The application will give you the specific instructions for each component along the way.
+

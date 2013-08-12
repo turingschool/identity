@@ -28,6 +28,10 @@ class SessionsController < ApplicationController
       flash[:error] = "We're having trouble with logins right now. Please come back later."
     end
 
-    redirect_to root_path
+    if current_user.admin?
+      redirect_to admin_path
+    else
+      redirect_to root_path
+    end
   end
 end
