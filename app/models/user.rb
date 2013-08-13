@@ -27,9 +27,11 @@ class User < ActiveRecord::Base
 
   def apply
     build_application unless application
+    application
   end
 
   def apply!
     create_application unless application
+    application
   end
 end

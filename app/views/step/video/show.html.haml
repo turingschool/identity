@@ -1,4 +1,6 @@
 = form_for :video, url: step_video_path, method: :put do |f|
+  - if @video.errors.any?
+    %p= @video.errors.full_messages
   = f.label :url
   = f.text_field :url
   = f.submit 'save'

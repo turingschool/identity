@@ -1,9 +1,12 @@
 require 'forwardable'
 
 class Essay
+  include ActiveModel::Validations
   extend Forwardable
 
   def_delegator :application, :essay_url, :url
+
+  validates_presence_of :url
 
   attr_reader :application
   def initialize(user)
@@ -12,8 +15,12 @@ class Essay
 
   def update_attributes(attributes)
     application.essay_url = attributes[:url]
-    application.complete :essay
-    application.save
+    if valid?
+      application.complete :essay
+      application.save
+    else
+      false
+    end
   end
 end
 

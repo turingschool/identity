@@ -1,7 +1,10 @@
 require 'forwardable'
 
 class Bio
+  include ActiveModel::Validations
   extend Forwardable
+
+  validates_presence_of :name, :email, :location
 
   def_delegators :user, :name, :email, :location
 
@@ -12,11 +15,13 @@ class Bio
 
   def update_attributes(attributes)
     user.apply!
-    if user.update_attributes(attributes)
+    user.update_attributes(attributes)
+    if valid?
       user.application.complete! :bio
       true
     else
       false
     end
   end
+
 end

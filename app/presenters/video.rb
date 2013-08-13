@@ -1,23 +1,26 @@
 require 'forwardable'
 
 class Video
+  include ActiveModel::Validations
   extend Forwardable
 
   def_delegator :application, :video_url, :url
 
+  validates_presence_of :url
+
   attr_reader :application
   def initialize(user)
-    if user.application
-      @application = user.application
-    else
-      @application = user.build_application
-    end
+    @application = user.apply
   end
 
   def update_attributes(attributes)
     application.video_url = attributes[:url]
-    application.complete :video
-    application.save
+    if valid?
+      application.complete :video
+      application.save
+    else
+      false
+    end
   end
 end
 

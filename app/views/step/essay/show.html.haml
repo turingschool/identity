@@ -1,4 +1,6 @@
 = form_for :essay, url: step_essay_path, method: :put do |f|
+  - if @essay.errors.any?
+    %p= @essay.errors.full_messages
   = f.label :url
   = f.text_field :url
   = f.submit 'save'

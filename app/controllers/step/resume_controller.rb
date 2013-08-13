@@ -5,11 +5,22 @@ class Step::ResumeController < StepController
 
   def update
     @resume = Resume.new(current_user)
-    if @resume.upload(params[:resume][:file])
+    if @resume.upload(resume_params)
       redirect_to step_edit_essay_path
     else
-      raise 'whoops'
+      render :show
     end
   end
+
+  private
+
+  def current_step
+    :resume
+  end
+
+  def resume_params
+    params.fetch(:resume) { nil }
+  end
+
 end
 

@@ -4,11 +4,11 @@ class Step::BioController < StepController
   end
 
   def update
-    bio = Bio.new(current_user)
-    if bio.update_attributes(bio_params)
+    @bio = Bio.new(current_user)
+    if @bio.update_attributes(bio_params)
       redirect_to step_edit_resume_path
     else
-      raise 'whoops'
+      render :show
     end
   end
 
@@ -16,5 +16,9 @@ class Step::BioController < StepController
 
   def bio_params
     params.require(:bio).permit(:name, :email, :location)
+  end
+
+  def current_step
+    :bio
   end
 end

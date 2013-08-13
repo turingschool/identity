@@ -78,5 +78,32 @@ class StepsTest < MiniTest::Unit::TestCase
     process = Procedure.new(['bio', 'resume', 'essay', 'video'])
     refute process.done?
   end
+
+  def test_may_access_pre_step
+    process = Procedure.new([])
+    assert process.accessible?(:pre)
+  end
+
+  def test_may_access_completed_steps
+    process = Procedure.new(['bio', 'resume', 'essay', 'video', 'quiz'])
+    %i(bio resume essay video quiz).each do |step|
+      assert process.accessible?(step)
+    end
+  end
+
+  def test_may_access_next_step
+    process = Procedure.new([])
+    %i(bio resume essay video quiz).each do |step|
+      assert process.accessible?(step)
+      process.complete step
+    end
+  end
+
+  def test_may_not_access_future_steps
+    process = Procedure.new([])
+    %i(resume essay video quiz).each do |step|
+      refute process.accessible?(step)
+    end
+  end
 end
 

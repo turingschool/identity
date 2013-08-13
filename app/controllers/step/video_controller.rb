@@ -17,5 +17,9 @@ class Step::VideoController < StepController
   def video_params
     params.require(:video).permit(:url)
   end
+
+  def current_step
+    :video
+  end
 end
 

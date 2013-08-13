@@ -28,4 +28,16 @@ module Steps
     progression.all? {|step| completed?(step)}
   end
 
+  def accessible?(step)
+    pre?(step) || completed?(step) || next?(step)
+  end
+
+  def pre?(step)
+    step == :pre
+  end
+
+  def next?(step)
+    next_step == step
+  end
+
 end

@@ -1,19 +1,24 @@
 require 'forwardable'
 
 class Resume
+  include ActiveModel::Validations
   extend Forwardable
 
-  def_delegators :application, :resume
+  validates_presence_of :file
 
-  attr_reader :application
+  attr_reader :application, :file
   def initialize(user)
     @application = user.apply
   end
 
   def upload(file)
+    @file = file
     application.resume = file
-    application.complete :resume
-    application.save
-    application.resume?
+    if valid? && application.valid?
+      application.complete :resume
+      application.save
+    else
+      false
+    end
   end
 end

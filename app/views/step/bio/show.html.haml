@@ -1,4 +1,6 @@
 = form_for :bio, url: step_bio_path, method: :put do |f|
+  - if @bio.errors.any?
+    %p= @bio.errors.full_messages
   = f.label :name
   = f.text_field :name
   = f.label :email

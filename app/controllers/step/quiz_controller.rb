@@ -19,5 +19,9 @@ class Step::QuizController < StepController
     params[:quiz]
     # params.require(:quiz).permit(...)
   end
+
+  def current_step
+    :quiz
+  end
 end
 

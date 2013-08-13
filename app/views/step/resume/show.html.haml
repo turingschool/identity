@@ -1,4 +1,8 @@
 = form_for :resume, url: step_resume_path, method: :put, html: {multipart: true} do |f|
+  - if @resume.application.errors.any?
+    %p= @resume.application.errors.full_messages
+  - if @resume.errors.any?
+    %p= @resume.errors.full_messages
   = f.label :resume
   = f.file_field :file
   = f.submit 'upload'

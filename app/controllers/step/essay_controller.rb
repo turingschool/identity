@@ -17,5 +17,9 @@ class Step::EssayController < StepController
   def essay_params
     params.require(:essay).permit(:url)
   end
+
+  def current_step
+    :essay
+  end
 end
 
