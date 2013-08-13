@@ -41,6 +41,8 @@ class Step::BioControllerTest < ActionController::TestCase
     assert_equal 'Alice J. Smith', alice.name
     assert_equal 'alice.j.smith@example.com', alice.email
     assert_equal 'Houston, TX', alice.location
+
+    assert_redirected_to step_upload_resume_path
   end
 
   def test_cannot_become_admin

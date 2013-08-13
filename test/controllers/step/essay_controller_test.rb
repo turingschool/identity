@@ -25,6 +25,7 @@ class Step::EssayControllerTest < ActionController::TestCase
     put :update, essay: {url: "http://example.com/essay"}
 
     assert_equal 'http://example.com/essay', alice.application.essay_url
+    assert_redirected_to step_edit_video_path
   end
 end
 

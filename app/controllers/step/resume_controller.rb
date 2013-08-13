@@ -8,7 +8,7 @@ class Step::ResumeController < ApplicationController
   def update
     @resume = Resume.new(current_user)
     if @resume.upload(params[:resume][:file])
-      redirect_to root_path
+      redirect_to step_edit_essay_path
     else
       raise 'whoops'
     end

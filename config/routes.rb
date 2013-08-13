@@ -9,16 +9,16 @@ Applicandy::Application.routes.draw do
   resource :admin, only: [:show]
 
   namespace :step, path: 'apply' do
-    get 'step-1' => 'bio#show', as: :bio_edit
+    get 'step-1' => 'bio#show', as: :edit_bio
     put 'step-1' => 'bio#update', as: :bio
 
-    get 'step-2' => 'resume#show', as: :resume_edit
+    get 'step-2' => 'resume#show', as: :upload_resume
     put 'step-2' => 'resume#update', as: :resume
 
-    get 'step-3' => 'essay#show', as: :essay_edit
+    get 'step-3' => 'essay#show', as: :edit_essay
     put 'step-3' => 'essay#update', as: :essay
 
-    get 'step-4' => 'video#show', as: :video_edit
+    get 'step-4' => 'video#show', as: :edit_video
     put 'step-4' => 'video#update', as: :video
   end
 end
