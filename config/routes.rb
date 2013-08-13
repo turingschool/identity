@@ -14,5 +14,11 @@ Applicandy::Application.routes.draw do
 
     get 'step-2' => 'resume#show', as: :resume_edit
     put 'step-2' => 'resume#update', as: :resume
+
+    get 'step-3' => 'essay#show', as: :essay_edit
+    put 'step-3' => 'essay#update', as: :essay
+
+    get 'step-4' => 'video#show', as: :video_edit
+    put 'step-4' => 'video#update', as: :video
   end
 end

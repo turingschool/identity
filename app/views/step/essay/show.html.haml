@@ -1,0 +1,4 @@
+= form_for :essay, url: step_essay_path, method: :put do |f|
+  = f.label :url
+  = f.text_field :url
+  = f.submit 'save'

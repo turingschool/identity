@@ -1,9 +1,9 @@
 require 'forwardable'
 
-class Resume
+class Essay
   extend Forwardable
 
-  def_delegators :application, :resume
+  def_delegator :application, :essay_url, :url
 
   attr_reader :application
   def initialize(user)
@@ -14,9 +14,9 @@ class Resume
     end
   end
 
-  def upload(file)
-    application.resume = file
+  def update_attributes(attributes)
+    application.essay_url = attributes[:url]
     application.save
-    application.resume?
   end
 end
+

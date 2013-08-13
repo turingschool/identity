@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 20130812212016) do
   create_table "applications", force: true do |t|
     t.integer "user_id"
     t.string  "resume"
+    t.string  "essay_url"
+    t.string  "video_url"
     t.string  "completed_steps"
   end
 
