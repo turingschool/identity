@@ -26,8 +26,7 @@ class ApplicationController < ActionController::Base
 
     if session[:user_id]
       @current_user = User.find_by_id(session[:user_id])
-    else
-      @current_user = Guest.new
     end
+    @current_user ||= Guest.new
   end
 end
