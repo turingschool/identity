@@ -11,5 +11,8 @@ Applicandy::Application.routes.draw do
   namespace :step, path: 'apply' do
     get 'step-1' => 'bio#show', as: :bio_edit
     put 'step-1' => 'bio#update', as: :bio
+
+    get 'step-2' => 'resume#show', as: :resume_edit
+    put 'step-2' => 'resume#update', as: :resume
   end
 end

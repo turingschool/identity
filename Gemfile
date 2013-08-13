@@ -11,6 +11,9 @@ gem 'turbolinks'
 gem 'haml'
 gem 'puma'
 gem 'faraday'
+gem 'carrierwave'
+gem 'fog'
+gem 'mime-types'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

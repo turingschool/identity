@@ -5,5 +5,6 @@ class Application < ActiveRecord::Base
   alias_method :owner, :user
 
   serialize :completed_steps, Array
+  mount_uploader :resume, ResumeUploader
 end
 
