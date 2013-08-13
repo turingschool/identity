@@ -1,6 +1,4 @@
-class Step::VideoController < ApplicationController
-  before_filter :require_login
-
+class Step::VideoController < StepController
   def show
     @video = Video.new(current_user)
   end
@@ -8,7 +6,7 @@ class Step::VideoController < ApplicationController
   def update
     video = Video.new(current_user)
     if video.update_attributes(video_params)
-      redirect_to root_path
+      redirect_to step_edit_quiz_path
     else
       raise 'whoops'
     end
@@ -19,5 +17,5 @@ class Step::VideoController < ApplicationController
   def video_params
     params.require(:video).permit(:url)
   end
-
 end
+

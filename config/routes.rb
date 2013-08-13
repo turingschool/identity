@@ -20,5 +20,8 @@ Applicandy::Application.routes.draw do
 
     get 'step-4' => 'video#show', as: :edit_video
     put 'step-4' => 'video#update', as: :video
+
+    get 'step-5' => 'quiz#show', as: :edit_quiz
+    put 'step-5' => 'quiz#update', as: :quiz
   end
 end

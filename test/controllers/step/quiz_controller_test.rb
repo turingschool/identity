@@ -1,6 +1,6 @@
 require './test/test_helper'
 
-class Step::VideoControllerTest < ActionController::TestCase
+class Step::QuizControllerTest < ActionController::TestCase
 
   def alice
     @alice ||= User.create
@@ -20,12 +20,8 @@ class Step::VideoControllerTest < ActionController::TestCase
     assert_redirected_to please_login_path
   end
 
-  def test_update_video_url
-    @controller.login(alice)
-    put :update, video: {url: "http://example.com/video"}
-
-    assert_equal 'http://example.com/video', alice.application.video_url
-    assert_redirected_to step_edit_quiz_path
+  def test_update_quiz
+    skip 'no idea how this is going to work'
   end
 end
 

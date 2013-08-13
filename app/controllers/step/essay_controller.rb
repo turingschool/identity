@@ -1,6 +1,4 @@
-class Step::EssayController < ApplicationController
-  before_filter :require_login
-
+class Step::EssayController < StepController
   def show
     @essay = Essay.new(current_user)
   end
@@ -19,5 +17,5 @@ class Step::EssayController < ApplicationController
   def essay_params
     params.require(:essay).permit(:url)
   end
-
 end
+

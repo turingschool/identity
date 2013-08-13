@@ -1,6 +1,4 @@
-class Step::BioController < ApplicationController
-  before_filter :require_login
-
+class Step::BioController < StepController
   def show
     @bio = Bio.new(current_user)
   end
@@ -19,5 +17,4 @@ class Step::BioController < ApplicationController
   def bio_params
     params.require(:bio).permit(:name, :email, :location)
   end
-
 end

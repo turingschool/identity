@@ -1,6 +1,4 @@
-class Step::ResumeController < ApplicationController
-  before_filter :require_login
-
+class Step::ResumeController < StepController
   def show
     @resume = Resume.new(current_user)
   end
@@ -13,5 +11,5 @@ class Step::ResumeController < ApplicationController
       raise 'whoops'
     end
   end
-
 end
+
