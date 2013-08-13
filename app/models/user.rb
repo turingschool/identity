@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_one :application
+  has_one :application, inverse_of: :user
 
   def self.from_github(data)
     user = User.where(github_id: data['id']).first
