@@ -8,7 +8,7 @@ class Step::BioController < ApplicationController
   def update
     bio = Bio.new(current_user)
     if bio.update_attributes(bio_params)
-      redirect_to step_upload_resume_path
+      redirect_to step_edit_resume_path
     else
       raise 'whoops'
     end

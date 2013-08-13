@@ -12,7 +12,7 @@ Applicandy::Application.routes.draw do
     get 'step-1' => 'bio#show', as: :edit_bio
     put 'step-1' => 'bio#update', as: :bio
 
-    get 'step-2' => 'resume#show', as: :upload_resume
+    get 'step-2' => 'resume#show', as: :edit_resume
     put 'step-2' => 'resume#update', as: :resume
 
     get 'step-3' => 'essay#show', as: :edit_essay
