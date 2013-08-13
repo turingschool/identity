@@ -1,0 +1,8 @@
+= form_for :bio, url: step_bio_path, method: :put do |f|
+  = f.label :name
+  = f.text_field :name
+  = f.label :email
+  = f.text_field :email
+  = f.label :location
+  = f.text_field :location
+  = f.submit 'save'

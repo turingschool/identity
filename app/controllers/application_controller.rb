@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def require_login
+    if current_user.guest?
+      redirect_to please_login_path, error: "Please log in"
+    end
+  end
+
   def login(user)
     @current_user = nil
     session[:user_id] = user.id

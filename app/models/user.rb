@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_one :application
+
   def self.from_github(data)
     user = User.where(github_id: data['id']).first
     user_data = {

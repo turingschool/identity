@@ -6,6 +6,9 @@ class SessionsController < ApplicationController
     redirect_to Github.login_url
   end
 
+  def show
+  end
+
   def destroy
     logout
     flash[:notice] = "You have been logged out."
