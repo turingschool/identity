@@ -7,15 +7,12 @@ class Resume
 
   attr_reader :application
   def initialize(user)
-    if user.application
-      @application = user.application
-    else
-      @application = user.build_application
-    end
+    @application = user.apply
   end
 
   def upload(file)
     application.resume = file
+    application.complete :resume
     application.save
     application.resume?
   end

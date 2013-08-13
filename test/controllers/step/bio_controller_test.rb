@@ -43,6 +43,7 @@ class Step::BioControllerTest < ActionController::TestCase
     assert_equal 'Houston, TX', alice.location
 
     assert_redirected_to step_edit_resume_path
+    assert alice.application.completed?(:bio)
   end
 
   def test_cannot_become_admin

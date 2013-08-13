@@ -16,6 +16,7 @@ class Video
 
   def update_attributes(attributes)
     application.video_url = attributes[:url]
+    application.complete :video
     application.save
   end
 end

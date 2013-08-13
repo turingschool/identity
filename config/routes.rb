@@ -8,6 +8,7 @@ Applicandy::Application.routes.draw do
 
   resource :admin, only: [:show]
 
+  get '/apply' => 'step#show', as: :apply
   namespace :step, path: 'apply' do
     get 'step-1' => 'bio#show', as: :edit_bio
     put 'step-1' => 'bio#update', as: :bio

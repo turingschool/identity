@@ -12,4 +12,10 @@ class ApplicationTest < ActiveSupport::TestCase
     app = Application.new(user: user)
     assert_equal 'alice-smith', app.owner_slug
   end
+
+  def test_step_completion
+    app = Application.new
+    app.complete :bio
+    assert app.completed? :bio
+  end
 end

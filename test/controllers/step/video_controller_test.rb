@@ -26,6 +26,7 @@ class Step::VideoControllerTest < ActionController::TestCase
 
     assert_equal 'http://example.com/video', alice.application.video_url
     assert_redirected_to step_edit_quiz_path
+    assert alice.application.completed? :video
   end
 end
 

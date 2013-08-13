@@ -24,4 +24,12 @@ class User < ActiveRecord::Base
   def admin?
     is_admin
   end
+
+  def apply
+    build_application unless application
+  end
+
+  def apply!
+    create_application unless application
+  end
 end

@@ -7,15 +7,12 @@ class Essay
 
   attr_reader :application
   def initialize(user)
-    if user.application
-      @application = user.application
-    else
-      @application = user.build_application
-    end
+    @application = user.apply
   end
 
   def update_attributes(attributes)
     application.essay_url = attributes[:url]
+    application.complete :essay
     application.save
   end
 end

@@ -11,6 +11,12 @@ class Bio
   end
 
   def update_attributes(attributes)
-    @user.update_attributes(attributes)
+    user.apply!
+    if user.update_attributes(attributes)
+      user.application.complete! :bio
+      true
+    else
+      false
+    end
   end
 end

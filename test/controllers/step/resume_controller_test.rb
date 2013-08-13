@@ -26,6 +26,7 @@ class Step::ResumeControllerTest < ActionController::TestCase
     put :update, resume: {file: file}
     assert alice.application.resume_url.end_with? "alice-smith.pdf"
     assert_redirected_to step_edit_essay_path
+    assert alice.application.completed? :resume
   end
 end
 
