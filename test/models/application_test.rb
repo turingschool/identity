@@ -6,4 +6,10 @@ class ApplicationTest < ActiveSupport::TestCase
     app.reload
     assert_equal %w(one two), app.completed_steps
   end
+
+  def test_owner_slug
+    user = User.new(name: 'Alice Smith')
+    app = Application.new(user: user)
+    assert_equal 'alice-smith', app.owner_slug
+  end
 end
