@@ -1,0 +1,30 @@
+require './test/test_helper'
+
+class Step::ResumeControllerTest < ActionController::TestCase
+
+  def alice
+    @alice ||= User.create(name: "Alice Smith")
+  end
+
+  def setup
+    @alice = nil
+  end
+
+  def test_show_requires_login
+    get :show
+    assert_redirected_to please_login_path
+  end
+
+  def test_update_requires_login
+    put :update
+    assert_redirected_to please_login_path
+  end
+
+  def test_upload_resume
+    @controller.login(alice)
+    file = fixture_file_upload('hello.pdf', 'application/pdf')
+    put :update, resume: {file: file}
+    assert alice.application.resume_url.end_with? "alice-smith.pdf"
+  end
+end
+
