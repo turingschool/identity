@@ -21,5 +21,6 @@ group :doc do
 end
 
 group :development, :test do
+  gem 'faker'
   gem 'sqlite3'
 end
