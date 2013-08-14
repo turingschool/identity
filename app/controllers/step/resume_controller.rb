@@ -19,7 +19,7 @@ class Step::ResumeController < StepController
   end
 
   def resume_params
-    params.fetch(:resume) { nil }
+    params.fetch(:resume) { {} }[:file]
   end
 
 end

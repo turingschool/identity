@@ -22,11 +22,20 @@ class Step::ResumeControllerTest < ActionController::TestCase
 
   def test_upload_resume
     @controller.login(alice)
+
+    application = alice.apply
+    application.complete :bio
+    application.save
+
     file = fixture_file_upload('hello.pdf', 'application/pdf')
     put :update, resume: {file: file}
-    assert alice.application.resume_url.end_with? "alice-smith.pdf"
+
+    application.reload
+
     assert_redirected_to step_edit_essay_path
-    assert alice.application.completed? :resume
+    assert application.resume?, "Resume is missing"
+    assert application.resume_url.end_with? "alice-smith.pdf"
+    assert application.completed? :resume
   end
 end
 

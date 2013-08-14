@@ -8,7 +8,7 @@ class Step::EssayController < StepController
     if @essay.update_attributes(essay_params)
       redirect_to step_edit_video_path
     else
-      raise 'whoops'
+      render :show
     end
   end
 

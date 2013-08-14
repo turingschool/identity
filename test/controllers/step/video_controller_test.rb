@@ -22,11 +22,19 @@ class Step::VideoControllerTest < ActionController::TestCase
 
   def test_update_video_url
     @controller.login(alice)
+    application = alice.apply
+    application.complete :bio
+    application.complete :resume
+    application.complete :essay
+    application.save
+
     put :update, video: {url: "http://example.com/video"}
 
-    assert_equal 'http://example.com/video', alice.application.video_url
+    application.reload
+
     assert_redirected_to step_edit_quiz_path
-    assert alice.application.completed? :video
+    assert_equal 'http://example.com/video', application.video_url
+    assert application.completed? :video
   end
 end
 

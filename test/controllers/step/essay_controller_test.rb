@@ -22,11 +22,19 @@ class Step::EssayControllerTest < ActionController::TestCase
 
   def test_update_essay_url
     @controller.login(alice)
+
+    application = alice.apply
+    application.complete :bio
+    application.complete :resume
+    application.save
+
     put :update, essay: {url: "http://example.com/essay"}
 
-    assert_equal 'http://example.com/essay', alice.application.essay_url
+    application.reload
+
     assert_redirected_to step_edit_video_path
-    assert alice.application.completed? :essay
+    assert_equal 'http://example.com/essay', application.essay_url
+    assert application.completed? :essay
   end
 end
 

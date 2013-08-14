@@ -1,8 +1,5 @@
-require 'forwardable'
-
 class Resume
   include ActiveModel::Validations
-  extend Forwardable
 
   validates_presence_of :file
 
@@ -17,6 +14,7 @@ class Resume
     if valid? && application.valid?
       application.complete :resume
       application.save
+      application.resume?
     else
       false
     end
