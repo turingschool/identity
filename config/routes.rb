@@ -6,8 +6,6 @@ Applicandy::Application.routes.draw do
   get '/github/callback' => 'sessions#callback', as: :github_callback
   delete '/logout' => 'sessions#destroy', as: :logout
 
-  resource :admin, only: [:show]
-
   get '/apply' => 'step#show', as: :apply
   namespace :step, path: 'apply' do
     get 'step-1' => 'bio#show', as: :edit_bio
@@ -24,5 +22,17 @@ Applicandy::Application.routes.draw do
 
     get 'step-5' => 'quiz#show', as: :edit_quiz
     put 'step-5' => 'quiz#update', as: :quiz
+  end
+
+  namespace :admin do
+    get '/' => 'dashboard#index'
+    resources :applicants, only: [] do
+      member do
+        get :show
+      end
+      collection do
+        get ':step' => 'applicants#index', as: :subset_of
+      end
+    end
   end
 end

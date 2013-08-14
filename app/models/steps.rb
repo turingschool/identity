@@ -1,4 +1,8 @@
 module Steps
+  def self.all
+    [:bio, :resume, :essay, :video, :quiz]
+  end
+
   def completed?(step)
     completed_steps.include?(step.to_s)
   end
@@ -21,7 +25,7 @@ module Steps
   end
 
   def progression
-    [:bio, :resume, :essay, :video, :quiz]
+    Steps.all
   end
 
   def done?

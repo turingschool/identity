@@ -1,0 +1,7 @@
+%h1 Admin Page
+
+%ul
+  - @steps.each do |step|
+    %li
+      = link_to(step, subset_of_admin_applicants_path(step))
+      = "(#{@counts[step]})"

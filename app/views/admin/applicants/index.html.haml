@@ -1,0 +1,8 @@
+%h1
+  Applicants completed up to step
+  = "'#{@step}'"
+
+%ul
+  - @applications.each do |application|
+    %li
+      = link_to(application.user.name, admin_applicant_path(application.user))
