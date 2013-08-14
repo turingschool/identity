@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
     is_admin
   end
 
+  def applying?
+    application && application.completed?('bio')
+  end
+
   def apply
     build_application unless application
     application

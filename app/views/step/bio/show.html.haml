@@ -1,3 +1,13 @@
+%h1 Biographical Basics
+
+%p In order to get all our duckies in a row, we need your name.
+
+%p If you have both a family name and a given name, please make sure that both are included and spelled correctly.
+
+%p We need a valid email address in order to contact you.
+
+%p Please also let us know where you currently live. This does not affect the application process in any way (we've had students come as far as from Indonesia and Ireland), but we like to have an idea if you're local or remote at the moment.
+
 = form_for :bio, url: step_bio_path, method: :put do |f|
   - if @bio.errors.any?
     %p= @bio.errors.full_messages

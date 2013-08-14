@@ -1,6 +1,28 @@
+%h1 Video Submission
+%p We need to understand your passion and character. To do help us do that, please create a video...
+%ul
+  %li
+    %p that is no longer than 4 minutes
+  %li
+    %p where we can clearly hear your voice and see your face. This isn't a beauty contest, but we want to feel like we're having a real conversation.
+    %p We recommend you use an external mic rather than the one built into a laptop.
+  %li
+    %p that answers the question <em>Why do you want to participate in this program?</em>
+  %li
+    %p <em>also</em> answers two of the following questions:
+    %ol
+      %li What do you do better than other people? How do you know?
+      %li What's the most influential book you have read in the last two years? Why?
+      %li If you couldn't be a programmer, what other career would you pursue? Why?
+      %li Imagine you had a free year after this program. What would you build?
+  %li is posted as an <em>unlisted</em> video on YouTube
+
+%h2 Unlisted YouTube Video URL
+
 = form_for :video, url: step_video_path, method: :put do |f|
   - if @video.errors.any?
     %p= @video.errors.full_messages
   = f.label :url
   = f.text_field :url
   = f.submit 'save'
+

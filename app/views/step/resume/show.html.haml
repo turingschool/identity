@@ -1,3 +1,5 @@
+%h1 Current Resume
+
 = form_for :resume, url: step_resume_path, method: :put, html: {multipart: true} do |f|
   - if @resume.application.errors.any?
     %p= @resume.application.errors.full_messages
