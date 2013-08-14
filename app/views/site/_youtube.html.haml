@@ -1,0 +1,8 @@
+- key = youtube_key(url)
+- if key
+  %iframe{width: '560', height: '315', src: "http://www.youtube.com/embed/#{key}", frameborder: '0', allowfullscreen: true}
+  = link_to "View on YouTube", url, target: "_blank"
+- else
+  %em
+    Unable to parse Youtube URL:
+    = link_to(url, url)

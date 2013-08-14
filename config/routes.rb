@@ -27,11 +27,11 @@ Applicandy::Application.routes.draw do
   namespace :admin do
     get '/' => 'dashboard#index'
     resources :applicants, only: [] do
+      collection do
+        get '/step/:step' => 'applicants#index', as: :subset_of
+      end
       member do
         get :show
-      end
-      collection do
-        get ':step' => 'applicants#index', as: :subset_of
       end
     end
   end

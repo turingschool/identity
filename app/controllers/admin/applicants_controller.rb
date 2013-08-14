@@ -6,5 +6,6 @@ class Admin::ApplicantsController < AdminController
 
   def show
     @applicant = User.find params[:id]
+    @application = @applicant.application
   end
 end

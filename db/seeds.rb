@@ -1,6 +1,7 @@
 
 User.destroy_all
 Application.destroy_all
+FileUtils.rm_rf('./public/uploads')
 
 require 'faker'
 class Person
@@ -55,12 +56,27 @@ class Flow
   end
 end
 
+def handle(step, application)
+  case step
+  when :resume
+    application.resume = File.open './test/fixtures/hello.pdf'
+  when :video
+    application.video_url = 'http://www.youtube.com/watch?v=7SSc1mQ4-Ck'
+  when :essay
+    application.essay_url = 'https://gist.github.com/kytrinyx/bd16f22641e48535a412'
+  else
+    # do nothing
+  end
+end
+
 users = []
 (1..500).each do |i|
   user = User.create(Person.new(i).to_h)
   user.apply!
   app = user.application
   Flow.random_progression.each do |step|
-    app.complete! step
+    handle(step, app)
+    app.complete step
+    app.save
   end
 end
