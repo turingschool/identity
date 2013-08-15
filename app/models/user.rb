@@ -38,4 +38,9 @@ class User < ActiveRecord::Base
     create_application unless application
     application
   end
+
+  def admin!
+    self.is_admin = true
+    save
+  end
 end
