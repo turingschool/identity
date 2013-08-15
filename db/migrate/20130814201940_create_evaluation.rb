@@ -4,6 +4,7 @@ class CreateEvaluation < ActiveRecord::Migration
       t.string :title
       t.references :user, index: true
       t.references :application, index: true
+      t.timestamp :completed_at
       t.timestamps
     end
   end

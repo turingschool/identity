@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20130814201940) do
     t.string   "title"
     t.integer  "user_id"
     t.integer  "application_id"
+    t.datetime "completed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
