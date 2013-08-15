@@ -24,7 +24,7 @@ class CriterionTest < ActiveSupport::TestCase
     good = Criterion::Option.new("I enjoyed it", 2, "Good")
     great = Criterion::Option.new("Best day EVAR", 3, "Great")
 
-    expected = [poor, fair, good, great]
+    expected = [great, good, fair, poor]
     assert_equal expected, criterion.scale
   end
 end

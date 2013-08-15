@@ -18,7 +18,7 @@ class Criterion < ActiveRecord::Base
     options.each_with_index do |description, i|
       result << Option.new(description, i, tag(i))
     end
-    result
+    result.reverse
   end
 
   private
