@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20130814201940) do
   create_table "criteria", force: true do |t|
     t.integer  "evaluation_id"
     t.string   "title"
+    t.text     "notes"
     t.text     "options"
     t.integer  "score"
     t.datetime "created_at"
