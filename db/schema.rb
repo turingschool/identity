@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20130814201940) do
   add_index "criteria", ["evaluation_id"], name: "index_criteria_on_evaluation_id"
 
   create_table "evaluations", force: true do |t|
+    t.string   "title"
     t.integer  "user_id"
     t.integer  "application_id"
     t.datetime "created_at"

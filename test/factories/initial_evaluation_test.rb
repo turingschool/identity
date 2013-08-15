@@ -8,6 +8,7 @@ class InitialEvaluationTest < ActiveSupport::TestCase
 
     evaluation = InitialEvaluation.for(bob.application, by: alice)
     assert_equal 6, evaluation.reload.criteria.count
+    assert_equal 'Initial Review', evaluation.title
   end
 end
 
