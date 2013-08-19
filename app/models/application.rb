@@ -3,6 +3,7 @@ class Application < ActiveRecord::Base
   include Steps
 
   belongs_to :user, inverse_of: :application
+  has_many :evaluations, inverse_of: :application
   alias_method :owner, :user
 
   serialize :completed_steps, Array
@@ -22,6 +23,10 @@ class Application < ActiveRecord::Base
     steps.each_with_object({}) do |step, counts|
       counts[step] = upto(step).count
     end
+  end
+
+  def evaluated_by?(user)
+    evaluations.where(user: user).any?
   end
 end
 

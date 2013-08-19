@@ -32,7 +32,10 @@ Applicandy::Application.routes.draw do
       end
       member do
         get :show
+        resources :evaluations, only: [:create]
       end
     end
+
+    resources :evaluations, only: [:edit, :update]
   end
 end

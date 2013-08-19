@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20130814201940) do
 
   create_table "evaluations", force: true do |t|
     t.string   "title"
+    t.string   "slug"
     t.integer  "user_id"
     t.integer  "application_id"
     t.datetime "completed_at"

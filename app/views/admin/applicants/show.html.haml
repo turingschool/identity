@@ -1,20 +1,8 @@
 %h1= @applicant.name
 
-- if @applicant.email.blank?
-  %p Email address is missing
+= render 'application', applicant: @applicant, application: @applicant.application
+
+- if @applicant.application.evaluated_by?(current_user)
+  = render 'admin/evaluations/summary', application: @applicant.application
 - else
-  %p
-    %a{href: "mailto:#{@applicant.email}"}= @applicant.email
-
-%p= @applicant.location
-
-- if @application.resume?
-  %p= link_to 'View Resume', @application.resume_url, target: '_blank'
-
-- if @application.essay_url
-  %p= link_to 'View Essay', @application.essay_url, target: '_blank'
-
-- if @application.video_url
-  %div= render 'site/youtube', url: @applicant.application.video_url
-
-
+  %p=button_to 'Create Evaluation', admin_evaluations_path(@applicant)

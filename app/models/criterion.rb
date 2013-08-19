@@ -21,6 +21,10 @@ class Criterion < ActiveRecord::Base
     result.reverse
   end
 
+  def has_notes?
+    !notes.blank?
+  end
+
   private
 
   def tag(i)

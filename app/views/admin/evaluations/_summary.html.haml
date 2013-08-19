@@ -1,0 +1,30 @@
+%h3 Evaluations
+
+%h4 Evaluation Scores
+
+%table
+  %thead
+    %tr
+      - application.evaluations.first.criteria.each do |criterion|
+        %th= criterion.title
+      %th Reviewer
+  %tbody
+    %tr
+      - application.evaluations.each do |evaluation|
+        - evaluation.criteria.each do |criterion|
+          %td= criterion.score
+
+        %td
+          = evaluation.evaluator.name
+          = link_to 'edit', edit_admin_evaluation_path(evaluation)
+
+%h4 Evaluation Notes
+
+%table
+  - application.evaluations.each do |evaluation|
+    %tr
+      %th{colspan: 2}= evaluation.evaluator.name
+    - evaluation.criteria.select(&:has_notes?).each do |criterion|
+      %tr
+        %th= criterion.title
+        %td= criterion.notes

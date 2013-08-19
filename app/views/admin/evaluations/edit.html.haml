@@ -1,0 +1,27 @@
+%h1= "#{@evaluation.title} for #{@evaluation.applicant_name}"
+%p= "by #{@evaluation.evaluator_name}"
+
+= render 'admin/applicants/application', applicant: @evaluation.applicant, application: @evaluation.application
+
+= form_tag admin_evaluation_path(@evaluation), method: :put do
+  %table
+    %tfoot
+      %td
+      %td= submit_tag 'save'
+    - @evaluation.criteria.each do |criterion|
+      %tr
+        %th= criterion.title
+        %td
+          = select_tag "criteria[#{criterion.id}][score]", options_for_select((0..3).to_a.reverse, criterion.score), include_blank: true
+          = text_field_tag "criteria[#{criterion.id}][notes]", criterion.notes
+      %tr
+        %td
+        %td
+          %ul
+            - criterion.scale.each do |option|
+              %li
+                = "#{option.value}. #{option.label}"
+                %br
+                = option.description
+
+
