@@ -18,4 +18,10 @@ class Evaluation < ActiveRecord::Base
   def evaluator_name
     user.name
   end
+
+  # TODO: validate criteria
+  # or handle nil scores or something
+  def total
+    criteria.map(&:score).sum
+  end
 end
