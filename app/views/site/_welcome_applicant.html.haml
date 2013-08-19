@@ -1,6 +1,3 @@
-= button_to('Logout', logout_path, method: 'delete')
-= "Welcome, #{current_user.username}"
-
 - if current_user.applying?
   = link_to('Continue/Review Application', apply_path)
 - else

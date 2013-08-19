@@ -1,7 +1,3 @@
-%h1 Apply to Turing School of Computing
-- if current_user.admin?
-  = link_to 'admin dashboard', admin_path
-
 - if current_user.guest?
   = render "welcome_guest"
 - else

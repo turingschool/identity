@@ -4,7 +4,7 @@
 = render 'admin/applicants/application', applicant: @evaluation.applicant, application: @evaluation.application
 
 = form_tag admin_evaluation_path(@evaluation), method: :put do
-  %table
+  %table.table-striped
     %tfoot
       %td
       %td= submit_tag 'save'

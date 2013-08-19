@@ -1,9 +1,27 @@
 !!!
 %html
   %head
-    %title Applicandy
+    %title apply.turing.io
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    = yield
+    .container
+      .navbar
+        .container
+          %ul.nav
+            %li= link_to 'Home', root_path
+          %ul.nav.pull-right
+            %li
+              - if current_user.admin?
+                = link_to 'Dashboard', admin_path
+            %li
+              - if current_user.guest?
+                = link_to('Login with GitHub', login_path)
+              - else
+                = link_to('Logout', logout_path, method: 'delete')
+
+      = yield
+      %hr/
+      .footer
+        %p &copy; Jumpstart Lab 2013
