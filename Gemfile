@@ -14,6 +14,7 @@ gem 'faraday'
 gem 'carrierwave'
 gem 'fog'
 gem 'mime-types'
+gem 'faker'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -23,6 +24,6 @@ end
 gem 'bootstrap-sass', '2.3.2.0'
 
 group :development, :test do
-  gem 'faker'
   gem 'sqlite3'
+  gem 'thor'
 end
