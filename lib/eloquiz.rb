@@ -3,6 +3,7 @@ require './lib/eloquiz/option'
 require './lib/eloquiz/answer_key'
 require './lib/eloquiz/question'
 require './lib/eloquiz/question/conference_swag'
+require './lib/eloquiz/question/adoption'
 require './lib/eloquiz/question/hackday'
 require './lib/eloquiz/question/business_meeting'
 require './lib/eloquiz/question/extracurricular_activities'
@@ -12,6 +13,7 @@ module Eloquiz
   def self.questions
     [
       ConferenceSwag.new,
+      Adoption.new(characters(9)),
       Hackday.new(characters(8)),
       BusinessMeeting.new(characters(4)),
       ExtracurricularActivities.new(characters(4)),
