@@ -9,7 +9,7 @@ CarrierWave.configure do | config |
       :aws_secret_access_key  => ENV[ 'AWS_SECRET_ACCESS_KEY' ]
     }
 
-    config.fog_directory = "applicandy-#{ Rails.env }"
+    config.fog_directory = "enrollist-#{ Rails.env }"
     config.storage       = :fog
   else
     config.storage = :file

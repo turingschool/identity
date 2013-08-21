@@ -3,4 +3,4 @@
 $:.unshift File.expand_path("../../lib", __FILE__)
 require 'cli'
 
-Applicandy::CLI.start
+Enrollist::CLI.start

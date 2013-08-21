@@ -1,4 +1,4 @@
-Applicandy::Application.routes.draw do
+Enrollist::Application.routes.draw do
   root 'site#index'
 
   get '/please-login' => 'sessions#show', as: :please_login

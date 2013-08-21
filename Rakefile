@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Applicandy::Application.load_tasks
+Enrollist::Application.load_tasks
