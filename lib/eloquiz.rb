@@ -7,6 +7,7 @@ require './lib/eloquiz/question/adoption'
 require './lib/eloquiz/question/book_club'
 require './lib/eloquiz/question/hackday'
 require './lib/eloquiz/question/business_meeting'
+require './lib/eloquiz/question/negotiations'
 require './lib/eloquiz/question/extracurricular_activities'
 require './lib/eloquiz/question/sports_team'
 require './lib/eloquiz/question/massage_therapist'
@@ -19,6 +20,7 @@ module Eloquiz
       Hackday.new(characters(8)),
       BookClub.new(characters(7)),
       BusinessMeeting.new(characters(4)),
+      Negotiations.new(characters(9)),
       ExtracurricularActivities.new(characters(4)),
       SportsTeam.new(characters(4)),
       MassageTherapist.new(characters(8)),
