@@ -11,6 +11,7 @@ require './lib/eloquiz/question/negotiations'
 require './lib/eloquiz/question/extracurricular_activities'
 require './lib/eloquiz/question/sports_team'
 require './lib/eloquiz/question/massage_therapist'
+require './lib/eloquiz/question/family_reunion'
 
 module Eloquiz
   def self.questions
@@ -24,6 +25,7 @@ module Eloquiz
       ExtracurricularActivities.new(characters(4)),
       SportsTeam.new(characters(4)),
       MassageTherapist.new(characters(8)),
+      FamilyReunion.new(characters(12)),
     ]
   end
 
