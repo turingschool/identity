@@ -13,6 +13,7 @@ require './lib/eloquiz/question/extracurricular_activities'
 require './lib/eloquiz/question/sports_team'
 require './lib/eloquiz/question/massage_therapist'
 require './lib/eloquiz/question/family_reunion'
+require './lib/eloquiz/question/game_night'
 
 module Eloquiz
   def self.questions
@@ -28,6 +29,7 @@ module Eloquiz
       SportsTeam.new(characters(4)),
       MassageTherapist.new(characters(8)),
       FamilyReunion.new(characters(12)),
+      GameNight.new(characters(4)),
     ]
   end
 
