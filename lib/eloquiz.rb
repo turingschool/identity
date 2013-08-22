@@ -9,6 +9,7 @@ require './lib/eloquiz/question/hackday'
 require './lib/eloquiz/question/business_meeting'
 require './lib/eloquiz/question/extracurricular_activities'
 require './lib/eloquiz/question/sports_team'
+require './lib/eloquiz/question/massage_therapist'
 
 module Eloquiz
   def self.questions
@@ -19,7 +20,8 @@ module Eloquiz
       BookClub.new(characters(7)),
       BusinessMeeting.new(characters(4)),
       ExtracurricularActivities.new(characters(4)),
-      SportsTeam.new(characters(4))
+      SportsTeam.new(characters(4)),
+      MassageTherapist.new(characters(8)),
     ]
   end
 

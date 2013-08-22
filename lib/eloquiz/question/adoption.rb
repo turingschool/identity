@@ -14,7 +14,7 @@ module Eloquiz
     end
 
     def prompt
-      "#{parent1} and #{parent2} have adopted 7 children: #{a}, #{b}, #{c}, #{d}, #{e}, and #{f}. The children are #{y1}, #{y2}, #{y3}, #{y4}, #{y5}, #{y6}, and #{y7} years old."
+      "#{parent1} and #{parent2} have adopted 7 children: #{a}, #{b}, #{c}, #{d}, #{e}, #{f} and #{g}. The children are #{y1}, #{y2}, #{y3}, #{y4}, #{y5}, #{y6}, and #{y7} years old."
     end
 
     def rules
