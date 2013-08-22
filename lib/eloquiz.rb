@@ -6,6 +6,7 @@ require './lib/eloquiz/question/conference_swag'
 require './lib/eloquiz/question/adoption'
 require './lib/eloquiz/question/book_club'
 require './lib/eloquiz/question/hackday'
+require './lib/eloquiz/question/spilled_milk'
 require './lib/eloquiz/question/business_meeting'
 require './lib/eloquiz/question/negotiations'
 require './lib/eloquiz/question/extracurricular_activities'
@@ -19,6 +20,7 @@ module Eloquiz
       ConferenceSwag.new,
       Adoption.new(characters(9)),
       Hackday.new(characters(8)),
+      SpilledMilk.new(characters(5)),
       BookClub.new(characters(7)),
       BusinessMeeting.new(characters(4)),
       Negotiations.new(characters(9)),
