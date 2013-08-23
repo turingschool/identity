@@ -1,11 +1,15 @@
 module Eloquiz
   class MassageTherapist < Question
+    def self.generate
+      new characters(8)
+    end
+
     attr_reader :therapist, :a, :b, :c, :d, :e, :f, :g
     def initialize(players)
       @therapist, @a, @b, @c, @d, @e, @f, @g = *players
     end
 
-    def prompt
+    def setup
       "Massage therapist #{therapist} has seven loyal customers that schedule an appointment each Friday.#{a}, #{b}, #{c}, #{d}, #{e}, #{f} and #{g}. The schedule varies from week to week, according to the following constraints:"
     end
 

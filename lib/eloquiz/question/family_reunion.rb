@@ -1,5 +1,8 @@
 module Eloquiz
   class FamilyReunion < Question
+    def self.generate
+      new characters(12)
+    end
 
     def self.family_names
       names = Set.new
@@ -16,7 +19,7 @@ module Eloquiz
       @family_a, @family_b2, @family_b = *family_names
     end
 
-    def prompt
+    def setup
       "The clan's annual reunion is a pretty big deal. Or a pretty big ordeal depending on who you ask. The worst part is the speeches, but there's no getting around them. The #{family_a} family (#{a1}, #{a2}, and #{a3}), the #{family_b} family (#{b1}, #{b2}, and #{b3}), and the #{family_c} family (#{c1}, #{c2}, and #{c3}) are trying to figure out who is going to speak, and in which order."
     end
 

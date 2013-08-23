@@ -1,5 +1,8 @@
 module Eloquiz
   class Negotiations < Question
+    def self.generate
+      new characters(9)
+    end
 
     def self.companies(n)
       names = Set.new
@@ -16,7 +19,7 @@ module Eloquiz
       @a1, @a2, @a3, @b1, @b2, @b3, @c1, @c2, @c3 = *players
     end
 
-    def prompt
+    def setup
       "Three companies, #{company_a}, #{company_b}, and #{company_c} are negotiating a complicated deal. There are three possible representatives from each company. #{company_a} is represented by #{a1}, #{a2}, and #{a3}. #{company_b} is represented by #{b1}, #{b2}, #{b3}. #{company_c} is represented by #{c1}, #{c2}, #{c3}. Because there is a complicated history and bad blood between the representatives, the logistics for negotiation meetings are complicated."
     end
 

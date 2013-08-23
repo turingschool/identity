@@ -1,4 +1,5 @@
 require 'faker'
+require 'active_support/core_ext/string/inflections'
 require './lib/eloquiz/option'
 require './lib/eloquiz/answer_key'
 require './lib/eloquiz/question'
@@ -16,28 +17,24 @@ require './lib/eloquiz/question/family_reunion'
 require './lib/eloquiz/question/game_night'
 
 module Eloquiz
-  def self.questions
+  def self.progression
     [
-      ConferenceSwag.new,
-      Adoption.new(characters(9)),
-      Hackday.new(characters(8)),
-      SpilledMilk.new(characters(5)),
-      BookClub.new(characters(7)),
-      BusinessMeeting.new(characters(4)),
-      Negotiations.new(characters(9)),
-      ExtracurricularActivities.new(characters(4)),
-      SportsTeam.new(characters(4)),
-      MassageTherapist.new(characters(8)),
-      FamilyReunion.new(characters(12)),
-      GameNight.new(characters(4)),
+      :conference_swag, :adoption, :hackday,
+      :spilled_milk, :book_club, :business_meeting,
+      :negotiations, :extracurricular_activities,
+      :sports_team, :massage_therapist, :family_reunion,
+      :game_night
     ]
   end
 
-  def self.characters(n)
-    names = Set.new
-    until names.size == n
-      names.add Faker::Name.first_name
-    end
-    names
+  def self.questions
+    progression.map {|slug|
+      generate_from(slug)
+    }
+  end
+
+  def self.generate_from(slug)
+    "Eloquiz::#{slug.to_s.camelize}".constantize.send(:generate)
   end
 end
+

@@ -1,5 +1,8 @@
 module Eloquiz
   class Adoption < Question
+    def self.generate
+      new characters(9)
+    end
 
     def self.ages
       (1..18).to_a.sample(7).sort
@@ -13,7 +16,7 @@ module Eloquiz
       @y1, @y2, @y3, @y4, @y5, @y6, @y7 = *ages
     end
 
-    def prompt
+    def setup
       "#{parent1} and #{parent2} have adopted 7 children: #{a}, #{b}, #{c}, #{d}, #{e}, #{f} and #{g}. The children are #{y1}, #{y2}, #{y3}, #{y4}, #{y5}, #{y6}, and #{y7} years old."
     end
 

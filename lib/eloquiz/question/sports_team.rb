@@ -1,5 +1,9 @@
 module Eloquiz
   class SportsTeam < Question
+    def self.generate
+      new characters(4)
+    end
+
     SPORTS = %w(soccer wiffleball baseball basketball teeball curling volleyball)
     attr_reader :a, :b, :c, :d, :sport
     def initialize(players, sport = SportsTeam::SPORTS.sample)
@@ -7,7 +11,7 @@ module Eloquiz
       @sport = sport
     end
 
-    def prompt
+    def setup
       "A #{sport} team recently recruited 4 new members: #{a}, #{b}, #{c}, and #{d}. Each member got to choose the number on their uniform. There were 7 available numbers: 3, 8, 13, 22, 31, 52, 89"
     end
 

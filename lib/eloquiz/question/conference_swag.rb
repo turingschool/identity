@@ -1,5 +1,9 @@
 module Eloquiz
   class ConferenceSwag < Question
+    def self.generate
+      new
+    end
+
     SWAG = %w(t-shirt hoodie beanie laptop-sleeve)
     COLORS = %w(pink white blue purple yellow turquoise green tan)
 
@@ -18,7 +22,7 @@ module Eloquiz
       @x, @y, @z = *colors
     end
 
-    def prompt
+    def setup
       "Each attendee at a Ruby conference is given either a #{swag1} or a #{swag2}. The conference color theme is #{x}, #{y}, and #{z}, and each piece of swag is in one of these colors."
     end
 
@@ -37,10 +41,10 @@ module Eloquiz
 
     def red_herrings
       [
-        "A #{swag1} can be #{y} or #{z}.",
+        "A #{swag1} can be either #{y} or #{z}.",
         "A #{swag2} can be #{x}, #{y} or #{z}.",
-        "A #{swag1} must be #{y}.",
-        "A #{swag2} must be either #{y} or #{z}."
+        "A #{swag1} can only be #{y}.",
+        "A #{swag2} can be either #{y} or #{z}."
       ]
     end
 

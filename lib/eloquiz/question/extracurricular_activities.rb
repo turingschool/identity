@@ -1,5 +1,9 @@
 module Eloquiz
   class ExtracurricularActivities < Question
+    def self.generate
+      new characters(4)
+    end
+
     ACTIVITIES = [
       "goes biking",
       "attends a painting workshop",
@@ -20,7 +24,7 @@ module Eloquiz
       @activity1, @activity2, @activity3, @activity4 = *activities
     end
 
-    def prompt
+    def setup
       "Four children #{a}, #{b}, #{c}, and #{d} attend various after school activities."
     end
 

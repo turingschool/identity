@@ -1,12 +1,15 @@
 module Eloquiz
   class SpilledMilk < Question
+    def self.generate
+      new characters(5)
+    end
 
     attr_reader :a, :b, :c, :d, :e
     def initialize(players)
       @a, @b, @c, @d, @e = *players
     end
 
-    def prompt
+    def setup
       "Five children, #{a}, #{b}, #{c}, #{d}, and #{e}, were having a snack after school, and one of them spilled the milk. When the grownups asked who was responsible, the children each told one lie and one truth."
     end
 

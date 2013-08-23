@@ -1,12 +1,15 @@
 module Eloquiz
   class GameNight < Question
+    def self.generate
+      new characters(4)
+    end
 
     attr_reader :a, :b, :c, :d
     def initialize(players)
       @a, @b, @c, @d = *players
     end
 
-    def prompt
+    def setup
       "At the monthly game night, #{a}, #{b}, #{c}, and #{d} competed against each other in Scrabble and Chess."
     end
 

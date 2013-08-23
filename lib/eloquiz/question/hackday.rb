@@ -1,5 +1,9 @@
 module Eloquiz
   class Hackday < Question
+    def self.generate
+      new characters(8)
+    end
+
     PROJECTS = ["Botnet", "Gene Sequencing", "Video Game", "3D Mapping", "Facial Recognition", "Poetry Generation"]
 
     def self.projects
@@ -14,7 +18,7 @@ module Eloquiz
       @project1, @project2, @project3 = *projects
     end
 
-    def prompt
+    def setup
       "Eight people participate in a local programming challenge: #{a}, #{b}, #{c}, #{d}, #{e}, #{f}, and #{g}. There are 3 possible projects that they may choose to work on: #{project1}, #{project2}, and #{project3}."
     end
 

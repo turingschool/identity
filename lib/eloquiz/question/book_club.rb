@@ -1,12 +1,15 @@
 module Eloquiz
   class BookClub < Question
+    def self.generate
+      new characters(7)
+    end
 
     attr_reader :a, :b, :c, :d, :e, :f, :g
     def initialize(players)
       @a, @b, @c, @d, @e, @f, @g = *players
     end
 
-    def prompt
+    def setup
       "Seven children: #{a}, #{b}, #{c}, #{d}, #{e}, and #{f} started a bookclub together, and each child purchased one of the Harry Potter books."
     end
 

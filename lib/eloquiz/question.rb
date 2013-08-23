@@ -1,11 +1,27 @@
 module Eloquiz
   class Question
+    def self.characters(n)
+      names = Set.new
+      until names.size == n
+        names.add Faker::Name.first_name
+      end
+      names
+    end
+
     class SubclassMustImplement < StandardError; end
 
-    [:type, :rules, :prompt, :answers, :red_herrings].each do |message|
+    [:type, :rules, :setup, :answers, :red_herrings].each do |message|
       define_method message do
         raise SubclassMustImplement.new("Must implement method `:#{message}`.")
       end
+    end
+
+    def slug
+      base_name.underscore.to_sym
+    end
+
+    def title
+      base_name.titleize
     end
 
     def options
@@ -32,7 +48,7 @@ module Eloquiz
       @fingerprint ||= options.find {|o| o.answer?}.fingerprint
     end
 
-    def question
+    def prompt
       case type
       when :possible
         "Which one of the following could be true?"
@@ -41,6 +57,10 @@ module Eloquiz
       when :false
         "Which one of the following must be false?"
       end
+    end
+
+    def base_name
+      self.class.name.split('::').last
     end
   end
 end

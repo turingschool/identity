@@ -10,13 +10,13 @@ class Enrollist
         puts
         puts '-'*70
 
-        puts quiz.prompt
+        puts quiz.setup
         puts
         quiz.rules.each do |rule|
           puts "* " + rule
         end
         puts
-        puts quiz.question
+        puts quiz.prompt
         puts
         quiz.options.each do |option|
           puts "#{option.choice} - #{option.statement}"

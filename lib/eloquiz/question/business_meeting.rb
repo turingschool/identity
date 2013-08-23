@@ -1,11 +1,15 @@
 module Eloquiz
   class BusinessMeeting < Question
+    def self.generate
+      new characters(4)
+    end
+
     attr_reader :x, :y, :z, :protagonist
     def initialize(players)
       @x, @y, @z, @protagonist = *players
     end
 
-    def prompt
+    def setup
       "#{protagonist} is the CEO of a successful software consulting company, and has a full day of meetings scheduled. Two of the meetings are in the morning, then there is a lunch meeting, and two of the meetings are scheduled for the afternoon."
     end
 
