@@ -6,6 +6,12 @@ Enrollist::Application.routes.draw do
   get '/github/callback' => 'sessions#callback', as: :github_callback
   delete '/logout' => 'sessions#destroy', as: :logout
 
+  scope '/quiz' do
+    get '/', to: 'quiz#question', as: :quiz_index
+    get :complete, to: 'quiz#complete', as: :quiz_complete
+  end
+  resources :quiz, only: [:show, :update]
+
   get '/apply' => 'step#show', as: :apply
   namespace :step, path: 'apply' do
     get 'step-1' => 'bio#show', as: :edit_bio

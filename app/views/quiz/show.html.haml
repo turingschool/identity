@@ -1,0 +1,25 @@
+%h1= @question.title
+
+%p= @question.setup
+
+%ul
+  - @question.rules.each do |rule|
+    %li= rule
+
+%p
+  %b= @question.prompt
+
+= form_tag quiz_path(@question.slug), method: :put do |f|
+  = hidden_field_tag "quiz[fingerprint]", @question.fingerprint
+  = hidden_field_tag "quiz[slug]", @question.slug
+  - if @question.errors.any?
+    %p= @question.errors.full_messages
+
+  %ul
+    - @question.options.each do |option|
+      %li
+        = hidden_field_tag "quiz[options][#{option.choice}]", option.statement
+        = label_tag "quiz_answer_#{option.choice}", option.statement
+        = radio_button_tag "quiz[answer]", option.choice
+
+  = submit_tag('submit')

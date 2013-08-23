@@ -14,14 +14,5 @@ class Step::QuizControllerTest < ActionController::TestCase
     get :show
     assert_redirected_to please_login_path
   end
-
-  def test_update_requires_login
-    put :update
-    assert_redirected_to please_login_path
-  end
-
-  def test_update_quiz
-    skip 'no idea how this is going to work'
-  end
 end
 

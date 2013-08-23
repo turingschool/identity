@@ -1,19 +1,20 @@
 require 'minitest/autorun'
 require './app/models/steps'
 
-Procedure = Struct.new(:completed_steps) do
-  include Steps
-
-  def save
-    @saved = true
-  end
-
-  def saved?
-    !!@saved
-  end
-end
-
 class StepsTest < MiniTest::Unit::TestCase
+
+  Procedure = Struct.new(:completed_steps) do
+    include Steps
+
+    def save
+      @saved = true
+    end
+
+    def saved?
+      !!@saved
+    end
+  end
+
   def test_completed_ey
     process = Procedure.new(['chew'])
     assert process.completed?(:chew)

@@ -18,4 +18,5 @@ class ApplicationTest < ActiveSupport::TestCase
     app.complete :bio
     assert app.completed? :bio
   end
+
 end
