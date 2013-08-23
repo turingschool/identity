@@ -7,7 +7,6 @@ class Application < ActiveRecord::Base
   alias_method :owner, :user
 
   serialize :completed_steps, Array
-  # It is NOT validating the file type. What the heck?
   mount_uploader :resume, ResumeUploader
 
   scope :upto, ->(step) do
