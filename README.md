@@ -1,6 +1,6 @@
-# Enrollist
+# A Squared
 
-An application to support the application process for the Jumpstart Lab developer training courses.
+The Turing School of Software and Design **Application Application** (A^2)
 
 ## Notes
 

@@ -1,6 +1,6 @@
 require 'thor'
 
-class Enrollist
+class Asquared
   class CLI < Thor
     desc "generate", "generate a quiz"
     def generate

@@ -1,4 +1,4 @@
-Enrollist::Application.routes.draw do
+Asquared::Application.routes.draw do
   root 'site#index'
 
   get '/please-login' => 'sessions#show', as: :please_login

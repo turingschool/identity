@@ -1,6 +1,6 @@
 class Github
   def self.login_url
-    "https://github.com/login/oauth/authorize?client_id=#{ENV.fetch('ENROLLIST_GITHUB_CLIENT_ID')}"
+    "https://github.com/login/oauth/authorize?client_id=#{ENV.fetch('ASQUARED_GITHUB_CLIENT_ID')}"
   end
 
   def self.authenticate(code)
@@ -10,8 +10,8 @@ class Github
     end
 
     options = {
-      client_id: ENV.fetch('ENROLLIST_GITHUB_CLIENT_ID'),
-      client_secret: ENV.fetch('ENROLLIST_GITHUB_CLIENT_SECRET'),
+      client_id: ENV.fetch('ASQUARED_GITHUB_CLIENT_ID'),
+      client_secret: ENV.fetch('ASQUARED_GITHUB_CLIENT_SECRET'),
       code: code
     }
 
@@ -39,6 +39,6 @@ class Github
   end
 
   def self.user_agent
-    'github.com:JumpstartLab/enrollist'
+    'github.com:JumpstartLab/asquared'
   end
 end
