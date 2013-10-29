@@ -1,10 +1,16 @@
-%h1 Current Resume
+.container
+  %h1.title.center Current Resume
+  %hr
 
-= form_for :resume, url: step_resume_path, method: :put, html: {multipart: true} do |f|
-  - if @resume.application.errors.any?
-    %p= @resume.application.errors.full_messages
-  - if @resume.errors.any?
-    %p= @resume.errors.full_messages
-  = f.label :resume
-  = f.file_field :file
-  = f.submit 'upload'
+  %p We are trying to understand your previous accomplishments. We believe that passionate people cannot sit still. You can upload your current resume below.
+
+  %h4.title Upload your resume
+  = form_for :resume, url: step_resume_path, method: :put, html: { class: "form-inline", role: "form", multipart: true} do |f|
+    - if @resume.application.errors.any?
+      %p= @resume.application.errors.full_messages
+    - if @resume.errors.any?
+      %p= @resume.errors.full_messages
+    .form-group
+      = f.file_field :file, class: "form-control"
+    .form-group
+      = f.submit 'Upload', class: "btn btn-warning btn-submit"
