@@ -3,3 +3,18 @@
   font-weight: lighter;
   text-align: center;
 }
+
+.navbar-default .navbar-brand {
+  color: orange;
+}
+
+.navbar-default {
+  border-radius: 0px;
+  background-color: #333;
+  border: none;
+  opacity: 0.9;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: orange;
+}

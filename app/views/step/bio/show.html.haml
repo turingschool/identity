@@ -1,20 +1,29 @@
-%h1 Biographical Basics
+.container
+  .row
+    .col-md-12
+      %h2.site-title.center Biographical Basics
+      %hr
 
-%p In order to get all our duckies in a row, we need your name.
+      %p In order to get all our duckies in a row, we need your name.
 
-%p If you have both a family name and a given name, please make sure that both are included and spelled correctly.
+      %p If you have both a family name and a given name, please make sure that both are included and spelled correctly.
 
-%p We need a valid email address in order to contact you.
+      %p We need a valid email address in order to contact you.
 
-%p Please also let us know where you currently live. This does not affect the application process in any way (we've had students come as far as from Indonesia and Ireland), but we like to have an idea if you're local or remote at the moment.
+      %p Please also let us know where you currently live. This does not affect the application process in any way (we've had students come as far as from Indonesia and Ireland), but we like to have an idea if you're local or remote at the moment.
 
-= form_for :bio, url: step_bio_path, method: :put do |f|
-  - if @bio.errors.any?
-    %p= @bio.errors.full_messages
-  = f.label :name
-  = f.text_field :name
-  = f.label :email
-  = f.text_field :email
-  = f.label :location
-  = f.text_field :location
-  = f.submit 'save'
+      %hr
+
+      .bio-form
+        %h4.title Enter your information
+        = form_for :bio, url: step_bio_path, method: :put, html: { class: "form-inline", role: "form" } do |f|
+          - if @bio.errors.any?
+            %p= @bio.errors.full_messages
+          .form-group
+            = f.text_field :name, placeholder: "name", class: "form-control"
+          .form-group
+            = f.text_field :email, placeholder: "email", class: "form-control email-input"
+          .form-group
+            = f.text_field :location, placeholder: "location", class: "form-control location-input"
+          .form-group
+            = f.submit 'Save', class: "btn btn-warning btn-submit"
