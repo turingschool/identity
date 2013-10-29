@@ -1,8 +1,11 @@
-%p
-  = image_tag 'octocat_gems.png', width: 100, height: 100, align: 'left', alt: 'Github' 
-  First, you'll need a user account at GitHub <a href='https://github.com/signup/free' target='_blank'>(link)</a> to login. Once logged in, you can start an application.
+.container
+  .row
+    .col-md-12.site-lead
+      %h1.site-brand A<sup>2</sup>
+      %h2.lead Welcome to the Turing School application.
+      %p
+        You'll need a user account at <a href='https://github.com/signup/free' target='_blank'>GitHub</a> to login. Once logged in, you can start an application.
 
-%p
-  Already have an account?
-  = link_to('Login with GitHub', login_path)
-
+      %p
+        Already have an account?
+        = link_to('Login with GitHub', login_path)
