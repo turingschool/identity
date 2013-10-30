@@ -4,7 +4,7 @@
 
   %p We are trying to understand your previous accomplishments. We believe that passionate people cannot sit still. You can upload your current resume below.
 
-  %h4.title Upload your resume
+  %h4.title Upload your Resume
   = form_for :resume, url: step_resume_path, method: :put, html: { class: "form-inline", role: "form", multipart: true} do |f|
     - if @resume.application.errors.any?
       %p= @resume.application.errors.full_messages

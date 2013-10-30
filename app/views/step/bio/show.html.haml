@@ -1,7 +1,8 @@
 .container
   .row
     .col-md-12
-      %h2.site-title.center Biographical Basics
+      %h2.title.center Biographical Basics
+
       %hr
 
       %p In order to get all our duckies in a row, we need your name.
@@ -15,7 +16,7 @@
       %hr
 
       .bio-form
-        %h4.title Enter your information
+        %h4.title Enter your Information
         = form_for :bio, url: step_bio_path, method: :put, html: { class: "form-inline", role: "form" } do |f|
           - if @bio.errors.any?
             %p= @bio.errors.full_messages

@@ -1,26 +1,27 @@
-%h1 Writing Sample
+.container
+  %h1.title.center Writing Sample
 
-%p In 500 words or fewer, explain a complex topic from your area of expertise.
+  %hr
 
-%p Writing should be original to this application. Citations are not necessary but welcome if they feel appropriate. Use Markdown formatting (<a href='http://daringfireball.net/projects/markdown/syntax'>http://daringfireball.net/projects/markdown/syntax</a>) as needed.
+  %p In 500 words or fewer, explain a complex topic from your area of expertise.
 
-%p Post the text as a private gist on <a href='https://gist.github.com/' target='_blank'>https://gist.github.com/</a> and submit the URL below.
+  %p Writing should be original to this application. Citations are not necessary but welcome if they feel appropriate. Use <a href='http://daringfireball.net/projects/markdown/syntax'>markdown formatting</a> as needed.
 
-%p Please ensure that the document contains **NO OTHER FORMATTING** than markdown. In other words, we do not want to see any
+  %p Post the text as a private gist on <a href='https://gist.github.com/' target='_blank'>gist.github.com</a> and submit the URL below.
 
-%ul
-  %li HTML
-  %li RTF
-  %li MSWord formatting
+  %p Please ensure that the document contains <strong>no other formatting than markdown</strong>. In other words, we do not want to see any HTML, RTF or MSWord formatting.
 
-%p Also make sure that the text does not require horizontal scrolling to read. Break your lines at 78 columns if you see that the text does scroll.
+  %p Also make sure that the text does not require horizontal scrolling to read. Break your lines at 78 columns if you see that the text does scroll.
 
-%h2 URL to Gist
+  %hr
 
-= form_for :essay, url: step_essay_path, method: :put do |f|
-  - if @essay.errors.any?
-    %p= @essay.errors.full_messages
-  = f.label :url
-  = f.text_field :url
-  = f.submit 'save'
+  %h4.title URL to Gist
+
+  = form_for :essay, url: step_essay_path, method: :put, html: { class: "form-inline", role: "form" }  do |f|
+    - if @essay.errors.any?
+      %p= @essay.errors.full_messages
+    .form-group
+      = f.text_field :url, placeholder: "url", class: "form-control url-input"
+    .form-group
+    = f.submit 'Save', class: "btn btn-warning btn-submit"
 
