@@ -1,27 +1,35 @@
 .container
-  %h1.title.center Writing Sample
+  .row
+    .col-md-12
+      .progress
+        .progress-bar.progress-bar-success{style: "width: 40%"}
+          %span.sr-only 20% Complete (success)
+        .progress-bar.progress-bar-warning{style: "width: 20%"}
+          %span.sr-only 20% Complete (warning)
+  .row
+    .col-md-12
+      %h1.title.center Writing Sample
 
-  %hr
+      %hr
 
-  %p In 500 words or fewer, explain a complex topic from your area of expertise.
+      %p In 500 words or fewer, explain a complex topic from your area of expertise.
 
-  %p Writing should be original to this application. Citations are not necessary but welcome if they feel appropriate. Use <a href='http://daringfireball.net/projects/markdown/syntax'>markdown formatting</a> as needed.
+      %p Writing should be original to this application. Citations are not necessary but welcome if they feel appropriate. Use <a href='http://daringfireball.net/projects/markdown/syntax'>markdown formatting</a> as needed.
 
-  %p Post the text as a private gist on <a href='https://gist.github.com/' target='_blank'>gist.github.com</a> and submit the URL below.
+      %p Post the text as a private gist on <a href='https://gist.github.com/' target='_blank'>gist.github.com</a> and submit the URL below.
 
-  %p Please ensure that the document contains <strong>no other formatting than markdown</strong>. In other words, we do not want to see any HTML, RTF or MSWord formatting.
+      %p Please ensure that the document contains <strong>no other formatting than markdown</strong>. In other words, we do not want to see any HTML, RTF or MSWord formatting.
 
-  %p Also make sure that the text does not require horizontal scrolling to read. Break your lines at 78 columns if you see that the text does scroll.
+      %p Also make sure that the text does not require horizontal scrolling to read. Break your lines at 78 columns if you see that the text does scroll.
 
-  %hr
+      %hr
 
-  %h4.title URL to Gist
+      %h4.title URL to Gist
 
-  = form_for :essay, url: step_essay_path, method: :put, html: { class: "form-inline", role: "form" }  do |f|
-    - if @essay.errors.any?
-      %p= @essay.errors.full_messages
-    .form-group
-      = f.text_field :url, placeholder: "url", class: "form-control url-input"
-    .form-group
-    = f.submit 'Save', class: "btn btn-warning btn-submit"
-
+      = form_for :essay, url: step_essay_path, method: :put, html: { class: "form-inline", role: "form" }  do |f|
+        - if @essay.errors.any?
+          %p= @essay.errors.full_messages
+        .form-group
+          = f.text_field :url, placeholder: "url", class: "form-control url-input"
+        .form-group
+        = f.submit 'Save', class: "btn btn-warning btn-submit"
