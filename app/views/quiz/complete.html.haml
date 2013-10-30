@@ -1,7 +1,11 @@
-%h1 Quiz Complete
+.container
+  .row
+    .col-md-12.center
+      %h2.title.center Quiz Complete
 
-%p
-  You got
-  = "#{@application.quiz_score}/#{@application.quiz_size}"
-  right.
+      %hr
 
+      %p
+        You got
+        = "#{@application.quiz_score} / #{@application.quiz_size}"
+        right.
