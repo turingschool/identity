@@ -1,11 +1,6 @@
 .container
   .row
-    .col-md-12
-      .progress
-        .progress-bar.progress-bar-success{style: "width: 40%"}
-          %span.sr-only 20% Complete (success)
-        .progress-bar.progress-bar-warning{style: "width: 20%"}
-          %span.sr-only 20% Complete (warning)
+    = render "step/shared/progress_bar"
   .row
     .col-md-12
       %h1.title.center Writing Sample
