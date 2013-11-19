@@ -5,7 +5,10 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    %a.navbar-brand{href: "#{root_path}"} A<sup>2</sup>
+    - if current_user.admin?
+      %a.navbar-brand{href: "#{admin_path}"} A<sup>2</sup>
+    - else
+      %a.navbar-brand{href: "#{root_path}"} A<sup>2</sup>
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav.navbar-right
       %li

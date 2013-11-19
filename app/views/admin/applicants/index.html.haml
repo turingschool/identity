@@ -1,8 +1,34 @@
-%h1
-  Applicants completed up to step
-  = "'#{@step}'"
-
-%ul
-  - @applications.each do |application|
-    %li
-      = link_to(application.user.name, admin_applicant_path(application.user))
+.container
+  .row
+    .col-md-11.step-box.main
+      %p
+        #{link_to "admin dashboard", admin_path} / #{@step}
+      %h2.title.orange
+        = "Step: #{@step.capitalize}"
+      %h4
+        = "#{@counts[@step.to_sym]} applicants are in this step"
+      %h6
+        = "#{applicants_per_step(@counts, @step.to_sym)}% of total applicants"
+  .row
+    .col-md-11.step-box.main
+      %table.table.table-striped
+        %thead
+          %tr
+            %td NAME
+            %td EMAIL
+            %td LOCATION
+            %td
+        %tbody
+        - @applications.each do |application|
+          %tr
+            %td
+              = link_to(application.user.name, admin_applicant_path(application.user))
+            %td
+              = application.user.email
+            %td
+              = application.user.location
+            %td
+              - if application.evaluated_by?(current_user)
+                = link_to "Edit Evaluations", admin_applicant_path(application.user)
+              - else
+                = link_to "Evaluate", admin_evaluations_path(application.user), method: :post

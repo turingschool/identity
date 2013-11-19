@@ -1,12 +1,16 @@
 .container
   %h2.title.center.orange Admin Dashboard
   .row
-    .col-md-11.step-box.main
-      %h4.title= "#{total_applicants(@counts)} total applicants"
+    .col-md-11.step-box.main.center
+      %h4.title
+        = "#{total_applicants(@counts)} total applicants"
 
   .row
     - @steps.each do |step|
-      .col-md-2.step-box
-        %h4.title= link_to(step.capitalize, subset_of_admin_applicants_path(step))
-        %h4= "#{@counts[step]} applicants"
-        %h6= "#{applicants_per_step(@counts, step)}% of total"
+      .col-md-2.step-box.center
+        %h4.title
+          = link_to(step.capitalize, subset_of_admin_applicants_path(step))
+        %h4
+          = "#{@counts[step]} applicants"
+        %h6
+          = "#{applicants_per_step(@counts, step)}% of total"
