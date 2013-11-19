@@ -14,7 +14,7 @@ class Application < ActiveRecord::Base
 
   scope :upto, ->(step) do
     steps = Steps.all[0..Steps.all.index(step.to_sym)].map(&:to_s).to_yaml
-    where(completed_steps: steps)
+    where(completed_steps: steps).joins(:user).order("name asc")
   end
 
   def self.steps
