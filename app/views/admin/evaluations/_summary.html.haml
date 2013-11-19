@@ -4,34 +4,39 @@
 
 %h4.title Evaluation Scores
 
-%hr
+- application.evaluations.each do |evaluation|
+  .row
+    .col-md-2
+      %h5.title.orange Evaluator
+      %p #{evaluation.evaluator.name}
+    .col-md-3
+      %h5.title.orange Criteria
+      - evaluation.criteria.each do |criterion|
+        %p #{criterion.title}
+    .col-md-3
+      %h5.title.orange Points
+      - evaluation.criteria.each do |criterion|
+        - if criterion.score
+          %p #{criterion.score} points
+        - else
+          %p Score is pending
+    .col-md-2
+      %h5.title.orange Actions
+      %p
+        = link_to 'Edit Application', edit_admin_evaluation_path(evaluation)
 
-%table.table
-  %thead
-    %tr
-      - application.evaluations.first.criteria.each do |criterion|
-        %th.title= criterion.title
-      %th.title Reviewer
-      %th.title Actions
-  %tbody
-    %tr
-      - application.evaluations.each do |evaluation|
-        - evaluation.criteria.each do |criterion|
-          %td= criterion.score
-
-        %td
-          = evaluation.evaluator.name
-        %td
-          = link_to 'Edit Application', edit_admin_evaluation_path(evaluation)
 
 %h4.title Evaluation Notes
 
-%hr
-
 - application.evaluations.each do |evaluation|
-  %tr
-    %th{colspan: 2}= evaluation.evaluator.name
-  - evaluation.criteria.select(&:has_notes?).each do |criterion|
-    %tr
-      %th= criterion.title
-      %td= criterion.notes
+  .row
+    .col-md-2
+      %h5.title.orange Evaluator
+      %p #{evaluation.evaluator.name}
+    .col-md-8
+      %h5.title.orange Notes
+      - evaluation.criteria.select(&:has_notes?).each do |criterion|
+        %h5.title.notes
+          = criterion.title
+        %p
+          = criterion.notes
