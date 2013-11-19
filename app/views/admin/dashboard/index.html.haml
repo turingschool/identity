@@ -1,7 +1,8 @@
-%h1 Admin Page
+.container
+  %h2.title.center.orange Admin Dashboard
 
-%ul
-  - @steps.each do |step|
-    %li
-      = link_to(step, subset_of_admin_applicants_path(step))
-      = "(#{@counts[step]})"
+  .row
+    - @steps.each do |step|
+      .col-md-2.step-box
+        %h4.title= link_to(step.capitalize, subset_of_admin_applicants_path(step))
+        %h4= "#{@counts[step]} applicants"
