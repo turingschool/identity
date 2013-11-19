@@ -6,5 +6,7 @@
       %h2.title.orange
         = @applicant.name
       = render 'application', applicant: @applicant, application: @applicant.application
-      - if @applicant.application.evaluated_by?(current_user)
+  - if @applicant.application.evaluated_by?(current_user)
+    .row
+      .col-md-11.step-box.main
         = render 'admin/evaluations/summary', application: @applicant.application

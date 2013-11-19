@@ -28,4 +28,6 @@ group :development, :test do
   gem 'sqlite3'
   gem 'thor'
   gem 'simplecov'
+  gem 'binding_of_caller'
+  gem 'better_errors'
 end

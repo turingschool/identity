@@ -10,6 +10,7 @@ class UpdateEvaluation
       values = responses[criterion.id.to_s]
       criterion.score = values["score"]
       criterion.notes = values["notes"]
+      criterion.save
     end
     evaluation.save
   end

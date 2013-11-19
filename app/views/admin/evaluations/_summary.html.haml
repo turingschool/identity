@@ -2,14 +2,17 @@
 
 %hr
 
-%h4 Evaluation Scores
+%h4.title Evaluation Scores
 
-%table
+%hr
+
+%table.table
   %thead
     %tr
       - application.evaluations.first.criteria.each do |criterion|
-        %th= criterion.title
-      %th Reviewer
+        %th.title= criterion.title
+      %th.title Reviewer
+      %th.title Actions
   %tbody
     %tr
       - application.evaluations.each do |evaluation|
@@ -18,15 +21,17 @@
 
         %td
           = evaluation.evaluator.name
-          = link_to 'edit', edit_admin_evaluation_path(evaluation)
+        %td
+          = link_to 'Edit Application', edit_admin_evaluation_path(evaluation)
 
-%h4 Evaluation Notes
+%h4.title Evaluation Notes
 
-%table
-  - application.evaluations.each do |evaluation|
+%hr
+
+- application.evaluations.each do |evaluation|
+  %tr
+    %th{colspan: 2}= evaluation.evaluator.name
+  - evaluation.criteria.select(&:has_notes?).each do |criterion|
     %tr
-      %th{colspan: 2}= evaluation.evaluator.name
-    - evaluation.criteria.select(&:has_notes?).each do |criterion|
-      %tr
-        %th= criterion.title
-        %td= criterion.notes
+      %th= criterion.title
+      %td= criterion.notes

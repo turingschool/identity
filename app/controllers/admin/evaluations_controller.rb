@@ -9,6 +9,7 @@ class Admin::EvaluationsController < AdminController
 
   def edit
     @evaluation = Evaluation.find params[:id]
+    @current_step = @evaluation.application.completed_steps.last
   end
 
   def update

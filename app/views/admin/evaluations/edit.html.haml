@@ -1,6 +1,8 @@
 .container
   .row
     .col-md-11.step-box.main
+      %p
+        #{link_to "admin dashboard", admin_path} / #{link_to @current_step, subset_of_admin_applicants_path(@current_step)} / #{@evaluation.applicant_name.downcase}
       %h2.title.orange #{@evaluation.applicant_name}
       %p <b>Evaluator:</b> #{@evaluation.evaluator_name}
 
@@ -13,10 +15,10 @@
         %table.table
           - @evaluation.criteria.each do |criterion|
             %tr
-              %th
-                .orange= criterion.title
-              %th Score
-              %th Criteria
+              %th.title.orange
+                = criterion.title
+              %th.title Score
+              %th.title Criteria
             %tr
               %td.description
                 - criterion.scale.each do |option|
@@ -28,4 +30,5 @@
                 = select_tag "criteria[#{criterion.id}][score]", options_for_select((0..3).to_a.reverse, criterion.score), include_blank: true, class: "form-control"
               %td
                 = text_area_tag "criteria[#{criterion.id}][notes]", criterion.notes, class: "form-control criteria"
+        %hr
         = submit_tag 'Save Evaluation', class: "btn btn-warning btn-site"
