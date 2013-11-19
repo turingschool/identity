@@ -7,5 +7,6 @@ class Admin::ApplicantsController < AdminController
 
   def show
     @applicant = User.find params[:id]
+    @current_step = @applicant.application.completed_steps.last
   end
 end

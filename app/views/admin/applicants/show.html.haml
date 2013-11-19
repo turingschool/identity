@@ -1,8 +1,10 @@
-%h1= @applicant.name
-
-= render 'application', applicant: @applicant, application: @applicant.application
-
-- if @applicant.application.evaluated_by?(current_user)
-  = render 'admin/evaluations/summary', application: @applicant.application
-- else
-  %p=button_to 'Create Evaluation', admin_evaluations_path(@applicant)
+.container
+  .row
+    .col-md-11.step-box.main
+      %p
+        #{link_to "admin dashboard", admin_path} / #{link_to @current_step, subset_of_admin_applicants_path(@current_step)} / #{@applicant.name.downcase}
+      %h2.title.orange
+        = @applicant.name
+      = render 'application', applicant: @applicant, application: @applicant.application
+      - if @applicant.application.evaluated_by?(current_user)
+        = render 'admin/evaluations/summary', application: @applicant.application
