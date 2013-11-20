@@ -15,10 +15,9 @@ class Admin::EvaluationsController < AdminController
   def update
     @evaluation = Evaluation.find(params[:id])
     if UpdateEvaluation.new(@evaluation, params[:criteria]).save
-      redirect_to admin_path
+      redirect_to admin_applicant_path(@evaluation.application.owner)
     else
       render :edit
     end
   end
-
 end
