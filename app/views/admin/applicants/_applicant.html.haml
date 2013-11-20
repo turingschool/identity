@@ -1,14 +1,20 @@
 .col-md-7
-  %h2.title.no-padding.orange
-    = applicant.name
-
-  %h5.title Email
   - if applicant.email.blank?
+    %h2.title.no-padding.orange
+      = applicant.name
+    %h5.title Email
     %p Email address is missing
-  - else
+    %h5.title Location
     %p
-      = link_to applicant.email, "mailto:#{applicant.email}"
-
-  %h5.title Location
-  %p
-    = applicant.location
+      = applicant.location
+  - else
+    %h2.title.no-padding.orange
+      = gravatar_image_tag(applicant.email, class: "img-border img-circle applicant-img", gravatar: { size: 80 })
+      = applicant.name
+    .applicant-info
+      %h5.title Email
+      %p
+        = link_to applicant.email, "mailto:#{applicant.email}"
+      %h5.title Location
+      %p
+        = applicant.location

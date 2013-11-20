@@ -16,6 +16,7 @@ gem 'fog'
 gem 'mime-types'
 gem 'faker'
 gem 'figaro'
+gem 'gravatar_image_tag'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

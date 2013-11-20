@@ -70,6 +70,7 @@ GEM
       nokogiri (~> 1.5)
       ruby-hmac
     formatador (0.2.4)
+    gravatar_image_tag (1.1.3)
     haml (4.0.3)
       tilt
     hike (1.2.3)
@@ -169,6 +170,7 @@ DEPENDENCIES
   faraday
   figaro
   fog
+  gravatar_image_tag
   haml
   jquery-rails
   mime-types
