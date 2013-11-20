@@ -28,13 +28,14 @@
 
       %hr
 
-      %h4.title Unlisted YouTube Video URL
+      %div.center
+        %h4.title Unlisted YouTube Video URL
 
-      = form_for :video, url: step_video_path, method: :put, html: { class: "form-inline", role: "form" } do |f|
-        - if @video.errors.any?
-          %p= @video.errors.full_messages
-        .form-group
-          = f.text_field :url, placeholder: "url", class: "form-control url-input"
-        .form-group
-          = f.submit 'Save', class: "btn btn-warning btn-submit"
+        = form_for :video, url: step_video_path, method: :put, html: { class: "form-inline", role: "form" } do |f|
+          - if @video.errors.any?
+            %p= @video.errors.full_messages
+          .form-group
+            = f.text_field :url, placeholder: "url", class: "form-control url-input"
+          .form-group
+            = f.submit 'Save', class: "btn btn-warning btn-submit"
 
