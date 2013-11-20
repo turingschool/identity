@@ -1,0 +1,14 @@
+.col-md-7
+  %h2.title.no-padding.orange
+    = applicant.name
+
+  %h5.title Email
+  - if applicant.email.blank?
+    %p Email address is missing
+  - else
+    %p
+      = link_to applicant.email, "mailto:#{applicant.email}"
+
+  %h5.title Location
+  %p
+    = applicant.location
