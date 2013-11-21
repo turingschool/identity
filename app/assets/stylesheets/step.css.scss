@@ -21,7 +21,7 @@
 
 .circle {
   background: whitesmoke;
-  border: solid 4px orange;
+  border: solid 4px #f0ad4e;
     border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -30,7 +30,7 @@
 }
 
 .circle#step-0 {
-  left: -10px;
+  left: -1%;
 }
 
 .circle#step-1 {
@@ -46,6 +46,16 @@
 .circle#step-3 {
   left: 59%;
   bottom: 170px;
+}
+
+.circle#step-4 {
+  left: 79%;
+  bottom: 210px;
+}
+
+.circle#step-6 {
+  left: 99%;
+  bottom: 250px;
 }
 
 .progress-container {
