@@ -11,24 +11,30 @@
         = "#{applicants_per_step(@counts, @step.to_sym)}% of total applicants"
   .row
     .col-md-11.step-box.main
-      %table.table.table-striped
-        %thead
-          %tr
-            %th.title Name
-            %th.title Email
-            %th.title Location
-            %th.title
-        %tbody
-        - @applications.each do |application|
-          %tr
-            %td
-              = link_to(application.user.name, admin_applicant_path(application.user))
-            %td
-              = application.user.email
-            %td
-              = application.user.location
-            %td
-              - if application.evaluated_by?(current_user)
-                = link_to "Edit Evaluations", admin_applicant_path(application.user)
-              - else
-                = link_to "Evaluate", admin_evaluations_path(application.user), method: :post
+      .row.initials
+        - applicants_initials(@applications).each do |initial|
+          %button.btn.btn-default.btn-sm{id: "initial"}
+            = initial
+        %button.btn.btn-default.btn-sm#all Show All
+      .row
+        %table.table.table-striped
+          %thead
+            %tr#head
+              %th.title Name
+              %th.title Email
+              %th.title Location
+              %th.title
+          %tbody
+          - @applications.each do |application|
+            %tr{id: "#{application.user.name[0]}"}
+              %td
+                = link_to(application.user.name, admin_applicant_path(application.user))
+              %td
+                = link_to application.user.email, "mailto:#{application.user.email}"
+              %td
+                = application.user.location
+              %td
+                - if application.evaluated_by?(current_user)
+                  = link_to "Edit Evaluations", admin_applicant_path(application.user)
+                - else
+                  = link_to "Evaluate", admin_evaluations_path(application.user), method: :post
