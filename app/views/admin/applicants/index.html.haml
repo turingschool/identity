@@ -11,11 +11,7 @@
         = "#{applicants_per_step(@counts, @step.to_sym)}% of total applicants"
   .row
     .col-md-11.step-box.main
-      .row.initials
-        - applicants_initials(@applications).each do |initial|
-          %button.btn.btn-default.btn-sm{id: "initial"}
-            = initial
-        %button.btn.btn-default.btn-sm#all Show All
+      = render "applicants_filter", applications: @applications
       .row
         %table.table.table-striped
           %thead

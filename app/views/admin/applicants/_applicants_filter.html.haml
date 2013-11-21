@@ -1,0 +1,5 @@
+.row.initials
+  - applicants_initials(applications).each do |initial|
+    %button.btn.btn-default.btn-sm{id: "initial"}
+      = initial
+  %button.btn.btn-default.btn-sm#all Show All
