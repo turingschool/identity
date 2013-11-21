@@ -18,3 +18,36 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.circle {
+  background: whitesmoke;
+  border: solid 4px orange;
+    border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: relative;
+    bottom: 50px;
+}
+
+.circle#step-0 {
+  left: -10px;
+}
+
+.circle#step-1 {
+  left: 19%;
+  bottom: 90px;
+}
+
+.circle#step-2 {
+  left: 39%;
+  bottom: 130px;
+}
+
+.circle#step-3 {
+  left: 59%;
+  bottom: 170px;
+}
+
+.progress-container {
+  max-height: 40px;
+}

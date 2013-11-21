@@ -13,4 +13,8 @@ module ApplicantHelper
     progress = (completed_steps / total_steps) * 100
     progress.to_i
   end
+
+  def completed_steps(user)
+    user.application.completed_steps.count
+  end
 end

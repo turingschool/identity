@@ -1,3 +1,5 @@
-.col-md-12
+.col-md-12.progress-container
   .progress
-    .progress-bar.progress-bar-success{style: "width: #{progress(current_user)}%"}
+    .progress-bar.progress-bar-warning{style: "width: #{progress(current_user)}%"}
+  - completed_steps(current_user).times do |i|
+    .div.circle{id: "step-#{i}"}
