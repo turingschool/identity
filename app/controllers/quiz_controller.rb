@@ -2,10 +2,13 @@ class QuizController < ApplicationController
   before_filter :require_login, :apply
 
   def question
-    if current_user.application.quiz_complete?
-      redirect quiz_complete_path and return
+    quiz = Quiz.new(current_user)
+
+    if quiz.complete?
+      redirect_to quiz_complete_path and return
     end
-    @question = QuizQuestion.new(current_user)
+
+    @question = quiz.question
   end
 
   def complete
@@ -13,7 +16,7 @@ class QuizController < ApplicationController
   end
 
   def update
-    @question = QuizQuestion.new(current_user, params[:id])
+    @question = Quiz.new(current_user, params[:id])
     if @question.update_attributes(params[:quiz])
       redirect_to quiz_question_path
     else
