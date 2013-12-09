@@ -1,23 +1,31 @@
 require 'forwardable'
 require './lib/eloquiz'
 
-class QuizQuestion
+class Quiz
   include ActiveModel::Validations
   extend Forwardable
 
   validates_presence_of :answer
 
-  def_delegators :question, :title, :setup, :rules, :prompt, :options, :slug, :fingerprint
   def_delegators :user, :application
+  def_delegator :application, :quiz_complete?, :complete?
+  def_delegator :application, :next_quiz_question, :next_question
+  def_delegators :next_question,
+    :title, :setup, :rules, :prompt, :options, :slug, :fingerprint
 
   attr_reader :user, :question_slug, :answer
   def initialize(user, question_slug = nil)
     @user = user
     @question_slug = question_slug
+    generate
   end
 
+  # Yeah, yeah.
+  # The controller needs to talk to the quiz,
+  # the view needs to talk to the question,
+  # but really, we just want this one thing.
   def question
-    @question ||= generate_question
+    self
   end
 
   def update_attributes(data)
@@ -34,11 +42,16 @@ class QuizQuestion
     end
   end
 
-  def generate_question
+  private
+
+  def generate
     if application.quiz_questions.empty?
-      application.quiz_questions = Eloquiz.progression
+      application.quiz_questions = Eloquiz.random_questions.each {|q|
+        # trigger the options so they get saved
+        # and the user gets a consistent set in the view
+        q.options
+      }
       application.save
     end
-    Eloquiz.generate_from question_slug || application.next_quiz_slug
   end
 end
