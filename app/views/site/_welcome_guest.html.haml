@@ -1,11 +1,11 @@
-.container
-  .row
-    .col-md-12.center
-      %h1.site-brand A<sup>2</sup>
-      %h2.lead Welcome to the <strong>Turing School</strong> application.
-      %p
-        You'll need a user account at <a href='https://github.com/signup/free' target='_blank'>GitHub</a> to login. Once logged in, you can start an application.
+.home
+  .container
+    .row
+      .col-md-12.center
+        %h1.site-brand A<sup>2</sup>
+        %h2 Welcome to the <strong>Turing School</strong> application.
+        %p
+          You'll need a user account at Github to login. If you don't have one, get one <a href='https://github.com/signup/free' target='_blank'>here</a>. It's free.
 
-      %p
-        Already have an account?
-        = link_to('Login with GitHub', login_path)
+        %p
+          .btn.btn-lg.btn-default.btn-home= link_to 'LOGIN', login_path

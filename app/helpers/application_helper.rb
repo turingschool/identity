@@ -1,6 +1,6 @@
 module ApplicationHelper
   def total_applicants(counts)
-    counts.each_value.collect.reduce(0, :+)
+    Application.count
   end
 
   def applicants_per_step(counts, step)

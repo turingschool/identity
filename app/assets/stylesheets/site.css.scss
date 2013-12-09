@@ -1,5 +1,5 @@
 .site-brand {
-  color: orange;
+  color: white;
   font-size: 100px;
   letter-spacing: -.1em;
 }
@@ -35,7 +35,37 @@
   margin-bottom: 10px;
 }
 
+.btn-home a{
+  text-decoration: none;
+  color: white;
+}
+
 .btn-submit {
   position: relative;
     top: 4px;
+}
+
+.home {
+  background-color: rgb(148, 52, 58);
+  padding-top: 115px;
+  padding-bottom: 155px;
+  margin-top: -20px;
+  opacity: 0.9;
+  color: white;
+  font-size: 1.5em;
+}
+
+.btn-home {
+  background-color: rgb(140, 50, 60);
+  margin-top: 20px;
+  padding: 20px;
+  min-height: 50px;
+  min-width: 300px;
+  font-size: 1em;
+}
+
+.btn-home:hover, .btn-home:focus, .btn-home:active, .btn-home.active {
+  color: #333333;
+  background-color: rgb(140, 60, 80);
+  border-color: #adadad;
 }
