@@ -3,23 +3,25 @@ module QuizProgression
     !quiz_questions.empty?
   end
 
-  def quiz_result(slug, result)
-    return unless slug == next_quiz_slug
-    self.quiz_answers[slug] = result
+  def quiz_complete?
+    quiz_answers.size == quiz_questions.size
   end
 
-  def next_quiz_slug
-    remaining_quiz_slugs.first
+  def quiz_result(slug, response)
+    return unless current_quiz_question?(slug)
+    quiz_answers[slug] = response
   end
 
-  def remaining_quiz_slugs
-    quiz_questions - quiz_answers.keys
+  def current_quiz_question?(slug)
+    next_quiz_question.slug == slug
   end
 
-  # just for show
-  def next_quiz_question_number
-    i = quiz_questions.index(next_quiz_slug)
-    i + 1 if i
+  def next_quiz_question
+    remaining_questions.first
+  end
+
+  def remaining_questions
+    quiz_questions.reject {|q| quiz_answers.keys.include?(q.slug)}
   end
 
   def quiz_score

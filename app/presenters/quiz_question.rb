@@ -17,7 +17,7 @@ class QuizQuestion
   end
 
   def question
-    @question ||= generate_question
+    @question ||= next_question
   end
 
   def update_attributes(data)
@@ -34,11 +34,11 @@ class QuizQuestion
     end
   end
 
-  def generate_question
+  def next_question
     if application.quiz_questions.empty?
-      application.quiz_questions = Eloquiz.progression
+      application.quiz_questions = Eloquiz.random_questions
       application.save
     end
-    Eloquiz.generate_from question_slug || application.next_quiz_slug
+    application.next_quiz_question
   end
 end
