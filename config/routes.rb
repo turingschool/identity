@@ -7,10 +7,10 @@ Asquared::Application.routes.draw do
   delete '/logout' => 'sessions#destroy', as: :logout
 
   scope '/quiz' do
-    get '/', to: 'quiz#question', as: :quiz_index
+    get '/', to: 'quiz#question', as: :quiz_question
     get :complete, to: 'quiz#complete', as: :quiz_complete
   end
-  resources :quiz, only: [:show, :update]
+  resources :quiz, only: [:update]
 
   get '/apply' => 'step#show', as: :apply
   namespace :step, path: 'apply' do

@@ -7,8 +7,10 @@ class QuizQuestion
 
   validates_presence_of :answer
 
-  def_delegators :question, :title, :setup, :rules, :prompt, :options, :slug, :fingerprint
+  def_delegators :question,
+    :title, :setup, :rules, :prompt, :options, :slug, :fingerprint
   def_delegators :user, :application
+  def_delegator :application, :quiz_complete?, :complete?
 
   attr_reader :user, :question_slug, :answer
   def initialize(user, question_slug = nil)
