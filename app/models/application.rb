@@ -13,8 +13,7 @@ class Application < ActiveRecord::Base
   mount_uploader :resume, ResumeUploader
 
   scope :upto, ->(step) do
-    steps = Steps.all[0..Steps.all.index(step.to_sym)].map(&:to_s).to_yaml
-    where(completed_steps: steps).joins(:user).order("name asc")
+    where('completed_steps LIKE ?', "%#{step}%").joins(:user).order("name asc")
   end
 
   def self.steps
