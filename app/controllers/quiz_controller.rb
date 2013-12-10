@@ -13,6 +13,11 @@ class QuizController < ApplicationController
 
   def complete
     @application = current_user.application
+
+    unless @application.quiz_complete?
+      redirect_to quiz_question_path and return
+    end
+
     @application.quiz_completed_at ||= Time.now
     @application.save
   end
