@@ -6,7 +6,7 @@ module QuizProgression
   end
 
   def quiz_complete?
-    quiz_answers.size == quiz_questions.size
+    !quiz_questions.empty? && quiz_answers.size == quiz_questions.size
   end
 
   def quiz_result(slug, response)

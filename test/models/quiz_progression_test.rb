@@ -51,6 +51,11 @@ class QuizProgressionTest < MiniTest::Unit::TestCase
     assert challenge.quiz_complete?
   end
 
+  def test_empty_quiz_is_not_completed
+    challenge = Challenge.new([], {})
+    refute challenge.quiz_complete?
+  end
+
   def test_quiz_score
     results = {
       one: {result: true, answer: "blue"},
