@@ -51,6 +51,7 @@ class Quiz
         # and the user gets a consistent set in the view
         q.options
       }
+      application.quiz_started_at = Time.now
       application.save
     end
   end

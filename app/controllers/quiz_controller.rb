@@ -13,6 +13,8 @@ class QuizController < ApplicationController
 
   def complete
     @application = current_user.application
+    @application.quiz_completed_at ||= Time.now
+    @application.save
   end
 
   def update
