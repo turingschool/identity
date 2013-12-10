@@ -28,6 +28,7 @@
 .btn-site {
   margin-left: 20%;
   margin-right: 20%;
+  min-height: 60px;
   width: 60%;
 }
 
@@ -62,10 +63,16 @@
   min-height: 50px;
   min-width: 300px;
   font-size: 1em;
+  color: white;
+  opacity: 0.8;
 }
 
 .btn-home:hover, .btn-home:focus, .btn-home:active, .btn-home.active {
-  color: #333333;
   background-color: rgb(140, 60, 80);
   border-color: #adadad;
+  color: white;
+}
+
+.thin {
+  font-weight: lighter;
 }
