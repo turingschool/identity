@@ -1,3 +1,4 @@
+gem "minitest", "~> 4.2"
 require 'minitest/autorun'
 require 'minitest/pride'
 require './app/models/quiz_progression'
@@ -51,12 +52,22 @@ class QuizProgressionTest < MiniTest::Unit::TestCase
   end
 
   def test_quiz_score
-    challenge = Challenge.new([q(:one), q(:two), q(:three)], {one: true, two: false, three: false})
+    results = {
+      one: {result: true, answer: "blue"},
+      two: {result: false, answer: "gray"},
+      three: {result: false, answer: "turquoise"}
+    }
+    challenge = Challenge.new([q(:one), q(:two), q(:three)], results)
     assert_equal 1, challenge.quiz_score
   end
 
   def test_higher_quiz_score
-    challenge = Challenge.new([q(:one), q(:two), q(:three)], {one: true, two: false, three: true})
+    results = {
+      one: {result: true, answer: "yellow"},
+      two: {result: false, answer: "slate"},
+      three: {result: true, answer: "navy"}
+    }
+    challenge = Challenge.new([q(:one), q(:two), q(:three)], results)
     assert_equal 2, challenge.quiz_score
   end
 
@@ -67,8 +78,8 @@ class QuizProgressionTest < MiniTest::Unit::TestCase
 
   def test_answer_a_question
     challenge = Challenge.new([q(:one)], {})
-    challenge.quiz_result(:one, true)
-    expected = {one: true}
+    challenge.quiz_result(:one, {result: true, answer: "pink"})
+    expected = {one: {result: true, answer: 'pink'}}
     assert_equal expected, challenge.quiz_answers
   end
 
@@ -76,7 +87,7 @@ class QuizProgressionTest < MiniTest::Unit::TestCase
   # messes with the form, so it's fine if they're confused
   def test_ignore_answers_to_the_wrong_question
     challenge = Challenge.new([q(:one), q(:two)], {})
-    challenge.quiz_result(:two, true)
+    challenge.quiz_result(:two, {result: true, answer: "orange"})
     expected = {}
     assert_equal expected, challenge.quiz_answers
   end
@@ -84,7 +95,7 @@ class QuizProgressionTest < MiniTest::Unit::TestCase
   # As above.
   def test_ignore_answers_to_nonexistent_questions
     challenge = Challenge.new([q(:one), q(:two)], {})
-    challenge.quiz_result(:three, true)
+    challenge.quiz_result(:three, {result: true, answer: "purple"})
     expected = {}
     assert_equal expected, challenge.quiz_answers
   end

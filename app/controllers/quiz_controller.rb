@@ -16,7 +16,7 @@ class QuizController < ApplicationController
   end
 
   def update
-    @question = Quiz.new(current_user, params[:id])
+    @question = Quiz.new(current_user, params[:id].to_sym)
     if @question.update_attributes(params[:quiz])
       redirect_to quiz_question_path
     else

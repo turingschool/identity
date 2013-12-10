@@ -34,7 +34,7 @@ class Quiz
     key = data[:fingerprint]
 
     result = Eloquiz::AnswerKey.correct?(statement, answer, key)
-    application.quiz_result(question.slug, false)
+    application.quiz_result(question.slug, {result: result, answer: statement})
     if valid?
       application.save
     else
