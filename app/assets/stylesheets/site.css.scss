@@ -1,59 +1,8 @@
-.site-brand {
-  color: white;
-  font-size: 100px;
-  letter-spacing: -.1em;
-}
-
-.title {
-  font-weight: lighter;
-  padding-top: 10px;
-}
-
-.title.no-padding {
-  padding-top: 0px;
-}
-
-.orange {
-  color: orange;
-}
-
-.center {
-  text-align: center;
-}
-
-.application-list {
-  padding-bottom: 10px;
-}
-
-.btn {
-  margin-bottom: 10px;
-}
-
-.btn-site {
-  margin-left: 20%;
-  margin-right: 20%;
-  width: 60%;
-}
-
+// HOME
 
 .btn-home a{
   text-decoration: none;
   color: white;
-}
-
-.btn-submit {
-  position: relative;
-    top: 4px;
-}
-
-.home {
-  background-color: darkorange;
-  color: white;
-  font-size: 1.5em;
-  padding-top: 115px;
-  padding-bottom: 155px;
-  margin-top: -20px;
-  opacity: 0.6;
 }
 
 .btn-home {
@@ -74,10 +23,22 @@
   color: white;
 }
 
-.btn:active, .btn.active {
+.btn-home:active, .btn-home.active {
   box-shadow: none;
 }
 
-.thin {
-  font-weight: lighter;
+.home {
+  background-color: darkorange;
+  color: white;
+  font-size: 1.5em;
+  padding-top: 115px;
+  padding-bottom: 155px;
+  margin-top: -20px;
+  opacity: 0.6;
+}
+
+// WELCOME PAGE
+
+.application-list {
+  padding-bottom: 10px;
 }

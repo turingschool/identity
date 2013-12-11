@@ -1,3 +1,10 @@
+// FORMS
+
+.bio-form {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .email-input {
   min-width: 250px;
 }
@@ -10,14 +17,7 @@
   min-width: 400px;
 }
 
-.btn-submit {
-  min-width: 100px;
-}
-
-.bio-form {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
+// PROGRESS BAR
 
 .circle {
   background: whitesmoke;
@@ -29,33 +29,15 @@
     bottom: 50px;
 }
 
-.circle#step-0 {
-  left: -1%;
-}
+// creates circle#step-* classes and ids
+@for $i from 0 through 6 {
+  .circle#step-#{$i} {
+    left: -1% + ($i * 20%);
 
-.circle#step-1 {
-  left: 19%;
-  bottom: 90px;
-}
-
-.circle#step-2 {
-  left: 39%;
-  bottom: 130px;
-}
-
-.circle#step-3 {
-  left: 59%;
-  bottom: 170px;
-}
-
-.circle#step-4 {
-  left: 79%;
-  bottom: 210px;
-}
-
-.circle#step-6 {
-  left: 99%;
-  bottom: 250px;
+    @if  $i != 0 {
+      bottom: 50px + ($i * 40px)
+    }
+  }
 }
 
 .progress-container {
