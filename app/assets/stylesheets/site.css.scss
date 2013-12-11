@@ -25,16 +25,16 @@
   padding-bottom: 10px;
 }
 
-.btn-site {
-  margin-left: 20%;
-  margin-right: 20%;
-  min-height: 60px;
-  width: 60%;
-}
-
 .btn {
   margin-bottom: 10px;
 }
+
+.btn-site {
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+}
+
 
 .btn-home a{
   text-decoration: none;
@@ -47,30 +47,35 @@
 }
 
 .home {
-  background-color: rgb(148, 52, 58);
+  background-color: darkorange;
+  color: white;
+  font-size: 1.5em;
   padding-top: 115px;
   padding-bottom: 155px;
   margin-top: -20px;
-  opacity: 0.9;
-  color: white;
-  font-size: 1.5em;
+  opacity: 0.6;
 }
 
 .btn-home {
-  background-color: rgb(140, 50, 60);
+  background: none;
+  border-color: white;
+  color: white;
+  font-size: 1em;
   margin-top: 20px;
-  padding: 20px;
   min-height: 50px;
   min-width: 300px;
-  font-size: 1em;
-  color: white;
-  opacity: 0.8;
+  padding: 20px;
+
 }
 
 .btn-home:hover, .btn-home:focus, .btn-home:active, .btn-home.active {
-  background-color: rgb(140, 60, 80);
-  border-color: #adadad;
+  background-color: orange;
+  border-color: orange;
   color: white;
+}
+
+.btn:active, .btn.active {
+  box-shadow: none;
 }
 
 .thin {

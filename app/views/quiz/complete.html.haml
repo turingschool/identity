@@ -1,11 +1,19 @@
 .container
   .row
-    .col-md-12.center
-      %h2.title.center Quiz Complete
+    .col-md-12
+      %h2.title.center Quiz Completed
+
+      %hr
+
+      %h4.title.center
+        You got
+        = "#{@application.quiz_score} / #{@application.quiz_size}"
+        right.
 
       %hr
 
       %p
-        You got
-        = "#{@application.quiz_score} / #{@application.quiz_size}"
-        right.
+        Thanks for completing the final step on your application. We will review your results shortly and get back to you as soon as possible. Remember to check your email for information regarding your application.
+
+      %p
+        If you have any questions in the meantime you can contact us at #{mail_to "contact@jumpstartlab.com"}.

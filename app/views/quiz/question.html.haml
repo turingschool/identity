@@ -1,15 +1,16 @@
 .container
   .row
-    .col-md-12.center
+    .col-md-12
       %h2.title.center= @question.title
 
       %hr
 
       %p= @question.setup
 
-      %ul
-        - @question.rules.each do |rule|
-          %li= rule
+      - @question.rules.each do |rule|
+        %p= rule
+
+      %hr
 
       %p
         %b= @question.prompt
@@ -20,11 +21,12 @@
         - if @question.errors.any?
           %p= @question.errors.full_messages
 
-        %ul
-          - @question.options.each do |option|
-            %li
-              = hidden_field_tag "quiz[options][#{option.choice}]", option.statement
-              = label_tag "quiz_answer_#{option.choice}", option.statement
-              = radio_button_tag "quiz[answer]", option.choice
+        - @question.options.each do |option|
+          = hidden_field_tag "quiz[options][#{option.choice}]", option.statement
+          = radio_button_tag "quiz[answer]", option.choice
+          = label_tag "quiz_answer_#{option.choice}", option.statement, class: "question-label"
+          %br
 
-        = submit_tag('submit')
+        %hr
+
+        = submit_tag 'Submit', class: "btn btn-lg btn-warning btn-site"
