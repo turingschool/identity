@@ -9,6 +9,10 @@ module QuizProgression
     !quiz_questions.empty? && quiz_answers.size == quiz_questions.size
   end
 
+  def quiz_question(slug)
+    quiz_questions.find {|q| q.slug == slug}
+  end
+
   def quiz_result(slug, response)
     return unless current_quiz_question?(slug)
     quiz_answers[slug] = response
