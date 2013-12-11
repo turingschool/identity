@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130823171324) do
+ActiveRecord::Schema.define(version: 20131210223656) do
 
   create_table "applications", force: true do |t|
-    t.integer "user_id"
-    t.string  "resume"
-    t.string  "essay_url"
-    t.string  "video_url"
-    t.string  "completed_steps"
-    t.text    "quiz_questions"
-    t.text    "quiz_answers"
+    t.integer  "user_id"
+    t.string   "resume"
+    t.string   "essay_url"
+    t.string   "video_url"
+    t.string   "completed_steps"
+    t.text     "quiz_questions"
+    t.text     "quiz_answers"
+    t.datetime "quiz_started_at"
+    t.datetime "quiz_completed_at"
   end
 
   add_index "applications", ["user_id"], name: "index_applications_on_user_id"

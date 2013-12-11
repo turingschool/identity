@@ -1,10 +1,16 @@
+require 'eloquiz'
+
 module QuizProgression
   def quiz_generated?
     !quiz_questions.empty?
   end
 
   def quiz_complete?
-    quiz_answers.size == quiz_questions.size
+    !quiz_questions.empty? && quiz_answers.size == quiz_questions.size
+  end
+
+  def quiz_question(slug)
+    quiz_questions.find {|q| q.slug == slug}
   end
 
   def quiz_result(slug, response)
@@ -25,7 +31,7 @@ module QuizProgression
   end
 
   def quiz_score
-    quiz_answers.select {|_, result| result}.size
+    quiz_answers.select {|_, data| data[:result]}.size
   end
 
   def quiz_size

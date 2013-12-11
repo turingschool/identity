@@ -25,7 +25,7 @@ module Eloquiz
 
     def answers
       [
-        "It was #{c}."
+        "#{c} spilled the milk."
       ]
     end
 

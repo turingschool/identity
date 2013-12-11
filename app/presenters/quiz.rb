@@ -9,14 +9,17 @@ class Quiz
 
   def_delegators :user, :application
   def_delegator :application, :quiz_complete?, :complete?
-  def_delegator :application, :next_quiz_question, :next_question
-  def_delegators :next_question,
+  def_delegators :current_question,
     :title, :setup, :rules, :prompt, :options, :slug, :fingerprint
 
-  attr_reader :user, :question_slug, :answer
+  attr_reader :user, :current_question, :answer
   def initialize(user, question_slug = nil)
     @user = user
-    @question_slug = question_slug
+    if question_slug
+      @current_question = application.quiz_question(question_slug.to_sym)
+    else
+      @current_question = application.next_quiz_question
+    end
     generate
   end
 
@@ -34,7 +37,7 @@ class Quiz
     key = data[:fingerprint]
 
     result = Eloquiz::AnswerKey.correct?(statement, answer, key)
-    application.quiz_result(question.slug, false)
+    application.quiz_result(question.slug, {result: result, answer: statement})
     if valid?
       application.save
     else
@@ -51,6 +54,7 @@ class Quiz
         # and the user gets a consistent set in the view
         q.options
       }
+      application.quiz_started_at = Time.now
       application.save
     end
   end
