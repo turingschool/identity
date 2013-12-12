@@ -39,6 +39,9 @@ class Quiz
     result = Eloquiz::AnswerKey.correct?(statement, answer, key)
     application.quiz_result(question.slug, {result: result, answer: statement})
     if valid?
+      if application.quiz_complete?
+        application.complete :quiz
+      end
       application.save
     else
       false
