@@ -35,3 +35,5 @@
                     = link_to "View Evaluations", admin_applicant_path(application.user)
                   - else
                     = link_to "Evaluate", admin_evaluations_path(application.user), method: :post
+                - else
+                  = progress_indicator(application)
