@@ -30,7 +30,8 @@
               %td
                 = application.user.location
               %td
-                - if application.evaluated_by?(current_user)
-                  = link_to "Edit Evaluations", admin_applicant_path(application.user)
-                - else
-                  = link_to "Evaluate", admin_evaluations_path(application.user), method: :post
+                - if application.complete?
+                  - if application.evaluated_by?(current_user)
+                    = link_to "View Evaluations", admin_applicant_path(application.user)
+                  - else
+                    = link_to "Evaluate", admin_evaluations_path(application.user), method: :post

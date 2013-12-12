@@ -26,6 +26,10 @@ class Application < ActiveRecord::Base
     end
   end
 
+  def complete?
+    self.class.steps.all? {|step| completed?(step)}
+  end
+
   def evaluated_by?(user)
     evaluations.where(user: user).any?
   end
