@@ -30,9 +30,9 @@
 }
 
 // creates circle#step-* classes and ids
-@for $i from 0 through 6 {
+@for $i from 0 through 7 {
   .circle#step-#{$i} {
-    left: -1% + ($i * 20%);
+    left: -1% + ($i * 16.6666667%);
 
     @if  $i != 0 {
       bottom: 50px + ($i * 40px)

@@ -20,6 +20,6 @@
 
       %div.center
         - if current_user.application.completed? :final
-          = link_to 'Review your Application', root_path, class: "btn btn-lg btn-warning btn-site"
+          = button_to 'Review your Application', root_path, method: :get, class: "btn btn-lg btn-warning btn-site"
         - else
           = button_to 'Submit Application', step_final_path, method: :put, class: "btn btn-lg btn-warning btn-site"

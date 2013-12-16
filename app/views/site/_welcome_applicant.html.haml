@@ -27,7 +27,9 @@
 
       %hr
 
-      - if current_user.applying?
+      - if current_user.application.completed? :final
+        = button_to('What\'s next?', apply_path, method: "get", class: "btn btn-lg btn-warning btn-site")
+      - elsif current_user.applying?
         = button_to('Continue / Review Application', apply_path, method: "get", class: "btn btn-lg btn-warning btn-site")
       - else
         = button_to('Start Application', apply_path, method: "get", class: "btn btn-lg btn-warning btn-site")

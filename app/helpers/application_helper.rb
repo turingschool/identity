@@ -10,4 +10,12 @@ module ApplicationHelper
   def applicants_initials(applications)
     applications.collect{ |application| application.user.name[0] }.uniq
   end
+
+  def format_response(response)
+    if response
+      "<p style='color:green'>Correct<p>".html_safe
+    else
+      "<p style='color:red'>Wrong<p>".html_safe
+    end
+  end
 end
