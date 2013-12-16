@@ -7,7 +7,19 @@
 
       %hr
 
-      %p Lorem Ipsum
+      %p
+        Thanks for completing your responses. You can edit your information any time. When you are ready, click on the button below to submit your application.
+
+      %p
+        Once we receive your information, we will review it shortly. Remember to check your email for information regarding your application status.
+
+      %p
+        If you have any questions in the meantime you can contact us at #{mail_to "contact@jumpstartlab.com"}.
+
+      %hr
 
       %div.center
-        = button_to 'Submit Application', step_final_path, method: :put, class: "btn btn-warning btn-submit"
+        - if current_user.application.completed? :final
+          = link_to 'Review your Application', root_path, class: "btn btn-lg btn-warning btn-site"
+        - else
+          = button_to 'Submit Application', step_final_path, method: :put, class: "btn btn-lg btn-warning btn-site"
