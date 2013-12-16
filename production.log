@@ -1,0 +1,502 @@
+2013-12-12T15:53:46.202008+00:00 app[web.1]: content-type: "application/json; charset=utf-8"
+2013-12-12T15:53:46.202008+00:00 app[web.1]: transfer-encoding: "chunked"
+2013-12-12T15:53:46.202008+00:00 app[web.1]: connection: "close"
+2013-12-12T15:53:46.202241+00:00 app[web.1]: x-runtime: "12"
+2013-12-12T15:53:46.202008+00:00 app[web.1]: cache-control: "private, max-age=0, must-revalidate"
+2013-12-12T15:53:46.202008+00:00 app[web.1]: strict-transport-security: "max-age=2592000"
+2013-12-12T15:53:46.202241+00:00 app[web.1]: vary: "Accept-Encoding"
+2013-12-12T15:53:46.202241+00:00 app[web.1]: set-cookie: "logged_in=no; domain=.github.com; path=/; expires=Mon, 12-Dec-2033 15:53:46 GMT; secure; HttpOnly"
+2013-12-12T15:53:46.202008+00:00 app[web.1]: x-frame-options: "deny"
+2013-12-12T15:53:46.202241+00:00 app[web.1]: etag: "\"5a909c1c958f64a10fcd57e1a8b918cc\""
+2013-12-12T15:53:46.202698+00:00 app[web.1]: I, [2013-12-12T15:53:46.202607 #2]  INFO -- : get https://api.github.com/user?access_token=baf2392f28fbaa0d13a4281e790f5ca9ff3a40b1
+2013-12-12T15:53:46.202241+00:00 app[web.1]: x-github-request-id: "36E0D623:2C4B:4CA31:52A9DC0A"
+2013-12-12T15:53:46.202698+00:00 app[web.1]: D, [2013-12-12T15:53:46.202664 #2] DEBUG -- request: User-Agent: "github.com:JumpstartLab/asquared"
+2013-12-12T15:53:46.231175+00:00 app[web.1]: status: "200 OK"
+2013-12-12T15:53:46.231175+00:00 app[web.1]: I, [2013-12-12T15:53:46.230968 #2]  INFO -- Status: 200
+2013-12-12T15:53:46.231175+00:00 app[web.1]: D, [2013-12-12T15:53:46.231135 #2] DEBUG -- response: server: "GitHub.com"
+2013-12-12T15:53:46.231175+00:00 app[web.1]: connection: "close"
+2013-12-12T15:53:46.231175+00:00 app[web.1]: date: "Thu, 12 Dec 2013 15:53:46 GMT"
+2013-12-12T15:53:46.231175+00:00 app[web.1]: content-type: "application/json; charset=utf-8"
+2013-12-12T15:53:46.231405+00:00 app[web.1]: x-oauth-scopes: ""
+2013-12-12T15:53:46.231405+00:00 app[web.1]: x-accepted-oauth-scopes: "user"
+2013-12-12T15:53:46.231405+00:00 app[web.1]: vary: "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding"
+2013-12-12T15:53:46.231175+00:00 app[web.1]: x-ratelimit-remaining: "4999"
+2013-12-12T15:53:46.231175+00:00 app[web.1]: transfer-encoding: "chunked"
+2013-12-12T15:53:46.231405+00:00 app[web.1]: cache-control: "private, max-age=60, s-maxage=60"
+2013-12-12T15:53:46.231405+00:00 app[web.1]: last-modified: "Wed, 11 Dec 2013 19:44:54 GMT"
+2013-12-12T15:53:46.231405+00:00 app[web.1]: access-control-expose-headers: "ETag, Link, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval"
+2013-12-12T15:53:46.231575+00:00 app[web.1]: access-control-allow-origin: "*"
+2013-12-12T15:53:46.231405+00:00 app[web.1]: x-github-media-type: "github.beta"
+2013-12-12T15:53:46.231175+00:00 app[web.1]: x-ratelimit-limit: "5000"
+2013-12-12T15:53:46.231175+00:00 app[web.1]: x-ratelimit-reset: "1386867226"
+2013-12-12T15:53:46.231405+00:00 app[web.1]: etag: "\"75a1f9053a72283eb0b9efa06fe1f287\""
+2013-12-12T15:53:46.231405+00:00 app[web.1]: x-content-type-options: "nosniff"
+2013-12-12T15:53:46.231405+00:00 app[web.1]: access-control-allow-credentials: "true"
+2013-12-12T15:53:46.231575+00:00 app[web.1]: x-github-request-id: "36E0D623:6DA6:3192E:52A9DC0A"
+2013-12-12T15:53:46.378933+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/
+2013-12-12T15:53:46.379157+00:00 app[web.1]: Completed 302 Found in 226ms (ActiveRecord: 18.4ms)
+2013-12-12T15:53:46.379223+00:00 app[web.1]: Completed 302 Found in 226ms (ActiveRecord: 18.4ms)
+2013-12-12T15:53:46.378933+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/
+2013-12-12T15:53:46.444370+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-12 15:53:46 +0000
+2013-12-12T15:53:46.447742+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-12T15:53:46.447742+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-12T15:53:46.445066+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-12 15:53:46 +0000
+2013-12-12T15:53:41.615031+00:00 heroku[router]: at=info method=GET path=/login? host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=6ms service=109ms status=302 bytes=148
+2013-12-12T15:53:46.529997+00:00 app[web.1]:   Rendered site/_welcome_applicant.html.haml (71.0ms)
+2013-12-12T15:53:46.530211+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (79.1ms)
+2013-12-12T15:53:46.527220+00:00 app[web.1]:   Rendered site/_welcome_applicant.html.haml (71.0ms)
+2013-12-12T15:53:46.530253+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (79.1ms)
+2013-12-12T15:53:46.541716+00:00 heroku[router]: at=info method=GET path=/ host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=2ms service=102ms status=200 bytes=2742
+2013-12-12T15:53:46.539352+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (3.8ms)
+2013-12-12T15:53:46.539352+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (3.8ms)
+2013-12-12T15:53:46.541318+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (1.1ms)
+2013-12-12T15:53:46.541318+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (1.1ms)
+2013-12-12T15:53:46.541837+00:00 app[web.1]: Completed 200 OK in 94ms (Views: 77.7ms | ActiveRecord: 14.6ms)
+2013-12-12T15:53:46.541922+00:00 app[web.1]: Completed 200 OK in 94ms (Views: 77.7ms | ActiveRecord: 14.6ms)
+2013-12-12T15:53:46.861131+00:00 heroku[router]: at=info method=GET path=/assets/application-d4ca991fe239de528232d32b4fecb922.css host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=3ms service=9ms status=304 bytes=0
+2013-12-12T15:53:57.539326+00:00 app[web.1]: Started GET "/apply" for 50.201.187.129 at 2013-12-12 15:53:57 +0000
+2013-12-12T15:53:57.542356+00:00 app[web.1]: Processing by StepController#show as HTML
+2013-12-12T15:53:57.539326+00:00 app[web.1]: Started GET "/apply" for 50.201.187.129 at 2013-12-12 15:53:57 +0000
+2013-12-12T15:53:57.542356+00:00 app[web.1]: Processing by StepController#show as HTML
+2013-12-12T15:53:57.550269+00:00 app[web.1]: Completed 302 Found in 8ms (ActiveRecord: 3.0ms)
+2013-12-12T15:53:57.550077+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/apply/step-1
+2013-12-12T15:53:57.550077+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/apply/step-1
+2013-12-12T15:53:57.550269+00:00 app[web.1]: Completed 302 Found in 8ms (ActiveRecord: 3.0ms)
+2013-12-12T15:53:57.630067+00:00 app[web.1]: Started GET "/apply/step-1" for 50.201.187.129 at 2013-12-12 15:53:57 +0000
+2013-12-12T15:53:57.630067+00:00 app[web.1]: Started GET "/apply/step-1" for 50.201.187.129 at 2013-12-12 15:53:57 +0000
+2013-12-12T15:53:57.632543+00:00 app[web.1]: Processing by Step::BioController#show as HTML
+2013-12-12T15:53:57.632543+00:00 app[web.1]: Processing by Step::BioController#show as HTML
+2013-12-12T15:53:57.648423+00:00 app[web.1]:   Rendered step/shared/_progress_bar.html.haml (2.1ms)
+2013-12-12T15:53:57.648423+00:00 app[web.1]:   Rendered step/shared/_progress_bar.html.haml (2.1ms)
+2013-12-12T15:53:57.651317+00:00 app[web.1]:   Rendered step/bio/show.html.haml within layouts/application (10.2ms)
+2013-12-12T15:53:57.652670+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (0.6ms)
+2013-12-12T15:53:57.651317+00:00 app[web.1]:   Rendered step/bio/show.html.haml within layouts/application (10.2ms)
+2013-12-12T15:53:57.652933+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-12T15:53:57.652670+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (0.6ms)
+2013-12-12T15:53:57.653341+00:00 app[web.1]: Completed 200 OK in 21ms (Views: 13.9ms | ActiveRecord: 2.6ms)
+2013-12-12T15:53:57.653341+00:00 app[web.1]: Completed 200 OK in 21ms (Views: 13.9ms | ActiveRecord: 2.6ms)
+2013-12-12T15:53:57.652933+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-12T15:54:03.515083+00:00 app[web.1]: Processing by Step::BioController#update as HTML
+2013-12-12T15:54:03.515083+00:00 app[web.1]: Processing by Step::BioController#update as HTML
+2013-12-12T15:54:03.512382+00:00 app[web.1]: Started PUT "/apply/step-1" for 50.201.187.129 at 2013-12-12 15:54:03 +0000
+2013-12-12T15:54:03.515228+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"SHLblPVf1icJfe1zVrsrIZKE+i1C88HcDBhkmLuTMso=", "bio"=>{"name"=>"Jorge Tellez", "email"=>"novohispano@gmail.com", "location"=>"Mexico"}, "commit"=>"Save"}
+2013-12-12T15:54:03.512286+00:00 app[web.1]: Started PUT "/apply/step-1" for 50.201.187.129 at 2013-12-12 15:54:03 +0000
+2013-12-12T15:54:03.515083+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"SHLblPVf1icJfe1zVrsrIZKE+i1C88HcDBhkmLuTMso=", "bio"=>{"name"=>"Jorge Tellez", "email"=>"novohispano@gmail.com", "location"=>"Mexico"}, "commit"=>"Save"}
+2013-12-12T15:54:03.552334+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/apply/step-2
+2013-12-12T15:54:03.552533+00:00 app[web.1]: Completed 302 Found in 37ms (ActiveRecord: 19.2ms)
+2013-12-12T15:54:03.552533+00:00 app[web.1]: Completed 302 Found in 37ms (ActiveRecord: 19.2ms)
+2013-12-12T15:54:03.552334+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/apply/step-2
+2013-12-12T15:54:03.763114+00:00 app[web.1]: Started GET "/apply/step-2" for 50.201.187.129 at 2013-12-12 15:54:03 +0000
+2013-12-12T15:54:03.763229+00:00 app[web.1]: Started GET "/apply/step-2" for 50.201.187.129 at 2013-12-12 15:54:03 +0000
+2013-12-12T15:54:03.767211+00:00 app[web.1]: Processing by Step::ResumeController#show as HTML
+2013-12-12T15:54:03.767211+00:00 app[web.1]: Processing by Step::ResumeController#show as HTML
+2013-12-12T15:54:03.781950+00:00 app[web.1]:   Rendered step/shared/_progress_bar.html.haml (0.4ms)
+2013-12-12T15:54:03.781950+00:00 app[web.1]:   Rendered step/shared/_progress_bar.html.haml (0.4ms)
+2013-12-12T15:54:03.784686+00:00 app[web.1]:   Rendered step/resume/show.html.haml within layouts/application (7.2ms)
+2013-12-12T15:54:03.784686+00:00 app[web.1]:   Rendered step/resume/show.html.haml within layouts/application (7.2ms)
+2013-12-12T15:54:03.855488+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-12T15:54:03.856165+00:00 app[web.1]: Completed 200 OK in 89ms (Views: 79.9ms | ActiveRecord: 4.4ms)
+2013-12-12T15:54:03.863760+00:00 heroku[router]: at=info method=GET path=/apply/step-2 host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=8ms service=105ms status=200 bytes=2435
+2013-12-12T15:54:03.854991+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (0.7ms)
+2013-12-12T15:54:03.854991+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (0.7ms)
+2013-12-12T15:54:03.857868+00:00 app[web.1]: Completed 200 OK in 89ms (Views: 79.9ms | ActiveRecord: 4.4ms)
+2013-12-12T15:54:03.855446+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-12T15:54:30.624418+00:00 app[web.1]: Started DELETE "/logout" for 50.201.187.129 at 2013-12-12 15:54:30 +0000
+2013-12-12T15:54:30.624418+00:00 app[web.1]: Started DELETE "/logout" for 50.201.187.129 at 2013-12-12 15:54:30 +0000
+2013-12-12T15:54:30.627547+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/
+2013-12-12T15:54:30.626319+00:00 app[web.1]: Processing by SessionsController#destroy as HTML
+2013-12-12T15:54:30.626319+00:00 app[web.1]: Processing by SessionsController#destroy as HTML
+2013-12-12T15:54:30.627720+00:00 app[web.1]: Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+2013-12-12T15:54:30.627547+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/
+2013-12-12T15:54:30.627720+00:00 app[web.1]: Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+2013-12-12T15:54:30.626319+00:00 app[web.1]:   Parameters: {"authenticity_token"=>"SHLblPVf1icJfe1zVrsrIZKE+i1C88HcDBhkmLuTMso="}
+2013-12-12T15:54:30.626319+00:00 app[web.1]:   Parameters: {"authenticity_token"=>"SHLblPVf1icJfe1zVrsrIZKE+i1C88HcDBhkmLuTMso="}
+2013-12-12T15:54:30.630269+00:00 heroku[router]: at=info method=POST path=/logout host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=40ms service=9ms status=302 bytes=107
+2013-12-12T15:54:30.754829+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-12 15:54:30 +0000
+2013-12-12T15:54:30.754829+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-12 15:54:30 +0000
+2013-12-12T15:54:30.757382+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-12T15:54:30.757382+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-12T15:54:30.762239+00:00 app[web.1]:   Rendered site/_welcome_guest.html.haml (2.9ms)
+2013-12-12T15:54:30.762322+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (3.9ms)
+2013-12-12T15:54:30.762239+00:00 app[web.1]:   Rendered site/_welcome_guest.html.haml (2.9ms)
+2013-12-12T15:54:30.762322+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (3.9ms)
+2013-12-12T15:54:30.763759+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (0.5ms)
+2013-12-12T15:54:30.763759+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (0.5ms)
+2013-12-12T15:54:30.764152+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-12T15:54:30.764603+00:00 app[web.1]: Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+2013-12-12T15:54:30.764603+00:00 app[web.1]: Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+2013-12-12T15:54:30.764231+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-12T15:54:33.495163+00:00 app[web.1]: Started GET "/login" for 50.201.187.129 at 2013-12-12 15:54:33 +0000
+2013-12-12T15:54:33.496768+00:00 app[web.1]: Processing by SessionsController#new as HTML
+2013-12-12T15:54:33.497817+00:00 app[web.1]: Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+2013-12-12T15:54:33.495163+00:00 app[web.1]: Started GET "/login" for 50.201.187.129 at 2013-12-12 15:54:33 +0000
+2013-12-12T15:54:33.496768+00:00 app[web.1]: Processing by SessionsController#new as HTML
+2013-12-12T15:54:33.497624+00:00 app[web.1]: Redirected to https://github.com/login/oauth/authorize?client_id=54494bfa75b155ce9b0a
+2013-12-12T15:54:33.497817+00:00 app[web.1]: Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+2013-12-12T15:54:33.497624+00:00 app[web.1]: Redirected to https://github.com/login/oauth/authorize?client_id=54494bfa75b155ce9b0a
+2013-12-12T15:54:33.837125+00:00 app[web.1]: Started GET "/github/callback?code=21a4299d5934d536a2ff" for 50.201.187.129 at 2013-12-12 15:54:33 +0000
+2013-12-12T15:54:33.838241+00:00 app[web.1]: Processing by SessionsController#callback as HTML
+2013-12-12T15:54:33.839592+00:00 app[web.1]: D, [2013-12-12T15:54:33.839517 #2] DEBUG -- request: User-Agent: "github.com:JumpstartLab/asquared"
+2013-12-12T15:54:33.837125+00:00 app[web.1]: Started GET "/github/callback?code=21a4299d5934d536a2ff" for 50.201.187.129 at 2013-12-12 15:54:33 +0000
+2013-12-12T15:54:33.839495+00:00 app[web.1]: I, [2013-12-12T15:54:33.839396 #2]  INFO -- : post https://github.com/login/oauth/access_token
+2013-12-12T15:54:33.838241+00:00 app[web.1]: Processing by SessionsController#callback as HTML
+2013-12-12T15:54:33.838241+00:00 app[web.1]:   Parameters: {"code"=>"21a4299d5934d536a2ff"}
+2013-12-12T15:54:33.838241+00:00 app[web.1]:   Parameters: {"code"=>"21a4299d5934d536a2ff"}
+2013-12-12T15:54:33.839592+00:00 app[web.1]: Accept: "application/json"
+2013-12-12T15:54:33.868812+00:00 app[web.1]: I, [2013-12-12T15:54:33.868600 #2]  INFO -- Status: 200
+2013-12-12T15:54:33.868812+00:00 app[web.1]: connection: "close"
+2013-12-12T15:54:33.868812+00:00 app[web.1]: status: "200 OK"
+2013-12-12T15:54:33.868812+00:00 app[web.1]: D, [2013-12-12T15:54:33.868760 #2] DEBUG -- response: server: "GitHub.com"
+2013-12-12T15:54:33.868812+00:00 app[web.1]: date: "Thu, 12 Dec 2013 15:54:33 GMT"
+2013-12-12T15:54:33.868812+00:00 app[web.1]: content-type: "application/json; charset=utf-8"
+2013-12-12T15:54:33.868812+00:00 app[web.1]: x-frame-options: "deny"
+2013-12-12T15:54:33.869068+00:00 app[web.1]: set-cookie: "logged_in=no; domain=.github.com; path=/; expires=Mon, 12-Dec-2033 15:54:33 GMT; secure; HttpOnly"
+2013-12-12T15:54:33.869068+00:00 app[web.1]: x-runtime: "9"
+2013-12-12T15:54:33.868812+00:00 app[web.1]: transfer-encoding: "chunked"
+2013-12-12T15:54:33.868812+00:00 app[web.1]: cache-control: "private, max-age=0, must-revalidate"
+2013-12-12T15:54:33.868812+00:00 app[web.1]: strict-transport-security: "max-age=2592000"
+2013-12-12T15:54:33.869068+00:00 app[web.1]: etag: "\"5a909c1c958f64a10fcd57e1a8b918cc\""
+2013-12-12T15:54:33.869450+00:00 app[web.1]: D, [2013-12-12T15:54:33.869410 #2] DEBUG -- request: User-Agent: "github.com:JumpstartLab/asquared"
+2013-12-12T15:54:33.869068+00:00 app[web.1]: x-github-request-id: "36E0D623:6DAB:29B53C:52A9DC39"
+2013-12-12T15:54:33.869450+00:00 app[web.1]: I, [2013-12-12T15:54:33.869352 #2]  INFO -- : get https://api.github.com/user?access_token=baf2392f28fbaa0d13a4281e790f5ca9ff3a40b1
+2013-12-12T15:54:33.869068+00:00 app[web.1]: vary: "Accept-Encoding"
+2013-12-12T15:54:33.897328+00:00 app[web.1]: content-type: "application/json; charset=utf-8"
+2013-12-12T15:54:33.897328+00:00 app[web.1]: status: "200 OK"
+2013-12-12T15:54:33.897328+00:00 app[web.1]: x-ratelimit-limit: "5000"
+2013-12-12T15:54:33.897328+00:00 app[web.1]: D, [2013-12-12T15:54:33.897289 #2] DEBUG -- response: server: "GitHub.com"
+2013-12-12T15:54:33.897328+00:00 app[web.1]: date: "Thu, 12 Dec 2013 15:54:33 GMT"
+2013-12-12T15:54:33.897328+00:00 app[web.1]: transfer-encoding: "chunked"
+2013-12-12T15:54:33.897328+00:00 app[web.1]: I, [2013-12-12T15:54:33.897138 #2]  INFO -- Status: 200
+2013-12-12T15:54:33.897328+00:00 app[web.1]: x-ratelimit-reset: "1386867226"
+2013-12-12T15:54:33.897559+00:00 app[web.1]: x-oauth-scopes: ""
+2013-12-12T15:54:33.897559+00:00 app[web.1]: x-github-media-type: "github.beta"
+2013-12-12T15:54:33.897328+00:00 app[web.1]: connection: "close"
+2013-12-12T15:54:33.897559+00:00 app[web.1]: vary: "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding"
+2013-12-12T15:54:33.897559+00:00 app[web.1]: access-control-allow-credentials: "true"
+2013-12-12T15:54:33.897729+00:00 app[web.1]: access-control-allow-origin: "*"
+2013-12-12T15:54:33.897729+00:00 app[web.1]: x-github-request-id: "36E0D623:6DAA:296C0E:52A9DC39"
+2013-12-12T15:54:33.897559+00:00 app[web.1]: last-modified: "Wed, 11 Dec 2013 19:44:54 GMT"
+2013-12-12T15:54:33.897328+00:00 app[web.1]: x-ratelimit-remaining: "4998"
+2013-12-12T15:54:33.897559+00:00 app[web.1]: etag: "\"75a1f9053a72283eb0b9efa06fe1f287\""
+2013-12-12T15:54:33.904938+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/
+2013-12-12T15:54:33.897559+00:00 app[web.1]: cache-control: "private, max-age=60, s-maxage=60"
+2013-12-12T15:54:33.897559+00:00 app[web.1]: x-accepted-oauth-scopes: "user"
+2013-12-12T15:54:33.905137+00:00 app[web.1]: Completed 302 Found in 67ms (ActiveRecord: 4.5ms)
+2013-12-12T15:54:33.897559+00:00 app[web.1]: x-content-type-options: "nosniff"
+2013-12-12T15:54:33.897559+00:00 app[web.1]: access-control-expose-headers: "ETag, Link, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval"
+2013-12-12T15:54:33.904938
++00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/
+2013-12-12T15:54:33.905137+00:00 app[web.1]: Completed 302 Found in 67ms (ActiveRecord: 4.5ms)
+2013-12-12T15:54:34.057236+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-12 15:54:34 +0000
+2013-12-12T15:54:34.057236+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-12 15:54:34 +0000
+2013-12-12T15:54:34.059166+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-12T15:54:34.059166+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-12T15:54:34.068531+00:00 app[web.1]:   Rendered site/_welcome_applicant.html.haml (3.9ms)
+2013-12-12T15:54:34.068531+00:00 app[web.1]:   Rendered site/_welcome_applicant.html.haml (3.9ms)
+2013-12-12T15:54:34.073448+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (1.0ms)
+2013-12-12T15:54:34.068637+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (7.2ms)
+2013-12-12T15:54:34.074890+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-12T15:54:34.074890+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-12T15:54:34.071601+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (7.2ms)
+2013-12-12T15:54:34.073448+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (1.0ms)
+2013-12-12T15:54:34.075410+00:00 app[web.1]: Completed 200 OK in 15ms (Views: 11.1ms | ActiveRecord: 2.9ms)
+2013-12-12T15:54:34.075410+00:00 app[web.1]: Completed 200 OK in 15ms (Views: 11.1ms | ActiveRecord: 2.9ms)
+2013-12-12T15:54:34.140164+00:00 heroku[router]: at=info method=GET path=/ host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=31ms service=129ms status=200 bytes=2754
+2013-12-12T15:54:03.568939+00:00 heroku[router]: at=info method=POST path=/apply/step-1 host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=66ms service=60ms status=302 bytes=119
+2013-12-12T15:53:57.657221+00:00 heroku[router]: at=info method=GET path=/apply/step-1 host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=4ms service=29ms status=200 bytes=3068
+2013-12-12T15:54:33.506684+00:00 heroku[router]: at=info method=GET path=/login? host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=2ms service=13ms status=302 bytes=148
+2013-12-12T15:54:33.908759+00:00 heroku[router]: at=info method=GET path=/github/callback?code=21a4299d5934d536a2ff host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=51ms service=73ms status=302 bytes=107
+2013-12-12T15:53:57.561194+00:00 heroku[router]: at=info method=GET path=/apply? host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=14ms service=30ms status=302 bytes=119
+2013-12-12T16:20:57.517658+00:00 app[web.1]: Started GET "/apply" for 50.201.187.129 at 2013-12-12 16:20:57 +0000
+2013-12-12T16:20:57.521519+00:00 app[web.1]: Processing by StepController#show as HTML
+2013-12-12T16:20:57.521519+00:00 app[web.1]: Processing by StepController#show as HTML
+2013-12-12T16:20:57.518326+00:00 app[web.1]: Started GET "/apply" for 50.201.187.129 at 2013-12-12 16:20:57 +0000
+2013-12-12T16:20:57.551291+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/apply/step-2
+2013-12-12T16:20:57.551547+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/apply/step-2
+2013-12-12T16:20:57.552007+00:00 app[web.1]: Completed 302 Found in 30ms (ActiveRecord: 25.1ms)
+2013-12-12T16:20:57.552222+00:00 app[web.1]: Completed 302 Found in 30ms (ActiveRecord: 25.1ms)
+2013-12-12T16:20:57.555847+00:00 heroku[router]: at=info method=GET path=/apply? host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=5ms service=48ms status=302 bytes=119
+2013-12-12T16:20:58.575994+00:00 app[web.1]: Started GET "/apply/step-2" for 50.201.187.129 at 2013-12-12 16:20:58 +0000
+2013-12-12T16:20:58.578342+00:00 app[web.1]: Processing by Step::ResumeController#show as HTML
+2013-12-12T16:20:58.578342+00:00 app[web.1]: Processing by Step::ResumeController#show as HTML
+2013-12-12T16:20:58.575994+00:00 app[web.1]: Started GET "/apply/step-2" for 50.201.187.129 at 2013-12-12 16:20:58 +0000
+2013-12-12T16:20:58.588779+00:00 app[web.1]:   Rendered step/shared/_progress_bar.html.haml (0.4ms)
+2013-12-12T16:20:58.594094+00:00 app[web.1]:   Rendered step/resume/show.html.haml within layouts/application (6.1ms)
+2013-12-12T16:20:58.596004+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (1.1ms)
+2013-12-12T16:20:58.594094+00:00 app[web.1]:   Rendered step/resume/show.html.haml within layouts/application (6.1ms)
+2013-12-12T16:20:58.596733+00:00 app[web.1]: Completed 200 OK in 18ms (Views: 9.1ms | ActiveRecord: 5.3ms)
+2013-12-12T16:20:58.596004+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (1.1ms)
+2013-12-12T16:20:58.596235+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-12T16:20:58.588779+00:00 app[web.1]:   Rendered step/shared/_progress_bar.html.haml (0.4ms)
+2013-12-12T16:20:58.596733+00:00 app[web.1]: Completed 200 OK in 18ms (Views: 9.1ms | ActiveRecord: 5.3ms)
+2013-12-12T16:20:58.596235+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-12T16:53:48.094697+00:00 app[web.1]: Processing by SessionsController#destroy as HTML
+2013-12-12T16:53:48.094697+00:00 app[web.1]:   Parameters: {"authenticity_token"=>"KSG7VXSEFxlzgA001571hc/pR38+zLB5MsTH2NbExHM="}
+2013-12-12T16:53:48.094697+00:00 app[web.1]:   Parameters: {"authenticity_token"=>"KSG7VXSEFxlzgA001571hc/pR38+zLB5MsTH2NbExHM="}
+2013-12-12T16:53:48.096191+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/
+2013-12-12T16:53:48.096344+00:00 app[web.1]: Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+2013-12-12T16:53:48.092717+00:00 app[web.1]: Started DELETE "/logout" for 50.201.187.129 at 2013-12-12 16:53:48 +0000
+2013-12-12T16:53:48.094697+00:00 app[web.1]: Processing by SessionsController#destroy as HTML
+2013-12-12T16:53:48.092717+00:00 app[web.1]: Started DELETE "/logout" for 50.201.187.129 at 2013-12-12 16:53:48 +0000
+2013-12-12T16:53:48.096191+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/
+2013-12-12T16:53:48.096344+00:00 app[web.1]: Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+2013-12-12T16:53:48.139299+00:00 heroku[router]: at=info method=POST path=/logout host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=2ms service=758ms status=302 bytes=107
+2013-12-12T16:53:48.271569+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-12 16:53:48 +0000
+2013-12-12T16:53:48.271569+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-12 16:53:48 +0000
+2013-12-12T16:53:48.272653+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-12T16:53:48.275017+00:00 app[web.1]:   Rendered site/_welcome_guest.html.haml (0.5ms)
+2013-12-12T16:53:48.275017+00:00 app[web.1]:   Rendered site/_welcome_guest.html.haml (0.5ms)
+2013-12-12T16:53:48.276538+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (0.5ms)
+2013-12-12T16:53:48.276647+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (0.5ms)
+2013-12-12T16:53:48.276890+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-12T16:53:48.272653+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-12T16:53:48.275235+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (1.1ms)
+2013-12-12T16:53:48.277328+00:00 app[web.1]: Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+2013-12-12T16:53:48.275235+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (1.1ms)
+2013-12-12T16:53:48.276954+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-12T16:53:48.277328+00:00 app[web.1]: Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+2013-12-12T17:56:43.227180+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2013-12-12T17:56:44.057505+00:00 app[web.1]: Exiting
+2013-12-12T17:56:47.362395+00:00 heroku[web.1]: Process exited with status 143
+2013-12-12T17:56:38.810097+00:00 heroku[web.1]: State changed from up to down
+2013-12-12T17:56:38.809610+00:00 heroku[web.1]: Idling
+2013-12-16T17:15:54+00:00 heroku[slug-compiler]: Slug compilation started
+2013-12-16T17:16:28.980161+00:00 heroku[api]: Deploy 95436c3 by novohispano@gmail.com
+2013-12-16T17:16:29.155083+00:00 heroku[api]: Release v14 created by novohispano@gmail.com
+2013-12-16T17:16:29+00:00 heroku[slug-compiler]: Slug compilation finished
+2013-12-16T17:16:29.417330+00:00 heroku[web.1]: State changed from down to starting
+2013-12-16T17:16:33.948867+00:00 heroku[web.1]: Starting process with command `bin/rails server -p 39450 -e $RAILS_ENV`
+2013-12-16T17:16:37.704585+00:00 app[web.1]: => Booting Puma
+2013-12-16T17:16:37.704585+00:00 app[web.1]: => Rails 4.0.0 application starting in production on http://0.0.0.0:39450
+2013-12-16T17:16:37.704585+00:00 app[web.1]: => Run `rails server -h` for more startup options
+2013-12-16T17:16:37.704747+00:00 app[web.1]: => Ctrl-C to shutdown server
+2013-12-16T17:16:38.508053+00:00 app[web.1]: Puma 1.6.3 starting...
+2013-12-16T17:16:38.508053+00:00 app[web.1]: * Min threads: 0, max threads: 16
+2013-12-16T17:16:38.508053+00:00 app[web.1]: * Environment: production
+2013-12-16T17:16:38.508053+00:00 app[web.1]: * Listening on tcp://0.0.0.0:39450
+2013-12-16T17:16:39.038948+00:00 heroku[web.1]: State changed from starting to up
+2013-12-16T17:18:07.337472+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-16 17:18:07 +0000
+2013-12-16T17:18:07.337472+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-16 17:18:07 +0000
+2013-12-16T17:18:07.636258+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-16T17:18:07.636258+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-16T17:18:07.661173+00:00 app[web.1]:   Rendered site/_welcome_guest.html.haml (2.0ms)
+2013-12-16T17:18:07.661173+00:00 app[web.1]:   Rendered site/_welcome_guest.html.haml (2.0ms)
+2013-12-16T17:18:07.661173+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (3.9ms)
+2013-12-16T17:18:07.661173+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (3.9ms)
+2013-12-16T17:18:07.667059+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (3.0ms)
+2013-12-16T17:18:07.667059+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (3.0ms)
+2013-12-16T17:18:07.668555+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.9ms)
+2013-12-16T17:18:07.668555+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.9ms)
+2013-12-16T17:18:07.668864+00:00 app[web.1]: Completed 200 OK in 33ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+2013-12-16T17:18:07.668864+00:00 app[web.1]: Completed 200 OK in 33ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+2013-12-16T17:18:07.844794+00:00 heroku[router]: at=info method=GET path=/assets/application-92c57d1bff2d2de69385af99f34b8698.js host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=3ms service=15ms status=200 bytes=107160
+2013-12-16T17:18:07.895009+00:00 heroku[router]: at=info method=GET path=/assets/application-d90e10715f016842a2dd5948c0c0fcba.css host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=2ms service=6ms status=200 bytes=98108
+2013-12-16T17:18:08.308591+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=5ms service=5ms status=200 bytes=0
+2013-12-16T17:18:11.614970+00:00 app[web.1]: Started GET "/login" for 50.201.187.129 at 2013-12-16 17:18:11 +0000
+2013-12-16T17:18:11.618286+00:00 app[web.1]: Redirected to https://github.com/login/oauth/authorize?client_id=54494bfa75b155ce9b0a
+2013-12-16T17:18:11.617095+00:00 app[web.1]: Processing by SessionsController#new as HTML
+2013-12-16T17:18:11.614970+00:00 app[web.1]: Started GET "/login" for 50.201.187.129 at 2013-12-16 17:18:11 +0000
+2013-12-16T17:18:11.618286+00:00 app[web.1]: Redirected to https://github.com/login/oauth/authorize?client_id=54494bfa75b155ce9b0a
+2013-12-16T17:18:11.617095+00:00 app[web.1]: Processing by SessionsController#new as HTML
+2013-12-16T17:18:11.618891+00:00 app[web.1]: Completed 403 Forbidden in 2ms (ActiveRecord: 0.0ms)
+2013-12-16T17:18:11.618891+00:00 app[web.1]: Completed 403 Forbidden in 2ms (ActiveRecord: 0.0ms)
+2013-12-16T17:18:11.692341+00:00 app[web.1]: Processing by SessionsController#new as HTML
+2013-12-16T17:18:11.692868+00:00 app[web.1]: Redirected to https://github.com/login/oauth/authorize?client_id=54494bfa75b155ce9b0a
+2013-12-16T17:18:11.707162+00:00 heroku[router]: at=info method=GET path=/login host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=2ms service=7ms status=302 bytes=148
+2013-12-16T17:18:11.690493+00:00 app[web.1]: Started GET "/login" for 50.201.187.129 at 2013-12-16 17:18:11 +0000
+2013-12-16T17:18:11.692341+00:00 app[web.1]: Processing by SessionsController#new as HTML
+2013-12-16T17:18:11.692979+00:00 app[web.1]: Redirected to https://github.com/login/oauth/authorize?client_id=54494bfa75b155ce9b0a
+2013-12-16T17:18:11.690493+00:00 app[web.1]: Started GET "/login" for 50.201.187.129 at 2013-12-16 17:18:11 +0000
+2013-12-16T17:18:11.693197+00:00 app[web.1]: Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+2013-12-16T17:18:11.693197+00:00 app[web.1]: Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+2013-12-16T17:18:17.905741+00:00 app[web.1]: Started GET "/github/callback?code=c39e4ed7570865334bb5" for 50.201.187.129 at 2013-12-16 17:18:17 +0000
+2013-12-16T17:18:17.906685+00:00 app[web.1]: Processing by SessionsController#callback as HTML
+2013-12-16T17:18:17.906685+00:00 app[web.1]: Processing by SessionsController#callback as HTML
+2013-12-16T17:18:17.906685+00:00 app[web.1]:   Parameters: {"code"=>"c39e4ed7570865334bb5"}
+2013-12-16T17:18:17.905741+00:00 app[web.1]: Started GET "/github/callback?code=c39e4ed7570865334bb5" for 50.201.187.129 at 2013-12-16 17:18:17 +0000
+2013-12-16T17:18:17.906685+00:00 app[web.1]:   Parameters: {"code"=>"c39e4ed7570865334bb5"}
+2013-12-16T17:18:17.912273+00:00 app[web.1]: I, [2013-12-16T17:18:17.912172 #2]  INFO -- : post https://github.com/login/oauth/access_token
+2013-12-16T17:18:17.912273+00:00 app[web.1]: Accept: "application/json"
+2013-12-16T17:18:17.912273+00:00 app[web.1]: D, [2013-12-16T17:18:17.912248 #2] DEBUG -- request: User-Agent: "github.com:JumpstartLab/asquared"
+2013-12-16T17:18:17.943337+00:00 app[web.1]: I, [2013-12-16T17:18:17.943195 #2]  INFO -- Status: 200
+2013-12-16T17:18:17.943413+00:00 app[web.1]: D, [2013-12-16T17:18:17.943345 #2] DEBUG -- response: server: "GitHub.com"
+2013-12-16T17:18:17.943413+00:00 app[web.1]: connection: "close"
+2013-12-16T17:18:17.943413+00:00 app[web.1]: transfer-encoding: "chunked"
+2013-12-16T17:18:17.943413+00:00 app[web.1]: status: "200 OK"
+2013-12-16T17:18:17.943413+00:00 app[web.1]: cache-control: "private, max-age=0, must-revalidate"
+2013-12-16T17:18:17.943413+00:00 app[web.1]: date: "Mon, 16 Dec 2013 17:18:17 GMT"
+2013-12-16T17:18:17.943413+00:00 app[web.1]: content-type: "application/json; charset=utf-8"
+2013-12-16T17:18:17.943413+00:00 app[web.1]: x-frame-options: "deny"
+2013-12-16T17:18:17.943568+00:00 app[web.1]: x-runtime: "13"
+2013-12-16T17:18:17.943413+00:00 app[web.1]: strict-transport-security: "max-age=2592000"
+2013-12-16T17:18:17.943413+00:00 app[web.1]: set-cookie: "logged_in=no; domain=.github.com; path=/; expires=Fri, 16-Dec-2033 17:18:17 GMT; secure; HttpOnly"
+2013-12-16T17:18:17.943568+00:00 app[web.1]: etag: "\"f17d960ef6ab009cc17a5d133de93c50\""
+2013-12-16T17:18:17.943568+00:00 app[web.1]: x-github-request-id: "36ED7769:2C4C:32A80E8:52AF35D9"
+2013-12-16T17:18:17.944101+00:00 app[web.1]: D, [2013-12-16T17:18:17.944073 #2] DEBUG -- request: User-Agent: "github.com:JumpstartLab/asquared"
+2013-12-16T17:18:17.943568+00:00 app[web.1]: vary: "Accept-Encoding"
+2013-12-16T17:18:17.944101+00:00 app[web.1]: I, [2013-12-16T17:18:17.944023 #2]  INFO -- : get https://api.github.com/user?access_token=cf420a49cc625a933f6825ab5efdd365dc518ec4
+2013-12-16T17:18:17.972095+00:00 app[web.1]: transfer-encoding: "chunked"
+2013-12-16T17:18:17.972095+00:00 app[web.1]: connection: "close"
+2013-12-16T17:18:17.972095+00:00 app[web.1]: status: "200 OK"
+2013-12-16T17:18:17.972095+00:00 app[web.1]: D, [2013-12-16T17:18:17.972076 #2] DEBUG -- response: server: "GitHub.com"
+2013-12-16T17:18:17.972095+00:00 app[web.1]: x-ratelimit-remaining: "4999"
+2013-12-16T17:18:17.972095+00:00 app[web.1]: x-ratelimit-limit: "5000"
+2013-12-16T17:18:17.972095+00:00 app[web.1]: x-ratelimit-reset: "1387217897"
+2013-12-16T17:18:17.972095+00:00 app[web.1]: I, [2013-12-16T17:18:17.971949 #2]  INFO -- Status: 200
+2013-12-16T17:18:17.972095+00:00 app[web.1]: date: "Mon, 16 Dec 2013 17:18:17 GMT"
+2013-12-16T17:18:17.972297+00:00 app[web.1]: cache-control: "private, max-age=60, s-maxage=60"
+2013-12-16T17:18:17.972297+00:00 app[web.1]: last-modified: "Mon, 16 Dec 2013 16:42:27 GMT"
+2013-12-16T17:18:17.972297+00:00 app[web.1]: etag: "\"c2c791a909f4ac74a8565d5aeb95fea8\""
+2013-12-16T17:18:17.972297+00:00 app[web.1]: x-oauth-scopes: ""
+2013-12-16T17:18:17.972297+00:00 app[web.1]: x-accepted-oauth-scopes: "user"
+2013-12-16T17:18:17.972095+00:00 app[web.1]: content-type: "application/json; charset=utf-8"
+2013-12-16T17:18:17.972297+00:00 app[web.1]: vary: "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding"
+2013-12-16T17:18:17.972297+00:00 app[web.1]: access-control-allow-credentials: "true"
+2013-12-16T17:18:17.972297+00:00 app[web.1]: access-control-expose-headers: "ETag, Link, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval"
+2013-12-16T17:18:17.972455+00:00 app[web.1]: access-control-allow-origin: "*"
+2013-12-16T17:18:17.972455+00:00 app[web.1]: x-github-request-id: "36ED7769:2C4D:7117AA2:52AF35D9"
+2013-12-16T17:18:17.972297+00:00 app[web.1]: x-github-media-type: "github.beta"
+2013-12-16T17:18:17.972297+00:00 app[web.1]: x-content-type-options: "nosniff"
+2013-12-16T17:18:18.083578+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/
+2013-12-16T17:18:18.083578+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/
+2013-12-16T17:18:18.083794+00:00 app[web.1]: Completed 302 Found in 177ms (ActiveRecord: 75.0ms)
+2013-12-16T17:18:18.083794+00:00 app[web.1]: Completed 302 Found in 177ms (ActiveRecord: 75.0ms)
+2013-12-16T17:18:18.097895+00:00 heroku[router]: at=info method=GET path=/github/callback?code=c39e4ed7570865334bb5 host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=7ms service=182ms status=302 bytes=107
+2013-12-16T17:18:18.156259+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-16T17:18:18.154421+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-16 17:18:18 +0000
+2013-12-16T17:18:18.156259+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-16T17:18:18.154421+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-16 17:18:18 +0000
+2013-12-16T17:18:18.183311+00:00 app[web.1]:   Rendered site/_welcome_applicant.html.haml (23.1ms)
+2013-12-16T17:18:18.183412+00:00 app[web.1]:   Rendered site/_welcome_applicant.html.haml (23.1ms)
+2013-12-16T17:18:18.183537+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (26.3ms)
+2013-12-16T17:18:18.183804+00:00 app[web.1]: Completed 500 Internal Server Error in 27ms
+2013-12-16T17:18:18.185721+00:00 app[web.1]: 
+2013-12-16T17:18:18.185721+00:00 app[web.1]: ActionView::Template::Error (undefined method `completed?' for nil:NilClass):
+2013-12-16T17:18:18.185721+00:00 app[web.1]:     29: 
+2013-12-16T17:18:18.185721+00:00 app[web.1]:     27: 
+2013-12-16T17:18:18.185721+00:00 app[web.1]:     30:       - if current_user.application.completed? :final
+2013-12-16T17:18:18.185721+00:00 app[web.1]:     31:         = button_to('What\'s next?', apply_path, method: "get", class: "btn btn-lg btn-warning btn-site")
+2013-12-16T17:18:18.183804+00:00 app[web.1]: Completed 500 Internal Server Error in 27ms
+2013-12-16T17:18:18.183597+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (26.3ms)
+2013-12-16T17:18:18.185721+00:00 app[web.1]:     33:         = button_to('Continue / Review Application', apply_path, method: "get", class: "btn btn-lg btn-warning btn-site")
+2013-12-16T17:18:18.185721+00:00 app[web.1]:     32:       - elsif current_user.applying?
+2013-12-16T17:18:18.185881+00:00 app[web.1]:   app/views/site/_welcome_applicant.html.haml:30:in `_app_views_site__welcome_applicant_html_haml___2874981580323349143_69963355468940'
+2013-12-16T17:18:18.185881+00:00 app[web.1]:   app/views/site/index.html.haml:4:in `_app_views_site_index_html_haml___4036426103775509861_69963355461060'
+2013-12-16T17:18:18.185881+00:00 app[web.1]: 
+2013-12-16T17:18:18.185881+00:00 app[web.1]: 
+2013-12-16T17:18:18.185721+00:00 app[web.1]:     28:       %hr
+2013-12-16T17:18:18.185881+00:00 app[web.1]: 
+2013-12-16T17:18:18.185881+00:00 app[web.1]: ActionView::Template::Error (undefined method `completed?' for nil:NilClass):
+2013-12-16T17:18:18.200691+00:00 heroku[router]: at=info method=GET path=/ host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=1ms service=38ms status=500 bytes=1266
+2013-12-16T17:18:18.185881+00:00 app[web.1]:     29: 
+2013-12-16T17:18:18.185881+00:00 app[web.1]:     30:       - if current_user.application.completed? :final
+2013-12-16T17:18:18.185881+00:00 app[web.1]:     28:       %hr
+2013-12-16T17:18:18.186028+00:00 app[web.1]:     33:         = button_to('Continue / Review Application', apply_path, method: "get", class: "btn btn-lg btn-warning btn-site")
+2013-12-16T17:18:18.186028+00:00 app[web.1]:   app/views/site/_welcome_applicant.html.haml:30:in `_app_views_site__welcome_applicant_html_haml___2874981580323349143_69963355468940'
+2013-12-16T17:18:18.186028+00:00 app[web.1]:     31:         = button_to('What\'s next?', apply_path, method: "get", class: "btn btn-lg btn-warning btn-site")
+2013-12-16T17:18:18.186028+00:00 app[web.1]:     32:       - elsif current_user.applying?
+2013-12-16T17:18:18.186028+00:00 app[web.1]:   app/views/site/index.html.haml:4:in `_app_views_site_index_html_haml___4036426103775509861_69963355461060'
+2013-12-16T17:18:18.185881+00:00 app[web.1]:     27: 
+2013-12-16T17:18:18.186028+00:00 app[web.1]: 
+2013-12-16T17:18:18.186028+00:00 app[web.1]: 
+2013-12-16T17:18:42.693780+00:00 heroku[api]: Starting process with command `bundle exec rake db:migrate` by novohispano@gmail.com
+2013-12-16T17:18:47.823266+00:00 heroku[run.8615]: Awaiting client
+2013-12-16T17:18:47.871986+00:00 heroku[run.8615]: Starting process with command `bundle exec rake db:migrate`
+2013-12-16T17:18:48.004428+00:00 heroku[run.8615]: State changed from starting to up
+2013-12-16T17:18:55.336757+00:00 heroku[run.8615]: State changed from up to complete
+2013-12-16T17:18:55.326998+00:00 heroku[run.8615]: Process exited with status 0
+2013-12-16T17:19:03.597405+00:00 app[web.1]:   Rendered site/_welcome_guest.html.haml (0.4ms)
+2013-12-16T17:19:03.597405+00:00 app[web.1]:   Rendered site/_welcome_guest.html.haml (0.4ms)
+2013-12-16T17:19:03.594864+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-16 17:19:03 +0000
+2013-12-16T17:19:03.596052+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-16T17:19:03.596052+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-16T17:19:03.597496+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (0.8ms)
+2013-12-16T17:19:03.594864+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-16 17:19:03 +0000
+2013-12-16T17:19:03.598633+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (0.4ms)
+2013-12-16T17:19:03.598818+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-16T17:19:03.598633+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (0.4ms)
+2013-12-16T17:19:03.597496+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (0.8ms)
+2013-12-16T17:19:03.598818+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-16T17:19:03.599056+00:00 app[web.1]: Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+2013-12-16T17:19:03.599056+00:00 app[web.1]: Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+2013-12-16T17:19:03.853400+00:00 heroku[router]: at=info method=GET path=/assets/application-d90e10715f016842a2dd5948c0c0fcba.css host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=13ms service=18ms status=200 bytes=98108
+2013-12-16T17:19:04.205165+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=2ms service=3ms status=200 bytes=0
+2013-12-16T17:19:05.928461+00:00 app[web.1]: Started GET "/login" for 50.201.187.129 at 2013-12-16 17:19:05 +0000
+2013-12-16T17:19:05.929804+00:00 app[web.1]: Processing by SessionsController#new as HTML
+2013-12-16T17:19:05.930530+00:00 app[web.1]: Redirected to https://github.com/login/oauth/authorize?client_id=54494bfa75b155ce9b0a
+2013-12-16T17:19:05.929804+00:00 app[web.1]: Processing by SessionsController#new as HTML
+2013-12-16T17:19:05.930671+00:00 app[web.1]: Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+2013-12-16T17:19:05.930671+00:00 app[web.1]: Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+2013-12-16T17:19:05.930530+00:00 app[web.1]: Redirected to https://github.com/login/oauth/authorize?client_id=54494bfa75b155ce9b0a
+2013-12-16T17:19:05.928461+00:00 app[web.1]: Started GET "/login" for 50.201.187.129 at 2013-12-16 17:19:05 +0000
+2013-12-16T17:19:05.953452+00:00 heroku[router]: at=info method=GET path=/login? host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=3ms service=13ms status=302 bytes=148
+2013-12-16T17:19:06.854534+00:00 app[web.1]: Started GET "/github/callback?code=82c05b6b44a938c45ba7" for 50.201.187.129 at 2013-12-16 17:19:06 +0000
+2013-12-16T17:19:06.854534+00:00 app[web.1]: Started GET "/github/callback?code=82c05b6b44a938c45ba7" for 50.201.187.129 at 2013-12-16 17:19:06 +0000
+2013-12-16T17:19:06.855388+00:00 app[web.1]: Processing by SessionsController#callback as HTML
+2013-12-16T17:19:06.855478+00:00 app[web.1]:   Parameters: {"code"=>"82c05b6b44a938c45ba7"}
+2013-12-16T17:19:06.855388+00:00 app[web.1]: Processing by SessionsController#callback as HTML
+2013-12-16T17:19:06.856530+00:00 app[web.1]: I, [2013-12-16T17:19:06.856426 #2]  INFO -- : post https://github.com/login/oauth/access_token
+2013-12-16T17:19:06.856623+00:00 app[web.1]: Accept: "application/json"
+2013-12-16T17:19:06.855514+00:00 app[web.1]:   Parameters: {"code"=>"82c05b6b44a938c45ba7"}
+2013-12-16T17:19:06.856623+00:00 app[web.1]: D, [2013-12-16T17:19:06.856549 #2] DEBUG -- request: User-Agent: "github.com:JumpstartLab/asquared"
+2013-12-16T17:19:06.882765+00:00 app[web.1]: date: "Mon, 16 Dec 2013 17:19:06 GMT"
+2013-12-16T17:19:06.882765+00:00 app[web.1]: transfer-encoding: "chunked"
+2013-12-16T17:19:06.882765+00:00 app[web.1]: content-type: "application/json; charset=utf-8"
+2013-12-16T17:19:06.882765+00:00 app[web.1]: cache-control: "private, max-age=0, must-revalidate"
+2013-12-16T17:19:06.882765+00:00 app[web.1]: connection: "close"
+2013-12-16T17:19:06.882765+00:00 app[web.1]: status: "200 OK"
+2013-12-16T17:19:06.882765+00:00 app[web.1]: I, [2013-12-16T17:19:06.882564 #2]  INFO -- Status: 200
+2013-12-16T17:19:06.882765+00:00 app[web.1]: D, [2013-12-16T17:19:06.882714 #2] DEBUG -- response: server: "GitHub.com"
+2013-12-16T17:19:06.882961+00:00 app[web.1]: set-cookie: "logged_in=no; domain=.github.com; path=/; expires=Fri, 16-Dec-2033 17:19:06 GMT; secure; HttpOnly"
+2013-12-16T17:19:06.882961+00:00 app[web.1]: etag: "\"5a909c1c958f64a10fcd57e1a8b918cc\""
+2013-12-16T17:19:06.882765+00:00 app[web.1]: x-frame-options: "deny"
+2013-12-16T17:19:06.882961+00:00 app[web.1]: x-runtime: "7"
+2013-12-16T17:19:06.883361+00:00 app[web.1]: I, [2013-12-16T17:19:06.883231 #2]  INFO -- : get https://api.github.com/user?access_token=baf2392f28fbaa0d13a4281e790f5ca9ff3a40b1
+2013-12-16T17:19:06.882961+00:00 app[web.1]: x-github-request-id: "36ED7769:2C4B:E1E707:52AF360A"
+2013-12-16T17:19:06.882961+00:00 app[web.1]: vary: "Accept-Encoding"
+2013-12-16T17:19:06.883361+00:00 app[web.1]: D, [2013-12-16T17:19:06.883333 #2] DEBUG -- request: User-Agent: "github.com:JumpstartLab/asquared"
+2013-12-16T17:19:06.882765+00:00 app[web.1]: strict-transport-security: "max-age=2592000"
+2013-12-16T17:19:06.906643+00:00 app[web.1]: status: "200 OK"
+2013-12-16T17:19:06.906643+00:00 app[web.1]: connection: "close"
+2013-12-16T17:19:06.906643+00:00 app[web.1]: D, [2013-12-16T17:19:06.906634 #2] DEBUG -- response: server: "GitHub.com"
+2013-12-16T17:19:06.906643+00:00 app[web.1]: I, [2013-12-16T17:19:06.906510 #2]  INFO -- Status: 200
+2013-12-16T17:19:06.906643+00:00 app[web.1]: transfer-encoding: "chunked"
+2013-12-16T17:19:06.906643+00:00 app[web.1]: x-ratelimit-limit: "5000"
+2013-12-16T17:19:06.906643+00:00 app[web.1]: date: "Mon, 16 Dec 2013 17:19:06 GMT"
+2013-12-16T17:19:06.906643+00:00 app[web.1]: content-type: "application/json; charset=utf-8"
+2013-12-16T17:19:06.906838+00:00 app[web.1]: x-accepted-oauth-scopes: "user"
+2013-12-16T17:19:06.906643+00:00 app[web.1]: x-ratelimit-reset: "1387217404"
+2013-12-16T17:19:06.906643+00:00 app[web.1]: x-ratelimit-remaining: "4998"
+2013-12-16T17:19:06.906838+00:00 app[web.1]: etag: "\"c5b85f9fb833e8963865b0f2fb050b44\""
+2013-12-16T17:19:06.906838+00:00 app[web.1]: cache-control: "private, max-age=60, s-maxage=60"
+2013-12-16T17:19:06.906838+00:00 app[web.1]: x-oauth-scopes: ""
+2013-12-16T17:19:06.906838+00:00 app[web.1]: last-modified: "Mon, 16 Dec 2013 17:14:33 GMT"
+2013-12-16T17:19:06.906838+00:00 app[web.1]: x-github-media-type: "github.beta"
+2013-12-16T17:19:06.933520+00:00 heroku[router]: at=info method=GET path=/github/callback?code=82c05b6b44a938c45ba7 host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=4ms service=72ms status=302 bytes=107
+2013-12-16T17:19:06.906838+00:00 app[web.1]: vary: "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding"
+2013-12-16T17:19:06.914920+00:00 app[web.1]: Completed 302 Found in 59ms (ActiveRecord: 4.6ms)
+2013-12-16T17:19:06.914743+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/
+2013-12-16T17:19:06.906838+00:00 app[web.1]: access-control-allow-credentials: "true"
+2013-12-16T17:19:06.906838+00:00 app[web.1]: access-control-expose-headers: "ETag, Link, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval"
+2013-12-16T17:19:06.914920+00:00 app[web.1]: Completed 302 Found in 59ms (ActiveRecord: 4.6ms)
+2013-12-16T17:19:06.906838+00:00 app[web.1]: x-content-type-options: "nosniff"
+2013-12-16T17:19:06.907015+00:00 app[web.1]: access-control-allow-origin: "*"
+2013-12-16T17:19:06.914743+00:00 app[web.1]: Redirected to http://asquared.herokuapp.com/
+2013-12-16T17:19:06.907015+00:00 app[web.1]: x-github-request-id: "36ED7769:6DA6:4906AC:52AF360A"
+2013-12-16T17:19:06.987410+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-16 17:19:06 +0000
+2013-12-16T17:19:06.988836+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-16T17:19:06.987410+00:00 app[web.1]: Started GET "/" for 50.201.187.129 at 2013-12-16 17:19:06 +0000
+2013-12-16T17:19:06.988836+00:00 app[web.1]: Processing by SiteController#index as HTML
+2013-12-16T17:19:07.065843+00:00 app[web.1]:   Rendered site/_welcome_applicant.html.haml (73.1ms)
+2013-12-16T17:19:07.066967+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (0.4ms)
+2013-12-16T17:19:07.067009+00:00 app[web.1]:   Rendered layouts/_navbar.html.haml (0.4ms)
+2013-12-16T17:19:07.067221+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-16T17:19:07.065843+00:00 app[web.1]:   Rendered site/_welcome_applicant.html.haml (73.1ms)
+2013-12-16T17:19:07.067495+00:00 app[web.1]: Completed 200 OK in 78ms (Views: 73.5ms | ActiveRecord: 4.3ms)
+2013-12-16T17:19:07.067221+00:00 app[web.1]:   Rendered layouts/_footer.html.haml (0.1ms)
+2013-12-16T17:19:07.065843+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (75.9ms)
+2013-12-16T17:19:07.065843+00:00 app[web.1]:   Rendered site/index.html.haml within layouts/application (75.9ms)
+2013-12-16T17:19:07.067495+00:00 app[web.1]: Completed 200 OK in 78ms (Views: 73.5ms | ActiveRecord: 4.3ms)
+2013-12-16T17:19:07.088194+00:00 heroku[router]: at=info method=GET path=/ host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=2ms service=92ms status=200 bytes=2754
+2013-12-16T17:19:03.616778+00:00 heroku[router]: at=info method=GET path=/ host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=4ms service=13ms status=200 bytes=1716
+2013-12-16T17:19:03.975988+00:00 heroku[router]: at=info method=GET path=/assets/application-92c57d1bff2d2de69385af99f34b8698.js host=asquared.herokuapp.com fwd="50.201.187.129" dyno=web.1 connect=3ms service=11ms status=304 bytes=0
