@@ -3,7 +3,11 @@ class StepController < ApplicationController
 
   def show
     step = current_user.application.next_step
-    redirect_to send("step_edit_#{step}_path")
+    if step
+      redirect_to send("step_edit_#{step}_path")
+    else
+      redirect_to step_edit_final_path
+    end
   end
 
   private

@@ -1,6 +1,6 @@
 module Steps
   def self.all
-    [:bio, :resume, :essay, :video, :quiz]
+    [:bio, :resume, :essay, :video, :quiz, :final]
   end
 
   def completed?(step)
@@ -43,5 +43,4 @@ module Steps
   def next?(step)
     next_step == step
   end
-
 end

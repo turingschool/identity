@@ -28,6 +28,9 @@ Asquared::Application.routes.draw do
 
     get 'step-5' => 'quiz#show', as: :edit_quiz
     put 'step-5' => 'quiz#update', as: :quiz
+
+    get 'step-6' => 'final#show', as: :edit_final
+    put 'step-6' => 'final#update', as: :final
   end
 
   namespace :admin do
