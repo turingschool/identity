@@ -1,0 +1,2 @@
+- if @application.completed?(step.to_sym)
+  = link_to "Edit Bio", send("step_edit_#{step}_path")
