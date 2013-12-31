@@ -6,7 +6,7 @@
       %h2.title.orange
         = "Step: #{@step.capitalize}"
       %h4
-        = "#{@counts[@step.to_sym]} applicants are in this step"
+        = "#{@counts[@step.to_sym]} applicants completed this step"
       %h6
         = "#{applicants_per_step(@counts, @step.to_sym)}% of total applicants"
   .row
@@ -36,4 +36,5 @@
                   - else
                     = link_to "Evaluate", admin_evaluations_path(application.user), method: :post
                 - else
-                  = progress_indicator(application)
+                  .progress_indicator
+                    = progress_indicator(application)

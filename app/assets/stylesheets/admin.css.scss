@@ -6,7 +6,7 @@
   padding: 10px 15px 25px;
 }
 
-.step-box.main {
+.step-box.final {
   min-width:  95.7%;
 }
 
@@ -39,4 +39,8 @@ td.description {
 .initials {
   padding: 20px;
   text-align: center;
+}
+
+.progress_indicator {
+  color: orange;
 }

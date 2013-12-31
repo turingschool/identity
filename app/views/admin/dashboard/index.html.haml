@@ -3,7 +3,7 @@
 
   .row
     - @steps.each do |step|
-      .col-md-2.step-box.center
+      .col-md-2.step-box.center{ class: "#{step}" }
         %h4.title
           = link_to(step.capitalize, subset_of_admin_applicants_path(step))
         %h4

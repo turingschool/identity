@@ -15,7 +15,7 @@ module ApplicantHelper
   end
 
   def progress_indicator(application)
-    application.completed_steps.map { |_| "&#9608;&nbsp;" }.join.html_safe
+    application.completed_steps.map { |_| "&#9608" }.join.html_safe
   end
 
   def completed_steps(user)
