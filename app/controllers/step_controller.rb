@@ -2,12 +2,9 @@ class StepController < ApplicationController
   before_filter :require_login, :apply, :ensure_accessible_step
 
   def show
-    step = current_user.application.next_step
-    if step
-      redirect_to send("step_edit_#{step}_path")
-    else
-      redirect_to step_edit_final_path
-    end
+    step = current_user.application.next_step || :final
+
+    redirect_to send("step_edit_#{step}_path")
   end
 
   private
