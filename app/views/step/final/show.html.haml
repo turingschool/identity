@@ -7,8 +7,15 @@
 
       %hr
 
-      %p
-        Thanks for completing your responses. You can edit your information any time. When you are ready, click on the button below to submit your application.
+      - if current_user.application.completed? :final
+
+        %p
+          Thanks for your submitting your application. You can edit your information any time by clicking on the button below.
+
+      - else
+
+        %p
+          Thanks for completing your responses. You can edit your information any time. When you are ready, click on the button below to submit your application.
 
       %p
         Once we receive your information, we will review it shortly. Remember to check your email for information regarding your application status.
