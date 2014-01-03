@@ -18,6 +18,7 @@ gem 'faker'
 gem 'figaro'
 gem 'gravatar_image_tag'
 gem 'jquery-turbolinks'
+gem 'roadie'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
