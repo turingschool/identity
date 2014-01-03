@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
   has_one :application, inverse_of: :user
 
+  after_create :send_welcome_email
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver
+  end
+
   def self.from_github(data)
     user = User.where(github_id: data['id']).first
     user_data = {
