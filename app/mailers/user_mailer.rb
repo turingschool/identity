@@ -14,4 +14,11 @@ class UserMailer < ActionMailer::Base
       subject: 'Prepare for the Logic Quiz'
       )
   end
+
+  def final_email(user)
+    mail(
+      to: user.email,
+      subject: 'Your Turing Application is complete'
+      )
+  end
 end
