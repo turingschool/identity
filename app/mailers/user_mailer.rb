@@ -1,12 +1,17 @@
 class UserMailer < ActionMailer::Base
-  default from: "contact@turing.io"
+  default from: "\"Turing School\" <contact@turing.io>"
 
   def welcome_email(user)
-    @user = user
-
     mail(
-      to: @user.email,
+      to: user.email,
       subject: 'Welcome to your Turing Application'
+      )
+  end
+
+  def quiz_email(user)
+    mail(
+      to: user.email,
+      subject: 'Prepare for the Logic Quiz'
       )
   end
 end

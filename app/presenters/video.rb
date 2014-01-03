@@ -8,9 +8,12 @@ class Video
 
   validates_presence_of :url
 
-  attr_reader :application
+  attr_reader :application,
+              :user
+
   def initialize(user)
-    @application = user.apply
+    @user        = user
+    @application = @user.apply
   end
 
   def update_attributes(attributes)
@@ -18,9 +21,15 @@ class Video
     if valid?
       application.complete :video
       application.save
+
+      send_quiz_email
     else
       false
     end
+  end
+
+  def send_quiz_email
+    UserMailer.quiz_email(user).deliver
   end
 end
 
