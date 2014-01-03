@@ -1,14 +1,7 @@
 !!!
 %html
   %head
-    %meta{content: "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
-    %title Turing School
-    :css
-      body { color: rgb(51, 51, 51); font-size:14px; font-family:Helvetica, Arial; }
-      p { margin:15px 0px; }
-      .container { padding: 20px; }
-      .brand { color: orange; text-align: center; font-size:40px; }
-      .header { margin: 10px 0px 30px; text-align: center;}
+    = stylesheet_link_tag "emails/email"
   %body
     .container
       %h1.brand A<sup>2</sup>
