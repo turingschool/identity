@@ -30,8 +30,8 @@ class InitialEvaluation
   def background_options
     [
       "No evidence",
-      "Experience in a technical business / field",
-      "Experience in a highly technical role",
+      "Experience in a technical business / field (ex: worked in a startup)",
+      "Experience in a highly technical role (ex: Q/A)",
       "Experience as a web developer or designer"
     ]
   end
@@ -43,9 +43,9 @@ class InitialEvaluation
   def curiosity_options
     [
       "No evidence",
-      "Some evidence of curiosity or hard work",
-      "Demonstrates curiosity or experience with hard work",
-      "Demonstrates significant intellectual curiosity and problem solving"
+      "Some evidence of curiosity or hard work (ex: hobbyist programming)",
+      "Demonstrates curiosity or experience with hard work (ex: independent learning/projects)",
+      "Demonstrates significant intellectual curiosity and problem solving (ex: several executed/completed independent projects)"
     ]
   end
 
@@ -55,9 +55,9 @@ class InitialEvaluation
 
   def communication_options
     [
-      "Boring or unclear",
-      "Drifts in an out of clarity",
-      "Able to communicate in a compelling manner",
+      "Boring, unclear, or strange",
+      "Able to communicate in a compelling style, but not enough substance",
+      "Clear communication of concrete ideas",
       "Communicates excitement and intelligent ideas"
     ]
   end
@@ -69,7 +69,7 @@ class InitialEvaluation
   def independence_options
     [
       "No evidence",
-      "Wants to take initiative but doesn't seem to find time",
+      "Wants to take initiative but doesn't make it happen",
       "Some evidence of being a self-starter",
       "Strong evidence of being a self-starter",
     ]
@@ -81,9 +81,9 @@ class InitialEvaluation
 
   def spirit_options
     [
-      "Too awkward for me",
-      "Positive but a bit awkward",
-      "Compelling, but I would not want to share a desk",
+      "I would dislike working with them",
+      "Has their quirks, but I wouldn't mind working with them",
+      "I think they'd be cool",
       "Someone I would want to work with everyday"
     ]
   end
