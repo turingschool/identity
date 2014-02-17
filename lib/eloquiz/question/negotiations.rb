@@ -4,10 +4,14 @@ module Eloquiz
       new characters(9)
     end
 
+    def self.suffixes
+      ["Inc", "Group", "and Sons", "LLC"]
+    end
+
     def self.companies(n)
       names = Set.new
       until names.size == n
-        names.add Faker::Company.name
+        names.add "#{Faker::Name.last_name} #{suffixes.sample}"
       end
       names
     end
@@ -20,7 +24,7 @@ module Eloquiz
     end
 
     def setup
-      "Three companies, #{company_a}, #{company_b}, and #{company_c} are negotiating a complicated deal. There are three possible representatives from each company. #{company_a} is represented by #{a1}, #{a2}, and #{a3}. #{company_b} is represented by #{b1}, #{b2}, #{b3}. #{company_c} is represented by #{c1}, #{c2}, #{c3}. Because there is a complicated history and bad blood between the representatives, the logistics for negotiation meetings are complicated."
+      "Three companies, #{company_a}, #{company_b}, and #{company_c} are negotiating a complicated deal. There are three possible representatives from each company. #{company_a} is represented by #{a1}, #{a2}, and #{a3}. #{company_b} is represented by #{b1}, #{b2}, and #{b3}. #{company_c} is represented by #{c1}, #{c2}, and #{c3}. Because there is a complicated history and bad blood between the representatives, the logistics for negotiation meetings are complicated."
     end
 
     def rules
@@ -35,12 +39,13 @@ module Eloquiz
 
     def answers
       [
-        representatives(a2, a3, b1, b2, c2, c3)
+        representatives(a2, a3, b1, b3, c2, c3)
       ]
     end
 
     def red_herrings
       [
+        representatives(a2, a3, b1, b2, c2, c3),
         representatives(a2, a3, c1),
         representatives(a1, b2, c2),
         representatives(a1, a2, b1, c1, c2, c3),

@@ -19,7 +19,7 @@ module Eloquiz
     end
 
     def setup
-      "Eight people participate in a local programming challenge: #{a}, #{b}, #{c}, #{d}, #{e}, #{f}, and #{g}. There are 3 possible projects that they may choose to work on: #{project1}, #{project2}, and #{project3}."
+      "Eight people participate in a local programming challenge: #{a}, #{b}, #{c}, #{d}, #{e}, #{f}, #{g} and #{h}. There are 3 possible projects that they may choose to work on: #{project1}, #{project2}, and #{project3}."
     end
 
     def rules

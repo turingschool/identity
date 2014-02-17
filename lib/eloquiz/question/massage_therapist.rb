@@ -10,7 +10,7 @@ module Eloquiz
     end
 
     def setup
-      "Massage therapist #{therapist} has seven loyal customers that schedule an appointment each Friday.#{a}, #{b}, #{c}, #{d}, #{e}, #{f} and #{g}. The schedule varies from week to week, according to the following constraints:"
+      "Massage therapist #{therapist} has seven loyal customers that schedule an appointment each Friday. #{a}, #{b}, #{c}, #{d}, #{e}, #{f}, and #{g}. The schedule varies from week to week, according to the following constraints:"
     end
 
     def rules

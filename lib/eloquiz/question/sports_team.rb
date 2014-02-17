@@ -39,7 +39,7 @@ module Eloquiz
         "#{c} chose an odd number.",
         "#{d} chose an even number.",
         "#{d} chose an odd number.",
-        "Nobody chose a number between #{b} and #{d}.",
+        "Nobody chose a number between #{b} and #{c}.",
       ]
     end
 

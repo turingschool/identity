@@ -16,7 +16,7 @@ module Eloquiz
       :a1, :a2, :a3, :b1, :b2, :b3, :c1, :c2, :c3
     def initialize(players, family_names = FamilyReunion.family_names)
       @a1, @a2, @a3, @b1, @b2, @b3, @c1, @c2, @c3 = *players
-      @family_a, @family_b2, @family_b = *family_names
+      @family_a, @family_b, @family_c = *family_names
     end
 
     def setup
