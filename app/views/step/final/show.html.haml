@@ -2,7 +2,8 @@
   .row
     = render "step/shared/progress_bar"
   .row
-    .col-md-12
+    .col-md-2
+    .col-md-8
       %h2.title.center Application Complete
 
       %hr
@@ -30,3 +31,4 @@
           = button_to 'Review your Application', root_path, method: :get, class: "btn btn-lg btn-warning btn-site"
         - else
           = button_to 'Submit Application', step_final_path, method: :put, class: "btn btn-lg btn-warning btn-site"
+    .col-md-2

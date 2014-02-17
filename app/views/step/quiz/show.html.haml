@@ -2,14 +2,15 @@
   .row
     = render "step/shared/progress_bar"
   .row
-    .col-md-12
+    .col-md-2
+    .col-md-8
       %h2.title.center Logical Problem Solving
 
       %hr
 
       %p This is series of small logical puzzles that will allow us to gain insight into your analytic mind as to how you solve problems.
 
-      %h4.title.orange Instructions
+      %h3.title.orange Instructions
 
       %p The quiz takes 30 to 60 minutes to complete. Please plan accordingly. Make sure that you have a good internet connection and that you are in a comfortable place. It might be good to fetch pencil and paper to answer some questions.
 
@@ -17,4 +18,5 @@
 
       %hr
 
-      = link_to 'Start now', quiz_question_path, class: "btn btn-lg btn-warning btn-site"
+      = link_to 'Start Now', quiz_question_path, class: "btn btn-lg btn-warning btn-site"
+    .col-md-2

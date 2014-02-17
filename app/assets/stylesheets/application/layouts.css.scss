@@ -1,3 +1,37 @@
+h1 {
+  font-size: 42px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 13px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+ul, ol {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+ol ul{
+  margin-bottom: 10px;
+}
+
 // GENERAL
 
 .center {
@@ -13,7 +47,6 @@
 }
 
 .title {
-  font-weight: lighter;
   padding-top: 10px;
 }
 

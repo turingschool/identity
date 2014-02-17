@@ -2,7 +2,8 @@
   .row
     = render "step/shared/progress_bar"
   .row
-    .col-md-12
+    .col-md-2
+    .col-md-8
       %h2.title.center Video Submission
 
       %hr
@@ -29,7 +30,7 @@
       %hr
 
       %div.center
-        %h4.title Unlisted YouTube Video URL
+        %h3.title Unlisted YouTube Video URL
 
         = form_for :video, url: step_video_path, method: :put, html: { class: "form-inline", role: "form" } do |f|
           - if @video.errors.any?
@@ -38,4 +39,5 @@
             = f.text_field :url, placeholder: "url", class: "form-control url-input"
           .form-group
             = f.submit 'Save', class: "btn btn-warning btn-submit"
+    .col-md-2
 

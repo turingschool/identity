@@ -2,7 +2,8 @@
   .row
     = render "step/shared/progress_bar"
   .row
-    .col-md-12
+    .col-md-2
+    .col-md-8
       %h2.title.center Biographical Basics
 
       %hr
@@ -18,15 +19,19 @@
       %hr
 
       .bio-form.center
-        %h4.title Enter your Information
-        = form_for :bio, url: step_bio_path, method: :put, html: { class: "form-inline", role: "form" } do |f|
+        %h3.title Bio Information
+        = form_for :bio, url: step_bio_path, method: :put, html: { class: "form", role: "form" } do |f|
           - if @bio.errors.any?
             %p= @bio.errors.full_messages
           .form-group
+            %label.pull-left NAME
             = f.text_field :name, placeholder: "name", class: "form-control"
           .form-group
+            %label.pull-left EMAIL
             = f.text_field :email, placeholder: "email", class: "form-control email-input"
           .form-group
+            %label.pull-left LOCATION
             = f.text_field :location, placeholder: "location", class: "form-control location-input"
           .form-group
-            = f.submit 'Save', class: "btn btn-warning btn-submit"
+            = f.submit 'Submit Information', class: "btn btn-warning btn-submit pull-right"
+    .col-md-2

@@ -1,6 +1,7 @@
 .container
   .row
-    .col-md-12
+    .col-md-2
+    .col-md-8
       %h2.title.center Welcome to the <strong>Turing School</strong> Application
 
       %hr
@@ -8,25 +9,26 @@
       .application-list
         %p We're trying to assess both your character an aptitude for this program. A completed application will include the following sections.
 
-        %h4.title.orange Biographical basics
+        %h3.title.orange Biographical basics
         %p We ask you some simple details about yourself and need some information on how best to contact you.
         = render "step_edit", step: "bio"
 
-        %h4.title.orange Current resume
+        %h3.title.orange Current resume
         %p We are interested in what you have accomplished so we ask you to include a resume. We are not looking for particular experiences or buzzwords, we simply want to see the great work you have accomplished to date.
         = render "step_edit", step: "resume"
 
-        %h4.title.orange Code or writing sample
+        %h3.title.orange Code or writing sample
         %p Understanding your ability to communicate in English is an important asset and one that we value.
         = render "step_edit", step: "essay"
 
-        %h4.title.orange Short-answer responses in video
+        %h3.title.orange Short-answer responses in video
         %p Give us a chance to see you by creating a video that quickly answers questions that allow us to see your passion and creativity.
         = render "step_edit", step: "video"
 
-        %h4.title.orange Logical problem solving
+        %h3.title.orange Logical problem solving
         %p A series of small puzzles that allow us to gain insight into your analytic mind as to how you solve problems.
 
       %p The application will give you the specific instructions for each component along the way.
 
       = render "actions", current_user: current_user
+    .col-md-2
