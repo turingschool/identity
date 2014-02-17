@@ -103,3 +103,13 @@ ol ul{
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: orange;
 }
+
+.navbar-logo {
+  max-height: 30px;
+}
+
+.navbar-right {
+  float: right !important;
+  position: relative;
+    top: 5px;
+}

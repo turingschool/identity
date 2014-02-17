@@ -2,25 +2,19 @@
   .row
     = render "step/shared/progress_bar"
   .row
-    .col-md-12
+    .col-md-2
+    .col-md-8
       %h2.title.center Quiz Completed
 
       %hr
 
-      %h4.title.center
-        You got
-        = "#{@application.quiz_score} / #{@application.quiz_size}"
-        right.
+      %h3.title.center
+        Thank you for completing the quiz!
 
-      %hr
-
-      %h4.title Your Responses
-
-      - @application.quiz_answers.each_with_index do |(key, question), index|
-        %h5.answer Answer #{index + 1}
-        = question[:answer]
-        = format_response(question[:result])
+      %p
+        Your answers have been submitted to the team. We will review your answers shortly. Please continue to submit your application.
 
       %hr
 
       = button_to "Continue", step_edit_final_path, method: :get, class: "btn btn-lg btn-warning btn-site"
+    .col-md-2

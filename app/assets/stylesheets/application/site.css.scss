@@ -6,15 +6,14 @@
 }
 
 .btn-home {
-  background: none;
-  border-color: white;
-  color: white;
+  background: white;
+  color: orange;
   font-size: 1em;
   margin-top: 20px;
   min-height: 50px;
   min-width: 300px;
   padding: 20px;
-
+  border: 0px;
 }
 
 .btn-home:hover, .btn-home:focus, .btn-home:active, .btn-home.active {
@@ -35,6 +34,11 @@
   padding-bottom: 155px;
   margin-top: -20px;
   opacity: 0.6;
+}
+
+.brand {
+  max-height: 300px;
+  margin-bottom: 20px;
 }
 
 // WELCOME PAGE

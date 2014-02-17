@@ -6,9 +6,11 @@
       %span.icon-bar
       %span.icon-bar
     - if current_user.admin?
-      %a.navbar-brand{href: "#{admin_path}"} A<sup>2</sup>
+      %a.navbar-brand
+        = image_tag "turing-navbar.png", class: "navbar-logo"
     - else
-      %a.navbar-brand{href: "#{root_path}"} A<sup>2</sup>
+      %a.navbar-brand
+        = image_tag "turing-navbar.png", class: "navbar-logo"
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav.navbar-right
       %li

@@ -2,9 +2,9 @@
   .container
     .row
       .col-md-12.center
-        %h1.site-brand A<sup>2</sup>
+        = image_tag "turing.png", class: "brand"
         %h2.thin Welcome to the <strong>Turing School</strong> application
-        %p.thin
+        %h3.thin
           You'll need a user account at Github to login. If you don't have one, get one <a href='https://github.com/signup/free' target='_blank'>here</a>. It's free.
 
         = button_to 'LOGIN', login_path, method: :get, class: "btn btn-lg btn-default btn-home"
