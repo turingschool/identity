@@ -43,3 +43,11 @@
 .progress-container {
   max-height: 40px;
 }
+
+.progress-indicator {
+  color: #333;
+  font-weight: bold;
+  position: relative;
+    left: 12px;
+    top: 6px;
+}

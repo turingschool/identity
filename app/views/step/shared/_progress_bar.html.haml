@@ -3,3 +3,5 @@
     .progress-bar.progress-bar-warning{style: "width: #{progress(current_user)}%"}
   - (completed_steps(current_user) + 1).times do |i|
     .div.circle{id: "step-#{i}"}
+      .progress-indicator
+        = i + 1
