@@ -29,7 +29,7 @@ class Video
   end
 
   def send_quiz_email
-    UserMailer.quiz_email(user).deliver
+    UserMailer.quiz(user).deliver
   end
 end
 

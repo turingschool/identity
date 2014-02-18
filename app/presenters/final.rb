@@ -19,6 +19,6 @@ class Final
   end
 
   def send_final_email
-    UserMailer.final_email(user).deliver
+    UserMailer.final(user).deliver
   end
 end

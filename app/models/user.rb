@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   after_create :send_welcome_email
 
   def send_welcome_email
-    UserMailer.welcome_email(self).deliver
+    UserMailer.welcome(self).deliver
   end
 
   def self.from_github(data)
