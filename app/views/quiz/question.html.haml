@@ -2,27 +2,31 @@
   .row
     .col-md-2
     .col-md-8
-      %h2.title.center= @question.title
+      %h2.title.center
+        = "#{@quiz.current_quiz_question} / #{@quiz.size} - "
+        = @quiz.question.title
 
       %hr
 
-      %p= @question.setup
+      %p
+        = @quiz.question.setup
 
-      - @question.rules.each do |rule|
+      - @quiz.question.rules.each do |rule|
         %p= rule
 
       %hr
 
       %p
-        %b= @question.prompt
+        %b
+          = @quiz.question.prompt
 
-      = form_tag quiz_path(@question.slug), method: :put do |f|
-        = hidden_field_tag "quiz[fingerprint]", @question.fingerprint
-        = hidden_field_tag "quiz[slug]", @question.slug
-        - if @question.errors.any?
-          %p= @question.errors.full_messages
+      = form_tag quiz_path(@quiz.question.slug), method: :put do |f|
+        = hidden_field_tag "quiz[fingerprint]", @quiz.question.fingerprint
+        = hidden_field_tag "quiz[slug]", @quiz.question.slug
+        - if @quiz.question.errors.any?
+          %p= @quiz.question.errors.full_messages
 
-        - @question.options.each do |option|
+        - @quiz.question.options.each do |option|
           = hidden_field_tag "quiz[options][#{option.choice}]", option.statement
           = radio_button_tag "quiz[answer]", option.choice
           = label_tag "quiz_answer_#{option.choice}", option.statement, class: "question-label"

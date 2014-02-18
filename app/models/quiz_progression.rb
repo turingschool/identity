@@ -22,6 +22,10 @@ module QuizProgression
     next_quiz_question.slug == slug
   end
 
+  def current_quiz_question
+    (quiz_size - remaining_questions.size) + 1
+  end
+
   def next_quiz_question
     remaining_questions.first
   end
