@@ -105,11 +105,14 @@ ol ul{
 }
 
 .navbar-logo {
-  max-height: 30px;
+  max-height: 40px;
+  position: relative;
+    bottom: 15px;
+    left: 15px;
 }
 
 .navbar-right {
   float: right !important;
   position: relative;
-    top: 5px;
+    top: 10px;
 }
