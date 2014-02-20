@@ -19,6 +19,7 @@
               %th.title Name
               %th.title Email
               %th.title Location
+              %th.title Score
               %th.title
           %tbody
           - @applications.each do |application|
@@ -29,6 +30,11 @@
                 = link_to application.user.email, "mailto:#{application.user.email}"
               %td
                 = application.user.location
+              %td
+                - if application.quiz_generated?
+                  = calculate_quiz_score(application)
+                - else
+                  Pending
               %td
                 - if application.complete?
                   - if application.evaluated_by?(current_user)
