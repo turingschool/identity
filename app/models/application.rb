@@ -26,6 +26,15 @@ class Application < ActiveRecord::Base
     end
   end
 
+  def nuke_quiz!
+    self.quiz_questions = []
+    self.quiz_answers = []
+    self.completed_steps = completed_steps - [:quiz]
+    self.quiz_started_at = nil
+    self.quiz_completed_at = nil
+    self.save!
+  end
+
   def complete?
     self.class.steps.all? {|step| completed?(step)}
   end
