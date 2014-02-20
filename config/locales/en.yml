@@ -20,4 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  welcome_guest:
+    headline: "Welcome to A&sup2;, the application platform for the <br/><strong>Turing School of Software & Design</strong>"
+    account_signup: "You need a Github account to login. <a href='https://github.com/signup/free' target='_blank'>Signup here</a>."
