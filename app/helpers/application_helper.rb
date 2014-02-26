@@ -18,4 +18,8 @@ module ApplicationHelper
       "<p style='color:red'>Wrong<p>".html_safe
     end
   end
+
+  def t(*args)
+    super.html_safe
+  end
 end
