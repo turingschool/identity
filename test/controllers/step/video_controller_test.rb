@@ -3,7 +3,7 @@ require './test/test_helper'
 class Step::VideoControllerTest < ActionController::TestCase
 
   def alice
-    @alice ||= User.create
+    @alice ||= User.create(email: "alice@example.com")
   end
 
   def setup
