@@ -3,7 +3,7 @@ require './test/test_helper'
 class Step::ResumeControllerTest < ActionController::TestCase
 
   def alice
-    @alice ||= User.create(name: "Alice Smith", email: "alice@example.com")
+    @alice ||= User.create(name: "Alice Smith")
   end
 
   def setup

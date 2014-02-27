@@ -1,26 +1,40 @@
 class User < ActiveRecord::Base
   has_one :application, inverse_of: :user
 
-  after_create :send_welcome_email
+
+  def self.from_github(data)
+    find_from_github(data) || create_from_github(data)
+  end
+
+  def self.find_from_github(data)
+    user = User.find_by(github_id: data['id'])
+
+    if user
+      user.username = data['login']
+      user.save
+    end
+
+    user
+  end
+
+  def self.create_from_github(data)
+    user_data = {
+      name:        data['name'],
+      email:       data['email'],
+      location:    data['location'],
+      github_id:   data['id'],
+      avatar_url:  data['avatar_url'],
+      gravatar_id: data['gravatar_id'],
+      username:    data['login']
+    }
+
+    user = User.create(user_data)
+    user.send_welcome_email
+    user
+  end
 
   def send_welcome_email
     UserMailer.welcome(self).deliver
-  end
-
-  def self.from_github(data)
-    user = User.where(github_id: data['id']).first
-    user_data = {
-      name: data['name'],
-      email: data['email'],
-      location: data['location'],
-      github_id: data['id'],
-      avatar_url: data['avatar_url'],
-      gravatar_id: data['gravatar_id']
-    }
-    user ||= User.new(user_data)
-    user.username = data['login'] # always update the GitHub username
-    user.save
-    user
   end
 
   def guest?
