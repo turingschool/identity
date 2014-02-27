@@ -2,8 +2,8 @@ require './test/test_helper'
 
 class EvaluationTest < ActiveSupport::TestCase
   def test_total
-    alice = User.create(username: 'alice', is_admin: true, email: "alice@example.com")
-    bob = User.create(username: 'bob', email: "bob@example.com")
+    alice = User.create(username: 'alice', is_admin: true)
+    bob = User.create(username: 'bob')
     bob.apply!
 
     evaluation = InitialEvaluation.for(bob.application, by: alice)
