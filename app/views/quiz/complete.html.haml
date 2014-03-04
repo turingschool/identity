@@ -4,17 +4,14 @@
   .row
     .col-md-2
     .col-md-8
-      %h2.title.center Quiz Completed
+      %h2.title.center Quiz Complete
 
       %hr
-
-      %h3.title.center
-        Thank you for completing the quiz!
 
       %p
-        Your answers have been submitted to the team. We will review your answers shortly. Please continue to submit your application.
+        Thank you for completing the quiz! Your answers have been recorded.
 
       %hr
 
-      = button_to "Continue", step_edit_final_path, method: :get, class: "btn btn-lg btn-warning btn-site"
+      = button_to "Continue Application", step_edit_final_path, method: :get, class: "btn btn-lg btn-warning btn-site"
     .col-md-2
