@@ -8,16 +8,7 @@
 
       %hr
 
-      %p In 500 words or fewer, explain a complex topic from your area of expertise.
-
-      %p Writing should be original to this application. Citations are not necessary but welcome if they feel appropriate. Use <a href='http://daringfireball.net/projects/markdown/syntax'>markdown formatting</a> as needed.
-
-      %p Post the text as a private gist on <a href='https://gist.github.com/' target='_blank'>gist.github.com</a> and submit the URL below.
-
-      %p Please ensure that the document contains <strong>no other formatting than markdown</strong>. In other words, we do not want to see any HTML, RTF or MSWord formatting.
-
-      %p Also make sure that the text does not require horizontal scrolling to read. Break your lines at 78 columns if you see that the text does scroll.
-
+      %p= mt 'steps.essay'
       %hr
 
       %div.center
@@ -27,7 +18,7 @@
           - if @essay.errors.any?
             %p= @essay.errors.full_messages
           .form-group
-            = f.text_field :url, placeholder: "url", class: "form-control url-input"
+            = f.text_field :url, placeholder: "https://gist.github.com/yourname/somethingsomething", class: "form-control url-input"
           .form-group
           = f.submit 'Save', class: "btn btn-warning btn-submit"
     .col-md-2
