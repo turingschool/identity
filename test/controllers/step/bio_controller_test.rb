@@ -7,9 +7,9 @@ class Step::BioControllerTest < ActionController::TestCase
 
     data = {
       name: 'Alice Smith',
-      email: 'alice@example.com',
       location: 'New York, NY'
     }
+
     @alice = User.create(data)
   end
 
