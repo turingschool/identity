@@ -8,24 +8,7 @@
 
       %hr
 
-      %p We need to understand your passion and character. To do help us do that, please create a video that follows these requirements:
-      %ol
-        %li
-          %p No longer than 4 minutes
-        %li
-          %p We want to clearly hear your voice and see your face. This isn't a beauty contest, but we want to feel like we're having a real conversation. We recommend you use an external mic rather than the one built into a laptop.
-        %li
-          %p We want you to tell us <strong>why do you want to participate</strong> in this program.
-        %li
-          %p Also, please answer two of the following questions:
-
-          %ul
-            %li What do you do better than other people? How do you know?
-            %li What's the most influential book you have read in the last two years? Why?
-            %li If you couldn't be a programmer, what other career would you pursue? Why?
-            %li Imagine you had a free year after this program. What would you build?
-
-        %li Post the video as an <em>unlisted</em> video on YouTube
+      = mt 'steps.video'
 
       %hr
 
@@ -36,7 +19,7 @@
           - if @video.errors.any?
             %p= @video.errors.full_messages
           .form-group
-            = f.text_field :url, placeholder: "url", class: "form-control url-input"
+            = f.text_field :url, placeholder: "http://www.youtube.com/watch?v=yourvideo", class: "form-control url-input"
           .form-group
             = f.submit 'Save', class: "btn btn-warning btn-submit"
     .col-md-2
