@@ -35,6 +35,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'binding_of_caller'
   gem 'better_errors'
+  gem 'pry'
 end
 
 group :production do
