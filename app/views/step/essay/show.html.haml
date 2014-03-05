@@ -15,8 +15,7 @@
         %h3.title URL to Gist
 
         = form_for :essay, url: step_essay_path, method: :put, html: { class: "form-inline", role: "form" }  do |f|
-          - if @essay.errors.any?
-            %p= @essay.errors.full_messages
+          = render "step/shared/errors", step: @essay
           .form-group
             = f.text_field :url, placeholder: "https://gist.github.com/yourname/somethingsomething", class: "form-control url-input"
           .form-group

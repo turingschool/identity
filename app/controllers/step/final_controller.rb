@@ -14,11 +14,11 @@ class Step::FinalController < StepController
 
   private
 
-  def final_params
-    params.require(:final)
-  end
-
   def current_step
     :final
+  end
+
+  def final_params
+    params.require(:final)
   end
 end

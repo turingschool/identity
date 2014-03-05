@@ -14,12 +14,11 @@ class Step::EssayController < StepController
 
   private
 
-  def essay_params
-    params.require(:essay).permit(:url)
-  end
-
   def current_step
     :essay
   end
-end
 
+  def essay_params
+    params.require(:essay).permit(:url)
+  end
+end

@@ -14,11 +14,11 @@ class Step::BioController < StepController
 
   private
 
-  def bio_params
-    params.require(:bio).permit(:name, :email, :location)
-  end
-
   def current_step
     :bio
+  end
+
+  def bio_params
+    params.require(:bio).permit(:name, :email, :location)
   end
 end

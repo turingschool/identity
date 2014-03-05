@@ -9,4 +9,3 @@ class Step::QuizController < StepController
     :quiz
   end
 end
-

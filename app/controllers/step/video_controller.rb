@@ -4,22 +4,21 @@ class Step::VideoController < StepController
   end
 
   def update
-    video = Video.new(current_user)
-    if video.update_attributes(video_params)
+    @video = Video.new(current_user)
+    if @video.update_attributes(video_params)
       redirect_to step_edit_quiz_path
     else
-      raise 'whoops'
+      render :show
     end
   end
 
   private
 
-  def video_params
-    params.require(:video).permit(:url)
-  end
-
   def current_step
     :video
   end
-end
 
+  def video_params
+    params.require(:video).permit(:url)
+  end
+end
