@@ -20,7 +20,7 @@
         %b
           = @quiz.question.prompt
 
-      = form_tag quiz_path(@quiz.question.slug), method: :put do |f|
+      = form_tag quiz_path(@quiz.question.slug), method: :put, class: "quiz-answers" do |f|
         = hidden_field_tag "quiz[fingerprint]", @quiz.question.fingerprint
         = hidden_field_tag "quiz[slug]", @quiz.question.slug
         - if @quiz.question.errors.any?
