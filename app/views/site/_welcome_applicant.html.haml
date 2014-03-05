@@ -2,6 +2,11 @@
   .row
     .col-md-2
     .col-md-8
+      - if current_user.application.completed?(:final)
+        .alert.alert-success.alert-dismissable
+          %strong Application Status:
+          Your application has been submitted.
+
       %h2.title.center= t("getting_started.header")
 
       %hr
@@ -14,7 +19,7 @@
           = render "step_edit", step: segment
 
         %h3.title.orange= t("getting_started.logic.title")
-        %p= t("getting_started.logic.description") 
+        %p= t("getting_started.logic.description")
 
       %p= t("getting_started.footer")
 
