@@ -15,10 +15,7 @@
       %div.center
         %h3.title Upload your Resume
         = form_for :resume, url: step_resume_path, method: :put, html: { class: "form-inline", role: "form", multipart: true} do |f|
-          - if @resume.application.errors.any?
-            %p= @resume.application.errors.full_messages.join("<br/>")
-          - if @resume.errors.any?
-            %p= @resume.errors.full_messages.join("<br/>")
+          = render "step/resume/errors"
           .form-group
             = f.file_field :file, class: "form-control"
           .form-group
