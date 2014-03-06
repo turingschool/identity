@@ -4,7 +4,7 @@
 
 %h4.title Evaluation Scores
 
-- application.evaluations.each do |evaluation|
+- application.initial_evaluations.each do |evaluation|
   .row
     .col-md-2
       %h5.title.orange Evaluator
@@ -26,10 +26,10 @@
         - if evaluation.evaluator == current_user
           = link_to 'Edit Application', edit_admin_evaluation_path(evaluation)
 
-- if application.evaluations.any? {|evaluation| evaluation.has_notes?}
+- if application.initial_evaluations.any? {|evaluation| evaluation.has_notes?}
   %h4.title Evaluation Notes
 
-  - application.evaluations.each do |evaluation|
+  - application.initial_evaluations.each do |evaluation|
     - if evaluation.has_notes?
       .row
         .col-md-2

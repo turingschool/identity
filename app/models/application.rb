@@ -5,6 +5,7 @@ class Application < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :application
   has_many :evaluations, inverse_of: :application
+  has_many :initial_evaluations, ->{ where(slug: 'triage') }, class_name: 'Evaluation'
   alias_method :owner, :user
 
   serialize :completed_steps, Array
