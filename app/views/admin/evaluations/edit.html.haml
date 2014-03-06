@@ -28,7 +28,7 @@
                   %br
                   = option.description
               %td
-                = select_tag "criteria[#{criterion.id}][score]", options_for_select((0..3).to_a.reverse, criterion.score), include_blank: true, class: "form-control"
+                = select_tag "criteria[#{criterion.id}][score]", options_for_select((0...criterion.scale.length).to_a.reverse, criterion.score), include_blank: true, class: "form-control"
               %td
                 = text_area_tag "criteria[#{criterion.id}][notes]", criterion.notes, class: "form-control criteria"
         %hr

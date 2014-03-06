@@ -28,6 +28,6 @@ class Criterion < ActiveRecord::Base
   private
 
   def tag(i)
-    %w(Poor Fair Good Great)[i]
+    %w(Poor Fair Good Great Exceptional)[i]
   end
 end
