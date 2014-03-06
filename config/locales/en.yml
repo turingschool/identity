@@ -47,24 +47,24 @@ en:
     resume: "We are trying to understand your past and how it might predict your future. Resumes should be no longer than two pages and should include any relevant schooling or experience. The file should be a PDF. Most word processors will output a PDF or you can <a href='http://www.freepdfconvert.com/'>create one online</a>."
     essay: |
       Explain a complex topic from your area of expertise in 500 words or fewer.
-      
+
       Writing should be original to this application. Citations are not necessary but welcome if they feel appropriate. Use <a href='http://daringfireball.net/projects/markdown/syntax'>markdown formatting</a> as needed.
-      
+
       Post the text as a *private* gist on <a href='https://gist.github.com/' target='_blank'>gist.github.com</a> with the *language* set to **Markdown**.
-      
+
       Please ensure that the document contains **no other formatting than markdown**. In other words, we do not want to see any HTML, RTF or MSWord formatting.
-      
+
       Submit the private gist URL below.
     video: |
       We need to understand your passion and character. To do help us do that, please create a video that follows these requirements:
-      
+
       1. No longer than 4 minutes
       2. Make sure we can clearly hear your voice and see your face. This isn't a beauty contest, but we want to feel like we're having a real conversation. We recommend you use an external mic rather than the one built into a laptop.
       3. Start with **why you want to participate** in this program.
       4. Then, please answer two of the following questions:
           * What do you do better than other people? How do you know?
-          * What's the most influential book you have read in the last two years? Why?
-          * If you couldn't be a programmer, what other career would you pursue? Why?
-          * Imagine you had a free year after this program. What would you build?
+          * What have you learned in the past 2 years that has most influenced your life? Why?
+          * What have you had to work the hardest for?
+          * Where would success in the program take you in the next five years?
       5. Post the video as an *unlisted* video on YouTube
       6. Submit the video's URL below
