@@ -32,7 +32,8 @@
                 = application.user.location
               %td
                 - if application.quiz_generated?
-                  = calculate_quiz_score(application)
+                  = "#{calculate_quiz_score(application)}%"
+                  = "(#{application.quiz_duration} min)"
                 - else
                   Pending
               %td

@@ -42,5 +42,9 @@ class Application < ActiveRecord::Base
   def evaluated_by?(user)
     evaluations.where(user: user).any?
   end
+
+  def quiz_duration
+    ((quiz_completed_at - quiz_started_at).to_f / 60).ceil
+  end
 end
 
