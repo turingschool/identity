@@ -11,10 +11,10 @@ class InitialEvaluation
   end
 
   def generate
-    evaluation.criteria << background
+    evaluation.criteria << demonstration
     evaluation.criteria << curiosity
     evaluation.criteria << communication
-    evaluation.criteria << independence
+    evaluation.criteria << commitment
     evaluation.criteria << spirit
     evaluation.criteria << overall
     evaluation.save
@@ -23,29 +23,30 @@ class InitialEvaluation
 
   private
 
-  def background
-    Criterion.establish("Experience & Background", background_options)
+  def demonstration
+    Criterion.establish("Demonstrated Interest", demonstration_options)
   end
 
-  def background_options
+  def demonstration_options
     [
-      "No evidence",
-      "Experience in a technical business / field (ex: worked in a startup)",
-      "Experience in a highly technical role (ex: Q/A)",
-      "Experience as a web developer or designer"
+      "No concrete evidence",
+      "Some small effort (e.g. Railsbridge or user group)",
+      "Some organized learning (treehouse, codecademy, book)",
+      "Built a project of any scope",
+      "Worked as a developer"
     ]
   end
 
   def curiosity
-    Criterion.establish("Curiosity & Hard Work", curiosity_options)
+    Criterion.establish("Are they doers?", curiosity_options)
   end
 
   def curiosity_options
     [
       "No evidence",
-      "Some evidence of curiosity or hard work (ex: hobbyist programming)",
-      "Demonstrates curiosity or experience with hard work (ex: independent learning/projects)",
-      "Demonstrates significant intellectual curiosity and problem solving (ex: several executed/completed independent projects)"
+      "Expresses clear interests without much follow-through",
+      "Putting effort towards achievements",
+      "Follows through in turning interests into achievements"
     ]
   end
 
@@ -62,21 +63,21 @@ class InitialEvaluation
     ]
   end
 
-  def independence
-    Criterion.establish("Independence", independence_options)
+  def commitment
+    Criterion.establish("Commitment", commitment_options)
   end
 
-  def independence_options
+  def commitment_options
     [
-      "No evidence",
-      "Wants to take initiative but doesn't make it happen",
-      "Some evidence of being a self-starter",
-      "Strong evidence of being a self-starter",
+      "Evidence of non-commitment (avoiding or breaking commitments)",
+      "They feel bad about breaking commitments",
+      "Finishes what they start",
+      "Stick with commitment through transitions"
     ]
   end
 
   def spirit
-    Criterion.establish("Spirit & Passion", spirit_options)
+    Criterion.establish("Likability", spirit_options)
   end
 
   def spirit_options
