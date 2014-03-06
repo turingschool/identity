@@ -6,6 +6,7 @@ class Step::VideoController < StepController
   def update
     @video = Video.new(current_user)
     if @video.update_attributes(video_params)
+      UserMailer.quiz(current_user).deliver
       redirect_to step_edit_quiz_path
     else
       render :show

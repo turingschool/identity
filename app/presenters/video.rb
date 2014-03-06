@@ -21,15 +21,9 @@ class Video
     if valid?
       application.complete :video
       application.save
-
-      send_quiz_email
     else
       false
     end
-  end
-
-  def send_quiz_email
-    UserMailer.quiz(user).deliver
   end
 end
 
