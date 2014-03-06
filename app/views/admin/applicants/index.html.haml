@@ -29,7 +29,7 @@
               %td
                 = link_to application.user.email, "mailto:#{application.user.email}"
               %td
-                = application.user.location
+                = truncate(application.user.location, length: 30)
               %td
                 - if application.quiz_generated?
                   = "#{calculate_quiz_score(application)}%"
