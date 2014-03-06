@@ -19,6 +19,10 @@ class Evaluation < ActiveRecord::Base
     user.name
   end
 
+  def has_notes?
+    criteria.any? {|criterion| criterion.has_notes?}
+  end
+
   # TODO: validate criteria
   # or handle nil scores or something
   def total
