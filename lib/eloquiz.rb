@@ -28,7 +28,7 @@ module Eloquiz
   end
 
   def self.random_questions
-    progression.sample(5).map {|slug|
+    progression.sample(8).map {|slug|
       generate_from(slug)
     }
   end
