@@ -43,6 +43,7 @@ Asquared::Application.routes.draw do
       end
       member do
         get :show
+        get :quiz
         resources :evaluations, only: [:create]
       end
     end

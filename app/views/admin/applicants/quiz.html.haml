@@ -1,0 +1,32 @@
+.container
+  .row
+    .col-md-11.step-box.main
+      %p
+        = link_to "admin dashboard", admin_path
+        = " / "
+        = link_to :final, subset_of_admin_applicants_path(:final)
+        = " / "
+        = link_to @applicant.name.downcase, admin_applicant_path(@applicant)
+        = " / "
+        quiz
+
+      %h1 Quiz Answers
+      %ol
+        - @quiz.problems.each do |problem|
+          %li
+
+            %h2= problem.title
+
+            %p
+              = problem.setup
+
+            %ul
+              - problem.rules.each do |rule|
+                %li= rule
+
+            - if problem.correct?
+              %p.quiz-answer-correct= problem.answer
+            - else
+              %p.quiz-answer-incorrect= problem.answer
+              %p= problem.correct_answer
+
