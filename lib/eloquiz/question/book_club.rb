@@ -10,7 +10,7 @@ module Eloquiz
     end
 
     def setup
-      "Seven children: #{a}, #{b}, #{c}, #{d}, #{e}, and #{f} started a bookclub together, and each child purchased one of the Harry Potter books."
+      "Seven children: #{a}, #{b}, #{c}, #{d}, #{e}, #{f}, and #{g} started a bookclub together, and each child purchased one of the Harry Potter books."
     end
 
     def rules
