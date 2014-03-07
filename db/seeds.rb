@@ -64,8 +64,25 @@ def handle(step, application)
     application.video_url = 'http://www.youtube.com/watch?v=7SSc1mQ4-Ck'
   when :essay
     application.essay_url = 'https://gist.github.com/kytrinyx/bd16f22641e48535a412'
+  when :quiz
+    QuizQuestions.generate_for(application, started_at: Time.now - rand(10000).minutes)
+    application.quiz_questions.each do |question|
+      option = random_answer_to(question)
+      application.quiz_result(question.slug, {result: option.answer?, answer: option.statement})
+    end
+    application.quiz_completed_at = application.quiz_started_at + rand(30..90).minutes
+    application.complete :quiz
+    application.save
   else
     # do nothing
+  end
+end
+
+def random_answer_to(question)
+  if rand(5) == 0
+    question.options.reject(&:answer?).sample
+  else
+    question.options.find(&:answer?)
   end
 end
 
