@@ -32,6 +32,16 @@ ol ul{
   margin-bottom: 10px;
 }
 
+a {
+  color: darkgray;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+a:hover {
+  color: #67CFFF;
+}
+
 // GENERAL
 
 .center {
@@ -97,11 +107,11 @@ ol ul{
 }
 
 .navbar-default .navbar-brand {
-  color: orange;
+  color: #67CFFF;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: orange;
+  color: #67CFFF;
 }
 
 .navbar-logo {
