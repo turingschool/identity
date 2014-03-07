@@ -1,7 +1,7 @@
 class Admin::ApplicantsController < AdminController
   def index
     @step = params[:step]
-    @applications = Application.upto(@step)
+    @applications = Application.upto(@step).joins(:user)
     @counts = Application.breakdown
   end
 
@@ -12,7 +12,7 @@ class Admin::ApplicantsController < AdminController
 
   def by_date
     @step = params[:step]
-    @applications = Application.upto(@step).order(updated_at: :desc)
+    @applications = Application.upto(@step).joins(:user).order('applications.updated_at DESC')
     @counts = Application.breakdown
 
     render :index
@@ -20,7 +20,7 @@ class Admin::ApplicantsController < AdminController
 
   def by_score
     @step = params[:step]
-    @applications = Application.upto(@step).sort_by(&:quiz_score).reverse!
+    @applications = Application.upto(@step).joins(:user).sort_by(&:quiz_score).reverse!
     @counts = Application.breakdown
 
     render :index

@@ -10,7 +10,7 @@ class Final
   def update_attributes
     if application.valid?
       application.complete :final
-      application.save
+      application.completed!
     else
       false
     end
