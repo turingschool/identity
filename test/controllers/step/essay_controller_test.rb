@@ -1,9 +1,8 @@
 require './test/test_helper'
 
 class Step::EssayControllerTest < ActionController::TestCase
-
   def alice
-    @alice ||= User.create(email: "alice@example.com")
+    @alice ||= User.create
   end
 
   def setup
@@ -37,4 +36,3 @@ class Step::EssayControllerTest < ActionController::TestCase
     assert application.completed? :essay
   end
 end
-

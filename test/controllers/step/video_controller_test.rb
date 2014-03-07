@@ -1,7 +1,6 @@
 require './test/test_helper'
 
 class Step::VideoControllerTest < ActionController::TestCase
-
   def alice
     @alice ||= User.create(email: "alice@example.com")
   end
@@ -37,4 +36,3 @@ class Step::VideoControllerTest < ActionController::TestCase
     assert application.completed? :video
   end
 end
-
