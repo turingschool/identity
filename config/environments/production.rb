@@ -87,4 +87,7 @@ Asquared::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Checks for missing assets
+  config.assets.raise_production_errors = true
 end

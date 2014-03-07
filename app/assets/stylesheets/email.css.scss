@@ -1,22 +1,23 @@
-body {
+.email-font {
   font-family: Helvetica, Arial, sans-serif;
+  color: rgb(51, 51, 51);
 }
 
-p {
-  color: rgb(51, 51, 51);
+.email-text {
   margin: 14px 0px;
   font-size: 14px;
   line-height: 24px;
+  @extend .email-font;
 }
 
-.container {
+.email-container {
   padding: 20px;
 }
 
-.header {
-  color: rgb(51, 51, 51);
+.email-header {
   font-size: 24px;
   font-weight: lighter;
   margin: 10px 0px 30px;
   text-align: center;
+  @extend .email-font;
 }
