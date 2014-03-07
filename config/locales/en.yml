@@ -22,7 +22,7 @@
 en:
   welcome_guest:
     headline: "Welcome to A&sup2;, the application platform for the <br/><strong>Turing School of Software & Design</strong>"
-    account_signup: "You need a Github account to login. <a href='https://github.com/signup/free' target='_blank'>Signup here</a>."
+    account_signup: "You need a Github account to login. <a href='https://github.com/signup/free' target='_blank' class='link-home'>Signup here</a>."
   getting_started:
     header: "Welcome to the <strong>Turing</strong> Application"
     opening: "This application helps us assess both your character and aptitude for this program. A completed application will include the following sections:"
