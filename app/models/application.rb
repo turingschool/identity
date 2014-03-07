@@ -45,7 +45,9 @@ class Application < ActiveRecord::Base
   end
 
   def quiz_duration
-    ((quiz_completed_at - quiz_started_at).to_f / 60).ceil
+    if quiz_complete?
+      ((quiz_completed_at - quiz_started_at).to_f / 60).ceil
+    end
   end
 end
 
