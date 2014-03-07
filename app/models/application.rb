@@ -14,7 +14,7 @@ class Application < ActiveRecord::Base
   mount_uploader :resume, ResumeUploader
 
   scope :upto, ->(step) do
-    where('completed_steps LIKE ?', "%#{step}%").joins(:user).order("name asc")
+    where('completed_steps LIKE ?', "%#{step}%").order("name asc")
   end
 
   def self.steps
@@ -38,6 +38,14 @@ class Application < ActiveRecord::Base
 
   def complete?
     self.class.steps.all? {|step| completed?(step)}
+  end
+
+  def completed!
+    update_attributes(status: 'completed')
+  end
+
+  def evaluating!
+    update_attributes(status: 'evaluating')
   end
 
   def evaluated_by?(user)
