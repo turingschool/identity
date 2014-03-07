@@ -61,13 +61,7 @@ class Quiz
 
   def generate
     if application.quiz_questions.empty?
-      application.quiz_questions = Eloquiz.random_questions.each {|q|
-        # trigger the options so they get saved
-        # and the user gets a consistent set in the view
-        q.options
-      }
-      application.quiz_started_at = Time.now
-      application.save
+      QuizQuestions.generate_for(application)
     end
   end
 end
