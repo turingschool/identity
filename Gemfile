@@ -18,7 +18,6 @@ gem 'faker'
 gem 'figaro'
 gem 'gravatar_image_tag'
 gem 'jquery-turbolinks'
-gem 'roadie'
 gem 'honeybadger'
 gem 'redcarpet'
 
