@@ -15,7 +15,7 @@
       .bio-form.center
         %h3.title Bio Information
         = form_for :bio, url: step_bio_path, method: :put, html: { class: "form", role: "form" } do |f|
-          = render "step/shared/errors", step: @bio
+          = render "shared/form_errors", object: @bio
           .form-group
             %label.pull-left NAME
             = f.text_field :name, placeholder: "name", class: "form-control"

@@ -21,11 +21,9 @@
           = @quiz.question.prompt
 
       = form_tag quiz_path(@quiz.question.slug), method: :put, class: "quiz-answers" do |f|
+        = render "step/shared/errors", object: @quiz.question
         = hidden_field_tag "quiz[fingerprint]", @quiz.question.fingerprint
         = hidden_field_tag "quiz[slug]", @quiz.question.slug
-        - if @quiz.question.errors.any?
-          %p= @quiz.question.errors.full_messages
-
         - @quiz.question.options.each do |option|
           = hidden_field_tag "quiz[options][#{option.choice}]", option.statement
           = radio_button_tag "quiz[answer]", option.choice

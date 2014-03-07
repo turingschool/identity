@@ -7,7 +7,7 @@ module StepHelper
     end.join("<br/>")
   end
 
-  def format_step_errors(step)
-    step.errors.full_messages.join("<br/>").html_safe
+  def format_form_errors(object)
+    object.errors.full_messages.join("<br/>").html_safe
   end
 end
