@@ -6,6 +6,7 @@ end
 
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path('../../config/environment', __FILE__)
+I18n.enforce_available_locales = false
 require 'rails/test_help'
 require 'minitest/pride'
 
