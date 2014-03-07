@@ -25,7 +25,7 @@ class QuizController < ApplicationController
     if quiz.update_attributes(params[:quiz])
       redirect_to quiz_question_path
     else
-      @question = quiz.question
+      @quiz = quiz.question
       render :question
     end
   end
