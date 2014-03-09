@@ -21,7 +21,7 @@
           = @quiz.question.prompt
 
       = form_tag quiz_path(@quiz.question.slug), method: :put, class: "quiz-answers" do |f|
-        = render "step/shared/errors", object: @quiz.question
+        = render "step/shared/form_errors", object: @quiz.question
         = hidden_field_tag "quiz[fingerprint]", @quiz.question.fingerprint
         = hidden_field_tag "quiz[slug]", @quiz.question.slug
         - @quiz.question.options.each do |option|
