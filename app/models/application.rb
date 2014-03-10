@@ -62,4 +62,3 @@ class Application < ActiveRecord::Base
     end
   end
 end
-

@@ -10,23 +10,48 @@
         = " / "
         quiz
 
-      %h1 Quiz Answers
-      %ol
-        - @quiz.problems.each do |problem|
-          %li
+      %h2.title.no-padding.orange Quiz
 
-            %h2= problem.title
+      .row
+        .col-md-5
+          %h5.title Applicant
+          %p
+            = link_to @applicant.name, admin_applicant_path(@applicant)
+          %h5.title Score
+          %p= "#{calculate_quiz_score(@application)}%"
+          %h5.title Answers
+          %p= "#{@application.quiz_score} / #{@application.quiz_size}"
 
-            %p
-              = problem.setup
+        .col-md-5
+          %h5.title Started
+          %p= format_time(@application.quiz_started_at)
+          %h5.title Completed
+          %p= format_time(@application.quiz_completed_at)
+          %h5.title Duration
+          %p= "#{@application.quiz_duration} minutes"
 
+      %hr
+
+      .row
+        .col-md-11
+          - @quiz.problems.each_with_index do |problem, i|
+
+            %h3.title= "#{i + 1}. #{problem.title}"
+
+            %h5.title Description
+            %p= problem.setup
+
+            %h5.title Rules
             %ul
               - problem.rules.each do |rule|
                 %li= rule
 
+            %h5.title Response
             - if problem.correct?
-              %p.quiz-answer-correct= problem.answer
+              %p.quiz-answer-correct
+                = problem.answer
             - else
-              %p.quiz-answer-incorrect= problem.answer
-              %p= problem.correct_answer
-
+              %p.quiz-answer-incorrect
+                = problem.answer
+              %p
+                = problem.correct_answer

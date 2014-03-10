@@ -21,4 +21,8 @@ module ApplicantHelper
   def completed_steps(user)
     user.application.completed_steps.count
   end
+
+  def format_time(time)
+    time.in_time_zone("MST").strftime("%B %-d, %Y %Z - %l:%M:%S %P")
+  end
 end

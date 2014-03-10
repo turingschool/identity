@@ -12,7 +12,8 @@ class Admin::ApplicantsController < AdminController
 
   def quiz
     @applicant = User.find params[:id]
-    @quiz = CompletedQuiz.new(@applicant.application.quiz_questions, @applicant.application.quiz_answers)
+    @application = @applicant.application
+    @quiz = CompletedQuiz.new(@application.quiz_questions, @application.quiz_answers)
   end
 
   def by_date
