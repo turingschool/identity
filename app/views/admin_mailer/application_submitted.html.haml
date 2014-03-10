@@ -1,0 +1,52 @@
+!!!
+%html
+  %head
+    :css
+      body { color: rgb(51, 51, 51); font-family: Helvetica, Arial, sans-serif; }
+      h2 { font-size: 24px; font-weight: lighter; margin: 10px 0px 30px; text-align: center; }
+      p { margin: 14px 0px; font-size: 14px; line-height: 24px; }
+      .container { padding: 20px; }
+  %body.email-text
+    .email-container
+      %h2.email-header
+        = @user.name
+        has submitted an application.
+
+      %p Here is the applicant's information:
+
+      %h4 Bio
+      %p
+        Name:
+        = "#{@user.name}"
+      %p
+        Email:
+        = "#{@user.email}"
+      %p
+        Location:
+        = "#{@user.location}"
+
+      %h4 Resume
+      %p
+        Link:
+        = "#{root_url}#{@user.application.resume_url}"
+
+      %h4 Essay
+      %p
+        Link:
+        = "#{@user.application.essay_url}"
+
+      %h4 Video
+      %p
+        Link:
+        = "#{@user.application.video_url}"
+
+      %h4 Quiz
+      %p
+        Score:
+        = "#{@user.application.quiz_score} / #{@user.application.quiz_size}"
+      %p
+        Duration:
+        = "#{@user.application.quiz_duration} minutes"
+
+      %p
+        You can check the applicant's information and create an evaluation by logging into Turing #{link_to "here", "http://apply.turing.io"}.

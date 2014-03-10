@@ -7,6 +7,7 @@ class Step::FinalController < StepController
     @final = Final.new(current_user)
     if @final.update_attributes
       UserMailer.final(current_user).deliver
+      AdminMailer.application_submitted(current_user).deliver
       redirect_to root_path
     else
       render :show
