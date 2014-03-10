@@ -36,6 +36,10 @@ class Application < ActiveRecord::Base
     self.save!
   end
 
+  def quiz_started?
+    quiz_started_at.present?
+  end
+
   def complete?
     self.class.steps.all? {|step| completed?(step)}
   end
