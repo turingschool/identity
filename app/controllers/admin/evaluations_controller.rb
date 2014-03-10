@@ -4,7 +4,7 @@ class Admin::EvaluationsController < AdminController
   def create
     user = User.find(params[:id])
     user.application.evaluating!
-    evaluation = InitialEvaluation.for(application, by: current_user)
+    evaluation = InitialEvaluation.for(user.application, by: current_user)
     redirect_to edit_admin_evaluation_path(evaluation)
   end
 
