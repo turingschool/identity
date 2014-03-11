@@ -18,12 +18,12 @@
       %p
         Name:
         = "#{@user.name}"
-      %p
-        Email:
-        = "#{@user.email}"
-      %p
-        Location:
-        = "#{@user.location}"
+        %br
+          Email:
+          = "#{@user.email}"
+        %br
+          Location:
+          = "#{@user.location}"
 
       %h4 Resume
       %p
@@ -44,9 +44,9 @@
       %p
         Score:
         = "#{@user.application.quiz_score} / #{@user.application.quiz_size}"
-      %p
-        Duration:
-        = "#{@user.application.quiz_duration} minutes"
+        %br
+          Duration:
+          = "#{@user.application.quiz_duration} minutes"
 
       %p
-        You can check the applicant's information and create an evaluation by logging into Turing #{link_to "here", "http://apply.turing.io"}.
+        You can check the applicant's information and create an evaluation by logging into Turing #{link_to "here", "http://apply.turing.io/login"}.
