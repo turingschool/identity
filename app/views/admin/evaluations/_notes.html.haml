@@ -1,0 +1,16 @@
+- if evaluations.any?(&:has_notes?)
+  %h4.title Evaluation Notes
+
+  - evaluations.each do |evaluation|
+    - if evaluation.has_notes?
+      .row
+        .col-md-2
+          %h5.title.orange Evaluator
+          %p #{evaluation.evaluator.name}
+        .col-md-8
+          %h5.title.orange Notes
+          - evaluation.criteria.select(&:has_notes?).each do |criterion|
+            %h5.title.notes
+              = criterion.title
+            %p
+              = criterion.notes

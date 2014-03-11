@@ -23,9 +23,7 @@ class Evaluation < ActiveRecord::Base
     criteria.any? {|criterion| criterion.has_notes?}
   end
 
-  # TODO: validate criteria
-  # or handle nil scores or something
   def total
-    criteria.map(&:score).sum
+    criteria.map(&:score).compact.sum
   end
 end
