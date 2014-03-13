@@ -36,6 +36,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'sprockets_better_errors'
   gem 'pry'
+  gem 'mocha'
 end
 
 group :production do
