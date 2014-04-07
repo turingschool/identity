@@ -61,6 +61,10 @@ class Application < ActiveRecord::Base
     evaluations.where(user: user, slug: 'selection').any?
   end
 
+  def score
+    evaluations.reduce(0) { |sum, evaluation| sum += evaluation.total }
+  end
+
   def quiz_duration
     if quiz_complete?
       ((quiz_completed_at - quiz_started_at).to_f / 60).ceil
