@@ -11,7 +11,7 @@ The Turing School of Software and Design **Application Application** (A^2)
 6. Put the Client Secret in the `config/application.yml` next to ASQUARED_GITHUB_CLIENT_SECRET.
 7. Open a AWS Account and get your AWS Access Key ID and Secret Access Key.
 8. Put the AWS Access Key ID in the `config/application.yml` next to AWS_ACCESS_KEY_ID.
-9. Put the AWS Secret Access Key in the `config/application.yml` next to AWS_ACCESS_KEY_ID.
+9. Put the AWS Secret Access Key in the `config/application.yml` next to AWS_SECRET_ACCESS_KEY.
 
 ## Notes
 

@@ -39,6 +39,10 @@ group :development, :test do
   gem 'mocha'
 end
 
+group :test do
+  gem 'capybara'
+end
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
