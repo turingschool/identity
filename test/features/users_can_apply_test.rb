@@ -1,28 +1,17 @@
 # encoding: utf-8
 
 require './test/test_helper'
+require './test/helpers/feature.rb'
 
 
 class UsersCanApplyTest < MiniTest::Unit::TestCase
-  def page
-    @page ||=  begin
-      Capybara.app = Rails.application
-      Capybara.current_session
-    end
-  end
-
-  def save_and_open_page
-    `open #{page.save_page}`
-  end
-
-  def path_to(fixture_file)
-    File.join ActionController::TestCase.fixture_path, fixture_file
-  end
+  include Test::Helpers::Feature
 
   def test_users_can_apply_via_the_interwebz
     alice = User.create! name:     'Alice Smith',
                          location: 'New York, NY'
-    $current_user = alice
+
+    set_current_user alice
 
     # start application
     page.visit '/'
@@ -55,7 +44,6 @@ class UsersCanApplyTest < MiniTest::Unit::TestCase
     assert_equal ["bio", "resume", "essay", "video"], application.completed_steps
 
     # quiz
-    num_questions = Eloquiz.random_questions.size
     page.click_link 'Start Now'
 
     num_questions.times do |i|
@@ -77,8 +65,7 @@ class UsersCanApplyTest < MiniTest::Unit::TestCase
     # final
     page.click_on 'Continue Application'
     page.click_on 'Submit Application'
-    root_path = Rails.application.routes.url_helpers.root_path
-    assert_equal root_path, page.current_path
+    assert_equal url_helpers.root_path, page.current_path
     assert_equal ["bio", "resume", "essay", "video", "quiz", "final"], application.completed_steps
   end
 end
