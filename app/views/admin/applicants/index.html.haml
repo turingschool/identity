@@ -21,6 +21,7 @@
               %th.title Name
               %th.title Email
               %th.title Location
+              %th.title Quiz
               %th.title Score
               %th.title
           %tbody
@@ -38,6 +39,9 @@
                   = "(#{application.quiz_duration} min)"
                 - else
                   Pending
+              %td
+                = application.score
+                points
               %td
                 - if application.complete?
                   - if application.evaluated_by?(current_user)

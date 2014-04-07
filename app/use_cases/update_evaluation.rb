@@ -12,6 +12,7 @@ class UpdateEvaluation
       criterion.notes = values["notes"]
       criterion.save
     end
+    evaluation.completed_at = Time.now
     evaluation.save
   end
 end

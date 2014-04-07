@@ -38,8 +38,9 @@ Asquared::Application.routes.draw do
     resources :applicants, only: [] do
       collection do
         get '/step/:step' => 'applicants#index', as: :subset_of
-        get '/step/:step/by_date' => 'applicants#by_date', as: :by_date
-        get '/step/:step/by_score' => 'applicants#by_score', as: :by_score
+        get '/step/:step/by_date' => 'applicants#by_date'
+        get '/step/:step/by_quiz_score' => 'applicants#by_quiz_score'
+        get '/step/:step/by_score' => 'applicants#by_score'
       end
       member do
         get :show

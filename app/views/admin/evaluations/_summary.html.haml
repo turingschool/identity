@@ -2,36 +2,11 @@
 
 %hr
 
-%h4.title Evaluation Scores
-- application.initial_evaluations.each do |evaluation|
-  .row
-    .col-md-2
-      %h5.title.orange Evaluator
-      %p #{evaluation.evaluator.name}
-
-    .col-md-3
-      %h5.title.orange Criteria
-      - evaluation.criteria.each do |criterion|
-        %p #{criterion.title}
-      %hr
-      %p Total Score
-
-    .col-md-3
-      %h5.title.orange Points
-      - evaluation.criteria.each do |criterion|
-        - if criterion.score
-          %p #{criterion.score} points
-        - else
-          %p Score is pending
-      %hr
-      %p
-        = evaluation.total
-        points
-
-    .col-md-2
-      %h5.title.orange Actions
-      %p
-        - if evaluation.evaluator == current_user
-          = link_to 'Edit Application', edit_admin_evaluation_path(evaluation)
-
-= render "admin/evaluations/notes", evaluations: application.initial_evaluations
+- unless application.initial_evaluations.empty?
+  %h4.title Evaluation Scores
+  = render "admin/evaluations/evaluations", evaluations: application.initial_evaluations
+  = render "admin/evaluations/notes", evaluations: application.initial_evaluations
+- unless application.interview_notes.empty?
+  %h4.title Interview Notes
+  = render "admin/evaluations/evaluations", evaluations: application.interview_notes
+  = render "admin/evaluations/notes", evaluations: application.interview_notes

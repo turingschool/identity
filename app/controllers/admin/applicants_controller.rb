@@ -24,9 +24,17 @@ class Admin::ApplicantsController < AdminController
     render :index
   end
 
-  def by_score
+  def by_quiz_score
     @step = params[:step]
     @applications = Application.upto(@step).joins(:user).sort_by(&:quiz_score).reverse!
+    @counts = Application.breakdown
+
+    render :index
+  end
+
+  def by_score
+    @step = params[:step]
+    @applications = Application.upto(@step).joins(:user).sort_by(&:score).reverse!
     @counts = Application.breakdown
 
     render :index
