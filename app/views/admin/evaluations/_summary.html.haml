@@ -2,11 +2,11 @@
 
 %hr
 
-- if application.initial_evaluations
+- unless application.initial_evaluations.empty?
   %h4.title Evaluation Scores
   = render "admin/evaluations/evaluations", evaluations: application.initial_evaluations
   = render "admin/evaluations/notes", evaluations: application.initial_evaluations
-- if application.interview_notes
+- unless application.interview_notes.empty?
   %h4.title Interview Notes
   = render "admin/evaluations/evaluations", evaluations: application.interview_notes
   = render "admin/evaluations/notes", evaluations: application.interview_notes
