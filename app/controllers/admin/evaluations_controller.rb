@@ -4,12 +4,12 @@ class Admin::EvaluationsController < AdminController
   def create
     user = User.find(params[:id])
     user.application.evaluating!
-    evaluation = InitialEvaluation.for(user.application, by: current_user)
+    evaluation = evaluation(user)
     redirect_to edit_admin_evaluation_path(evaluation)
   end
 
   def edit
-    @evaluation = Evaluation.find params[:id]
+    @evaluation = Evaluation.find(params[:id])
     @current_step = @evaluation.application.completed_steps.last
   end
 
@@ -20,5 +20,17 @@ class Admin::EvaluationsController < AdminController
     else
       render :edit
     end
+  end
+
+  private
+
+  def evaluation(user)
+    if params[:interview]
+      evaluation = InterviewEvaluation
+    else
+      evaluation = InitialEvaluation
+    end
+
+    evaluation.for(user.application, by: current_user)
   end
 end
