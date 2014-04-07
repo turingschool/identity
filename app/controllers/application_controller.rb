@@ -26,6 +26,8 @@ class ApplicationController < ActionController::Base
 
     if session[:user_id]
       @current_user = User.find_by_id(session[:user_id])
+    elsif Rails.env.test?
+      @current_user = $current_user
     end
     @current_user ||= Guest.new
   end

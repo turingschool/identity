@@ -35,6 +35,12 @@ GEM
     bootstrap-sass (3.0.0.0)
       sass (~> 3.2)
     builder (3.1.4)
+    capybara (2.2.1)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -173,6 +179,8 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -181,6 +189,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.0.0.0.rc)
+  capybara
   carrierwave
   coffee-rails (~> 4.0.0)
   faker

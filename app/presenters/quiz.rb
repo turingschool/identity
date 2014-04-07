@@ -24,12 +24,12 @@ class Quiz
   attr_reader :user, :current_question, :answer
   def initialize(user, question_slug = nil)
     @user = user
+    generate if application.quiz_questions.empty?
     if question_slug
       @current_question = application.quiz_question(question_slug.to_sym)
     else
       @current_question = application.next_quiz_question
     end
-    generate
   end
 
   # Yeah, yeah.
@@ -41,12 +41,12 @@ class Quiz
   end
 
   def update_attributes(data)
-    @answer = data[:answer] # for validations. It's kind of gross.
+    @answer   = data[:answer] # for validations. It's kind of gross.
     statement = data[:options][answer]
-    key = data[:fingerprint]
+    key       = data[:fingerprint]
 
     result = Eloquiz::AnswerKey.correct?(statement, answer, key)
-    application.quiz_result(question.slug, {result: result, answer: statement})
+    application.quiz_result(question.slug, result: result, answer: statement)
     if valid?
       if application.quiz_complete?
         application.complete :quiz
@@ -60,8 +60,6 @@ class Quiz
   private
 
   def generate
-    if application.quiz_questions.empty?
-      QuizQuestions.generate_for(application)
-    end
+    QuizQuestions.generate_for(application)
   end
 end
