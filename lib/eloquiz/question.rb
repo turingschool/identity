@@ -8,7 +8,7 @@ module Eloquiz
       names
     end
 
-    class SubclassMustImplement < StandardError; end
+    SubclassMustImplement = Class.new StandardError
 
     [:type, :rules, :setup, :answers, :red_herrings].each do |message|
       define_method message do
@@ -29,7 +29,7 @@ module Eloquiz
     end
 
     def itemize(alternatives)
-      letters = %w(A B C D E)
+      letters = [*'A'..'Z']
       alternatives.each do |alternative|
         alternative.choice = letters.shift
       end
@@ -44,8 +44,12 @@ module Eloquiz
       options.shuffle
     end
 
+    def solution
+      @solution ||= options.find &:answer
+    end
+
     def fingerprint
-      @fingerprint ||= options.find {|o| o.answer?}.fingerprint
+      @fingerprint ||= solution.fingerprint
     end
 
     def prompt
