@@ -1,20 +1,20 @@
 %hr
 .col-md-10
   .applicant-actions
-    - if application.resume?
-      = link_to 'View Resume', application.resume_url, target: '_blank', class: 'btn btn-default'
+    - if applicant_actions.has_resume?
+      = link_to 'View Resume', applicant_actions.resume_url, target: '_blank', class: 'btn btn-default'
 
-    - if application.essay_url
-      = link_to 'View Essay', application.essay_url, target: '_blank', class: 'btn btn-default'
+    - if applicant_actions.has_essay?
+      = link_to 'View Essay', applicant_actions.essay_url, target: '_blank', class: 'btn btn-default'
 
-    - if application.video_url
-      = link_to 'View Video on YouTube', application.video_url, target: '_blank', class: 'btn btn-default'
+    - if applicant_actions.has_video?
+      = link_to 'View Video on YouTube', applicant_actions.video_url, target: '_blank', class: 'btn btn-default'
 
-    - if application.quiz_complete?
-      = link_to "View Quiz (#{application.quiz_score}/#{application.quiz_size})", quiz_admin_applicant_path(@applicant), class: 'btn btn-default'
+    - if applicant_actions.quiz_complete?
+      = link_to "View Quiz (#{applicant_actions.quiz_score}/#{applicant_actions.quiz_size})", quiz_admin_applicant_path(@applicant), class: 'btn btn-default'
 
-    - if application.complete? && !application.evaluated_by?(current_user)
+    - if applicant_actions.can_evaluate?
       = link_to 'Create Evaluation', admin_evaluations_path(@applicant), method: :post, class: 'btn btn-warning'
 
-    - if application.evaluations.first.completed_at && !application.interviewed_by?(current_user)
+    - if applicant_actions.can_interview?
       = link_to 'Create Interview Notes', admin_evaluations_path(applicant, interview: true), method: :post, class: 'btn btn-warning'

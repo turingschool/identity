@@ -10,7 +10,9 @@ class Admin::EvaluationsController < AdminController
 
   def edit
     @evaluation = Evaluation.find(params[:id])
-    @current_step = @evaluation.application.completed_steps.last
+    application = @evaluation.application
+    @applicant_actions = Admin::ApplicantActions.new(application, current_user)
+    @current_step = application.completed_steps.last
   end
 
   def update

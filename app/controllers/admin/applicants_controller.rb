@@ -7,7 +7,9 @@ class Admin::ApplicantsController < AdminController
 
   def show
     @applicant = User.find params[:id]
-    @current_step = @applicant.application.completed_steps.last
+    application = @applicant.application
+    @applicant_actions = Admin::ApplicantActions.new(application, current_user)
+    @current_step = application.completed_steps.last
   end
 
   def quiz
