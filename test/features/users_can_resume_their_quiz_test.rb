@@ -17,7 +17,7 @@ class UsersCanResumeTheirQuiz < MiniTest::Unit::TestCase
 
     # answer the first quiz question
     question  = application.quiz_questions.first
-    statement = question.solution.statement # logic for finding the answer should probably be centralized somewhere
+    statement = question.solution.statement
     application.quiz_result question.slug, result: true, answer: statement
 
     # when continuing, am sent to the quiz
