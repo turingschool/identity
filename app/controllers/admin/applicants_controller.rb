@@ -41,4 +41,10 @@ class Admin::ApplicantsController < AdminController
 
     render :index
   end
+
+  def update
+    admin_params = params.require(:user).permit(:hide_until_active, :permahide)
+    User.find(params[:id]).application.update_attributes(admin_params)
+    render nothing: true
+  end
 end
