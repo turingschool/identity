@@ -28,7 +28,7 @@
               %th.title
           %tbody
           - @applications.each do |application|
-            %tr{id: "#{application.user.name[0]}"}
+            %tr{class: 'applicant', id: "#{application.user.name[0]}", "data-hide_until_active" => application.hide_until_active.to_s, "data-permahide" => application.permahide.to_s}
               %td
                 = link_to(application.user.name, admin_applicant_path(application.user))
               %td

@@ -19,4 +19,18 @@ class ApplicationTest < ActiveSupport::TestCase
     assert app.completed? :bio
   end
 
+  def test_visibility_scopes
+    default_scope = Application.where('id > ?', Application.maximum(:id))
+    visible, permahidden, hidden_until_active, both = Application.create [
+      { hide_until_active: false, permahide: false },
+      { hide_until_active: false, permahide: true  },
+      { hide_until_active: true,  permahide: false },
+      { hide_until_active: true,  permahide: true  },
+    ]
+    assert_equal [visible],                      default_scope.visible
+    assert_equal [hidden_until_active, both],    default_scope.hidden_until_active
+    assert_equal [visible, permahidden],         default_scope.not_hidden_until_active
+    assert_equal [permahidden, both],            default_scope.permahidden
+    assert_equal [visible, hidden_until_active], default_scope.not_permahidden
+  end
 end

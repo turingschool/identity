@@ -18,6 +18,12 @@ class Application < ActiveRecord::Base
     where('completed_steps LIKE ?', "%#{step}%").order("name asc")
   end
 
+  scope :visible,                 -> { not_hidden_until_active.not_permahidden }
+  scope :hidden_until_active,     -> { where hide_until_active: true  }
+  scope :not_hidden_until_active, -> { where hide_until_active: false }
+  scope :permahidden,             -> { where permahide:         true  }
+  scope :not_permahidden,         -> { where permahide:         false }
+
   def self.steps
     Steps.all
   end
