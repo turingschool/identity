@@ -7,9 +7,5 @@
   = button_to "By Name", { action: :index }, method: :get, class: "btn btn-default btn-sm btn-applicant"
   = button_to "By Quiz Score", { action: :by_quiz_score }, method: :get, class: "btn btn-default btn-sm btn-applicant"
   = button_to "By Application Score", { action: :by_score }, method: :get, class: "btn btn-default btn-sm btn-applicant"
-  %label.btn.btn-default.btn-sm.btn-applicant.show_inactive{for: 'show_inactive'}
-    %input{type: 'checkbox', checked: false, id: 'show_inactive'}
-    Show Inactive
-  %label.btn.btn-default.btn-sm.btn-applicant.show_permahidden{for: 'show_permahidden'}
-    %input{type: 'checkbox', checked: false, id: 'show_permahidden'}
-    Show Permahidden
+  %button.btn.btn-default.btn-sm.btn-applicant.show_inactive    Inactive
+  %button.btn.btn-default.btn-sm.btn-applicant.show_permahidden Permahidden

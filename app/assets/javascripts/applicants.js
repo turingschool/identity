@@ -1,26 +1,13 @@
 $(document).ready(ready);
 
 function ready() {
-    $("button#initial"                              ).on("click", filterApplicants);
-    $("button#all"                                  ).on("click", showAllApplicants);
-    $("tr.applicant"                                ).filter(shouldHide).hide()
-    $("form.permahide"                              ).on("submit", hideRow("permahide"));
-    $("form.hide_until_active"                      ).on("submit", hideRow("hide_until_active"));
-    $("label.show_permahidden input[type=checkbox]" ).change(toggleRows('permahide'));
-    $("label.show_inactive    input[type=checkbox]" ).change(toggleRows('hide_until_active'));
-}
-
-function toggleRows(dataAttribute) {
-  return function() {
-    var rows = $('tr.applicant').filter(function() {
-      return $(this).data(dataAttribute);
-    });
-
-    if(this.checked)
-      rows.show();
-    else
-      rows.hide();
-  }
+    $("button#initial"          ).on("click", filterApplicants);
+    $("button#all"              ).on("click", showAllApplicants);
+    $("tr.applicant"            ).filter(shouldHide).hide()
+    $("form.permahide"          ).on("submit", markRowHidden("permahide"));
+    $("form.hide_until_active"  ).on("submit", markRowHidden("hide_until_active"));
+    $("button.show_permahidden" ).on("click",  showRows('permahide'));
+    $("button.show_inactive"    ).on("click",  showRows('hide_until_active'));
 }
 
 function shouldHide() {
@@ -44,10 +31,21 @@ function showAllApplicants() {
     trs.not(shouldHide).hide();
 }
 
-function hideRow(dataAttribute) {
+function markRowHidden(dataAttribute) {
   return function() {
     var tr = $(this).closest('tr');
     tr.data(dataAttribute, true);
     tr.hide();
   }
+}
+
+function showRows(dataAttribute) {
+    return function() {
+        var allRows    = $('tr.applicant');
+        var rowsToShow = allRows.filter(function() {
+          return $(this).data(dataAttribute);
+        });
+        allRows.hide();
+        rowsToShow.show();
+    }
 }
