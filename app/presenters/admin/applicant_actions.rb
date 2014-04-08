@@ -37,5 +37,10 @@ module Admin
       application.evaluations.any?(&:completed_at) &&
       !application.interviewed_by?(user)
     end
+
+    def can_evaluate_logic?
+      application.interview_notes.any?(&:completed_at) &&
+      !application.evaluated_logic_by?(user)
+    end
   end
 end

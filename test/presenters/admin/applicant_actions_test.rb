@@ -3,7 +3,7 @@ require './app/presenters/admin/applicant_actions'
 
 module Admin
   class ApplicantActionsTest < ActiveSupport::TestCase
-    def presenter_for(application, user=User.new)
+    def presenter_for(application, user = User.new)
       ApplicantActions.new(application, user)
     end
 
@@ -78,8 +78,8 @@ module Admin
                    presenter.quiz_size
     end
 
-    test 'it says the user can create an evaluation if the application is complete and they have not yet evaluated it' do
-      application = Application.create! completed_steps: Steps.all.map(&:to_s)
+    test 'it says the user can create an evaluation' do
+      application  = Application.create!(completed_steps: Steps.all.map(&:to_s))
       current_user = User.create!
 
       # not complete, is not evaluated by current user
@@ -96,9 +96,9 @@ module Admin
       assert presenter.can_evaluate?
     end
 
-    test 'it says the user can create interview notes if the application is complete and they have not yet interviewed' do
+    test 'it says the user can create interview notes' do
       application = Application.create!
-      user = User.create!
+      user        = User.create!
 
       # Doesn't have any evaluations
       presenter = presenter_for(application)
@@ -124,9 +124,40 @@ module Admin
 
 
       # Has been evaluated,
-      # and that the current user has not interviewed the applicant
+      # and the current user has not interviewed the applicant
       presenter = presenter_for(application, User.new)
       assert presenter.can_interview?
+    end
+
+    test "it can create a logic evaluation" do
+      application = Application.create!
+      user        = User.create!
+
+      # Doesn't have any interviews
+      presenter = presenter_for(application, user)
+      refute presenter.can_evaluate_logic? 
+
+      # Is being interviewed,
+      # and the current user has not already evaluated the applicant
+      evaluation = application.interview_notes.build
+      presenter  = presenter_for(application, user)
+      refute presenter.can_evaluate_logic?
+
+      # Has been interviewed,
+      # and the current user has already evaluated the applicant
+      evaluation.completed_at = Time.now
+      application.logic_evaluations.create! do |e|
+        e.user = user
+        e.slug = 'logic' 
+      end
+
+      presenter = presenter_for(application, user)
+      refute presenter.can_evaluate_logic?
+
+      # Has been interviewed,
+      # and the current user has not evaluated the applicant
+      presenter = presenter_for(application, User.new)
+      assert presenter.can_evaluate_logic?
     end
   end
 end

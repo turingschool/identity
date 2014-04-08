@@ -5,8 +5,9 @@ class Application < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :application
   has_many :evaluations, inverse_of: :application
-  has_many :initial_evaluations, ->{ where(slug: 'triage') }, class_name: 'Evaluation'
-  has_many :interview_notes, ->{ where(slug: 'selection') }, class_name: 'Evaluation'
+  has_many :initial_evaluations, ->{ where(slug: 'triage') },    class_name: 'Evaluation'
+  has_many :interview_notes,     ->{ where(slug: 'selection') }, class_name: 'Evaluation'
+  has_many :logic_evaluations,   ->{ where(slug: 'logic') },     class_name: 'Evaluation'
   alias_method :owner, :user
 
   serialize :completed_steps, Array
@@ -58,16 +59,39 @@ class Application < ActiveRecord::Base
   end
 
   def interviewed_by?(user)
-    evaluations.where(user: user, slug: 'selection').any?
+    interview_notes.where(user: user).any?
+  end
+
+  def evaluated_logic_by?(user)
+    logic_evaluations.where(user: user).any?
   end
 
   def score
-    evaluations.reduce(0) { |sum, evaluation| sum += evaluation.total }
+    initial_evaluation_score + interview_score + logic_evaluation_score
+  end
+
+  def initial_evaluation_score
+    calculate_mean(initial_evaluations)
+  end
+
+  def interview_score
+    calculate_mean(interview_notes)
+  end
+
+  def logic_evaluation_score
+    calculate_mean(logic_evaluations)
   end
 
   def quiz_duration
     if quiz_complete?
       ((quiz_completed_at - quiz_started_at).to_f / 60).ceil
     end
+  end
+
+  private
+
+  def calculate_mean(evaluations)
+    evaluations = evaluations
+    evaluations.reduce(0) { |sum, evaluation| sum += evaluation.total } / evaluations.length
   end
 end
