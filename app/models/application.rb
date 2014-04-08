@@ -91,7 +91,11 @@ class Application < ActiveRecord::Base
   private
 
   def calculate_mean(evaluations)
-    evaluations = evaluations
-    evaluations.reduce(0) { |sum, evaluation| sum += evaluation.total } / evaluations.length
+    return 0 if evaluations.empty?
+    total_points(evaluations) / evaluations.length
+  end
+
+  def total_points(evaluations)
+    evaluations.reduce(0) { |sum, evaluation| sum += evaluation.total } 
   end
 end

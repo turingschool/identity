@@ -6,6 +6,11 @@
 
   .applicant-info
 
+    %h5.title Application Score
+    %p
+      = applicant.application.score
+      points
+    
     %h5.title Email
     %p
       - if applicant.email.blank?
@@ -18,3 +23,4 @@
 
     %h5.title GitHub Profile
     %p= link_to applicant.username, "https://github.com/#{applicant.username}"
+

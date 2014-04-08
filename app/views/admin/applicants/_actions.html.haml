@@ -18,3 +18,6 @@
 
     - if applicant_actions.can_interview?
       = link_to 'Create Interview Notes', admin_evaluations_path(applicant, interview: true), method: :post, class: 'btn btn-warning'
+
+    - if applicant_actions.can_evaluate_logic?
+      = link_to 'Create Logic Evaluation', admin_evaluations_path(applicant, logic: true), method: :post, class: 'btn btn-warning'

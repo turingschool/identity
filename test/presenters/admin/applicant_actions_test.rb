@@ -110,7 +110,6 @@ module Admin
       presenter  = presenter_for(application, user)
       refute presenter.can_interview?
 
-
       # Has been evaluated,
       # and the current user has already interviewed the applicant
       evaluation.completed_at = Time.now
@@ -121,7 +120,6 @@ module Admin
 
       presenter = presenter_for(application, user)
       refute presenter.can_interview?
-
 
       # Has been evaluated,
       # and the current user has not interviewed the applicant

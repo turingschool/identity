@@ -10,3 +10,7 @@
   %h4.title Interview Notes
   = render "admin/evaluations/evaluations", evaluations: application.interview_notes
   = render "admin/evaluations/notes", evaluations: application.interview_notes
+- unless application.logic_evaluations.empty?
+  %h4.title Logic Evaluations
+  = render "admin/evaluations/evaluations", evaluations: application.logic_evaluations
+  = render "admin/evaluations/notes", evaluations: application.logic_evaluations

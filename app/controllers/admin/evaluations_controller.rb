@@ -27,8 +27,11 @@ class Admin::EvaluationsController < AdminController
   private
 
   def evaluation(user)
-    if params[:interview]
+    case
+    when params[:interview]
       evaluation = InterviewEvaluation
+    when params[:logic]
+      evaluation = LogicEvaluation
     else
       evaluation = InitialEvaluation
     end
