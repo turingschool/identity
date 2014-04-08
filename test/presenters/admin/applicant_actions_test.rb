@@ -7,8 +7,8 @@ module Admin
       ApplicantActions.new(application, user)
     end
 
-    def application_with_stuff
-      @application_with_stuff ||= Application.new do |app|
+    def application_with_data
+      @application_with_data ||= Application.new do |app|
         def app.resume_url
           'RESUME URL'
         end
@@ -20,43 +20,43 @@ module Admin
       end
     end
 
-    def application_without_stuff
-      @application_without_stuff ||= Application.new
+    def application_without_data
+      @application_without_data ||= Application.new
     end
 
     test 'it knows if the application has a resume' do
-      assert presenter_for(application_with_stuff).has_resume?
-      refute presenter_for(application_without_stuff).has_resume?
+      assert presenter_for(application_with_data).has_resume?
+      refute presenter_for(application_without_data).has_resume?
     end
 
     test 'it provides the resume url' do
-      presenter = presenter_for(application_with_stuff)
+      presenter = presenter_for(application_with_data)
       assert_equal 'RESUME URL', presenter.resume_url
     end
 
     test 'it knows if the application has an essay' do
-      assert presenter_for(application_with_stuff).has_essay?
-      refute presenter_for(application_without_stuff).has_essay?
+      assert presenter_for(application_with_data).has_essay?
+      refute presenter_for(application_without_data).has_essay?
     end
 
     test 'it provides the essay url' do
-      presenter = presenter_for(application_with_stuff)
+      presenter = presenter_for(application_with_data)
       assert_equal 'ESSAY URL', presenter.essay_url
     end
 
     test 'it knows if the application has a video' do
-      assert presenter_for(application_with_stuff).has_video?
-      refute presenter_for(application_without_stuff).has_video?
+      assert presenter_for(application_with_data).has_video?
+      refute presenter_for(application_without_data).has_video?
     end
 
     test 'it provides the video url' do
-      presenter = presenter_for(application_with_stuff)
+      presenter = presenter_for(application_with_data)
       assert_equal 'VIDEO URL', presenter.video_url
     end
 
     test 'it knows if the quiz is complete' do
-      assert presenter_for(application_with_stuff).quiz_complete?
-      refute presenter_for(application_without_stuff).quiz_complete?
+      assert presenter_for(application_with_data).quiz_complete?
+      refute presenter_for(application_without_data).quiz_complete?
     end
 
     test 'it knows the quiz score' do
@@ -73,8 +73,8 @@ module Admin
     end
 
     test 'it knows the quiz size' do
-      presenter = presenter_for(application_with_stuff)
-      assert_equal application_with_stuff.quiz_size,
+      presenter = presenter_for(application_with_data)
+      assert_equal application_with_data.quiz_size,
                    presenter.quiz_size
     end
 
@@ -83,7 +83,7 @@ module Admin
       current_user = User.create!
 
       # not complete, is not evaluated by current user
-      refute presenter_for(application_without_stuff).can_evaluate?
+      refute presenter_for(application_without_data).can_evaluate?
 
       # is complete, is evaluated by current user
       application.evaluations.create(user_id: current_user.id)
