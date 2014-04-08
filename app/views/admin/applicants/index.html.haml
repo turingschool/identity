@@ -24,6 +24,8 @@
               %th.title Quiz
               %th.title Score
               %th.title
+              %th.title
+              %th.title
           %tbody
           - @applications.each do |application|
             %tr{id: "#{application.user.name[0]}"}
@@ -51,3 +53,11 @@
                 - else
                   .progress_indicator
                     = progress_indicator(application)
+              %td
+                = form_for application.user, url: admin_applicant_path(application.user), method: :patch, remote: true, html: { class: 'hide_until_active' } do |f|
+                  = f.hidden_field :hide_until_active, value: true
+                  = f.submit '', title: 'Hide until user becomes active'
+              %td
+                = form_for application.user, url: admin_applicant_path(application.user), method: :patch, remote: true, html: { class: 'permahide' } do |f|
+                  = f.hidden_field :permahide, value: true
+                  = f.submit '', title: 'Permahide'
