@@ -20,7 +20,7 @@ class Evaluation < ActiveRecord::Base
   end
 
   def has_notes?
-    criteria.any? {|criterion| criterion.has_notes?}
+    criteria.any?(&:has_notes?)
   end
 
   def total
