@@ -1,7 +1,4 @@
-gem "minitest", "~> 4.2"
-require 'minitest/autorun'
-require 'minitest/pride'
-require './app/models/quiz_progression'
+require './test/test_helper'
 
 module Eloquiz
   class FakeQuizQuestion
@@ -16,7 +13,7 @@ module Eloquiz
   end
 end
 
-class QuizProgressionTest < MiniTest::Unit::TestCase
+class QuizProgressionTest < ActiveSupport::TestCase
 
   Challenge = Struct.new(:quiz_questions, :quiz_answers) do
     include QuizProgression
@@ -29,6 +26,21 @@ class QuizProgressionTest < MiniTest::Unit::TestCase
   def test_quiz_generated_p
     refute Challenge.new([], {}).quiz_generated?
     assert Challenge.new([q(:one)], {}).quiz_generated?
+  end
+
+  def test_quiz_question
+    challenge = Challenge.new([q(:one), q(:two), q(:three)])
+    question  = challenge.quiz_questions[1]
+    assert_equal question, challenge.quiz_question(:two)
+  end
+
+  def test_current_quiz_question
+    results = {
+      one:   { result: true, answer: "blue" },
+      two:   { result: false, answer: "gray" },
+    }
+    challenge = Challenge.new([q(:one), q(:two), q(:three)], results)
+    assert_equal 3, challenge.current_quiz_question
   end
 
   def test_first_quiz_question
