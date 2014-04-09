@@ -14,4 +14,9 @@ class VideoTest < ActiveSupport::TestCase
 		assert video.update_attributes(url: 'URL')
 		refute video.update_attributes({})
 	end
+
+  test 'it has an url' do
+    video.update_attributes(url: 'URL')
+    assert_equal 'URL', video.url
+  end
 end
