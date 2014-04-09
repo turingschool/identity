@@ -1,5 +1,4 @@
 require './test/test_helper'
-require './app/presenters/admin/applicant_actions'
 
 module Admin
   class ApplicantActionsTest < ActiveSupport::TestCase
