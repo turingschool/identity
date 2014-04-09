@@ -1,3 +1,10 @@
+-# If you wind up adding or working on the sorting/displaying code here,
+-# and it gets complicated and difficult to work with, here's what I suspect will be the best way to deal with it:
+-#
+-# I think the best way to do this is to keep a separate,
+-# hidden table of all the possible rows, and then have the filters just move some over to the displaying table,
+-# and have the sorters ("by date", "by name", etc) just change the default sorting on that visible table.
+
 .container
   .row
     .col-md-11.step-box.main
