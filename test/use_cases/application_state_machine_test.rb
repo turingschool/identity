@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 
-class ApplicationStateMachineTest < Minitest::Test
+class ApplicationStateMachineTest < MiniTest::Unit::TestCase
   module StateMachineHelpers
     def machine_for(current_state)
       ApplicationStateMachine.new(current_state)
@@ -21,7 +21,7 @@ class ApplicationStateMachineTest < Minitest::Test
     end
   end
 
-  class CompletedApplicationTest < Minitest::Test
+  class CompletedApplicationTest < MiniTest::Unit::TestCase
     include StateMachineHelpers
 
     def test_it_must_be_in_state_pending
@@ -34,7 +34,7 @@ class ApplicationStateMachineTest < Minitest::Test
     end
   end
 
-  class CompletedEvaluationsTest < Minitest::Test
+  class CompletedEvaluationsTest < MiniTest::Unit::TestCase
     include StateMachineHelpers
 
     def test_it_must_be_in_state_needs_evaluation_scores
@@ -72,7 +72,7 @@ class ApplicationStateMachineTest < Minitest::Test
     end
   end
 
-  class SentRejectedAtEvaluationNotificationTest < Minitest::Test
+  class SentRejectedAtEvaluationNotificationTest < MiniTest::Unit::TestCase
     include StateMachineHelpers
 
     def test_it_must_be_in_state_needs_rejected_at_evaluation_notification
@@ -88,7 +88,7 @@ class ApplicationStateMachineTest < Minitest::Test
     end
   end
 
-  class ScheduledInterviewTest < Minitest::Test
+  class ScheduledInterviewTest < MiniTest::Unit::TestCase
     include StateMachineHelpers
 
     def test_it_must_be_in_state_needs_to_schedule_interview
@@ -101,7 +101,7 @@ class ApplicationStateMachineTest < Minitest::Test
     end
   end
 
-  class CompletedInterviewTest < Minitest::Test
+  class CompletedInterviewTest < MiniTest::Unit::TestCase
     include StateMachineHelpers
 
     def test_it_must_be_in_state_needs_interview_scores
@@ -130,7 +130,7 @@ class ApplicationStateMachineTest < Minitest::Test
     end
   end
 
-  class SentRejectedAtInterviewNotificationTest < Minitest::Test
+  class SentRejectedAtInterviewNotificationTest < MiniTest::Unit::TestCase
     include StateMachineHelpers
 
     def test_it_must_be_in_state_needs_rejected_at_evaluation_notification
@@ -146,7 +146,7 @@ class ApplicationStateMachineTest < Minitest::Test
     end
   end
 
-  class SentInvitationTest < Minitest::Test
+  class SentInvitationTest < MiniTest::Unit::TestCase
     include StateMachineHelpers
 
     def test_it_must_be_in_state_needs_invitation
@@ -159,7 +159,7 @@ class ApplicationStateMachineTest < Minitest::Test
     end
   end
 
-  class DeclinedInvitationTest < Minitest::Test
+  class DeclinedInvitationTest < MiniTest::Unit::TestCase
     include StateMachineHelpers
 
     def test_it_must_be_in_state_needs_invitation_response
@@ -172,7 +172,7 @@ class ApplicationStateMachineTest < Minitest::Test
     end
   end
 
-  class AcceptedInvitationTest < Minitest::Test
+  class AcceptedInvitationTest < MiniTest::Unit::TestCase
     include StateMachineHelpers
 
     def test_it_must_be_in_state_invited
