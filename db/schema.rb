@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307191718) do
+ActiveRecord::Schema.define(version: 20140408160213) do
 
   create_table "applications", force: true do |t|
     t.integer  "user_id"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20140307191718) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status",            default: "pending"
+    t.boolean  "hide_until_active", default: false
+    t.boolean  "permahide",         default: false
   end
 
   add_index "applications", ["user_id"], name: "index_applications_on_user_id"

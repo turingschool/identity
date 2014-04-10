@@ -30,5 +30,16 @@ class ApplicationController < ActionController::Base
       @current_user = $current_user
     end
     @current_user ||= Guest.new
+    mark_user_active @current_user
+    @current_user
+  end
+
+  private
+
+  def mark_user_active(user)
+    user.respond_to?(:application)     &&
+      (application = user.application) &&
+      application.hide_until_active    &&
+      application.update_attribute(:hide_until_active, false)
   end
 end

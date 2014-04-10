@@ -57,3 +57,25 @@ td.description {
 .quiz-answer-incorrect {
   color: darkred;
 }
+
+
+
+form.permahide, form.hide_until_active {
+  input[type=submit] {
+    $size:             25px;
+    width:             $size;
+    height:            $size;
+    background-size:   $size $size;
+    background-repeat: no-repeat;
+    background-color:  transparent;
+    border:            0;
+  }
+}
+
+form.permahide input[type=submit] {
+  background-image: asset-url('permahide.png', image);
+}
+
+form.hide_until_active input[type=submit] {
+  background-image: asset-url('hide_until_active.png', image);
+}
