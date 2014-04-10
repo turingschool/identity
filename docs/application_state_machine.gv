@@ -25,8 +25,8 @@ digraph finite_state_machine {
     label=<<b>needs_invitation</b><br /><font point-size="10">Passed interview,<br />we need to invite them to enroll</font>>
   ];
 
-  invited [
-    label=<<b>invited</b><br /><font point-size="10">Applicant has been invited,<br />we are waiting on a response</font>>
+  needs_invitation_response [
+    label=<<b>needs_invitation_response</b><br /><font point-size="10">Applicant has been invited,<br />we are waiting on a response</font>>
   ];
 
   needs_rejected_at_evaluation_notification [
@@ -72,7 +72,7 @@ digraph finite_state_machine {
       -> needs_to_schedule_interview
       -> needs_interview_scores
       -> needs_invitation
-      -> invited
+      -> needs_invitation_response
       -> accepted_invitation [constraint = false];
   }
 
@@ -89,6 +89,6 @@ digraph finite_state_machine {
   }
 
   subgraph decline_invitation  {
-    invited -> declined_invitation;
+    needs_invitation_response -> declined_invitation;
   }
 }
