@@ -73,9 +73,9 @@ form.permahide, form.hide_until_active {
 }
 
 form.permahide input[type=submit] {
-  background-image: asset-url('permahide.png', image);
+  background-image: asset-url('permahide.png');
 }
 
 form.hide_until_active input[type=submit] {
-  background-image: asset-url('hide_until_active.png', image);
+  background-image: asset-url('hide_until_active.png');
 }
