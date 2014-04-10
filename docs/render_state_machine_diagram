@@ -1,0 +1,15 @@
+#!/bin/bash
+
+input_filename="application_state_machine.gv"
+output_filename="state_machine.png"
+
+if [ ! -e $input_filename ]
+  then
+    echo "Expected $input_filename to exist" 1>&2
+    exit 1
+fi
+
+# if this fails, try $brew install gts graphviz
+dot -Tpng "$input_filename" > "$output_filename"
+open "$output_filename"
+
