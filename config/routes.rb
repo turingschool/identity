@@ -43,8 +43,9 @@ Asquared::Application.routes.draw do
         get '/step/:step/by_score'      => 'applicants#by_score'
       end
       member do
-        get :show
-        get :quiz
+        get   :show
+        get   :quiz
+        patch :update
         resources :evaluations, only: [:create]
       end
     end

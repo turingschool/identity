@@ -1,3 +1,10 @@
+-# If you wind up adding or working on the sorting/displaying code here,
+-# and it gets complicated and difficult to work with, here's what I suspect will be the best way to deal with it:
+-#
+-# I think the best way to do this is to keep a separate,
+-# hidden table of all the possible rows, and then have the filters just move some over to the displaying table,
+-# and have the sorters ("by date", "by name", etc) just change the default sorting on that visible table.
+
 .container
   .row
     .col-md-11.step-box.main
@@ -24,9 +31,11 @@
               %th.title Quiz
               %th.title Score
               %th.title
+              %th.title
+              %th.title
           %tbody
           - @applications.each do |application|
-            %tr{id: "#{application.user.name[0]}"}
+            %tr{class: 'applicant', id: "#{application.user.name[0]}", "data-hide_until_active" => application.hide_until_active.to_s, "data-permahide" => application.permahide.to_s}
               %td
                 = link_to(application.user.name, admin_applicant_path(application.user))
               %td
@@ -51,3 +60,11 @@
                 - else
                   .progress_indicator
                     = progress_indicator(application)
+              %td
+                = form_for application.user, url: admin_applicant_path(application.user), method: :patch, remote: true, html: { class: 'hide_until_active' } do |f|
+                  = f.hidden_field :hide_until_active, value: true
+                  = f.submit '', title: 'Hide until user becomes active'
+              %td
+                = form_for application.user, url: admin_applicant_path(application.user), method: :patch, remote: true, html: { class: 'permahide' } do |f|
+                  = f.hidden_field :permahide, value: true
+                  = f.submit '', title: 'Permahide'
