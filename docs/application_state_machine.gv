@@ -39,28 +39,29 @@ digraph finite_state_machine {
 
   rejected_at_evaluation [
     style     = filled,
-    fillcolor = red,
+    fillcolor = firebrick,
     fontcolor = white,
     label=<<b>rejected_at_evaluation</b><br /><font point-size="10">Consensus of evalutations is to reject applicant</font>>
   ];
 
   rejected_at_interview [
     style     = filled,
-    fillcolor = red,
+    fillcolor = firebrick,
     fontcolor = white,
     label=<<b>rejected_at_interview</b><br /><font point-size="10">Applicant was interviewed,<br />was rejected based on the interview</font>>
   ];
 
   declined_invitation [
     style     = filled,
-    fillcolor = red,
+    fillcolor = firebrick,
     fontcolor = white,
     label=<<b>declined_invitation</b><br /><font point-size="10">Applicant was invited,<br />but decided not to enroll</font>>
   ];
 
   accepted_invitation [
     style     = filled,
-    fillcolor = green,
+    fillcolor = darkolivegreen4,
+    fontcolor = white,
     label=<<b>accepted_invitation</b><br /><font point-size="10">Applicant has been invited,<br />and wishes to proceed</font>>
   ];
 
