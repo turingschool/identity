@@ -19,4 +19,9 @@ class ApplicationTest < ActiveSupport::TestCase
     assert app.completed? :bio
   end
 
+  def test_initial_status_is_pending
+    initial_status = Application.new.status
+    assert_equal 'pending', initial_status
+    assert ApplicationStateMachine.valid_states.include?(initial_status)
+  end
 end
