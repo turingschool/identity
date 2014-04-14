@@ -1,3 +1,5 @@
+# this should be a use case, not a presenter
+# should probably have its own tests
 class Final
   attr_reader :application,
               :user
@@ -10,7 +12,7 @@ class Final
   def update_attributes
     if application.valid?
       application.complete :final
-      application.completed!
+      application.completed_application!
     else
       false
     end

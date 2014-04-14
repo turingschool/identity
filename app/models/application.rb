@@ -57,14 +57,6 @@ class Application < ActiveRecord::Base
     self.class.steps.all? {|step| completed?(step)}
   end
 
-  def completed!
-    update_attributes(status: 'completed')
-  end
-
-  def evaluating!
-    update_attributes(status: 'evaluating')
-  end
-
   def evaluated_by?(user)
     evaluations.where(user: user).any?
   end
@@ -98,6 +90,18 @@ class Application < ActiveRecord::Base
       ((quiz_completed_at - quiz_started_at).to_f / 60).ceil
     end
   end
+
+  def completed_application!
+    state_machine = ApplicationStateMachine.new status
+    update_attributes(status: state_machine.completed_application!)
+  end
+
+  # FIXME: This will need to change
+  def evaluating!
+    state_machine = ApplicationStateMachine.new status
+    update_attributes(status: 'evaluating')
+  end
+
 
   private
 
