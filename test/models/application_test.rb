@@ -25,6 +25,20 @@ class ApplicationTest < ActiveSupport::TestCase
     assert ApplicationStateMachine.valid_states.include?(initial_status)
   end
 
+  def test_status_must_be_in_application_state_machine
+    application = Application.new
+    ApplicationStateMachine.valid_states.each do |state|
+      application.status = state
+      application.valid?
+      assert application.errors[:status].empty?
+    end
+    application.status = 'not_a_status'
+    application.valid?
+    errors = application.errors[:status]
+    assert_equal 1, errors.size
+    assert errors.first['not_a_status']
+  end
+
   def test_visibility_scopes
     default_scope = Application.where('id > ?', Application.maximum(:id))
     visible, permahidden, hidden_until_active, both = Application.create [

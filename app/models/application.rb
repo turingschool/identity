@@ -3,6 +3,11 @@ class Application < ActiveRecord::Base
   include Steps
   include QuizProgression
 
+  validates :status, inclusion: {
+    in:      ApplicationStateMachine.valid_states,
+    message: "%{value} is not a valid state, should be in #{ApplicationStateMachine.valid_states.inspect}"
+  }
+
   belongs_to :user, inverse_of: :application
   has_many :evaluations, inverse_of: :application
   has_many :initial_evaluations, ->{ where(slug: 'triage') },    class_name: 'Evaluation'
