@@ -1,28 +1,40 @@
 require './test/test_helper'
-require './test/helpers/feature'
+require 'helpers/feature' # rename helpers to support?
+require 'support/factory'
 
 class Admin::ApplicationFlowTest < MiniTest::Unit::TestCase
   include Test::Helpers::Feature
 
+  def setup
+    super
+    Capybara.current_driver = Capybara.javascript_driver
+  end
+
   def admin1
-    @admin1 ||= User.create! name: 'admin1', location: 'here', is_admin: true
+    @admin1 ||= Factory::User.create_user name: 'admin1', is_admin: true
   end
 
   def admin2
-    @admin2 ||= User.create! name: 'admin2', location: 'here', is_admin: true
+    @admin2 ||= User.create_user name: 'admin2', is_admin: true
   end
 
   def user
-    @user ||= User.create! name: 'user1',  location: 'here' do |user|
+    @user ||= Factory::User.create_user name: 'user1' do |user|
       application        = user.apply
       application.status = 'needs_interview_scores'
+      Factory::Apply.complete application
     end
   end
 
-  def test_happy_path
-    set_current_user admin1
+  def complete_evaluation(admin, user, evaluation_button_name, evaluation_title, max_or_min_points)
+    set_current_user admin
     result = page.visit url_helpers.admin_applicant_path(user)
-    page.click_on 'Create Evaluation'
+    page.click_on evaluation_button_name
+    assert page.has_content?(evaluation_title)
+  end
+
+  def test_happy_path
+    complete_evaluation admin1, user, 'Create Evaluation', 'Initial Review', 'Initial Review'
     # should see "Initial Evaluation"
     # page.click_on 'Save Evaluation'
     # should be in needs_to_schedule_interview
