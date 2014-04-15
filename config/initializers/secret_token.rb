@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Asquared::Application.config.secret_key_base = '2113c51135785ed7f247a4b9685e5f2343121c955ab231add52949231671df43db1ba7f95404b603c7d6b9db7c68803656e1b176c4ad626f688586a8bfcaf524'
+Asquared::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']
