@@ -17,7 +17,8 @@ module Jsl
         define(:admin?)      { is_admin }
         define(:created_at)  { @created_at ||= 10.days.ago }
         define(:updated_at)  { created_at }
-        define(:invited?)    { true }
+        define(:is_invited)  { true }
+        define(:invited?)    { is_invited }
 
         def is_invited
           @invited_p = true
