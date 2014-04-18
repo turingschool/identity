@@ -40,8 +40,9 @@ class ApplicationTest < ActiveSupport::TestCase
   end
 
   def test_visibility_scopes
-    default_scope = Application.where('id > ?', Application.maximum(:id))
-    visible, permahidden, hidden_until_active, both = Application.create [
+    total_applications = Application.count
+    default_scope = Application.where('id > ?', total_applications)
+    visible, permahidden, hidden_until_active, both = Application.create! [
       { hide_until_active: false, permahide: false },
       { hide_until_active: false, permahide: true  },
       { hide_until_active: true,  permahide: false },

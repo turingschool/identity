@@ -5,7 +5,7 @@ class ApplicationStateMachine
   def self.transitions
     @transitions ||= {
       # event                                   from_state                                    to_state
-      completed_application:                    ['pending',                                   'needs_evaluation_scores'],
+      submitted:                                ['pending',                                   'needs_evaluation_scores'],
       not_enough_evaluations:                   ['needs_evaluation_scores',                   'needs_evaluation_scores'],
       passed_evaluations:                       ['needs_evaluation_scores',                   'needs_to_schedule_interview'],
       failed_evaluations:                       ['needs_evaluation_scores',                   'needs_rejected_at_evaluation_notification'],
@@ -34,8 +34,8 @@ class ApplicationStateMachine
     end
   end
 
-  def completed_application!
-    transition :completed_application
+  def submitted!
+    transition :submitted
   end
 
   def completed_evaluations!(evaluation_scores)

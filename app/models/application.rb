@@ -91,9 +91,9 @@ class Application < ActiveRecord::Base
     end
   end
 
-  def completed_application!
+  def submitted!
     state_machine = ApplicationStateMachine.new status
-    update_attributes(status: state_machine.completed_application!)
+    update_attributes(status: state_machine.submitted!)
   end
 
   # FIXME: This will need to change
