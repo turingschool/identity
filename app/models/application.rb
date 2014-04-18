@@ -102,7 +102,6 @@ class Application < ActiveRecord::Base
     update_attributes(status: 'evaluating')
   end
 
-
   private
 
   def calculate_mean(evaluations)
