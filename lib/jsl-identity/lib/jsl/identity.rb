@@ -1,1 +1,1 @@
-require 'surrogate'
+require 'jsl/identity/version'
