@@ -41,6 +41,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'jsl-identity', path: 'lib/jsl-identity', require: 'jsl/identity'
 end
 
 group :production do
