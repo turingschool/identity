@@ -14,7 +14,7 @@
       = link_to "View Quiz (#{applicant_actions.quiz_score}/#{applicant_actions.quiz_size})", quiz_admin_applicant_path(@applicant), class: 'btn btn-default'
 
     - if applicant_actions.can_evaluate?
-      = link_to 'Create Evaluation', admin_evaluations_path(@applicant), method: :post, class: 'btn btn-warning'
+      = link_to 'Create Evaluation', initial_admin_evaluations_path(applicant), method: :post, class: 'btn btn-warning'
 
     - if applicant_actions.can_interview?
       = link_to 'Create Interview Notes', admin_evaluations_path(applicant, interview: true), method: :post, class: 'btn btn-warning'

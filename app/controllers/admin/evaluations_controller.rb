@@ -1,10 +1,24 @@
 class Admin::EvaluationsController < AdminController
 
   # Called with the applicant's User ID
-  def create
+  def create_initial
     user = User.find(params[:id])
     user.application.evaluating!
-    evaluation = evaluation(user)
+    evaluation = InitialEvaluation.for(user.application, by: current_user)
+    redirect_to edit_admin_evaluation_path(evaluation)
+  end
+
+  def create_interview
+    user = User.find(params[:id])
+    # user.application.evaluating! inject state machine here
+    evaluation = InterviewEvaluation.for(user.application, by: current_user)
+    redirect_to edit_admin_evaluation_path(evaluation)
+  end
+
+  def create_logic
+    user = User.find(params[:id])
+    # user.application.evaluating! inject state machine here
+    evaluation = LogicEvaluation.for(user.application, by: current_user)
     redirect_to edit_admin_evaluation_path(evaluation)
   end
 
@@ -22,20 +36,5 @@ class Admin::EvaluationsController < AdminController
     else
       render :edit
     end
-  end
-
-  private
-
-  def evaluation(user)
-    case
-    when params[:interview]
-      evaluation = InterviewEvaluation
-    when params[:logic]
-      evaluation = LogicEvaluation
-    else
-      evaluation = InitialEvaluation
-    end
-
-    evaluation.for(user.application, by: current_user)
   end
 end
