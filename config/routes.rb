@@ -53,7 +53,7 @@ Asquared::Application.routes.draw do
     resources :evaluations, only: [:edit, :update]
   end
 
-  namespace :api do
-    resources :users, only: :show
-  end
+
+  get '/api/marco'     => 'api#marco'
+  get '/api/users/:id' => 'api/users#show', as: :api_user
 end
