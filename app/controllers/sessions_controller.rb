@@ -3,6 +3,7 @@ require './lib/github'
 class SessionsController < ApplicationController
 
   def new
+    session[:return_url] = params[:return_url] if params[:return_url]
     redirect_to Github.login_url
   end
 
@@ -31,7 +32,9 @@ class SessionsController < ApplicationController
       flash[:error] = "We're having trouble with logins right now. Please come back later."
     end
 
-    if current_user.admin?
+    if session[:return_url]
+      redirect_to session.delete(:return_url)
+    elsif current_user.admin?
       redirect_to admin_path
     else
       redirect_to root_path
