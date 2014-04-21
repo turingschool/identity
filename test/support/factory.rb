@@ -17,7 +17,7 @@ module Factory
       end
     end
 
-    attr_accessor :is_admin
+    attr_accessor :is_admin, :github_id
     attr_writer :name, :email, :username, :location
 
     def name
