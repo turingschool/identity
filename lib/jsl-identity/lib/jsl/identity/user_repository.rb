@@ -12,7 +12,7 @@ module Jsl
 
       def initialize(attributes)
         self.web_client = attributes.fetch :web_client
-        self.base_url   = attributes.fetch :base_url
+        self.base_url   = attributes.fetch :base_url # this url stuff should maybe move down into the clients, or maybe into a separate obj, not sure, we'll wait until more than one class needs it
       end
 
       def login_url(return_url)

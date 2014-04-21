@@ -25,5 +25,6 @@ Gem::Specification.new do |s|
   s.executables   = []
   s.require_paths = ["lib"]
 
-  s.add_dependency "surrogate", '~> 0.7.0'
+  s.add_dependency 'surrogate',   '~> 0.7.0'
+  s.add_dependency 'rest-client', '~> 1.6.7'
 end

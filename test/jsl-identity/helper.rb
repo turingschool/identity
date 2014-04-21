@@ -1,5 +1,6 @@
 require 'jsl/identity'
 require 'jsl/identity/test'
+require 'jsl/identity/web_clients/rack'
 
 module Jsl::Identity::TestHelpers
   def assert_same_interface(surrogate, actual)
@@ -19,8 +20,14 @@ module Jsl::Identity::TestHelpers
   end
 
   def user_repository
-    @user_repository ||= Jsl::Identity::UserRepository.new \
-        web_client: Rack::Test::Session.new(Rails.application),
+    @user_repository ||= begin
+      username, secret = 'test_username', 'test_secret'
+      session = Rack::Test::Session.new(Rails.application)
+      session.basic_authorize username, secret
+      client = Jsl::Identity::WebClients::Rack.new session
+      Jsl::Identity::UserRepository.new \
+        web_client: client,
         base_url:   "" # no need for a base url in test env
+    end
   end
 end
