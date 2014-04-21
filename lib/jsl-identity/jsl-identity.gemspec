@@ -17,9 +17,15 @@ Gem::Specification.new do |s|
     lib/jsl/identity/mock/user.rb
     lib/jsl/identity/mock/user_repository.rb
     lib/jsl/identity/test.rb
+    lib/jsl/identity/user.rb
+    lib/jsl/identity/user_repository.rb
     lib/jsl/identity/version.rb
+    lib/jsl/identity/web_clients/rack.rb
+    lib/jsl/identity/web_clients/rest_client.rb
     lib/jsl/identity.rb
   ]
+
+
 
   s.test_files    = []
   s.executables   = []
