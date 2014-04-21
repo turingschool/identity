@@ -10,6 +10,11 @@ I18n.enforce_available_locales = false
 require 'rails/test_help'
 require 'minitest/pride'
 
+# add the root to the load path
+$LOAD_PATH.unshift File.expand_path '../..', __FILE__
+require 'test/helpers/controller'
+require 'test/helpers/feature'
+
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 

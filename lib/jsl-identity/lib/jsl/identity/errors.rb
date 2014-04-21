@@ -4,8 +4,8 @@ module Jsl
     Error = Class.new ::StandardError
 
     class ResourceNotFound < Error
-      def initialize(klass, identifier_type, identifier)
-        super "Could not find a #{klass.name} with #{identifier_type} of #{identifier.inspect}"
+      def initialize(klass, url)
+        super "Could not find a #{klass.name} at #{url.inspect}"
       end
     end
   end

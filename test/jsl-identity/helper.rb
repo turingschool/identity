@@ -17,4 +17,10 @@ module Jsl::Identity::TestHelpers
     assert_empty comparison[:class   ][:types           ]
     assert_empty comparison[:class   ][:names           ]
   end
+
+  def user_repository
+    @user_repository ||= Jsl::Identity::UserRepository.new \
+        web_client: Rack::Test::Session.new(Rails.application),
+        base_url:   "" # no need for a base url in test env
+  end
 end

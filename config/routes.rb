@@ -52,4 +52,8 @@ Asquared::Application.routes.draw do
 
     resources :evaluations, only: [:edit, :update]
   end
+
+  namespace :api do
+    resources :users, only: :show
+  end
 end

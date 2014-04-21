@@ -8,7 +8,7 @@ module Jsl
                   :location,
                   :username,
                   :github_id,
-                  :avaatar_url,
+                  :avatar_url,
                   :gravatar_id,
                   :is_admin,
                   :is_invited,

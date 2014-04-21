@@ -11,7 +11,7 @@ module Jsl
         define(:location)    { 'Kaliningrad' }
         define(:username)    { 'twilight_time' }
         define(:github_id)   { 34 }
-        define(:avaatar_url) { 'http://1.bp.blogspot.com/_bfLHIHMqOWM/TIutlY12yYI/AAAAAAAABrk/9iF3y8Q_q9g/s1600/russianlullabies.jpg' }
+        define(:avatar_url)  { 'http://1.bp.blogspot.com/_bfLHIHMqOWM/TIutlY12yYI/AAAAAAAABrk/9iF3y8Q_q9g/s1600/russianlullabies.jpg' }
         define(:gravatar_id) { 56 }
         define(:is_admin)    { false }
         define(:admin?)      { is_admin }
