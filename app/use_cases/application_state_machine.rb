@@ -41,7 +41,7 @@ class ApplicationStateMachine
   def completed_evaluations!(evaluation_scores)
     return transition :not_enough_evaluations if evaluation_scores.size < 2
     average = evaluation_scores.inject(0, :+) / evaluation_scores.size
-    return transition :failed_evaluations if average < 13
+    return transition :failed_evaluations if average < 10
     return transition :passed_evaluations
   end
 
@@ -54,9 +54,9 @@ class ApplicationStateMachine
   end
 
   def completed_interview!(interview_scores)
-    return transition :not_enough_interviews if interview_scores.size < 2
+    return transition :not_enough_interviews if interview_scores.size < 1
     average = interview_scores.inject(0, :+) / interview_scores.size
-    return transition :failed_interview if average < 13
+    return transition :failed_interview if average < 15
     return transition :passed_interview
   end
 

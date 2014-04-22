@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
+require './app/use_cases/application_state_machine'
 
 class ApplicationStateMachineTest < MiniTest::Unit::TestCase
   module StateMachineHelpers
@@ -25,12 +26,12 @@ class ApplicationStateMachineTest < MiniTest::Unit::TestCase
     include StateMachineHelpers
 
     def test_it_must_be_in_state_pending
-      machine_for('pending').completed_application!
-      assert_invalid_transition { machine_for('needs_evaluation_scores').completed_application! }
+      machine_for('pending').submitted!
+      assert_invalid_transition { machine_for('needs_evaluation_scores').submitted! }
     end
 
     def test_it_transitions_the_state_to_needs_evaluation_scores
-      assert_equal 'needs_evaluation_scores', machine_for('pending').completed_application!
+      assert_equal 'needs_evaluation_scores', machine_for('pending').submitted!
     end
   end
 
@@ -60,7 +61,7 @@ class ApplicationStateMachineTest < MiniTest::Unit::TestCase
     # FIXME: I picked 13 arbitrarily, we need to discuss what the actual cutoff is
     def test_if_the_average_score_is_lower_than_13_then_it_transitions_to_needs_rejected_at_evaluation_notification
       assert_equal 'needs_rejected_at_evaluation_notification',
-                   machine_for('needs_evaluation_scores').completed_evaluations!([12, 13])
+                   machine_for('needs_evaluation_scores').completed_evaluations!([9, 10])
     end
 
     # FIXME: I picked 13 arbitrarily, we need to discuss what the actual cutoff is
@@ -113,7 +114,6 @@ class ApplicationStateMachineTest < MiniTest::Unit::TestCase
 
     def test_if_there_are_fewer_than_2_interview_scores_it_does_not_transition_the_state
       assert_equal 'needs_interview_scores', machine_for('needs_interview_scores').completed_interview!([])
-      assert_equal 'needs_interview_scores', machine_for('needs_interview_scores').completed_interview!([0])
       refute_equal 'needs_interview_scores', machine_for('needs_interview_scores').completed_interview!([12, 13])
     end
 
@@ -125,8 +125,8 @@ class ApplicationStateMachineTest < MiniTest::Unit::TestCase
 
     # FIXME: I picked 13 arbitrarily, we need to discuss what the actual cutoff is
     def test_if_the_average_score_is_geq_lower_than_13_then_it_transitions_to_needs_invitation
-      assert_equal 'needs_invitation', machine_for('needs_interview_scores').completed_interview!([13, 13])
-      assert_equal 'needs_invitation', machine_for('needs_interview_scores').completed_interview!([13, 14])
+      assert_equal 'needs_invitation', machine_for('needs_interview_scores').completed_interview!([15, 16])
+      assert_equal 'needs_invitation', machine_for('needs_interview_scores').completed_interview!([20, 14])
     end
   end
 

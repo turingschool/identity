@@ -77,12 +77,24 @@ class Application < ActiveRecord::Base
     calculate_mean(initial_evaluations)
   end
 
+  def initial_evaluation_scores
+    initial_evaluations.collect(&:total)
+  end
+
   def interview_score
     calculate_mean(interview_notes)
   end
 
+  def interview_scores
+    interview_notes.collect(&:total)
+  end
+
   def logic_evaluation_score
     calculate_mean(logic_evaluations)
+  end
+
+  def logic_evaluation_scores
+    logic_evaluations.collect(&:total)
   end
 
   def quiz_duration

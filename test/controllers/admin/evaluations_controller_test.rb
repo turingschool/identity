@@ -1,26 +1,31 @@
 require './test/test_helper'
 
 class Admin::EvaluationsControllerTest < ActionController::TestCase
-  attr_reader :user, :application
+  attr_reader :user
+  attr_accessor :application
 
   def setup
     @user = User.create! is_admin: true
     @controller.login user
     @application = user.apply!
+    application.submitted!
   end
 
   test 'creates an InitialEvaluation' do
     post :create_initial, id: user.id
-    assert_response :redirect
     evaluation = application.evaluations.first
+
+    assert_response :redirect
     assert_equal 'triage', evaluation.slug
     assert_redirected_to edit_admin_evaluation_path(evaluation)
   end
 
   test 'creates an InterviewEvaluation' do
+    application.update_attributes(status: 'needs_interview_scores')
     post :create_interview, id: user.id
-    assert_response :redirect
     evaluation = application.evaluations.first
+
+    assert_response :redirect
     assert_equal 'selection', evaluation.slug
     assert_redirected_to edit_admin_evaluation_path(evaluation)
   end

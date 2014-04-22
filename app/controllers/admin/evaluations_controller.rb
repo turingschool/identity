@@ -2,16 +2,26 @@ class Admin::EvaluationsController < AdminController
 
   # Called with the applicant's User ID
   def create_initial
-    user = User.find(params[:id])
-    user.application.evaluating!
-    evaluation = InitialEvaluation.for(user.application, by: current_user)
+    user        = User.find(params[:id])
+    application = user.application
+    evaluation  = InitialEvaluation.for(application, by: current_user)
+
+    state_machine = ApplicationStateMachine.new(application.status)
+    scores        = application.initial_evaluation_scores
+    application.update_attributes(status: state_machine.completed_evaluations!(scores))
+
     redirect_to edit_admin_evaluation_path(evaluation)
   end
 
   def create_interview
-    user = User.find(params[:id])
-    # user.application.evaluating! inject state machine here
-    evaluation = InterviewEvaluation.for(user.application, by: current_user)
+    user        = User.find(params[:id])
+    application = user.application
+    evaluation  = InterviewEvaluation.for(application, by: current_user)
+
+    state_machine = ApplicationStateMachine.new(application.status)
+    scores        = application.interview_scores
+    application.update_attributes(status: state_machine.completed_interview!(scores))
+
     redirect_to edit_admin_evaluation_path(evaluation)
   end
 
