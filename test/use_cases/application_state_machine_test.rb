@@ -58,14 +58,12 @@ class ApplicationStateMachineTest < MiniTest::Unit::TestCase
       refute_equal 'needs_evaluation_scores', machine_for('needs_evaluation_scores').completed_evaluations!([0, 0])
     end
 
-    # FIXME: I picked 13 arbitrarily, we need to discuss what the actual cutoff is
-    def test_if_the_average_score_is_lower_than_13_then_it_transitions_to_needs_rejected_at_evaluation_notification
+    def test_if_the_average_score_is_lower_than_10_then_it_transitions_to_needs_rejected_at_evaluation_notification
       assert_equal 'needs_rejected_at_evaluation_notification',
                    machine_for('needs_evaluation_scores').completed_evaluations!([9, 10])
     end
 
-    # FIXME: I picked 13 arbitrarily, we need to discuss what the actual cutoff is
-    def test_if_the_average_score_is_geq_lower_than_13_then_it_transitions_to_needs_to_schedule_interview
+    def test_if_the_average_score_is_greater_than_10_then_it_transitions_to_needs_to_schedule_interview
       assert_equal 'needs_to_schedule_interview',
                    machine_for('needs_evaluation_scores').completed_evaluations!([13, 13])
       assert_equal 'needs_to_schedule_interview',
@@ -112,19 +110,17 @@ class ApplicationStateMachineTest < MiniTest::Unit::TestCase
       }
     end
 
-    def test_if_there_are_fewer_than_2_interview_scores_it_does_not_transition_the_state
+    def test_if_there_are_fewer_than_1_interview_score_it_does_not_transition_the_state
       assert_equal 'needs_interview_scores', machine_for('needs_interview_scores').completed_interview!([])
       refute_equal 'needs_interview_scores', machine_for('needs_interview_scores').completed_interview!([12, 13])
     end
 
-    # FIXME: I picked 13 arbitrarily, we need to discuss what the actual cutoff is
-    def test_if_the_average_score_is_lower_than_13_then_it_transitions_to_needs_rejected_at_interview_notification
+    def test_if_the_average_score_is_lower_than_15_then_it_transitions_to_needs_rejected_at_interview_notification
       assert_equal 'needs_rejected_at_interview_notification',
                    machine_for('needs_interview_scores').completed_interview!([12, 13])
     end
 
-    # FIXME: I picked 13 arbitrarily, we need to discuss what the actual cutoff is
-    def test_if_the_average_score_is_geq_lower_than_13_then_it_transitions_to_needs_invitation
+    def test_if_the_average_score_is_greater_than_15_then_it_transitions_to_needs_invitation
       assert_equal 'needs_invitation', machine_for('needs_interview_scores').completed_interview!([15, 16])
       assert_equal 'needs_invitation', machine_for('needs_interview_scores').completed_interview!([20, 14])
     end
