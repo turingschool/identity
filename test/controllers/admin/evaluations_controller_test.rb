@@ -31,6 +31,7 @@ class Admin::EvaluationsControllerTest < ActionController::TestCase
   end
 
   test 'creates a LogicEvaluation' do
+    application.update_attributes(status: 'needs_logic_evaluation_scores')
     post :create_logic, id: user.id
     assert_response :redirect
     evaluation = application.evaluations.first

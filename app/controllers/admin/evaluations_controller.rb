@@ -8,7 +8,9 @@ class Admin::EvaluationsController < AdminController
 
     state_machine = ApplicationStateMachine.new(application.status)
     scores        = application.initial_evaluation_scores
-    application.update_attributes(status: state_machine.completed_evaluations!(scores))
+    application.update_attributes(
+      status: state_machine.completed_evaluations!(scores)
+      )
 
     redirect_to edit_admin_evaluation_path(evaluation)
   end
@@ -20,15 +22,24 @@ class Admin::EvaluationsController < AdminController
 
     state_machine = ApplicationStateMachine.new(application.status)
     scores        = application.interview_scores
-    application.update_attributes(status: state_machine.completed_interview!(scores))
+    application.update_attributes(
+      status: state_machine.completed_interview!(scores)
+      )
 
     redirect_to edit_admin_evaluation_path(evaluation)
   end
 
   def create_logic
-    user = User.find(params[:id])
-    # user.application.evaluating! inject state machine here
-    evaluation = LogicEvaluation.for(user.application, by: current_user)
+    user        = User.find(params[:id])
+    application = user.application
+    evaluation  = LogicEvaluation.for(user.application, by: current_user)
+
+    state_machine = ApplicationStateMachine.new(application.status)
+    scores        = application.logic_evaluation_scores
+    application.update_attributes(
+      status: state_machine.completed_logic_evaluation!(scores)
+      )
+
     redirect_to edit_admin_evaluation_path(evaluation)
   end
 
