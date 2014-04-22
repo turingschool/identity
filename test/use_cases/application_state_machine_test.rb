@@ -120,9 +120,35 @@ class ApplicationStateMachineTest < MiniTest::Unit::TestCase
                    machine_for('needs_interview_scores').completed_interview!([12, 13])
     end
 
-    def test_if_the_average_score_is_greater_than_15_then_it_transitions_to_needs_invitation
-      assert_equal 'needs_invitation', machine_for('needs_interview_scores').completed_interview!([15, 16])
-      assert_equal 'needs_invitation', machine_for('needs_interview_scores').completed_interview!([20, 14])
+    def test_if_the_average_score_is_greater_than_15_then_it_transitions_to_needs_logic_evaluation_scores
+      assert_equal 'needs_logic_evaluation_scores', machine_for('needs_interview_scores').completed_interview!([15, 16])
+      assert_equal 'needs_logic_evaluation_scores', machine_for('needs_interview_scores').completed_interview!([20, 14])
+    end
+  end
+
+  class CompletedLogicEvaluationTest < MiniTest::Unit::TestCase
+    include StateMachineHelpers
+
+    def test_it_must_be_in_state_needs_logic_evaluation_scores
+      machine_for('needs_logic_evaluation_scores').completed_logic_evaluation!([])
+      assert_invalid_transition {
+        machine_for('pending').completed_logic_evaluation!([])
+      }
+    end
+
+    def test_if_there_are_fewer_than_1_logic_evaluation_score_it_does_not_transition_the_state
+      assert_equal 'needs_logic_evaluation_scores', machine_for('needs_logic_evaluation_scores').completed_logic_evaluation!([])
+      refute_equal 'needs_logic_evaluation_scores', machine_for('needs_logic_evaluation_scores').completed_logic_evaluation!([12, 13])
+    end
+
+    def test_if_the_average_score_is_lower_than_10_then_it_transitions_to_needs_rejected_at_logic_evaluation_notification
+      assert_equal 'needs_rejected_at_logic_evaluation_notification',
+                   machine_for('needs_logic_evaluation_scores').completed_logic_evaluation!([10, 7])
+    end
+
+    def test_if_the_average_score_is_greater_than_10_then_it_transitions_to_needs_invitation
+      assert_equal 'needs_invitation', machine_for('needs_logic_evaluation_scores').completed_logic_evaluation!([8, 12])
+      assert_equal 'needs_invitation', machine_for('needs_logic_evaluation_scores').completed_logic_evaluation!([12])
     end
   end
 
