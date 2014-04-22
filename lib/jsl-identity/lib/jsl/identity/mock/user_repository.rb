@@ -10,7 +10,7 @@ module Jsl
 
         define :find do |user_id|
           if will_find_nothing?
-            raise ResourceNotFound.new User, :id, user_id
+            raise ResourceNotFound.new User, "http://mock-request.fake/users/#{user_id}"
           else
             User.new.will_have_id user_id
           end
