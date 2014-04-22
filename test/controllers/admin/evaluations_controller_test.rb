@@ -8,10 +8,10 @@ class Admin::EvaluationsControllerTest < ActionController::TestCase
     @user = User.create! is_admin: true
     @controller.login user
     @application = user.apply!
-    application.submitted!
   end
 
   test 'creates an InitialEvaluation' do
+    application.update_attributes(status: 'needs_evaluation_scores')
     post :create_initial, id: user.id
     evaluation = application.evaluations.first
 
@@ -33,8 +33,9 @@ class Admin::EvaluationsControllerTest < ActionController::TestCase
   test 'creates a LogicEvaluation' do
     application.update_attributes(status: 'needs_logic_evaluation_scores')
     post :create_logic, id: user.id
-    assert_response :redirect
     evaluation = application.evaluations.first
+
+    assert_response :redirect
     assert_equal 'logic', evaluation.slug
     assert_redirected_to edit_admin_evaluation_path(evaluation)
   end

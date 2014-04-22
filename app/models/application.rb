@@ -103,17 +103,6 @@ class Application < ActiveRecord::Base
     end
   end
 
-  def submitted!
-    state_machine = ApplicationStateMachine.new status
-    update_attributes(status: state_machine.submitted!)
-  end
-
-  # FIXME: This will need to change
-  def evaluating!
-    state_machine = ApplicationStateMachine.new status
-    update_attributes(status: 'evaluating')
-  end
-
   private
 
   def calculate_mean(evaluations)
