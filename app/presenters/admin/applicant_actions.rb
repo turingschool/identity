@@ -33,6 +33,10 @@ module Admin
       application.needs_initial_evaluation? && !application.evaluated_by?(user)
     end
 
+    def can_schedule_interview?
+      application.needs_to_schedule_interview?
+    end
+
     def can_interview?
       application.needs_interview? && !application.interviewed_by?(user)
     end

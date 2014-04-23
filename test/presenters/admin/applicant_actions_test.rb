@@ -95,6 +95,17 @@ module Admin
       assert presenter.can_evaluate?
     end
 
+    test 'it can schedule an interview' do
+      application  = Application.create!(status: 'needs_to_schedule_interview')
+      current_user = User.create!
+
+      # does not need to schedule interview
+      refute presenter_for(application_without_data).can_schedule_interview?
+
+      # needs to schedule interview
+      assert presenter_for(application, current_user).can_schedule_interview?
+    end
+
     test 'it says the user can create interview notes' do
       application  = Application.create!(status: 'needs_interview_scores')
       current_user = User.create!
