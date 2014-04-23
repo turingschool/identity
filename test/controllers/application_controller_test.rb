@@ -6,7 +6,7 @@ class ApplicationControllerTest < ActionController::TestCase
       ApplicationController
     end
 
-    def test__sets_hide_until_active_to_false
+    def test_sets_hide_until_active_to_false
       user        = User.create!
       application = user.apply!
       application.update_attribute :hide_until_active, true
