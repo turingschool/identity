@@ -10,9 +10,9 @@ class Application < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :application
   has_many :evaluations, inverse_of: :application
-  has_many :initial_evaluations, ->{ where(slug: 'triage') },    class_name: 'Evaluation'
-  has_many :interview_notes,     ->{ where(slug: 'selection') }, class_name: 'Evaluation'
-  has_many :logic_evaluations,   ->{ where(slug: 'logic') },     class_name: 'Evaluation'
+  has_many :initial_evaluations, ->{ where(slug: 'initial_evaluation') }, class_name: 'Evaluation'
+  has_many :interviews,          ->{ where(slug: 'interview') },          class_name: 'Evaluation'
+  has_many :logic_evaluations,   ->{ where(slug: 'logic_evaluation') },   class_name: 'Evaluation'
   alias_method :owner, :user
 
   serialize :completed_steps, Array
@@ -57,8 +57,8 @@ class Application < ActiveRecord::Base
     self.class.steps.all? { |step| completed?(step) }
   end
 
-  def needs_evaluation?
-    status == 'needs_evaluation_scores'
+  def needs_initial_evaluation?
+    status == 'needs_initial_evaluation_scores'
   end
 
   def needs_interview?
@@ -78,11 +78,11 @@ class Application < ActiveRecord::Base
   end
 
   def evaluated_by?(user)
-    evaluations.where(user: user).any?
+    initial_evaluations.where(user: user).any?
   end
 
   def interviewed_by?(user)
-    interview_notes.where(user: user).any?
+    interviews.where(user: user).any?
   end
 
   def evaluated_logic_by?(user)
@@ -102,11 +102,11 @@ class Application < ActiveRecord::Base
   end
 
   def interview_score
-    calculate_mean(interview_notes)
+    calculate_mean(interviews)
   end
 
   def interview_scores
-    interview_notes.collect(&:total)
+    interviews.collect(&:total)
   end
 
   def logic_evaluation_score

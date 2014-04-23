@@ -1,7 +1,7 @@
 class LogicEvaluation
 
   def self.for(application, by: user)
-    evaluation = Evaluation.new(application: application, user: by, title: 'Logical Reasoning', slug: 'logic')
+    evaluation = Evaluation.new(application: application, user: by, title: 'Logic Evaluation', slug: 'logic_evaluation')
     new(evaluation).generate
   end
 

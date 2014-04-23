@@ -30,7 +30,7 @@ module Admin
     end
 
     def can_evaluate?
-      application.needs_evaluation? && !application.evaluated_by?(user)
+      application.needs_initial_evaluation? && !application.evaluated_by?(user)
     end
 
     def can_interview?

@@ -99,6 +99,8 @@ module Factory
           application.quiz_result(question.slug, {result: option.answer?, answer: option.statement})
         end
         application.quiz_completed_at = application.quiz_started_at + rand(30..90).minutes
+      when :final
+        application.update_attributes(status: 'needs_initial_evaluation_scores')
       else
         # do nothing
       end

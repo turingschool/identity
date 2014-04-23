@@ -3,42 +3,21 @@ class Admin::EvaluationsController < AdminController
   # Called with the applicant's User ID
   def create_initial
     user        = User.find(params[:id])
-    application = user.application
-    evaluation  = InitialEvaluation.for(application, by: current_user)
-
-    state_machine = ApplicationStateMachine.new(application.status)
-    scores        = application.initial_evaluation_scores
-    application.update_attributes(
-      status: state_machine.completed_evaluations!(scores)
-      )
+    evaluation  = InitialEvaluation.for(user.application, by: current_user)
 
     redirect_to edit_admin_evaluation_path(evaluation)
   end
 
   def create_interview
     user        = User.find(params[:id])
-    application = user.application
-    evaluation  = InterviewEvaluation.for(application, by: current_user)
-
-    state_machine = ApplicationStateMachine.new(application.status)
-    scores        = application.interview_scores
-    application.update_attributes(
-      status: state_machine.completed_interview!(scores)
-      )
+    evaluation  = InterviewEvaluation.for(user.application, by: current_user)
 
     redirect_to edit_admin_evaluation_path(evaluation)
   end
 
   def create_logic
     user        = User.find(params[:id])
-    application = user.application
     evaluation  = LogicEvaluation.for(user.application, by: current_user)
-
-    state_machine = ApplicationStateMachine.new(application.status)
-    scores        = application.logic_evaluation_scores
-    application.update_attributes(
-      status: state_machine.completed_logic_evaluation!(scores)
-      )
 
     redirect_to edit_admin_evaluation_path(evaluation)
   end
@@ -53,9 +32,22 @@ class Admin::EvaluationsController < AdminController
   def update
     @evaluation = Evaluation.find(params[:id])
     if UpdateEvaluation.new(@evaluation, params[:criteria]).save
+      update_application_state(@evaluation)
       redirect_to admin_applicant_path(@evaluation.application.owner)
     else
       render :edit
     end
+  end
+
+  private
+
+  def update_application_state(evaluation)
+    application     = evaluation.application
+    state_machine   = ApplicationStateMachine.new(application.status)
+    scores          = application.send("#{evaluation.slug}_scores")
+
+    application.update_attributes(
+      status: state_machine.send("completed_#{evaluation.slug}s!", scores)
+      )
   end
 end

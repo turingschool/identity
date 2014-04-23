@@ -4,27 +4,27 @@ class ApplicationStateMachine
 
   def self.transitions
     @transitions ||= {
-      # event                                         from_state                                          to_state
-      submitted:                                      ['pending',                                         'needs_evaluation_scores'],
-      not_enough_evaluations:                         ['needs_evaluation_scores',                         'needs_evaluation_scores'],
-      passed_evaluations:                             ['needs_evaluation_scores',                         'needs_to_schedule_interview'],
-      failed_evaluations:                             ['needs_evaluation_scores',                         'needs_rejected_at_evaluation_notification'],
-      sent_rejected_at_evaluation_notification:       ['needs_rejected_at_evaluation_notification',       'rejected_at_evaluation'],
+      # event                                         from_state                                              to_state
+      submitted:                                        ['pending',                                           'needs_initial_evaluation_scores'],
+      not_enough_initial_evaluations:                   ['needs_initial_evaluation_scores',                   'needs_initial_evaluation_scores'],
+      passed_initial_evaluations:                       ['needs_initial_evaluation_scores',                   'needs_to_schedule_interview'],
+      failed_initial_evaluations:                       ['needs_initial_evaluation_scores',                   'needs_rejected_at_initial_evaluation_notification'],
+      sent_rejected_at_initial_evaluation_notification: ['needs_rejected_at_initial_evaluation_notification', 'rejected_at_initial_evaluation'],
 
-      scheduled_interview:                            ['needs_to_schedule_interview',                     'needs_interview_scores'],
-      not_enough_interviews:                          ['needs_interview_scores',                          'needs_interview_scores'],
-      failed_interview:                               ['needs_interview_scores',                          'needs_rejected_at_interview_notification'],
-      passed_interview:                               ['needs_interview_scores',                          'needs_logic_evaluation_scores'],
-      sent_rejected_at_interview_notification:        ['needs_rejected_at_interview_notification',        'rejected_at_interview'],
+      scheduled_interview:                              ['needs_to_schedule_interview',                       'needs_interview_scores'],
+      not_enough_interviews:                            ['needs_interview_scores',                            'needs_interview_scores'],
+      failed_interview:                                 ['needs_interview_scores',                            'needs_rejected_at_interview_notification'],
+      passed_interview:                                 ['needs_interview_scores',                            'needs_logic_evaluation_scores'],
+      sent_rejected_at_interview_notification:          ['needs_rejected_at_interview_notification',          'rejected_at_interview'],
 
-      not_enough_logic_evaluations:                   ['needs_logic_evaluation_scores',                   'needs_logic_evaluation_scores'],
-      failed_logic_evaluation:                        ['needs_logic_evaluation_scores',                   'needs_rejected_at_logic_evaluation_notification'],
-      passed_logic_evaluation:                        ['needs_logic_evaluation_scores',                   'needs_invitation'],
-      sent_rejected_at_logic_evaluation_notification: ['needs_rejected_at_logic_evaluation_notification', 'rejected_at_logic_evaluation'],
+      not_enough_logic_evaluations:                     ['needs_logic_evaluation_scores',                     'needs_logic_evaluation_scores'],
+      failed_logic_evaluation:                          ['needs_logic_evaluation_scores',                     'needs_rejected_at_logic_evaluation_notification'],
+      passed_logic_evaluation:                          ['needs_logic_evaluation_scores',                     'needs_invitation'],
+      sent_rejected_at_logic_evaluation_notification:   ['needs_rejected_at_logic_evaluation_notification',   'rejected_at_logic_evaluation'],
 
-      sent_invitation:                                ['needs_invitation',                                'needs_invitation_response'],
-      declined_invitation:                            ['needs_invitation_response',                       'declined_invitation'],
-      accepted_invitation:                            ['needs_invitation_response',                       'accepted_invitation'],
+      sent_invitation:                                  ['needs_invitation',                                  'needs_invitation_response'],
+      declined_invitation:                              ['needs_invitation_response',                         'declined_invitation'],
+      accepted_invitation:                              ['needs_invitation_response',                         'accepted_invitation'],
     }
   end
 
@@ -45,14 +45,14 @@ class ApplicationStateMachine
     transition :submitted
   end
 
-  def completed_evaluations!(evaluation_scores)
-    return transition :not_enough_evaluations if evaluation_scores.size < 1
+  def completed_initial_evaluations!(evaluation_scores)
+    return transition :not_enough_initial_evaluations if evaluation_scores.size < 1
     average = evaluation_scores.inject(0, :+) / evaluation_scores.size
-    return transition :failed_evaluations if average < 10
-    return transition :passed_evaluations
+    return transition :failed_initial_evaluations if average < 10
+    return transition :passed_initial_evaluations
   end
 
-  def sent_rejected_at_evaluation_notification!
+  def sent_rejected_at_initial_evaluation_notification!
     transition :sent_rejected_at_evaluation_notification
   end
 

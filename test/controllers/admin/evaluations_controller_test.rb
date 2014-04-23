@@ -16,7 +16,7 @@ class Admin::EvaluationsControllerTest < ActionController::TestCase
     evaluation = application.evaluations.first
 
     assert_response :redirect
-    assert_equal 'triage', evaluation.slug
+    assert_equal 'initial_evaluation', evaluation.slug
     assert_redirected_to edit_admin_evaluation_path(evaluation)
   end
 
@@ -26,7 +26,7 @@ class Admin::EvaluationsControllerTest < ActionController::TestCase
     evaluation = application.evaluations.first
 
     assert_response :redirect
-    assert_equal 'selection', evaluation.slug
+    assert_equal 'interview', evaluation.slug
     assert_redirected_to edit_admin_evaluation_path(evaluation)
   end
 
@@ -36,7 +36,7 @@ class Admin::EvaluationsControllerTest < ActionController::TestCase
     evaluation = application.evaluations.first
 
     assert_response :redirect
-    assert_equal 'logic', evaluation.slug
+    assert_equal 'logic_evaluation', evaluation.slug
     assert_redirected_to edit_admin_evaluation_path(evaluation)
   end
 end

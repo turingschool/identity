@@ -25,9 +25,9 @@ class ApplicationTest < ActiveSupport::TestCase
     assert ApplicationStateMachine.valid_states.include?(initial_status)
   end
 
-  def test_it_needs_evaluation
-    app = Application.create!(status: 'needs_evaluation_scores')
-    assert app.needs_evaluation?
+  def test_it_needs_initial_evaluation
+    app = Application.create!(status: 'needs_initial_evaluation_scores')
+    assert app.needs_initial_evaluation?
   end
 
   def test_it_needs_interview
