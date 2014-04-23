@@ -54,7 +54,27 @@ class Application < ActiveRecord::Base
   end
 
   def complete?
-    self.class.steps.all? {|step| completed?(step)}
+    self.class.steps.all? { |step| completed?(step) }
+  end
+
+  def needs_evaluation?
+    status == 'needs_evaluation_scores'
+  end
+
+  def needs_interview?
+    status == 'needs_interview_scores'
+  end
+
+  def needs_logic_evaluation?
+    status == 'needs_logic_evaluation_scores'
+  end
+
+  def needs_invitation?
+    status == 'needs_invitation'
+  end
+
+  def needs_invitation_response?
+    status == 'needs_invitation_response'
   end
 
   def evaluated_by?(user)

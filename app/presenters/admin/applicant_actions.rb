@@ -30,17 +30,23 @@ module Admin
     end
 
     def can_evaluate?
-      application.complete? && !application.evaluated_by?(user)
+      application.needs_evaluation? && !application.evaluated_by?(user)
     end
 
     def can_interview?
-      application.evaluations.any?(&:completed_at) &&
-      !application.interviewed_by?(user)
+      application.needs_interview? && !application.interviewed_by?(user)
     end
 
     def can_evaluate_logic?
-      application.interview_notes.any?(&:completed_at) &&
-      !application.evaluated_logic_by?(user)
+      application.needs_logic_evaluation? && !application.evaluated_logic_by?(user)
+    end
+
+    def can_invite?
+      application.needs_invitation?
+    end
+
+    def can_respond_invitation?
+      application.needs_invitation_response?
     end
   end
 end

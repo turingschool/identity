@@ -25,6 +25,31 @@ class ApplicationTest < ActiveSupport::TestCase
     assert ApplicationStateMachine.valid_states.include?(initial_status)
   end
 
+  def test_it_needs_evaluation
+    app = Application.create!(status: 'needs_evaluation_scores')
+    assert app.needs_evaluation?
+  end
+
+  def test_it_needs_interview
+    app = Application.create!(status: 'needs_interview_scores')
+    assert app.needs_interview?
+  end
+
+  def test_it_needs_logic_evaluation
+    app = Application.create!(status: 'needs_logic_evaluation_scores')
+    assert app.needs_logic_evaluation?
+  end
+
+  def test_it_needs_invitation
+    app = Application.create!(status: 'needs_invitation')
+    assert app.needs_invitation?
+  end
+
+  def test_it_needs_invitation_response
+    app = Application.create!(status: 'needs_invitation_response')
+    assert app.needs_invitation_response?
+  end
+
   def test_status_must_be_in_application_state_machine
     application = Application.new
     ApplicationStateMachine.valid_states.each do |state|
