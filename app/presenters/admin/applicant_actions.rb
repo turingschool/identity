@@ -1,5 +1,18 @@
 module Admin
   class ApplicantActions
+
+    # FIXME: Currently methods based on the application state will prevent
+    # things that we probably want to allow. E.g. can_evaluate? will return
+    # false after a sufficient number of admin have evaluated the applicant,
+    # preventing additional admin from evaluating it.
+    #
+    # Leaving this for now, b/c it is convenient in that the state machine
+    # would not handle the event correctly anyway (would blow up),
+    # but when we come back later address this flaw in the state machine,
+    # we should also look into what the correct logic should be for these methods
+    #
+    # An issue should exist for all of this.
+
     extend Forwardable
     attr_reader :application, :user
 
