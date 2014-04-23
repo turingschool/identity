@@ -52,10 +52,9 @@ class ApplicationStateMachineTest < MiniTest::Unit::TestCase
       assert_invalid_transition { machine_for('pending').completed_evaluations!([0, 0]) }
     end
 
-    def test_if_there_are_fewer_than_2_evaluations_it_does_not_transition_the_state
+    def test_if_there_are_fewer_than_1_evaluations_it_does_not_transition_the_state
       assert_equal 'needs_evaluation_scores', machine_for('needs_evaluation_scores').completed_evaluations!([])
-      assert_equal 'needs_evaluation_scores', machine_for('needs_evaluation_scores').completed_evaluations!([0])
-      refute_equal 'needs_evaluation_scores', machine_for('needs_evaluation_scores').completed_evaluations!([0, 0])
+      refute_equal 'needs_evaluation_scores', machine_for('needs_evaluation_scores').completed_evaluations!([0])
     end
 
     def test_if_the_average_score_is_lower_than_10_then_it_transitions_to_needs_rejected_at_evaluation_notification
