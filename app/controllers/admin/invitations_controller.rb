@@ -6,9 +6,7 @@ class Admin::InvitationsController < AdminController
     application = user.application
 
     state_machine = ApplicationStateMachine.new(application.status)
-    application.update_attributes(
-      status: state_machine.sent_invitation!
-      )
+    application.update_attribute :status, state_machine.sent_invitation!
 
     redirect_to admin_applicant_path(user)
   end
@@ -18,9 +16,7 @@ class Admin::InvitationsController < AdminController
     application = user.application
 
     state_machine = ApplicationStateMachine.new(application.status)
-    application.update_attributes(
-      status: state_machine.scheduled_interview!
-      )
+    application.update_attribute :status, state_machine.scheduled_interview!
 
     redirect_to admin_applicant_path(user)
   end
@@ -30,9 +26,7 @@ class Admin::InvitationsController < AdminController
     application = user.application
 
     state_machine = ApplicationStateMachine.new(application.status)
-    application.update_attributes(
-      status: state_machine.accepted_invitation!
-      )
+    application.update_attribute :status, state_machine.accepted_invitation!
 
     redirect_to admin_applicant_path(user)
   end
@@ -42,9 +36,7 @@ class Admin::InvitationsController < AdminController
     application = user.application
 
     state_machine = ApplicationStateMachine.new(application.status)
-    application.update_attributes(
-      status: state_machine.declined_invitation!
-      )
+    application.update_attribute :status, state_machine.declined_invitation!
 
     redirect_to admin_applicant_path(user)
   end
