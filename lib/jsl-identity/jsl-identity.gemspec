@@ -21,10 +21,9 @@ Gem::Specification.new do |s|
     lib/jsl/identity/user_repository.rb
     lib/jsl/identity/version.rb
     lib/jsl/identity/web_clients/rack.rb
-    lib/jsl/identity/web_clients/rest_client.rb
+    lib/jsl/identity/web_clients/net_http.rb
     lib/jsl/identity.rb
   ]
-
 
 
   s.test_files    = []
@@ -32,5 +31,4 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency 'surrogate',   '~> 0.7.0'
-  s.add_dependency 'rest-client', '~> 1.6.7'
 end

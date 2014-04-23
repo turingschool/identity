@@ -1,3 +1,5 @@
+require 'jsl/identity/response'
+
 module Jsl
   module Identity
     module WebClients
@@ -12,7 +14,8 @@ module Jsl
         end
 
         def get(url)
-          @session.get url
+          response = @session.get url
+          Response.new response.status, response.body
         end
       end
     end
