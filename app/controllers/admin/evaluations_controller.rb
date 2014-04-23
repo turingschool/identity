@@ -47,7 +47,7 @@ class Admin::EvaluationsController < AdminController
     scores        = application.send("#{evaluation.slug}_scores")
 
     application.update_attributes(
-      status: state_machine.send("completed_#{evaluation.slug}s!", scores)
+      status: state_machine.send("completed_#{evaluation.slug}!", scores)
       )
   end
 end

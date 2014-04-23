@@ -14,10 +14,20 @@
       = link_to "View Quiz (#{applicant_actions.quiz_score}/#{applicant_actions.quiz_size})", quiz_admin_applicant_path(@applicant), class: 'btn btn-default'
 
     - if applicant_actions.can_evaluate?
-      = link_to 'Create Evaluation', initial_admin_evaluations_path(applicant), method: :post, class: 'btn btn-warning'
+      = link_to 'Create Initial Evaluation', initial_admin_evaluations_path(applicant), method: :post, class: 'btn btn-warning'
+
+    - if applicant_actions.can_schedule_interview?
+      = link_to 'Schedule Interview', schedule_interview_admin_invitations_path(applicant), method: :post, class: 'btn btn-warning'
 
     - if applicant_actions.can_interview?
-      = link_to 'Create Interview Notes', interview_admin_evaluations_path(applicant), method: :post, class: 'btn btn-warning'
+      = link_to 'Create Interview', interview_admin_evaluations_path(applicant), method: :post, class: 'btn btn-warning'
 
     - if applicant_actions.can_evaluate_logic?
       = link_to 'Create Logic Evaluation', logic_admin_evaluations_path(applicant), method: :post, class: 'btn btn-warning'
+
+    - if applicant_actions.can_invite?
+      = link_to 'Send Invitation', admin_invitations_path(applicant), method: :post, class: 'btn btn-warning'
+
+    - if applicant_actions.can_respond_invitation?
+      = link_to 'Accepted Invitation', accept_admin_invitations_path(applicant), method: :post, class: 'btn btn-success'
+      = link_to 'Declined Invitation', decline_admin_invitations_path(applicant), method: :post, class: 'btn btn-danger'

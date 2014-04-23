@@ -45,7 +45,7 @@ class ApplicationStateMachine
     transition :submitted
   end
 
-  def completed_initial_evaluations!(evaluation_scores)
+  def completed_initial_evaluation!(evaluation_scores)
     return transition :not_enough_initial_evaluations if evaluation_scores.size < 1
     average = evaluation_scores.inject(0, :+) / evaluation_scores.size
     return transition :failed_initial_evaluations if average < 10

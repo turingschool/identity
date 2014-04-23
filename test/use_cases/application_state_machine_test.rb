@@ -40,33 +40,33 @@ class ApplicationStateMachineTest < MiniTest::Unit::TestCase
 
     def test_it_must_be_in_state_needs_initial_evaluation_scores
       # not enough evaluations
-      machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([])
-      assert_invalid_transition { machine_for('pending').completed_initial_evaluations!([]) }
+      machine_for('needs_initial_evaluation_scores').completed_initial_evaluation!([])
+      assert_invalid_transition { machine_for('pending').completed_initial_evaluation!([]) }
 
       # passing
-      machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([100, 100])
-      assert_invalid_transition { machine_for('pending').completed_initial_evaluations!([100, 100]) }
+      machine_for('needs_initial_evaluation_scores').completed_initial_evaluation!([100, 100])
+      assert_invalid_transition { machine_for('pending').completed_initial_evaluation!([100, 100]) }
 
       # failing
-      machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([0, 0])
-      assert_invalid_transition { machine_for('pending').completed_initial_evaluations!([0, 0]) }
+      machine_for('needs_initial_evaluation_scores').completed_initial_evaluation!([0, 0])
+      assert_invalid_transition { machine_for('pending').completed_initial_evaluation!([0, 0]) }
     end
 
     def test_if_there_are_fewer_than_1_initial_evaluations_it_does_not_transition_the_state
-      assert_equal 'needs_initial_evaluation_scores', machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([])
-      refute_equal 'needs_initial_evaluation_scores', machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([0])
+      assert_equal 'needs_initial_evaluation_scores', machine_for('needs_initial_evaluation_scores').completed_initial_evaluation!([])
+      refute_equal 'needs_initial_evaluation_scores', machine_for('needs_initial_evaluation_scores').completed_initial_evaluation!([0])
     end
 
     def test_if_the_average_score_is_lower_than_10_then_it_transitions_to_needs_rejected_at_initial_evaluation_notification
       assert_equal 'needs_rejected_at_initial_evaluation_notification',
-                   machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([9, 10])
+                   machine_for('needs_initial_evaluation_scores').completed_initial_evaluation!([9, 10])
     end
 
     def test_if_the_average_score_is_greater_than_10_then_it_transitions_to_needs_to_schedule_interview
       assert_equal 'needs_to_schedule_interview',
-                   machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([13, 13])
+                   machine_for('needs_initial_evaluation_scores').completed_initial_evaluation!([13, 13])
       assert_equal 'needs_to_schedule_interview',
-                   machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([13, 14])
+                   machine_for('needs_initial_evaluation_scores').completed_initial_evaluation!([13, 14])
     end
   end
 
