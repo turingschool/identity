@@ -42,9 +42,9 @@ class Admin::EvaluationsController < AdminController
   private
 
   def update_application_state(evaluation)
-    application     = evaluation.application
-    state_machine   = ApplicationStateMachine.new(application.status)
-    scores          = application.send("#{evaluation.slug}_scores")
+    application   = evaluation.application
+    state_machine = ApplicationStateMachine.new(application.status)
+    scores        = application.send("#{evaluation.slug}_scores")
 
     application.update_attributes(
       status: state_machine.send("completed_#{evaluation.slug}s!", scores)

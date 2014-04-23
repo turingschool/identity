@@ -27,62 +27,62 @@ class ApplicationStateMachineTest < MiniTest::Unit::TestCase
 
     def test_it_must_be_in_state_pending
       machine_for('pending').submitted!
-      assert_invalid_transition { machine_for('needs_evaluation_scores').submitted! }
+      assert_invalid_transition { machine_for('needs_initial_evaluation_scores').submitted! }
     end
 
-    def test_it_transitions_the_state_to_needs_evaluation_scores
-      assert_equal 'needs_evaluation_scores', machine_for('pending').submitted!
+    def test_it_transitions_the_state_to_needs_initial_evaluation_scores
+      assert_equal 'needs_initial_evaluation_scores', machine_for('pending').submitted!
     end
   end
 
-  class CompletedEvaluationsTest < MiniTest::Unit::TestCase
+  class CompletedInitialEvaluationsTest < MiniTest::Unit::TestCase
     include StateMachineHelpers
 
-    def test_it_must_be_in_state_needs_evaluation_scores
+    def test_it_must_be_in_state_needs_initial_evaluation_scores
       # not enough evaluations
-      machine_for('needs_evaluation_scores').completed_evaluations!([])
-      assert_invalid_transition { machine_for('pending').completed_evaluations!([]) }
+      machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([])
+      assert_invalid_transition { machine_for('pending').completed_initial_evaluations!([]) }
 
       # passing
-      machine_for('needs_evaluation_scores').completed_evaluations!([100, 100])
-      assert_invalid_transition { machine_for('pending').completed_evaluations!([100, 100]) }
+      machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([100, 100])
+      assert_invalid_transition { machine_for('pending').completed_initial_evaluations!([100, 100]) }
 
       # failing
-      machine_for('needs_evaluation_scores').completed_evaluations!([0, 0])
-      assert_invalid_transition { machine_for('pending').completed_evaluations!([0, 0]) }
+      machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([0, 0])
+      assert_invalid_transition { machine_for('pending').completed_initial_evaluations!([0, 0]) }
     end
 
-    def test_if_there_are_fewer_than_1_evaluations_it_does_not_transition_the_state
-      assert_equal 'needs_evaluation_scores', machine_for('needs_evaluation_scores').completed_evaluations!([])
-      refute_equal 'needs_evaluation_scores', machine_for('needs_evaluation_scores').completed_evaluations!([0])
+    def test_if_there_are_fewer_than_1_initial_evaluations_it_does_not_transition_the_state
+      assert_equal 'needs_initial_evaluation_scores', machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([])
+      refute_equal 'needs_initial_evaluation_scores', machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([0])
     end
 
-    def test_if_the_average_score_is_lower_than_10_then_it_transitions_to_needs_rejected_at_evaluation_notification
-      assert_equal 'needs_rejected_at_evaluation_notification',
-                   machine_for('needs_evaluation_scores').completed_evaluations!([9, 10])
+    def test_if_the_average_score_is_lower_than_10_then_it_transitions_to_needs_rejected_at_initial_evaluation_notification
+      assert_equal 'needs_rejected_at_initial_evaluation_notification',
+                   machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([9, 10])
     end
 
     def test_if_the_average_score_is_greater_than_10_then_it_transitions_to_needs_to_schedule_interview
       assert_equal 'needs_to_schedule_interview',
-                   machine_for('needs_evaluation_scores').completed_evaluations!([13, 13])
+                   machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([13, 13])
       assert_equal 'needs_to_schedule_interview',
-                   machine_for('needs_evaluation_scores').completed_evaluations!([13, 14])
+                   machine_for('needs_initial_evaluation_scores').completed_initial_evaluations!([13, 14])
     end
   end
 
-  class SentRejectedAtEvaluationNotificationTest < MiniTest::Unit::TestCase
+  class SentRejectedAtInitialEvaluationNotificationTest < MiniTest::Unit::TestCase
     include StateMachineHelpers
 
-    def test_it_must_be_in_state_needs_rejected_at_evaluation_notification
-      machine_for('needs_rejected_at_evaluation_notification').sent_rejected_at_evaluation_notification!
+    def test_it_must_be_in_state_needs_rejected_at_initial_evaluation_notification
+      machine_for('needs_rejected_at_initial_evaluation_notification').sent_rejected_at_initial_evaluation_notification!
       assert_invalid_transition {
-        machine_for('pending').sent_rejected_at_evaluation_notification!
+        machine_for('pending').sent_rejected_at_initial_evaluation_notification!
       }
     end
 
-    def test_it_transitions_to_rejected_at_evaluation
-      assert_equal 'rejected_at_evaluation',
-        machine_for('needs_rejected_at_evaluation_notification').sent_rejected_at_evaluation_notification!
+    def test_it_transitions_to_rejected_at_initial_evaluation
+      assert_equal 'rejected_at_initial_evaluation',
+        machine_for('needs_rejected_at_initial_evaluation_notification').sent_rejected_at_initial_evaluation_notification!
     end
   end
 
@@ -157,7 +157,7 @@ class ApplicationStateMachineTest < MiniTest::Unit::TestCase
     def test_it_must_be_in_state_needs_rejected_at_evaluation_notification
       machine_for('needs_rejected_at_interview_notification').sent_rejected_at_interview_notification!
       assert_invalid_transition {
-        machine_for('pending').sent_rejected_at_evaluation_notification!
+        machine_for('pending').sent_rejected_at_initial_evaluation_notification!
       }
     end
 

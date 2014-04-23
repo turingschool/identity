@@ -53,7 +53,7 @@ class ApplicationStateMachine
   end
 
   def sent_rejected_at_initial_evaluation_notification!
-    transition :sent_rejected_at_evaluation_notification
+    transition :sent_rejected_at_initial_evaluation_notification
   end
 
   def scheduled_interview!
