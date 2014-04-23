@@ -17,6 +17,14 @@ class Admin::InvitationsControllerTest < ActionController::TestCase
     assert_redirected_to admin_applicant_path(user)
   end
 
+  def test_it_schedules_an_interview
+    application.update_attributes(status: 'needs_to_schedule_interview')
+    post :schedule_interview, id: user.id
+
+    assert_response :redirect
+    assert_redirected_to admin_applicant_path(user)
+  end
+
   def test_it_accepts_an_invite
     application.update_attributes(status: 'needs_invitation_response')
     post :accept, id: user.id

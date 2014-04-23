@@ -13,6 +13,18 @@ class Admin::InvitationsController < AdminController
     redirect_to admin_applicant_path(user)
   end
 
+  def schedule_interview
+    user        = User.find(params[:id])
+    application = user.application
+
+    state_machine = ApplicationStateMachine.new(application.status)
+    application.update_attributes(
+      status: state_machine.scheduled_interview!
+      )
+
+    redirect_to admin_applicant_path(user)
+  end
+
   def accept
     user        = User.find(params[:id])
     application = user.application

@@ -57,8 +57,9 @@ Asquared::Application.routes.draw do
 
         resources :invitations, only: [:create] do
           collection do
-            post '/accept'  => 'invitations#accept',  as: :accept
-            post '/decline' => 'invitations#decline', as: :decline
+            post '/accept'             => 'invitations#accept',             as: :accept
+            post '/decline'            => 'invitations#decline',            as: :decline
+            post '/schedule_interview' => 'invitations#schedule_interview', as: :schedule_interview
           end
         end
       end
