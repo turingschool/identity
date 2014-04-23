@@ -61,6 +61,10 @@ class Application < ActiveRecord::Base
     status == 'needs_initial_evaluation_scores'
   end
 
+  def needs_to_schedule_interview?
+    status == 'needs_to_schedule_interview'
+  end
+
   def needs_interview?
     status == 'needs_interview_scores'
   end

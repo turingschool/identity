@@ -30,6 +30,11 @@ class ApplicationTest < ActiveSupport::TestCase
     assert app.needs_initial_evaluation?
   end
 
+  def test_it_needs_to_schedule_interview
+    app = Application.create!(status: 'needs_to_schedule_interview')
+    assert app.needs_to_schedule_interview?
+  end
+
   def test_it_needs_interview
     app = Application.create!(status: 'needs_interview_scores')
     assert app.needs_interview?
