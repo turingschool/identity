@@ -78,14 +78,14 @@ module Admin
     end
 
     test 'it says the user can create an evaluation' do
-      application  = Application.create!(status: 'needs_evaluation_scores')
+      application  = Application.create!(status: 'needs_initial_evaluation_scores')
       current_user = User.create!
 
       # does not need evaluation, is not evaluated by current user
       refute presenter_for(application_without_data).can_evaluate?
 
       # needs evaluation, was evaluated by current user
-      application.evaluations.create(user_id: current_user.id)
+      application.initial_evaluations.create(user_id: current_user.id)
       presenter = presenter_for application, current_user
       refute presenter.can_evaluate?
 
@@ -103,7 +103,7 @@ module Admin
       refute presenter_for(application_without_data).can_interview?
 
       # needs interview, was interviewed by current user
-      application.interview_notes.create(user_id: current_user.id)
+      application.interviews.create(user_id: current_user.id)
       presenter = presenter_for(application, current_user)
       refute presenter.can_interview?
 
