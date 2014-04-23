@@ -46,11 +46,19 @@ Asquared::Application.routes.draw do
         get   :show
         get   :quiz
         patch :update
+
         resources :evaluations, only: [] do
           collection do
             post '/initial'   => 'evaluations#create_initial',   as: :initial
             post '/interview' => 'evaluations#create_interview', as: :interview
             post '/logic'     => 'evaluations#create_logic',     as: :logic
+          end
+        end
+
+        resources :invitations, only: [:create] do
+          collection do
+            post '/accept'  => 'invitations#accept',  as: :accept
+            post '/decline' => 'invitations#decline', as: :decline
           end
         end
       end

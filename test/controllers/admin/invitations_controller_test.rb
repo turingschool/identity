@@ -1,0 +1,35 @@
+require './test/test_helper'
+
+class Admin::InvitationsControllerTest < ActionController::TestCase
+  attr_reader :user, :application
+
+  def setup
+    @user = User.create! is_admin: true
+    @controller.login user
+    @application = user.apply!
+  end
+
+  def test_it_creates_an_invite
+    application.update_attributes(status: 'needs_invitation')
+    post :create, id: user.id
+
+    assert_response :redirect
+    assert_redirected_to admin_applicant_path(user)
+  end
+
+  def test_it_accepts_an_invite
+    application.update_attributes(status: 'needs_invitation_response')
+    post :accept, id: user.id
+
+    assert_response :redirect
+    assert_redirected_to admin_applicant_path(user)
+  end
+
+  def test_it_declines_an_invite
+    application.update_attributes(status: 'needs_invitation_response')
+    post :decline, id: user.id
+
+    assert_response :redirect
+    assert_redirected_to admin_applicant_path(user)
+  end
+end
