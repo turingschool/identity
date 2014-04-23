@@ -12,7 +12,7 @@ class Final
   def update_attributes
     if application.valid?
       application.complete :final
-      state_machine = ApplicationStateMachine.new status
+      state_machine = ApplicationStateMachine.new application.status
       application.update_attributes(status: state_machine.submitted!)
     else
       false

@@ -34,7 +34,7 @@ class Admin::ApplicationFlowTest < MiniTest::Unit::TestCase
   end
 
   def test_happy_path
-    complete_evaluation admin1, user, 'Create Evaluation', 'Initial Review', 'Initial Review'
+    complete_evaluation admin1, user, 'Create Initial Evaluation', 'Initial Evaluation', :max
     # should see "Initial Evaluation"
     # page.click_on 'Save Evaluation'
     # should be in needs_to_schedule_interview
