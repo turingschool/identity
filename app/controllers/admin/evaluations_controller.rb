@@ -25,16 +25,16 @@ class Admin::EvaluationsController < AdminController
   def edit
     @evaluation = Evaluation.find(params[:id])
     application = @evaluation.application
-    @applicant_actions = Admin::ApplicantActions.new(application, current_user)
-    @current_step = application.completed_steps.last
+    set_edit_attributes(application)
   end
 
   def update
     @evaluation = Evaluation.find(params[:id])
-    if UpdateEvaluation.new(@evaluation, params[:criteria]).save
+    if UpdateEvaluation.call(@evaluation, params[:criteria])
       update_application_state(@evaluation)
       redirect_to admin_applicant_path(@evaluation.application.owner)
     else
+      set_edit_attributes(@evaluation.application)
       render :edit
     end
   end
@@ -49,5 +49,10 @@ class Admin::EvaluationsController < AdminController
     application.update_attributes(
       status: state_machine.send("completed_#{evaluation.slug}!", scores)
       )
+  end
+
+  def set_edit_attributes(application)
+    @applicant_actions = Admin::ApplicantActions.new(application, current_user)
+    @current_step = application.completed_steps.last
   end
 end
