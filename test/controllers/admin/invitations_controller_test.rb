@@ -15,6 +15,7 @@ class Admin::InvitationsControllerTest < ActionController::TestCase
 
     assert_response :redirect
     assert_redirected_to admin_applicant_path(user)
+    assert_equal 'needs_invitation_response', application.reload.status
   end
 
   def test_it_schedules_an_interview
@@ -23,6 +24,7 @@ class Admin::InvitationsControllerTest < ActionController::TestCase
 
     assert_response :redirect
     assert_redirected_to admin_applicant_path(user)
+    assert_equal 'needs_interview_scores', application.reload.status
   end
 
   def test_it_accepts_an_invite
@@ -31,6 +33,7 @@ class Admin::InvitationsControllerTest < ActionController::TestCase
 
     assert_response :redirect
     assert_redirected_to admin_applicant_path(user)
+    assert_equal 'accepted_invitation', application.reload.status
   end
 
   def test_it_declines_an_invite
@@ -39,5 +42,6 @@ class Admin::InvitationsControllerTest < ActionController::TestCase
 
     assert_response :redirect
     assert_redirected_to admin_applicant_path(user)
+    assert_equal 'declined_invitation', application.reload.status
   end
 end

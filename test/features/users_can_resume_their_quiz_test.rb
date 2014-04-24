@@ -4,11 +4,6 @@ require './test/helpers/feature.rb'
 class UsersCanResumeTheirQuiz < MiniTest::Unit::TestCase
   include Test::Helpers::Feature
 
-  def setup
-    super
-    Capybara.current_driver = Capybara.default_driver
-  end
-
   def test_users_can_resume_their_quiz
     user = User.create! name: 'Richard Feynman', location: 'Los Alamos'
     set_current_user user

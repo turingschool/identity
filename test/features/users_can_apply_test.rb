@@ -7,11 +7,6 @@ require './test/helpers/feature'
 class UsersCanApplyTest < MiniTest::Unit::TestCase
   include Test::Helpers::Feature
 
-  def setup
-    super
-    Capybara.current_driver = Capybara.default_driver
-  end
-
   def test_users_can_apply_via_the_interwebz
     alice = User.create! name:     'Alice Smith',
                          location: 'New York, NY'

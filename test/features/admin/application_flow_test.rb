@@ -10,6 +10,11 @@ class Admin::ApplicationFlowTest < MiniTest::Unit::TestCase
     Capybara.current_driver = Capybara.javascript_driver
   end
 
+  def teardown
+    super
+    Capybara.current_driver = Capybara.default_driver
+  end
+
   def admin1
     @admin1 ||= Factory::User.create_user name: 'admin1', is_admin: true
   end

@@ -20,38 +20,46 @@ class ApplicationTest < ActiveSupport::TestCase
   end
 
   def test_initial_status_is_pending
-    initial_status = Application.new.status
+    application = Application.new
+    initial_status = application.status
+    assert application.valid?
     assert_equal 'pending', initial_status
     assert ApplicationStateMachine.valid_states.include?(initial_status)
   end
 
   def test_it_needs_initial_evaluation
-    app = Application.create!(status: 'needs_initial_evaluation_scores')
+    app = Application.new(status: 'needs_initial_evaluation_scores')
+    assert app.valid?
     assert app.needs_initial_evaluation?
   end
 
   def test_it_needs_to_schedule_interview
-    app = Application.create!(status: 'needs_to_schedule_interview')
+    app = Application.new(status: 'needs_to_schedule_interview')
+    assert app.valid?
     assert app.needs_to_schedule_interview?
   end
 
   def test_it_needs_interview
-    app = Application.create!(status: 'needs_interview_scores')
+    app = Application.new(status: 'needs_interview_scores')
+    assert app.valid?
     assert app.needs_interview?
   end
 
   def test_it_needs_logic_evaluation
-    app = Application.create!(status: 'needs_logic_evaluation_scores')
+    app = Application.new(status: 'needs_logic_evaluation_scores')
+    assert app.valid?
     assert app.needs_logic_evaluation?
   end
 
   def test_it_needs_invitation
-    app = Application.create!(status: 'needs_invitation')
+    app = Application.new(status: 'needs_invitation')
+    assert app.valid?
     assert app.needs_invitation?
   end
 
   def test_it_needs_invitation_response
-    app = Application.create!(status: 'needs_invitation_response')
+    app = Application.new(status: 'needs_invitation_response')
+    assert app.valid?
     assert app.needs_invitation_response?
   end
 
