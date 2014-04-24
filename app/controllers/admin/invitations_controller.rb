@@ -1,5 +1,14 @@
 class Admin::InvitationsController < AdminController
 
+  # Probably refactor to something like this
+  # Update controllers
+  #   Invitations
+  #     create
+  #     update?result=accept
+  #     update?result=decline
+  #   Interviews
+  #     create
+
   # Called with the applicant's User ID
   def create
     user        = User.find(params[:id])
