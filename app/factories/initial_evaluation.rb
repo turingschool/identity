@@ -1,7 +1,7 @@
 class InitialEvaluation
 
   def self.for(application, by: user)
-    evaluation = Evaluation.new(application: application, user: by, title: 'Initial Review', slug: 'triage')
+    evaluation = Evaluation.new(application: application, user: by, title: 'Initial Evaluation', slug: 'initial_evaluation')
     new(evaluation).generate
   end
 

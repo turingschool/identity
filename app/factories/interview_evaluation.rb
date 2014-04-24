@@ -1,7 +1,7 @@
 class InterviewEvaluation
 
   def self.for(application, by: user)
-    evaluation = Evaluation.new(application: application, user: by, title: 'Interview Notes', slug: 'selection')
+    evaluation = Evaluation.new(application: application, user: by, title: 'Interview', slug: 'interview')
     new(evaluation).generate
   end
 

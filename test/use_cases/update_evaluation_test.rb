@@ -14,7 +14,7 @@ class UpdateEvaluationTest < ActiveSupport::TestCase
       }
     end
 
-    UpdateEvaluation.new(evaluation, responses).save
+    UpdateEvaluation.call(evaluation, responses)
     evaluation.reload
 
     assert_equal [2], evaluation.criteria.map(&:score).uniq

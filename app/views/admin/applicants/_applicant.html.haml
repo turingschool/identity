@@ -6,11 +6,14 @@
 
   .applicant-info
 
+    %h5.title Status
+    %p= applicant.application.status.tr '_', ' '
+
     %h5.title Application Score
     %p
       = applicant.application.score
       points
-    
+
     %h5.title Email
     %p
       - if applicant.email.blank?

@@ -8,6 +8,11 @@ module Test
         end
       end
 
+      def teardown
+        super
+        $current_user = nil
+      end
+
       def save_and_open_page
         `open #{page.save_page}`
       end
