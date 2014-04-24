@@ -62,6 +62,12 @@ Asquared::Application.routes.draw do
             post '/schedule_interview' => 'invitations#schedule_interview', as: :schedule_interview
           end
         end
+
+        resources :notifications, only: [] do
+          collection do
+            post '/send_rejection' => 'notifications#send_rejection', as: :send_rejection
+          end
+        end
       end
     end
 

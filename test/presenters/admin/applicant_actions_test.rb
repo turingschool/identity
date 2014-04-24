@@ -95,6 +95,17 @@ module Admin
       assert presenter.can_evaluate?
     end
 
+    test 'it can send a rejected at initial evaluation notification' do
+      application  = Application.new(status: 'needs_rejected_at_initial_evaluation_notification')
+      current_user = User.new
+
+      # does not need to send a rejected at initial evaluation notification
+      refute presenter_for(application_without_data).can_send_rejected_at_initial_evaluation_notification?
+
+      # needs to send a rejected at initial evaluation notification
+      assert presenter_for(application, current_user).can_send_rejected_at_initial_evaluation_notification?
+    end
+
     test 'it can schedule an interview' do
       application  = Application.create!(status: 'needs_to_schedule_interview')
       current_user = User.create!
@@ -106,7 +117,7 @@ module Admin
       assert presenter_for(application, current_user).can_schedule_interview?
     end
 
-    test 'it says the user can create interview notes' do
+    test 'it says the user can create interview' do
       application  = Application.create!(status: 'needs_interview_scores')
       current_user = User.create!
 
@@ -122,6 +133,17 @@ module Admin
       application.evaluations.clear
       presenter = presenter_for(application, current_user)
       assert presenter.can_interview?
+    end
+
+    test 'it can send a rejected at interview notification' do
+      application  = Application.new(status: 'needs_rejected_at_interview_notification')
+      current_user = User.new
+
+      # does not need to send a rejected at interview notification
+      refute presenter_for(application_without_data).can_send_rejected_at_interview_notification?
+
+      # needs to send a rejected at interview notification
+      assert presenter_for(application, current_user).can_send_rejected_at_interview_notification?
     end
 
     test 'it can create a logic evaluation' do
@@ -140,6 +162,17 @@ module Admin
       application.evaluations.clear
       presenter = presenter_for(application, current_user)
       assert presenter.can_evaluate_logic?
+    end
+
+    test 'it can send a rejected at logic evaluation notification' do
+      application  = Application.new(status: 'needs_rejected_at_logic_evaluation_notification')
+      current_user = User.new
+
+      # does not need to send a rejected at logic evaluation notification
+      refute presenter_for(application_without_data).can_send_rejected_at_logic_evaluation_notification?
+
+      # needs to send a rejected at logic evaluation notification
+      assert presenter_for(application, current_user).can_send_rejected_at_logic_evaluation_notification?
     end
 
     test 'it can invite' do

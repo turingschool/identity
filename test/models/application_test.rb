@@ -33,6 +33,12 @@ class ApplicationTest < ActiveSupport::TestCase
     assert app.needs_initial_evaluation?
   end
 
+  def test_it_needs_rejected_at_initial_evaluation_notification
+    app = Application.new(status: 'needs_rejected_at_initial_evaluation_notification')
+    assert app.valid?
+    assert app.needs_rejected_at_initial_evaluation_notification?
+  end
+
   def test_it_needs_to_schedule_interview
     app = Application.new(status: 'needs_to_schedule_interview')
     assert app.valid?
@@ -45,10 +51,22 @@ class ApplicationTest < ActiveSupport::TestCase
     assert app.needs_interview?
   end
 
+  def test_it_needs_rejected_at_interview_notification
+    app = Application.new(status: 'needs_rejected_at_interview_notification')
+    assert app.valid?
+    assert app.needs_rejected_at_interview_notification?
+  end
+
   def test_it_needs_logic_evaluation
     app = Application.new(status: 'needs_logic_evaluation_scores')
     assert app.valid?
     assert app.needs_logic_evaluation?
+  end
+
+  def test_it_needs_rejected_at_logic_evaluation_notification
+    app = Application.new(status: 'needs_rejected_at_logic_evaluation_notification')
+    assert app.valid?
+    assert app.needs_rejected_at_logic_evaluation_notification?
   end
 
   def test_it_needs_invitation

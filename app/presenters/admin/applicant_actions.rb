@@ -46,6 +46,10 @@ module Admin
       application.needs_initial_evaluation? && !application.evaluated_by?(user)
     end
 
+    def can_send_rejected_at_initial_evaluation_notification?
+      application.needs_rejected_at_initial_evaluation_notification?
+    end
+
     def can_schedule_interview?
       application.needs_to_schedule_interview?
     end
@@ -54,8 +58,16 @@ module Admin
       application.needs_interview? && !application.interviewed_by?(user)
     end
 
+    def can_send_rejected_at_interview_notification?
+      application.needs_rejected_at_interview_notification?
+    end
+
     def can_evaluate_logic?
       application.needs_logic_evaluation? && !application.evaluated_logic_by?(user)
+    end
+
+    def can_send_rejected_at_logic_evaluation_notification?
+      application.needs_rejected_at_logic_evaluation_notification?
     end
 
     def can_invite?

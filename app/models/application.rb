@@ -61,6 +61,10 @@ class Application < ActiveRecord::Base
     status == 'needs_initial_evaluation_scores'
   end
 
+  def needs_rejected_at_initial_evaluation_notification?
+    status == 'needs_rejected_at_initial_evaluation_notification'
+  end
+
   def needs_to_schedule_interview?
     status == 'needs_to_schedule_interview'
   end
@@ -69,8 +73,16 @@ class Application < ActiveRecord::Base
     status == 'needs_interview_scores'
   end
 
+  def needs_rejected_at_interview_notification?
+    status == 'needs_rejected_at_interview_notification'
+  end
+
   def needs_logic_evaluation?
     status == 'needs_logic_evaluation_scores'
+  end
+
+  def needs_rejected_at_logic_evaluation_notification?
+    status == 'needs_rejected_at_logic_evaluation_notification'
   end
 
   def needs_invitation?

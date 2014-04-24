@@ -16,14 +16,23 @@
     - if applicant_actions.can_evaluate?
       = link_to 'Create Initial Evaluation', initial_admin_evaluations_path(applicant), method: :post, class: 'btn btn-warning'
 
+    - if applicant_actions.can_send_rejected_at_initial_evaluation_notification?
+      = link_to 'Sent Rejection', send_rejection_admin_notifications_path(applicant, at: 'initial_evaluation'), method: :post, class: 'btn btn-danger'
+
     - if applicant_actions.can_schedule_interview?
       = link_to 'Schedule Interview', schedule_interview_admin_invitations_path(applicant), method: :post, class: 'btn btn-warning'
 
     - if applicant_actions.can_interview?
       = link_to 'Create Interview', interview_admin_evaluations_path(applicant), method: :post, class: 'btn btn-warning'
 
+    - if applicant_actions.can_send_rejected_at_interview_notification?
+      = link_to 'Sent Rejection', send_rejection_admin_notifications_path(applicant, at: 'interview'), method: :post, class: 'btn btn-danger'
+
     - if applicant_actions.can_evaluate_logic?
       = link_to 'Create Logic Evaluation', logic_admin_evaluations_path(applicant), method: :post, class: 'btn btn-warning'
+
+    - if applicant_actions.can_send_rejected_at_logic_evaluation_notification?
+      = link_to 'Sent Rejection', send_rejection_admin_notifications_path(applicant, at: 'logic_evaluation'), method: :post, class: 'btn btn-danger'
 
     - if applicant_actions.can_invite?
       = link_to 'Send Invitation', admin_invitations_path(applicant), method: :post, class: 'btn btn-warning'
