@@ -151,10 +151,26 @@ class ApplicationStateMachineTest < MiniTest::Unit::TestCase
     end
   end
 
+  class SentRejectedAtLogicEvaluationTest < MiniTest::Unit::TestCase
+    include StateMachineHelpers
+
+    def test_it_must_be_in_state_needs_rejected_at_logic_evaluation_notification
+      machine_for('needs_rejected_at_logic_evaluation_notification').sent_rejected_at_logic_evaluation_notification!
+      assert_invalid_transition {
+        machine_for('pending').sent_rejected_at_logic_evaluation_notification!
+      }
+    end
+
+    def test_it_transitions_the_state_to_rejected_at_logic_evaluation
+      assert_equal 'rejected_at_logic_evaluation',
+        machine_for('needs_rejected_at_logic_evaluation_notification').sent_rejected_at_logic_evaluation_notification!
+    end
+  end
+
   class SentRejectedAtInterviewNotificationTest < MiniTest::Unit::TestCase
     include StateMachineHelpers
 
-    def test_it_must_be_in_state_needs_rejected_at_evaluation_notification
+    def test_it_must_be_in_state_needs_rejected_at_interview_notification
       machine_for('needs_rejected_at_interview_notification').sent_rejected_at_interview_notification!
       assert_invalid_transition {
         machine_for('pending').sent_rejected_at_initial_evaluation_notification!
