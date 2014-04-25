@@ -43,6 +43,15 @@ module Jsl
         end
       end
 
+      def test_raises_unauthorized_error_when_unauthorized
+        assert_raises Jsl::Identity::ClientIsUnauthorized do
+          web_client = user_repository.send :web_client
+          session    = web_client.send :session
+          session.basic_authorize 'fake name', 'fake secret'
+          user_repository.find 1
+        end
+      end
+
       def test_knows_the_login_url
         # yeah, I know it would be better to do login_url
         # but doesn't look like I can get that without either a ton of hacky work

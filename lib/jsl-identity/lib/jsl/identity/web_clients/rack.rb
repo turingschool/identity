@@ -10,13 +10,17 @@ module Jsl
         #   client = Jsl::Identity::WebClients::Rack.new session
         #   client.get "/whatever"
         def initialize(session)
-          @session = session
+          self.session = session
         end
 
         def get(url)
-          response = @session.get url
+          response = session.get url
           Response.new response.status, response.body
         end
+
+        private
+
+        attr_accessor :session
       end
     end
   end

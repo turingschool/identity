@@ -6,9 +6,10 @@ module Jsl
     class UserRepository
       # e.g. 2014-04-18 21:14:16 UTC
       # comes from https://github.com/rails/rails/blob/5f72fc6af8ad19df2b4e4f442b9ab17dd6846f46/activesupport/lib/active_support/time_with_zone.rb#L196
-      TIME_FORMAT      = "%Y/%m/%d %H:%M:%S %Z".freeze
-      OK_STATUS        = 200
-      NOT_FOUND_STATUS = 404
+      TIME_FORMAT         = "%Y/%m/%d %H:%M:%S %Z".freeze
+      OK_STATUS           = 200
+      NOT_FOUND_STATUS    = 404
+      UNAUTHORIZED_STATUS = 401
 
       def initialize(attributes)
         self.web_client = attributes.fetch :web_client
@@ -29,6 +30,8 @@ module Jsl
           User.new user_attributes
         when NOT_FOUND_STATUS
           raise ResourceNotFound.new(User, url)
+        when UNAUTHORIZED_STATUS
+          raise ClientIsUnauthorized
         else
           raise "Unexpected status: #{result.status}"
         end
