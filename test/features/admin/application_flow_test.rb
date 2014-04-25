@@ -2,7 +2,7 @@ require './test/test_helper'
 require 'helpers/feature' # rename helpers to support?
 require 'support/factory'
 
-class Admin::ApplicationFlowTest < MiniTest::Unit::TestCase
+class Admin::ApplicationFlowTest < Minitest::Test
   include Test::Helpers::Feature
 
   def setup

@@ -7,7 +7,7 @@ end
 
 Kid = Struct.new(:name)
 
-class OwnerSlugTest < MiniTest::Unit::TestCase
+class OwnerSlugTest < Minitest::Test
   def test_slugify_single_name
     alice = Kid.new("Alice")
     assert_equal 'alice', Toy.new(alice).owner_slug

@@ -53,6 +53,6 @@ class Admin::EvaluationsController < AdminController
 
   def set_edit_attributes(application)
     @applicant_actions = Admin::ApplicantActions.new(application, current_user)
-    @current_step = application.completed_steps.last
+    @current_step      = application.completed_steps.last || 'bio'
   end
 end

@@ -3,7 +3,7 @@ require_relative 'helper'
 
 module Jsl
   module Identity
-    class UserRepositoryTest < MiniTest::Unit::TestCase
+    class UserRepositoryTest < Minitest::Test
       include Jsl::Identity::TestHelpers
       include Test::Helpers::Controller
 

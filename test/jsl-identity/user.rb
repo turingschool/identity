@@ -3,7 +3,7 @@ require_relative 'helper'
 
 module Jsl
   module Identity
-    class UserTest < MiniTest::Unit::TestCase
+    class UserTest < Minitest::Test
       include Jsl::Identity::TestHelpers
 
       def test_implements_the_user_interface

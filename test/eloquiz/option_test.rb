@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require './lib/eloquiz/option'
 
-class EloquizOptionTest < MiniTest::Unit::TestCase
+class EloquizOptionTest < Minitest::Test
   def test_option
     option = Eloquiz::Option.new("I like chocolate.", false)
     refute option.answer?
