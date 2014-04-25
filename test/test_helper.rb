@@ -12,6 +12,7 @@ require 'minitest/pride'
 
 # add test to the load path
 $LOAD_PATH.unshift File.expand_path('..', __FILE__)
+require 'helpers/feature'
 
 # when Capybara needs js, use poltergeist, which runs on phantomjs
 # (just need to `brew install phantomjs` before running `bundle install`)

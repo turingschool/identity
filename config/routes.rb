@@ -41,6 +41,7 @@ Asquared::Application.routes.draw do
         get '/step/:step/by_date'       => 'applicants#by_date'
         get '/step/:step/by_quiz_score' => 'applicants#by_quiz_score'
         get '/step/:step/by_score'      => 'applicants#by_score'
+        get '/in_status/:status_name'   => 'applicants#in_status', as: :in_status
       end
       member do
         get   :show
