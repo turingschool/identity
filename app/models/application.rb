@@ -3,11 +3,16 @@ class Application < ActiveRecord::Base
   include Steps
   include QuizProgression
 
+  validates :status, inclusion: {
+    in:      ApplicationStateMachine.valid_states,
+    message: "%{value} is not a valid state, should be in #{ApplicationStateMachine.valid_states.inspect}"
+  }
+
   belongs_to :user, inverse_of: :application
   has_many :evaluations, inverse_of: :application
-  has_many :initial_evaluations, ->{ where(slug: 'triage') },    class_name: 'Evaluation'
-  has_many :interview_notes,     ->{ where(slug: 'selection') }, class_name: 'Evaluation'
-  has_many :logic_evaluations,   ->{ where(slug: 'logic') },     class_name: 'Evaluation'
+  has_many :initial_evaluations, ->{ where(slug: 'initial_evaluation') }, class_name: 'Evaluation'
+  has_many :interviews,          ->{ where(slug: 'interview') },          class_name: 'Evaluation'
+  has_many :logic_evaluations,   ->{ where(slug: 'logic_evaluation') },   class_name: 'Evaluation'
   alias_method :owner, :user
 
   serialize :completed_steps, Array
@@ -49,23 +54,51 @@ class Application < ActiveRecord::Base
   end
 
   def complete?
-    self.class.steps.all? {|step| completed?(step)}
+    self.class.steps.all? { |step| completed?(step) }
   end
 
-  def completed!
-    update_attributes(status: 'completed')
+  def needs_initial_evaluation?
+    status == 'needs_initial_evaluation_scores'
   end
 
-  def evaluating!
-    update_attributes(status: 'evaluating')
+  def needs_rejected_at_initial_evaluation_notification?
+    status == 'needs_rejected_at_initial_evaluation_notification'
+  end
+
+  def needs_to_schedule_interview?
+    status == 'needs_to_schedule_interview'
+  end
+
+  def needs_interview?
+    status == 'needs_interview_scores'
+  end
+
+  def needs_rejected_at_interview_notification?
+    status == 'needs_rejected_at_interview_notification'
+  end
+
+  def needs_logic_evaluation?
+    status == 'needs_logic_evaluation_scores'
+  end
+
+  def needs_rejected_at_logic_evaluation_notification?
+    status == 'needs_rejected_at_logic_evaluation_notification'
+  end
+
+  def needs_invitation?
+    status == 'needs_invitation'
+  end
+
+  def needs_invitation_response?
+    status == 'needs_invitation_response'
   end
 
   def evaluated_by?(user)
-    evaluations.where(user: user).any?
+    initial_evaluations.where(user: user).any?
   end
 
   def interviewed_by?(user)
-    interview_notes.where(user: user).any?
+    interviews.where(user: user).any?
   end
 
   def evaluated_logic_by?(user)
@@ -80,12 +113,24 @@ class Application < ActiveRecord::Base
     calculate_mean(initial_evaluations)
   end
 
+  def initial_evaluation_scores
+    initial_evaluations.collect(&:total)
+  end
+
   def interview_score
-    calculate_mean(interview_notes)
+    calculate_mean(interviews)
+  end
+
+  def interview_scores
+    interviews.collect(&:total)
   end
 
   def logic_evaluation_score
     calculate_mean(logic_evaluations)
+  end
+
+  def logic_evaluation_scores
+    logic_evaluations.collect(&:total)
   end
 
   def quiz_duration

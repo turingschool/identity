@@ -15,4 +15,8 @@ class UpdateEvaluation
     evaluation.completed_at = Time.now
     evaluation.save
   end
+
+  def self.call(evaluation, responses)
+    new(evaluation, responses).save
+  end
 end

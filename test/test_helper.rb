@@ -15,6 +15,13 @@ $LOAD_PATH.unshift File.expand_path '../..', __FILE__
 require 'test/helpers/controller'
 require 'test/helpers/feature'
 
+# when Capybara needs js, use poltergeist, which runs on phantomjs
+# (just need to `brew install phantomjs` before running `bundle install`)
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
+Capybara.current_driver    = Capybara.default_driver
+
+
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 

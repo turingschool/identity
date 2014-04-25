@@ -1,3 +1,5 @@
+# this should be a use case, not a presenter
+# should probably have its own tests
 class Final
   attr_reader :application,
               :user
@@ -10,7 +12,8 @@ class Final
   def update_attributes
     if application.valid?
       application.complete :final
-      application.completed!
+      state_machine = ApplicationStateMachine.new application.status
+      application.update_attributes(status: state_machine.submitted!)
     else
       false
     end

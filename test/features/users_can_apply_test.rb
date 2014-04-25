@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 require './test/test_helper'
-require './test/helpers/feature.rb'
+require './test/helpers/feature'
 
 
 class UsersCanApplyTest < MiniTest::Unit::TestCase

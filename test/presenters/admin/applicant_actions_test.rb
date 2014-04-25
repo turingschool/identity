@@ -78,83 +78,123 @@ module Admin
     end
 
     test 'it says the user can create an evaluation' do
-      application  = Application.create!(completed_steps: Steps.all.map(&:to_s))
+      application  = Application.create!(status: 'needs_initial_evaluation_scores')
       current_user = User.create!
 
-      # not complete, is not evaluated by current user
+      # does not need evaluation, is not evaluated by current user
       refute presenter_for(application_without_data).can_evaluate?
 
-      # is complete, is evaluated by current user
-      application.evaluations.create(user_id: current_user.id)
+      # needs evaluation, was evaluated by current user
+      application.initial_evaluations.create(user_id: current_user.id)
       presenter = presenter_for application, current_user
       refute presenter.can_evaluate?
 
-      # is complete, is not evaluated by current user
+      # needs evaluation, was not interviewed by current user
       application.evaluations.clear
       presenter = presenter_for(application, current_user)
       assert presenter.can_evaluate?
     end
 
-    test 'it says the user can create interview notes' do
-      application = Application.create!
-      user        = User.create!
+    test 'it can send a rejected at initial evaluation notification' do
+      application  = Application.new(status: 'needs_rejected_at_initial_evaluation_notification')
+      current_user = User.new
 
-      # Doesn't have any evaluations
-      presenter = presenter_for(application)
+      # does not need to send a rejected at initial evaluation notification
+      refute presenter_for(application_without_data).can_send_rejected_at_initial_evaluation_notification?
+
+      # needs to send a rejected at initial evaluation notification
+      assert presenter_for(application, current_user).can_send_rejected_at_initial_evaluation_notification?
+    end
+
+    test 'it can schedule an interview' do
+      application  = Application.create!(status: 'needs_to_schedule_interview')
+      current_user = User.create!
+
+      # does not need to schedule interview
+      refute presenter_for(application_without_data).can_schedule_interview?
+
+      # needs to schedule interview
+      assert presenter_for(application, current_user).can_schedule_interview?
+    end
+
+    test 'it says the user can create interview' do
+      application  = Application.create!(status: 'needs_interview_scores')
+      current_user = User.create!
+
+      # does not need interview, is not evaluated by current user
+      refute presenter_for(application_without_data).can_interview?
+
+      # needs interview, was interviewed by current user
+      application.interviews.create(user_id: current_user.id)
+      presenter = presenter_for(application, current_user)
       refute presenter.can_interview?
 
-      # Is being evaluated,
-      # and the current user has not already interviewed the applicant
-      evaluation = application.evaluations.build
-      presenter  = presenter_for(application, user)
-      refute presenter.can_interview?
-
-      # Has been evaluated,
-      # and the current user has already interviewed the applicant
-      evaluation.completed_at = Time.now
-      application.interview_notes.create! do |e|
-        e.user = user
-        e.slug = 'selection'
-      end
-
-      presenter = presenter_for(application, user)
-      refute presenter.can_interview?
-
-      # Has been evaluated,
-      # and the current user has not interviewed the applicant
-      presenter = presenter_for(application, User.new)
+      # needs interview, was not interviewed by current user
+      application.evaluations.clear
+      presenter = presenter_for(application, current_user)
       assert presenter.can_interview?
     end
 
-    test "it can create a logic evaluation" do
-      application = Application.create!
-      user        = User.create!
+    test 'it can send a rejected at interview notification' do
+      application  = Application.new(status: 'needs_rejected_at_interview_notification')
+      current_user = User.new
 
-      # Doesn't have any interviews
-      presenter = presenter_for(application, user)
-      refute presenter.can_evaluate_logic? 
+      # does not need to send a rejected at interview notification
+      refute presenter_for(application_without_data).can_send_rejected_at_interview_notification?
 
-      # Is being interviewed,
-      # and the current user has not already evaluated the applicant
-      evaluation = application.interview_notes.build
-      presenter  = presenter_for(application, user)
+      # needs to send a rejected at interview notification
+      assert presenter_for(application, current_user).can_send_rejected_at_interview_notification?
+    end
+
+    test 'it can create a logic evaluation' do
+      application  = Application.create!(status: 'needs_logic_evaluation_scores')
+      current_user = User.create!
+
+      # does not need interview, is not evaluated by current user
+      refute presenter_for(application_without_data).can_evaluate_logic?
+
+      # needs interview, was interviewed by current user
+      application.logic_evaluations.create(user_id: current_user.id)
+      presenter = presenter_for(application, current_user)
       refute presenter.can_evaluate_logic?
 
-      # Has been interviewed,
-      # and the current user has already evaluated the applicant
-      evaluation.completed_at = Time.now
-      application.logic_evaluations.create! do |e|
-        e.user = user
-        e.slug = 'logic' 
-      end
-
-      presenter = presenter_for(application, user)
-      refute presenter.can_evaluate_logic?
-
-      # Has been interviewed,
-      # and the current user has not evaluated the applicant
-      presenter = presenter_for(application, User.new)
+      # needs interview, was not interviewed by current user
+      application.evaluations.clear
+      presenter = presenter_for(application, current_user)
       assert presenter.can_evaluate_logic?
+    end
+
+    test 'it can send a rejected at logic evaluation notification' do
+      application  = Application.new(status: 'needs_rejected_at_logic_evaluation_notification')
+      current_user = User.new
+
+      # does not need to send a rejected at logic evaluation notification
+      refute presenter_for(application_without_data).can_send_rejected_at_logic_evaluation_notification?
+
+      # needs to send a rejected at logic evaluation notification
+      assert presenter_for(application, current_user).can_send_rejected_at_logic_evaluation_notification?
+    end
+
+    test 'it can invite' do
+      application  = Application.create!(status: 'needs_invitation')
+      current_user = User.create!
+
+      # does not need invitation
+      refute presenter_for(application_without_data).can_invite?
+
+      # needs invitation
+      assert presenter_for(application, current_user).can_invite?
+    end
+
+    test 'it can respond invitation' do
+      application  = Application.create(status: 'needs_invitation_response')
+      current_user = User.create!
+
+      # does not need invitation response
+      refute presenter_for(application_without_data).can_respond_invitation?
+
+      # needs invitation response
+      assert presenter_for(application, current_user).can_respond_invitation?
     end
   end
 end

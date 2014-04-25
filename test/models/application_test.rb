@@ -19,9 +19,86 @@ class ApplicationTest < ActiveSupport::TestCase
     assert app.completed? :bio
   end
 
+  def test_initial_status_is_pending
+    application = Application.new
+    initial_status = application.status
+    assert application.valid?
+    assert_equal 'pending', initial_status
+    assert ApplicationStateMachine.valid_states.include?(initial_status)
+  end
+
+  def test_it_needs_initial_evaluation
+    app = Application.new(status: 'needs_initial_evaluation_scores')
+    assert app.valid?
+    assert app.needs_initial_evaluation?
+  end
+
+  def test_it_needs_rejected_at_initial_evaluation_notification
+    app = Application.new(status: 'needs_rejected_at_initial_evaluation_notification')
+    assert app.valid?
+    assert app.needs_rejected_at_initial_evaluation_notification?
+  end
+
+  def test_it_needs_to_schedule_interview
+    app = Application.new(status: 'needs_to_schedule_interview')
+    assert app.valid?
+    assert app.needs_to_schedule_interview?
+  end
+
+  def test_it_needs_interview
+    app = Application.new(status: 'needs_interview_scores')
+    assert app.valid?
+    assert app.needs_interview?
+  end
+
+  def test_it_needs_rejected_at_interview_notification
+    app = Application.new(status: 'needs_rejected_at_interview_notification')
+    assert app.valid?
+    assert app.needs_rejected_at_interview_notification?
+  end
+
+  def test_it_needs_logic_evaluation
+    app = Application.new(status: 'needs_logic_evaluation_scores')
+    assert app.valid?
+    assert app.needs_logic_evaluation?
+  end
+
+  def test_it_needs_rejected_at_logic_evaluation_notification
+    app = Application.new(status: 'needs_rejected_at_logic_evaluation_notification')
+    assert app.valid?
+    assert app.needs_rejected_at_logic_evaluation_notification?
+  end
+
+  def test_it_needs_invitation
+    app = Application.new(status: 'needs_invitation')
+    assert app.valid?
+    assert app.needs_invitation?
+  end
+
+  def test_it_needs_invitation_response
+    app = Application.new(status: 'needs_invitation_response')
+    assert app.valid?
+    assert app.needs_invitation_response?
+  end
+
+  def test_status_must_be_in_application_state_machine
+    application = Application.new
+    ApplicationStateMachine.valid_states.each do |state|
+      application.status = state
+      application.valid?
+      assert application.errors[:status].empty?
+    end
+    application.status = 'not_a_status'
+    application.valid?
+    errors = application.errors[:status]
+    assert_equal 1, errors.size
+    assert errors.first['not_a_status']
+  end
+
   def test_visibility_scopes
-    default_scope = Application.where('id > ?', Application.maximum(:id))
-    visible, permahidden, hidden_until_active, both = Application.create [
+    total_applications = Application.count
+    default_scope = Application.where('id > ?', total_applications)
+    visible, permahidden, hidden_until_active, both = Application.create! [
       { hide_until_active: false, permahide: false },
       { hide_until_active: false, permahide: true  },
       { hide_until_active: true,  permahide: false },

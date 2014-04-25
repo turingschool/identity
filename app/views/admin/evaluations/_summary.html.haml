@@ -3,13 +3,13 @@
 %hr
 
 - unless application.initial_evaluations.empty?
-  %h4.title Evaluation Scores
+  %h4.title Initial Evaluations
   = render "admin/evaluations/evaluations", evaluations: application.initial_evaluations
   = render "admin/evaluations/notes", evaluations: application.initial_evaluations
-- unless application.interview_notes.empty?
-  %h4.title Interview Notes
-  = render "admin/evaluations/evaluations", evaluations: application.interview_notes
-  = render "admin/evaluations/notes", evaluations: application.interview_notes
+- unless application.interviews.empty?
+  %h4.title Interviews
+  = render "admin/evaluations/evaluations", evaluations: application.interviews
+  = render "admin/evaluations/notes", evaluations: application.interviews
 - unless application.logic_evaluations.empty?
   %h4.title Logic Evaluations
   = render "admin/evaluations/evaluations", evaluations: application.logic_evaluations

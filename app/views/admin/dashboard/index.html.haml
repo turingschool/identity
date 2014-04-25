@@ -1,6 +1,14 @@
 .container
   %h2.title.center.orange Admin Dashboard
 
+  %h3.title.center Statuses
+  .row
+    - @status_names.each_slice(5).each do |status_names|
+      %ul.col-md-4
+        - status_names.each do |status_name|
+          %li= link_to status_name.gsub('_', ' '), in_status_admin_applicants_path(status_name) # what a stupid path name -.^
+
+  %h3.title.center Steps
   .row
     - @steps.each do |step|
       .col-md-2.step-box.center{ class: "#{step}" }

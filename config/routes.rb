@@ -41,12 +41,34 @@ Asquared::Application.routes.draw do
         get '/step/:step/by_date'       => 'applicants#by_date'
         get '/step/:step/by_quiz_score' => 'applicants#by_quiz_score'
         get '/step/:step/by_score'      => 'applicants#by_score'
+        get '/in_status/:status_name'   => 'applicants#in_status', as: :in_status
       end
       member do
         get   :show
         get   :quiz
         patch :update
-        resources :evaluations, only: [:create]
+
+        resources :evaluations, only: [] do
+          collection do
+            post '/initial'   => 'evaluations#create_initial',   as: :initial
+            post '/interview' => 'evaluations#create_interview', as: :interview
+            post '/logic'     => 'evaluations#create_logic',     as: :logic
+          end
+        end
+
+        resources :invitations, only: [:create] do
+          collection do
+            post '/accept'             => 'invitations#accept',             as: :accept
+            post '/decline'            => 'invitations#decline',            as: :decline
+            post '/schedule_interview' => 'invitations#schedule_interview', as: :schedule_interview
+          end
+        end
+
+        resources :notifications, only: [] do
+          collection do
+            post '/send_rejection' => 'notifications#send_rejection', as: :send_rejection
+          end
+        end
       end
     end
 
