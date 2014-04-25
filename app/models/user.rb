@@ -62,4 +62,10 @@ class User < ActiveRecord::Base
     self.is_admin = true
     save
   end
+
+  def as_json(*)
+    super.merge is_invited: ApplicationStateMachine
+                              .invited_states
+                              .include?(application.try :status)
+  end
 end

@@ -11,7 +11,6 @@ module Jsl
         assert_same_interface Mock::UserRepository, UserRepository
       end
 
-      # FIXME: We need to include whether the user is invited
       def test_find_can_find_a_user
         app_user = ::User.create!  name:        "Sherwin",
                                    email:       "sherwin@example.com",

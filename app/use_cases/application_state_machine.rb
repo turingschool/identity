@@ -32,6 +32,21 @@ class ApplicationStateMachine
     @valid_states ||= transitions.values.flatten.uniq
   end
 
+  def self.invited_states
+    @invited_states ||= %w[needs_invitation
+                           needs_invitation_response
+                           accepted_invitation
+                           declined_invitation]
+  end
+
+  validate = -> values do
+    values.each do |value|
+      next if valid_states.include? value
+      raise "#{value.inspect} is not in #{valid_states.inspect}"
+    end
+  end
+  validate.call invited_states
+
   attr_accessor :current_state
 
   def initialize(current_state)
