@@ -64,8 +64,12 @@ class User < ActiveRecord::Base
   end
 
   def as_json(*)
-    super.merge is_invited: ApplicationStateMachine
-                              .invited_states
-                              .include?(application.try :status)
+    super.merge is_invited: invited?
+  end
+
+  def invited?
+    ApplicationStateMachine
+      .invited_states
+      .include?(application.try :status)
   end
 end
