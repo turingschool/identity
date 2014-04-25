@@ -1,7 +1,7 @@
 require './test/test_helper'
 require './test/helpers/feature.rb'
 
-class UsersCanResumeTheirQuiz < MiniTest::Unit::TestCase
+class UsersCanResumeTheirQuiz < Minitest::Test
   include Test::Helpers::Feature
 
   def test_users_can_resume_their_quiz

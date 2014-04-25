@@ -12,7 +12,7 @@ class ApplicationControllerTest < ActionController::TestCase
       application.update_attribute :hide_until_active, true
 
       assert application.hide_until_active
-      cookies[:user_id] = user.id
+      session[:user_id] = user.id
       @controller.current_user
       refute application.reload.hide_until_active
     end

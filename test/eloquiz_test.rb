@@ -1,5 +1,5 @@
 require 'minitest/autorun'
 
-class EloquizTest < MiniTest::Unit::TestCase
+class EloquizTest < Minitest::Test
 end
 

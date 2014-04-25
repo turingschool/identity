@@ -13,20 +13,19 @@ class ApplicationController < ActionController::Base
 
   def login(user)
     @current_user = nil
-    cookies[:user_id] = user.id
+    session[:user_id] = user.id
   end
 
   def logout
     @current_user = nil
-    cookies.clear
     reset_session
   end
 
   def current_user
     return @current_user if @current_user
 
-    if cookies[:user_id]
-      @current_user = User.find_by_id(cookies[:user_id])
+    if session[:user_id]
+      @current_user = User.find_by_id(session[:user_id])
     elsif Rails.env.test?
       @current_user = $current_user
     end

@@ -1,4 +1,4 @@
-gem 'minitest', '~> 4.0'
+gem 'minitest', '~> 5.1'
 require 'minitest/autorun'
 require 'active_support'
 require 'active_support/core_ext/string/inflections'
@@ -6,7 +6,7 @@ require 'active_support/core_ext/string/inflections'
 require './lib/eloquiz/option'
 require './lib/eloquiz/question'
 
-class EloquizQuestionTest < MiniTest::Unit::TestCase
+class EloquizQuestionTest < Minitest::Test
   class Fake < Eloquiz::Question
   end
 

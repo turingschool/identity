@@ -4,7 +4,7 @@ require './test/test_helper'
 require './test/helpers/feature'
 
 
-class UsersCanApplyTest < MiniTest::Unit::TestCase
+class UsersCanApplyTest < Minitest::Test
   include Test::Helpers::Feature
 
   def test_users_can_apply_via_the_interwebz

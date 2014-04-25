@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require './lib/eloquiz/option'
 require './lib/eloquiz/answer_key'
 
-class EloquizAnswerKeyTest < MiniTest::Unit::TestCase
+class EloquizAnswerKeyTest < Minitest::Test
 
   def test_answer_key
     a = Eloquiz::Option.new("I like chocolate.", false, 'A')

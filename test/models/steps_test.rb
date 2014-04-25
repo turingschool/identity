@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require './app/models/steps'
 
-class StepsTest < MiniTest::Unit::TestCase
+class StepsTest < Minitest::Test
 
   Procedure = Struct.new(:completed_steps) do
     include Steps
