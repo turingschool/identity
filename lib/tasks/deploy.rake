@@ -2,7 +2,7 @@ namespace :deploy do
   desc "Deploy application to Heroku"
   task :heroku do
     puts "Running the tests..."
-    if system("rake test") == false
+    if system("rake test:all") == false
       puts "FAILURE: There is a problem with your tests."
       break
     end
