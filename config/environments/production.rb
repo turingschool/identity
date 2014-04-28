@@ -93,4 +93,9 @@ Asquared::Application.configure do
 
   # Checks for missing assets
   config.assets.raise_production_errors = true
+
+  # use apply.turing.io, not asquared.herokuapp.com
+  config.middleware.use "YouKnowWeHaveASubdomainNowMiddleware",
+                        from: 'http://asquared.herokuapp.com',
+                        to:   'http://apply.turing.io'
 end
