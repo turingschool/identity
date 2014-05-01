@@ -59,6 +59,13 @@ module Jsl
         assert_equal url_helpers.login_path(return_url: 'http://example.com'),
                      user_repository.login_url('http://example.com')
       end
+
+      def test_puts_user_data_back_to_server
+        user = ::User.create!name: "Sherwin", email: "sherwin@example.com"
+        refute_equal 'NEW ID', user.stripe_customer_id
+        assert user_repository.update(id: user.id, stripe_customer_id: 'NEW ID')
+        assert_equal 'NEW ID', user.reload.stripe_customer_id
+      end
     end
   end
 end

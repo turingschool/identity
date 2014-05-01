@@ -76,6 +76,7 @@ Asquared::Application.routes.draw do
   end
 
 
-  get '/api/marco'     => 'api#marco'
-  get '/api/users/:id' => 'api/users#show', as: :api_user
+  get   '/api/marco'     => 'api#marco'
+  get   '/api/users/:id' => 'api/users#show',  as: :api_user
+  patch '/api/users/:id' => 'api/users#update'
 end

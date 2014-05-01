@@ -21,8 +21,8 @@ module Jsl
       end
 
       def find(user_id)
-        url                 = url_for "/api/users/#{user_id}"
-        result              = web_client.get url
+        url    = url_for "/api/users/#{user_id}"
+        result = web_client.get url
         case result.status
         when OK_STATUS
           raw_user_attributes = JSON.parse result.body
@@ -35,6 +35,14 @@ module Jsl
         else
           raise "Unexpected status: #{result.status}"
         end
+      end
+
+      def update(attributes)
+        attributes = attributes.dup
+        user_id    = attributes.delete :id
+        url        = url_for "/api/users/#{user_id}"
+        result     = web_client.patch url, user: attributes
+        result.status == OK_STATUS # probably inadequate in the long-run
       end
 
       private

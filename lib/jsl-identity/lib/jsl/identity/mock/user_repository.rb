@@ -16,6 +16,10 @@ module Jsl
           end
         end
 
+        define :update do |attributes|
+          true
+        end
+
         def will_find_nothing!
           @will_find_nothing = true
           self

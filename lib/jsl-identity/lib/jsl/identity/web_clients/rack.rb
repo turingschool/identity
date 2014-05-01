@@ -18,6 +18,11 @@ module Jsl
           Response.new response.status, response.body
         end
 
+        def patch(url, attributes)
+          response = session.patch url, attributes
+          Response.new response.status, response.body
+        end
+
         private
 
         attr_accessor :session

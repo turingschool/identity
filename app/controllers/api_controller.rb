@@ -1,6 +1,7 @@
 class ApiController < ApplicationController
   skip_before_filter :require_login
   before_filter      :authenticate_client
+  protect_from_forgery with: :null_session
 
   # an endpoint you can ping to make sure everything is setup
   def marco
