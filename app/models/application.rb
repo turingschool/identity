@@ -34,9 +34,15 @@ class Application < ActiveRecord::Base
     Steps.all
   end
 
-  def self.breakdown
+  def self.step_breakdown
     steps.each_with_object({}) do |step, counts|
       counts[step] = all_by_step(step).count
+    end
+  end
+
+  def self.status_breakdown
+    ApplicationStateMachine.valid_states.each_with_object({}) do |status, counts|
+      counts[status] = where(status: status).count
     end
   end
 
