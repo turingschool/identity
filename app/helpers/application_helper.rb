@@ -3,7 +3,7 @@ module ApplicationHelper
     Application.count
   end
 
-  def applicants_per_step(counts, step)
+  def applicants_per_count(counts, step)
     ((counts[step] / total_applicants(counts).to_f) * 100).round(2)
   end
 

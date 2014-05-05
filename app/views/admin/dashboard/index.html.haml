@@ -10,7 +10,7 @@
         %h4
           = "#{@step_counts[step]} applicants"
         %h6
-          = "#{applicants_per_step(@step_counts, step)}% of total"
+          = "#{applicants_per_count(@step_counts, step)}% of total"
 
   %h3.title.center Statuses
   .row
@@ -20,3 +20,5 @@
           = link_to status_name.gsub('_', ' ').capitalize, in_status_admin_applicants_path(status_name) # what a stupid path name -.^
         %h4
           = "#{@status_counts[status_name]} applicants"
+        %h6
+          = "#{applicants_per_count(@status_counts, status_name)}% of total"
