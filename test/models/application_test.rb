@@ -18,7 +18,6 @@ class ApplicationTest < ActiveSupport::TestCase
     app_3 = Application.create(completed_steps: %w(one two))
 
     result = Application.all_by_step('three')
-    binding.pry
     assert_equal 2, result.count
     assert apps.each { |app| result.include?(app) }
     refute apps.include?(app_3)
