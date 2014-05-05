@@ -17,7 +17,7 @@
       %h4
         = "#{@counts[@step.to_sym]} applicants completed this step"
       %h6
-        = "#{applicants_per_step(@counts, @step.to_sym)}% of total applicants"
+        = "#{applicants_per_count(@counts, @step.to_sym)}% of total applicants"
   .row
     .col-md-11.step-box.main
       = render "applicants_filter", applications: @applications
