@@ -41,7 +41,9 @@ class Application < ActiveRecord::Base
   end
 
   def self.all_by_step(step)
-    all.joins(:user).order('name ASC').select { |application| application.current_step == step.to_s }
+    all.joins(:user).order('name ASC').select do |application|
+      application.current_step == step.to_s
+    end
   end
 
   def nuke_quiz!
