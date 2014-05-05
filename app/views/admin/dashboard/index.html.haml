@@ -1,7 +1,7 @@
 .container
   %h2.title.center.orange Admin Dashboard
 
-  %h3.title.center Steps
+  %h3.title.center Applications
   .row
     - @steps.each do |step|
       .col-md-2.step-box.center{ class: "#{step}" }
@@ -12,7 +12,7 @@
         %h6
           = "#{applicants_per_count(@step_counts, step)}% of total"
 
-  %h3.title.center Statuses
+  %h3.title.center Evaluations
   .row
     - @status_names.each do |status_name|
       .col-md-2.status-box.center
