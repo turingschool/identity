@@ -36,12 +36,12 @@ class Application < ActiveRecord::Base
 
   def self.breakdown
     steps.each_with_object({}) do |step, counts|
-      counts[step] = upto(step).count
+      counts[step] = all_by_step(step).count
     end
   end
 
   def self.all_by_step(step)
-    all.find_all { |application| application.current_step == step }
+    all.find_all { |application| application.current_step == step.to_s }
   end
 
   def nuke_quiz!
