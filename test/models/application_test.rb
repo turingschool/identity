@@ -8,13 +8,17 @@ class ApplicationTest < ActiveSupport::TestCase
   end
 
   def test_fetches_all_applications_on_step
-    app_1 = Application.create(completed_steps: %w(one two three))
-    app_2 = Application.create(completed_steps: %w(one two three))
+    user_1 = User.create(name: 'Roberto')
+    user_2 = User.create(name: 'Luis')
+
+    app_1 = Application.create(user_id: user_1.id, completed_steps: %w(one two three))
+    app_2 = Application.create(user_id: user_2.id, completed_steps: %w(one two three))
     apps  = [app_1, app_2]
 
     app_3 = Application.create(completed_steps: %w(one two))
 
     result = Application.all_by_step('three')
+    binding.pry
     assert_equal 2, result.count
     assert apps.each { |app| result.include?(app) }
     refute apps.include?(app_3)
