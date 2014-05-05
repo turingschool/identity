@@ -111,4 +111,9 @@ class StepsTest < Minitest::Test
       refute process.accessible?(step)
     end
   end
+
+  def test_it_knows_it_current_step
+    process = Procedure.new(['bio', 'resume', 'essay'])
+    assert_equal 'essay', process.current_step
+  end
 end

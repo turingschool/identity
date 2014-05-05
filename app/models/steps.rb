@@ -24,6 +24,10 @@ module Steps
     end
   end
 
+  def current_step
+    completed_steps.last
+  end
+
   def progression
     Steps.all
   end

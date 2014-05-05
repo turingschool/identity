@@ -40,6 +40,10 @@ class Application < ActiveRecord::Base
     end
   end
 
+  def self.all_by_step(step)
+    all.find_all { |application| application.current_step == step }
+  end
+
   def nuke_quiz!
     self.quiz_questions = []
     self.quiz_answers = {}

@@ -7,6 +7,19 @@ class ApplicationTest < ActiveSupport::TestCase
     assert_equal %w(one two), app.completed_steps
   end
 
+  def test_fetches_all_applications_on_step
+    app_1 = Application.create(completed_steps: %w(one two three))
+    app_2 = Application.create(completed_steps: %w(one two three))
+    apps  = [app_1, app_2]
+
+    app_3 = Application.create(completed_steps: %w(one two))
+
+    result = Application.all_by_step('three')
+    assert_equal 2, result.count
+    assert apps.each { |app| result.include?(app) }
+    refute apps.include?(app_3)
+  end
+
   def test_owner_slug
     user = User.new(name: 'Alice Smith')
     app = Application.new(user: user)

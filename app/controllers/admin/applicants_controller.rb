@@ -5,7 +5,7 @@ class Admin::ApplicantsController < AdminController
   # would prob be worth getting rid of this, b/c shit is slooooooow
   def index
     @step = params[:step]
-    @applications = Application.upto(@step).joins(:user)
+    @applications = Application.all_by_step(@step)
     @counts = Application.breakdown
   end
 
