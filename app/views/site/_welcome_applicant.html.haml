@@ -14,8 +14,10 @@
       .application-list
         %p= t("getting_started.opening")
         - ["bio", "resume", "essay", "video"].each do |segment|
-          %h3.title.orange= t("getting_started.#{segment}.title")
-          %p= t("getting_started.#{segment}.description")
+          %h3.title.orange
+            = t("getting_started.#{segment}.title")
+          %p
+            = t("getting_started.#{segment}.description")
           = render "step_edit", step: segment
 
         %h3.title.orange= t("getting_started.logic.title")
