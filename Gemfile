@@ -40,7 +40,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'jsl-identity', path: 'lib/jsl-identity', require: 'jsl/identity'
+  gem 'jsl-identity', path: '.', require: 'jsl/identity'
   gem 'poltergeist', '~> 1.5.0'
 end
 
