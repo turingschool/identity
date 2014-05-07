@@ -17,7 +17,7 @@
     - @status_names.each do |status_name|
       .col-md-2.status-box.center
         %h4.title
-          = link_to status_name.gsub('_', ' ').capitalize, in_status_admin_applicants_path(status_name) # what a stupid path name -.^
+          = link_to status_name.titleize, in_status_admin_applicants_path(status_name) # what a stupid path name -.^
         %h4
           = "#{@status_counts[status_name]} applicants"
         %h6
