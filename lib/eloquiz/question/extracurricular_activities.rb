@@ -48,7 +48,7 @@ module Eloquiz
 
     def red_herrings
       [
-        "#{a} neither #{activity1} nor #{activity2}.",
+        "#{a} #{activity1} and #{activity2}.",
         "#{b} #{activity1} and #{activity2}.",
         "#{b} #{activity2} and #{activity4}.",
         "#{c} #{activity1} and #{activity4} but not #{activity3}.",
@@ -61,4 +61,3 @@ module Eloquiz
     end
   end
 end
-

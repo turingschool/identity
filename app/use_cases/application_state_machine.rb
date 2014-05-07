@@ -39,6 +39,10 @@ class ApplicationStateMachine
                            declined_invitation]
   end
 
+  def self.complete_states
+    @complete_states ||= valid_states.select{|s| s.include?('rejected') || s.include?('invitation')}
+  end
+
   validate = -> values do
     values.each do |value|
       next if valid_states.include? value
