@@ -1,8 +1,8 @@
-require File.expand_path("../lib/jsl-identity/lib/jsl/identity/version", __FILE__)
+#require File.expand_path("../lib/jsl-identity/lib/jsl/identity/version", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "jsl-identity"
-  s.version     = Jsl::Identity::VERSION
+  s.version     = '0.0.1'
   s.authors     = ["Josh Cheek"]
   s.email       = ["josh@jumpstartlab.com"]
   s.homepage    = "https://github.com/JumpstartLab/asquared/lib/jsl-identity"
