@@ -69,8 +69,8 @@ Asquared::Application.configure do
     address:              'smtp.sendgrid.net',
     port:                 587,
     domain:               'apply.turing.io',
-    user_name:            ENV['SENDGRID_USERNAME'],
-    password:             ENV['SENDGRID_PASSWORD'],
+    user_name:            Rails.application.secrets.sendgrid_username,
+    password:             Rails.application.secrets.sendgrid_password,
     authentication:       'plain',
     enable_starttls_auto: true
   }

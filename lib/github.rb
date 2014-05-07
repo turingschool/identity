@@ -1,6 +1,6 @@
 class Github
   def self.login_url
-    "https://github.com/login/oauth/authorize?client_id=#{ENV.fetch('ASQUARED_GITHUB_CLIENT_ID')}"
+    "https://github.com/login/oauth/authorize?client_id=#{Rails.application.secrets.asquared_github_client_id}"
   end
 
   def self.authenticate(code)
@@ -10,9 +10,9 @@ class Github
     end
 
     options = {
-      client_id: ENV.fetch('ASQUARED_GITHUB_CLIENT_ID'),
-      client_secret: ENV.fetch('ASQUARED_GITHUB_CLIENT_SECRET'),
-      code: code
+      client_id:     Rails.application.secrets.asquared_github_client_id,
+      client_secret: Rails.application.secrets.asquared_github_client_secret,
+      code:          code
     }
 
     options = options.map {|k,v| "#{k}=#{v}"}.join('&')

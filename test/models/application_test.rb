@@ -131,10 +131,14 @@ class ApplicationTest < ActiveSupport::TestCase
     user_1 = User.create(name: 'Roberto')
     user_2 = User.create(name: 'Luis')
 
+    initial_count = Application.count
+    initial_step_three_count = Application.all_by_step('three').count
+
     app_complete = Application.create(user_id: user_1.id, status: 'needs_invitation_response', completed_steps: %w(one two three))
     app_incomplete = Application.create(user_id: user_2.id, status: 'needs_initial_evaluation_scores', completed_steps: %w(one two three))
-    assert_equal 2, Application.count
-    assert_equal 1, Application.all_by_step('three').count
+
+    assert_equal initial_count            + 2, Application.count
+    assert_equal initial_step_three_count + 1, Application.all_by_step('three').count
     assert_equal app_incomplete, Application.all_by_step('three').first
   end
 end
