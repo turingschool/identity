@@ -53,7 +53,7 @@ class Application < ActiveRecord::Base
   end
 
   def incomplete?
-    !ApplicationStateMachine.invited_states.include?(status)
+    !ApplicationStateMachine.complete_states.include?(status)
   end
 
   def nuke_quiz!
