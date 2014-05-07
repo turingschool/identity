@@ -1,5 +1,4 @@
-$:.push File.expand_path("../lib", __FILE__)
-require "jsl/identity/version"
+require_relative "lib/jsl-identity/lib/jsl/identity/version"
 
 Gem::Specification.new do |s|
   s.name        = "jsl-identity"
@@ -13,22 +12,22 @@ Gem::Specification.new do |s|
   s.files = %w[
     README.md
     jsl-identity.gemspec
-    lib/jsl/identity/errors.rb
-    lib/jsl/identity/mock/user.rb
-    lib/jsl/identity/mock/user_repository.rb
-    lib/jsl/identity/test.rb
-    lib/jsl/identity/user.rb
-    lib/jsl/identity/user_repository.rb
-    lib/jsl/identity/version.rb
-    lib/jsl/identity/web_clients/rack.rb
-    lib/jsl/identity/web_clients/net_http.rb
-    lib/jsl/identity.rb
+    lib/jsl-identity/lib/jsl/identity/errors.rb
+    lib/jsl-identity/lib/jsl/identity/mock/user.rb
+    lib/jsl-identity/lib/jsl/identity/mock/user_repository.rb
+    lib/jsl-identity/lib/jsl/identity/test.rb
+    lib/jsl-identity/lib/jsl/identity/user.rb
+    lib/jsl-identity/lib/jsl/identity/user_repository.rb
+    lib/jsl-identity/lib/jsl/identity/version.rb
+    lib/jsl-identity/lib/jsl/identity/web_clients/rack.rb
+    lib/jsl-identity/lib/jsl/identity/web_clients/net_http.rb
+    lib/jsl-identity/lib/jsl/identity.rb
   ]
 
 
   s.test_files    = []
   s.executables   = []
-  s.require_paths = ["lib"]
+  s.require_paths = ["lib/jsl-identity/lib"]
 
   s.add_dependency 'surrogate',   '~> 0.7.0'
 end

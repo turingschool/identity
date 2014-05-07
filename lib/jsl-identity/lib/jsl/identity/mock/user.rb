@@ -21,12 +21,12 @@ module Jsl
         define(:invited?)           { is_invited }
         define(:stripe_customer_id) { nil }
 
-        def is_invited
+        def is_invited!
           @invited_p = true
           self
         end
 
-        def is_not_invited
+        def is_not_invited!
           @invited_p = false
           self
         end

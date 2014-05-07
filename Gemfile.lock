@@ -1,5 +1,5 @@
 PATH
-  remote: lib/jsl-identity
+  remote: .
   specs:
     jsl-identity (0.0.1)
       surrogate (~> 0.7.0)
