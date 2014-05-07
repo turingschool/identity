@@ -126,4 +126,15 @@ class ApplicationTest < ActiveSupport::TestCase
     assert_equal [permahidden, both],            default_scope.permahidden
     assert_equal [visible, hidden_until_active], default_scope.not_permahidden
   end
+
+  def test_invited_apps_are_not_collected_in_steps
+    user_1 = User.create(name: 'Roberto')
+    user_2 = User.create(name: 'Luis')
+
+    app_complete = Application.create(user_id: user_1.id, status: 'needs_invitation_response', completed_steps: %w(one two three))
+    app_incomplete = Application.create(user_id: user_2.id, status: 'needs_initial_evaluation_scores', completed_steps: %w(one two three))
+    assert_equal 2, Application.count
+    assert_equal 1, Application.all_by_step('three').count
+    assert_equal app_incomplete, Application.all_by_step('three').first
+  end
 end

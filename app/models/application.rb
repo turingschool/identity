@@ -48,8 +48,12 @@ class Application < ActiveRecord::Base
 
   def self.all_by_step(step)
     all.joins(:user).order('name ASC').select do |application|
-      application.current_step == step.to_s
+      application.current_step == step.to_s && application.incomplete?
     end
+  end
+
+  def incomplete?
+    !ApplicationStateMachine.invited_states.include?(status)
   end
 
   def nuke_quiz!
