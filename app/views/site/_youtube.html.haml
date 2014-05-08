@@ -1,9 +1,0 @@
-.col-md-4
-  - if applicant.application.video_url
-    - key = youtube_key(url)
-    - if key
-      %iframe{width: '336', height: '189', src: "http://www.youtube.com/embed/#{key}", frameborder: '0', allowfullscreen: true}
-    - else
-      %em
-        Unable to parse Youtube URL:
-        = link_to(url, url)

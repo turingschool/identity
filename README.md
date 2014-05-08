@@ -1,19 +1,35 @@
-# A Squared
+# JumpstartLab Identity
 
-The Turing School of Software and Design **Application Application** (A^2)
+Client to consume an api and return user identity data for JumpstartLab.
+Currently used by [register for class](https://github.com/JumpstartLab/register_for_class)
+to consume identity data out of [asquared](https://github.com/JumpstartLab/asquared).
+Eventually, identity data will hopefully be extracted into its own application.
 
+This app is tested by plugging it into asquared and showing that it actually works.
+This is to prevent divergence between the client and the api it is consuming.
 
-# To Install
+## Setup
 
-1. Clone the repo.
-2. `bundle install`
-3. `bundle exec rake db:{drop,create,migrate,seed}`
-4. `rake test:all`
+```ruby
+base_url        = 'http://localhost:3000'
+name            = 'register_for_class'
+secret          = 'some secret'
+web_client      = Jsl::Identity::WebClients::NetHttp.new name, secret
+user_repository = Jsl::Identity::UserRepository.new web_client: web_client, base_url:  base_url
+user            = user_repository.find 1
+user.id # => 1
+```
 
-## Notes
+## Test Setup
 
-We might be able to source logic problems from [thelogiczone.com](http://www.thelogiczone.plus.com/logic_index.htm) and [brainbashers.com](http://www.brainbashers.com/logic.asp)
-
-## Attribution
-
-Hide icon is by Liam McKay - http://wefunction.com/contact/, and comes from https://www.iconfinder.com/icons/36841/close_delete_hide_icon#size=32
+```ruby
+username, secret = 'test_username', 'test_secret'
+session = Rack::Test::Session.new(Rails.application)
+session.basic_authorize username, secret
+client = Jsl::Identity::WebClients::Rack.new session
+user_repository = Jsl::Identity::UserRepository.new \
+  web_client: client,
+  base_url:   "" # no need for a base url in test env
+user = user_repository.find 1
+user.id # => 1
+```

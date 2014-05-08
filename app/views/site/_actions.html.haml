@@ -1,7 +1,0 @@
-%hr
-
-- if current_user.applying?
-  - unless current_user.application.complete?
-    = button_to('Continue Application', apply_path, method: "get", class: "btn btn-lg btn-warning btn-site")
-- else
-  = button_to('Start Application', apply_path, method: "get", class: "btn btn-lg btn-warning btn-site")
