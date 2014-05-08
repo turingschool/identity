@@ -8,6 +8,13 @@ Eventually, identity data will hopefully be extracted into its own application.
 This app is tested by plugging it into asquared and showing that it actually works.
 This is to prevent divergence between the client and the api it is consuming.
 
+## Releasing a version for services to consume
+
+Run `rake push`
+
+Our gemfury username is jumpstartlab, our email is contact@turing.io,
+ask me for the password if you need it.
+
 ## Setup
 
 ```ruby
