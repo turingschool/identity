@@ -1,4 +1,4 @@
-require_relative "lib/jsl/identity/version"
+require File.expand_path("../lib/jsl/identity/version", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "jsl-identity"
