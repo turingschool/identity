@@ -5,21 +5,22 @@ module Jsl
     module Mock
       class User
         Surrogate.endow self
-        define(:id)                 { 12 }
-        define(:name)               { 'Havalina' }
-        define(:email)              { 'havalina@example.com' }
-        define(:location)           { 'Kaliningrad' }
-        define(:username)           { 'twilight_time' }
-        define(:github_id)          { 34 }
-        define(:avatar_url)         { 'http://1.bp.blogspot.com/_bfLHIHMqOWM/TIutlY12yYI/AAAAAAAABrk/9iF3y8Q_q9g/s1600/russianlullabies.jpg' }
-        define(:gravatar_id)        { 56 }
-        define(:is_admin)           { false }
-        define(:admin?)             { is_admin }
-        define(:created_at)         { @created_at ||= 10.days.ago }
-        define(:updated_at)         { created_at }
-        define(:is_invited)         { true }
-        define(:invited?)           { is_invited }
-        define(:stripe_customer_id) { nil }
+        define_accessor(:id)                 { 12 }
+        define_accessor(:name)               { 'Havalina' }
+        define_accessor(:email)              { 'havalina@example.com' }
+        define_accessor(:location)           { 'Kaliningrad' }
+        define_accessor(:username)           { 'twilight_time' }
+        define_accessor(:github_id)          { 34 }
+        define_accessor(:avatar_url)         { 'http://1.bp.blogspot.com/_bfLHIHMqOWM/TIutlY12yYI/AAAAAAAABrk/9iF3y8Q_q9g/s1600/russianlullabies.jpg' }
+        define_accessor(:gravatar_id)        { 56 }
+        define_accessor(:is_admin)           { false }
+        define_accessor(:created_at)         { @created_at ||= 10.days.ago }
+        define_accessor(:updated_at)         { created_at }
+        define_accessor(:is_invited)         { true }
+        define_accessor(:stripe_customer_id) { nil }
+
+        define(:admin?)                      { is_admin }
+        define(:invited?)                    { is_invited }
 
         def is_invited!
           @invited_p = true
