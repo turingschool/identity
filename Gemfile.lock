@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jsl-identity (0.0.2)
+    jsl-identity (0.0.3)
       surrogate (~> 0.7.0)
 
 GEM
