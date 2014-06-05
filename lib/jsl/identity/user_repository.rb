@@ -23,18 +23,10 @@ module Jsl
       def find(user_id)
         url    = url_for "/api/users/#{user_id}"
         result = web_client.get url
-        case result.status
-        when OK_STATUS
-          raw_user_attributes = JSON.parse result.body
-          user_attributes     = convert_types raw_user_attributes
-          User.new user_attributes
-        when NOT_FOUND_STATUS
-          raise ResourceNotFound.new(User, url)
-        when UNAUTHORIZED_STATUS
-          raise ClientIsUnauthorized
-        else
-          raise "Unexpected status: #{result.status}"
-        end
+        request_succeeded! result.status, url
+        raw_user_attributes = JSON.parse result.body
+        user_attributes     = convert_types raw_user_attributes
+        User.new user_attributes
       end
 
       def update(attributes)
@@ -45,6 +37,14 @@ module Jsl
         result.status == OK_STATUS # probably inadequate in the long-run
       end
 
+      def all(user_ids)
+        url = url_for("/api/users", ids: user_ids)
+        result = web_client.get url
+        request_succeeded! result.status, url
+        raw_users = JSON.parse result.body
+        raw_users.map { |raw_user| User.new convert_types raw_user }
+      end
+
       private
 
       attr_accessor :web_client, :base_url
@@ -53,11 +53,31 @@ module Jsl
         base_url + path + to_query_string(query_params)
       end
 
+      def request_succeeded!(status, url)
+        return if status == OK_STATUS
+        case status
+        when NOT_FOUND_STATUS    then raise ResourceNotFound.new(User, url)
+        when UNAUTHORIZED_STATUS then raise ClientIsUnauthorized
+        else                          raise "Unexpected status: #{result.status}"
+        end
+      end
+
       # there's only one test on this, IDK why it's not just a method in CGI
       # implementation is half-stolen from Rails, and half just "well this makes sense" :/
       def to_query_string(params)
-        return '' if params.empty?
-        '?' << params.map { |key, value| "#{CGI.escape key.to_s}=#{CGI.escape value.to_s}" }.join('&')
+        return '' if params.empty?       # => false, false
+        '?' << _to_query_string(params)  # => "?ids%5B%5D=1&ids%5B%5D=4&ids%5B%5D=6", "?id=1"
+      end
+
+      def _to_query_string(params)
+        params.map { |key, value|
+          case value
+          when Array
+            value.map { |_value| "#{CGI.escape key.to_s + '[]'}=#{CGI.escape _value.to_s}" }
+          else
+            "#{CGI.escape key.to_s}=#{CGI.escape value.to_s}"
+          end
+        }.join('&')
       end
 
       def convert_types(raw_user_attributes)

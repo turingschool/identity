@@ -16,6 +16,10 @@ module Jsl
           end
         end
 
+        define :all do |user_ids|
+          user_ids.map { |id| User.new.will_have_id id }
+        end
+
         define :update do |attributes|
           true
         end
