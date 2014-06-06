@@ -17,7 +17,9 @@ module Jsl
         end
 
         define :all do |user_ids|
-          user_ids.map { |id| User.new.will_have_id id }
+          Hash[
+            user_ids.map { |id| [id, User.new.will_have_id(id)] }
+          ]
         end
 
         define :update do |attributes|

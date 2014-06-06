@@ -41,8 +41,10 @@ module Jsl
         url = url_for("/api/users", ids: user_ids)
         result = web_client.get url
         request_succeeded! result.status, url
-        raw_users = JSON.parse result.body
-        raw_users.map { |raw_user| User.new convert_types raw_user }
+        raw_users_by_id = JSON.parse result.body
+        Hash[
+          raw_users_by_id.map { |id, raw_user| [id.to_i, User.new(convert_types raw_user)] }
+        ]
       end
 
       private
@@ -58,7 +60,7 @@ module Jsl
         case status
         when NOT_FOUND_STATUS    then raise ResourceNotFound.new(User, url)
         when UNAUTHORIZED_STATUS then raise ClientIsUnauthorized
-        else                          raise "Unexpected status: #{result.status}"
+        else                          raise "Unexpected status: #{status}"
         end
       end
 

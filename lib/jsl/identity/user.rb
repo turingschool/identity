@@ -13,7 +13,8 @@ module Jsl
                     :is_admin,
                     :is_invited,
                     :created_at,
-                    :updated_at
+                    :updated_at,
+                    :applicant_url
 
       def initialize(attributes)
         attributes.each { |name, value| instance_variable_set "@#{name}", value }
