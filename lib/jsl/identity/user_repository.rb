@@ -22,6 +22,7 @@ module Jsl
 
       def find(user_id)
         url    = url_for "/api/users/#{user_id}"
+        raise ResourceNotFound.new(User, url) if !user_id || user_id == ''
         result = web_client.get url
         request_succeeded! result.status, url
         raw_user_attributes = JSON.parse result.body
