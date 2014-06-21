@@ -48,6 +48,10 @@ module Jsl
         ]
       end
 
+      def inspect
+        "#<#{self.class} to #{base_url.inspect}>"
+      end
+
       private
 
       attr_accessor :web_client, :base_url
