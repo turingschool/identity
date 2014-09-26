@@ -18,6 +18,7 @@ module Jsl
         define_accessor(:created_at)         { @created_at ||= 10.days.ago }
         define_accessor(:updated_at)         { created_at }
         define_accessor(:is_invited)         { true }
+        define_accessor(:referred_by)        { 'Mah friend!' }
         define_accessor(:stripe_customer_id) { nil }
         define_accessor(:applicant_url)      { 'https://asquared.turing.io/admin/applicants/1' }
 
