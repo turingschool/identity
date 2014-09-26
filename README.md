@@ -1,8 +1,8 @@
-# JumpstartLab Identity
+# Turing Identity
 
 Client to consume an api and return user identity data for JumpstartLab.
-Currently used by [register for class](https://github.com/JumpstartLab/register_for_class)
-to consume identity data out of [asquared](https://github.com/JumpstartLab/asquared).
+Currently used by [enroll](https://github.com/turingschool/enroll)
+to consume identity data out of [apply](https://github.com/turingschool/apply).
 Eventually, identity data will hopefully be extracted into its own application.
 
 This app is tested by plugging it into asquared and showing that it actually works.
