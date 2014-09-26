@@ -6,6 +6,7 @@ module Jsl
                     :email,
                     :location,
                     :username,
+                    :referred_by,
                     :github_id,
                     :avatar_url,
                     :gravatar_id,

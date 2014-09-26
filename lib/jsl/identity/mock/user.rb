@@ -10,6 +10,7 @@ module Jsl
         define_accessor(:email)              { 'havalina@example.com' }
         define_accessor(:location)           { 'Kaliningrad' }
         define_accessor(:username)           { 'twilight_time' }
+        define_accessor(:referred_by)        { 'Alan Turing' }
         define_accessor(:github_id)          { 34 }
         define_accessor(:avatar_url)         { 'http://1.bp.blogspot.com/_bfLHIHMqOWM/TIutlY12yYI/AAAAAAAABrk/9iF3y8Q_q9g/s1600/russianlullabies.jpg' }
         define_accessor(:gravatar_id)        { 56 }
@@ -36,4 +37,3 @@ module Jsl
     end
   end
 end
-
