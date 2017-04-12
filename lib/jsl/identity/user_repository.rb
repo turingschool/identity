@@ -57,7 +57,7 @@ module Jsl
 
         Hash[
           raw_users_by_id.map { |id, raw_user| [id.to_i, User.new(convert_types raw_user)] }
-        ])
+        ]
       end
 
       def inspect
