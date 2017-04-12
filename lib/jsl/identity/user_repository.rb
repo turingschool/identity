@@ -37,7 +37,7 @@ module Jsl
         result     = web_client.patch url, user: attributes
         result.status == OK_STATUS # probably inadequate in the long-run
       end
-      
+
       def all(user_ids)
         slices = user_ids.count / 200
 
@@ -45,21 +45,19 @@ module Jsl
       end
 
       def _request_user_data(user_ids, slices)
-        student_data = {}
+        raw_users_by_id = {}
 
         user_ids.each_slice(slices) do |user_ids|
           url    = url_for("/api/users", ids: user_ids)
           result = web_client.get(url)
 
           request_succeeded!(result.status, url)
-          raw_users_by_id = JSON.parse(result.body)
-
-          student_data = student_data.merge(Hash[
-            raw_users_by_id.map { |id, raw_user| [id.to_i, User.new(convert_types raw_user)] }
-          ])
+          raw_users_by_id = raw_users_by_id.merge(JSON.parse(result.body))
         end
 
-        student_data
+        Hash[
+          raw_users_by_id.map { |id, raw_user| [id.to_i, User.new(convert_types raw_user)] }
+        ])
       end
 
       def inspect
