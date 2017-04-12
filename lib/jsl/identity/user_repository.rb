@@ -40,6 +40,7 @@ module Jsl
 
       def all(user_ids)
         slices = user_ids.count / 200
+        slices = 1 if slices < 1
 
         _request_user_data(user_ids, slices)
       end
