@@ -5,7 +5,7 @@ module Jsl
                     :name,
                     :email,
                     :location,
-                    :username,
+                    :login,
                     :referred_by,
                     :github_id,
                     :avatar_url,
