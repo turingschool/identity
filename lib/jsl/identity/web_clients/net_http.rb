@@ -30,6 +30,11 @@ module Jsl
         def http_and_request_for(url, method_class)
           uri     = URI.parse(url)
           http    = Net::HTTP.new(uri.host, uri.port)
+
+          if uri.scheme == "https"
+            http.use_ssl = true
+          end
+
           request = method_class.new(uri.request_uri)
           request.basic_auth(username, password)
           return http, request
