@@ -45,6 +45,12 @@ module Jsl
         _request_user_data(user_ids, slices)
       end
 
+      def inspect
+        "#<#{self.class} to #{base_url.inspect}>"
+      end
+
+      private
+
       def _request_user_data(user_ids, slices)
         raw_users_by_id = {}
 
@@ -60,12 +66,6 @@ module Jsl
           raw_users_by_id.map { |id, raw_user| [id.to_i, User.new(convert_types raw_user)] }
         ]
       end
-
-      def inspect
-        "#<#{self.class} to #{base_url.inspect}>"
-      end
-
-      private
 
       attr_accessor :web_client, :base_url
 
