@@ -10,7 +10,6 @@ module Jsl
                     :github_id,
                     :avatar_url,
                     :gravatar_id,
-                    :stripe_customer_id,
                     :is_admin,
                     :is_invited,
                     :created_at,
