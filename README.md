@@ -19,10 +19,6 @@ This is to prevent divergence between the client and the API it is consuming.
 1. make a tag with `git tag v0.0.<new release num>`
 1. run `git push && git push --tags`
 
-Run `rake push`
-
-Our gemfury username is turingschool, our email is jorge@turing.io. The password is on the `Turing Accounts and Passwords` document on Google Drive.
-
 ## Setup
 
 ```ruby
