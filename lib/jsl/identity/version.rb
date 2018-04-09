@@ -1,5 +1,5 @@
 module Jsl
   module Identity
-    VERSION = '0.0.17'.freeze
+    VERSION = '1.0.0'.freeze
   end
 end
