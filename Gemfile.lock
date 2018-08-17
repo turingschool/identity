@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jsl-identity (0.0.7)
+    jsl-identity (1.0.1)
       surrogate (~> 0.7.0)
 
 GEM
@@ -14,3 +14,9 @@ PLATFORMS
 
 DEPENDENCIES
   jsl-identity!
+
+RUBY VERSION
+   ruby 2.4.1p111
+
+BUNDLED WITH
+   1.16.1
