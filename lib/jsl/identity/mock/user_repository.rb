@@ -26,6 +26,10 @@ module Jsl
           true
         end
 
+        define :accept_invitation do |user_id|
+          true
+        end
+
         def will_find_nothing!
           @will_find_nothing = true
           self
