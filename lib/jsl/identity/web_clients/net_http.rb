@@ -23,6 +23,13 @@ module Jsl
           Response.new response.code, response.body
         end
 
+        def post(url, attributes)
+          url           = "#{url}?#{build_nested_query attributes}"
+          http, request = http_and_request_for(url, Net::HTTP::Post)
+          response      = http.request request
+          Response.new response.code, response.body
+        end
+
         private
 
         attr_accessor :username, :password
