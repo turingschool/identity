@@ -35,7 +35,13 @@ module Jsl
         user_id    = attributes.delete :id
         url        = url_for "/api/users/#{user_id}"
         result     = web_client.patch url, user: attributes
-        result.status == OK_STATUS # probably inadequate in the long-run
+        result.status == OK_STATUS
+      end
+
+      def accept_invitation(user_id)
+        url        = url_for "/api/users/#{user_id}/accept_invitation"
+        result     = web_client.post url, {}
+        result.status == OK_STATUS
       end
 
       def all(user_ids)
