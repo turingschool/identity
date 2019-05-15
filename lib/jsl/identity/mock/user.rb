@@ -20,6 +20,7 @@ module Jsl
         define_accessor(:is_invited)         { true }
         define_accessor(:referred_by)        { 'Mah friend!' }
         define_accessor(:applicant_url)      { 'https://asquared.turing.io/admin/applicants/1' }
+        define_accessor(:phone_number)       {  '303-731-3117' }
 
         define(:admin?)                      { is_admin }
         define(:invited?)                    { is_invited }
