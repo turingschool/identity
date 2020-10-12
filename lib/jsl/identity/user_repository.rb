@@ -38,6 +38,15 @@ module Jsl
         result.status == OK_STATUS
       end
 
+      def find_by_name(name)
+        url    = url_for "/api/users/search?name=#{name}"
+        raise ResourceNotFound.new(User, url) if !name || name == ''
+        result = web_client.get url
+        request_succeeded! result.status, url
+        users = JSON.parse(result.body)
+        users.map { |user| OpenStruct.new(user) }
+      end
+
       def accept_invitation(user_id)
         url        = url_for "/api/users/#{user_id}/accept_invitation"
         result     = web_client.post url, {}
