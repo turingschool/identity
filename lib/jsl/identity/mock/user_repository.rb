@@ -16,6 +16,11 @@ module Jsl
           end
         end
 
+        define :find_by_name do |name|
+          ids = [2, 3]
+          ids.map { |id| User.new.will_have_name(name).will_have_id(id) }
+        end
+
         define :all do |user_ids|
           Hash[
             user_ids.map { |id| [id, User.new.will_have_id(id)] }
