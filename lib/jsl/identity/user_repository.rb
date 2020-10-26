@@ -43,7 +43,9 @@ module Jsl
         result = web_client.get url
         request_succeeded! result.status, url
         users = JSON.parse(result.body)
-        users.map { |user| User.new(user) }
+        Hash[
+          users.map { |user| [user['id'], User.new(user)] }
+        ]
       end
 
       def accept_invitation(user_id)
