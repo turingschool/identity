@@ -42,10 +42,8 @@ module Jsl
         url    = url_for "/api/users/search?name=#{name}"
         result = web_client.get url
         request_succeeded! result.status, url
-        users = JSON.parse(result.body)
-        Hash[
-          users.map { |user| [user['id'], User.new(user)] }
-        ]
+        raw_users_by_id = JSON.parse(result.body)
+        build_user_dictionary(raw_users_by_id)
       end
 
       def accept_invitation(user_id)
@@ -78,6 +76,10 @@ module Jsl
           raw_users_by_id = raw_users_by_id.merge(JSON.parse(result.body))
         end
 
+        build_user_dictionary(raw_users_by_id)
+      end
+
+      def build_user_dictionary(raw_users_by_id)
         Hash[
           raw_users_by_id.map { |id, raw_user| [id.to_i, User.new(convert_types raw_user)] }
         ]
