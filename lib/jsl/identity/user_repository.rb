@@ -38,6 +38,14 @@ module Jsl
         result.status == OK_STATUS
       end
 
+      def find_by_name(name)
+        url    = url_for "/api/users/search?name=#{name}"
+        result = web_client.get url
+        request_succeeded! result.status, url
+        raw_users_by_id = JSON.parse(result.body)
+        build_user_dictionary(raw_users_by_id)
+      end
+
       def accept_invitation(user_id)
         url        = url_for "/api/users/#{user_id}/accept_invitation"
         result     = web_client.post url, {}
@@ -68,6 +76,10 @@ module Jsl
           raw_users_by_id = raw_users_by_id.merge(JSON.parse(result.body))
         end
 
+        build_user_dictionary(raw_users_by_id)
+      end
+
+      def build_user_dictionary(raw_users_by_id)
         Hash[
           raw_users_by_id.map { |id, raw_user| [id.to_i, User.new(convert_types raw_user)] }
         ]
