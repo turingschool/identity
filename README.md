@@ -1,5 +1,12 @@
 # Turing Identity
 
+-------------------------------------------------------------------------------
+## ARCHIVED
+
+Enroll and Apply have been retired, and this repo is no longer used.
+
+-------------------------------------------------------------------------------
+
 Client to consume an api and return user identity data for JumpstartLab.
 Currently used by [enroll](https://github.com/turingschool/enroll)
 to consume identity data out of [apply](https://github.com/turingschool/apply).
